@@ -1,0 +1,1226 @@
+{
+  "id": "fb3_sentient_sword",
+  "title": "لعنة النصل النائم",
+  "world": "fantasy",
+  "world_type": "fantasy",
+  "category": "الفانتازيا المظلمة",
+  "summary": "أنت سيف مسحور أيقظك محارب شاب يائس. في سرداب الملك الغارق، عليك إما توجيهه للنجاة، أو التهام روحه لتستعيد مجدك القديم كأداة حرب.",
+  "difficulty": "صعب",
+  "estimated_length": "طويلة",
+  "theme": "الفانتازيا المظلمة",
+  "game_mode": "single",
+  "perspective": {
+    "id": "cursed_blade",
+    "label": "منظور السيف المسحور",
+    "emoji": "🗡️",
+    "description": "أنت لست البطل، أنت السلاح. طاقتك وحياتك تعتمد على من يحملك.",
+    "start_node": "start"
+  },
+  "nodes": {
+    "start": {
+      "text": "أنت لست بشراً. أنت نصل من الفولاذ الأسود البارد، ملعون بوعي يعطش للدماء. لقرون، رقدت في هذا القبو المظلم، حتى امتدت إليك يد صبي خائف، هارب من غزو يجتاح مدينته. بمجرد أن لامس جلدُه مقبضك، شعرت بنبضه الضعيف، وبدأ وعيك يستيقظ من سباته العميق. الصبي يرتجف، والظلام حولكما يضيق.",
+      "choices": [
+        {
+          "label": "أطلق نبضة القوة المرعبة",
+          "emoji": "💥",
+          "next": "pulse_power",
+          "points_reward": 1,
+          "color": "danger"
+        },
+        {
+          "label": "اهمس في عقله ببرود",
+          "emoji": "🗣️",
+          "next": "whisper_calm",
+          "points_reward": 1,
+          "color": "primary"
+        },
+        {
+          "label": "ابق صامتاً كحجر القبر",
+          "emoji": "🤫",
+          "next": "stay_silent",
+          "points_reward": 0,
+          "color": "secondary"
+        }
+      ]
+    },
+    "pulse_power": {
+      "text": "تنبض بطاقة مظلمة ومغرية، ترسل تياراً من الدفء المسموم عبر ذراع الصبي. توهمه بأنك الدرع الذي سيحميه، والسيف الذي سيقهر أعداءه. يشتد قبضته عليك، ويتحول خوفه إلى شجاعة يائسة ومتهورة.",
+      "choices": [
+        {
+          "label": "اجبره على هجوم وحشي",
+          "emoji": "⚔️",
+          "next": "crypt_ambush",
+          "points_reward": 1,
+          "sets_flag": "flag_domination",
+          "color": "primary"
+        },
+        {
+          "label": "وجهه لامتصاص دم الحارس",
+          "emoji": "🩸",
+          "next": "drain_first_blood",
+          "points_reward": 2,
+          "sets_flag": "flag_domination",
+          "color": "primary"
+        }
+      ]
+    },
+    "whisper_calm": {
+      "text": "تهمس في عقله بصوت رخيم وهادئ كالموت: «اهدأ يا صغير. الخوف هو العدو الأول. اترك لي القيادة». يهدأ تنفسه المتقطع، ويستسلم لإرادتك الباردة، متخلياً عن جزء من روحه طواعية.",
+      "choices": [
+        {
+          "label": "أرشده للتسلل بصمت تام",
+          "emoji": "👣",
+          "next": "crypt_stealth",
+          "points_reward": 1,
+          "sets_flag": "flag_symbiosis",
+          "color": "primary"
+        },
+        {
+          "label": "أعد كميناً مميتاً لهم",
+          "emoji": "🪤",
+          "next": "crypt_ambush",
+          "points_reward": 1,
+          "sets_flag": "flag_symbiosis",
+          "color": "primary"
+        }
+      ]
+    },
+    "stay_silent": {
+      "text": "تختار الصمت القاتم. تتركه فريسة لارتجافه وهواجسه. الصبي يرفعك بيد مرتعشة، غير مدرك للقوة التي يحملها، ومتردداً في كل خطوة يخطوها في هذا القبر المنسي.",
+      "choices": [
+        {
+          "label": "وجه ضربته العشوائية قليلا",
+          "emoji": "🎯",
+          "next": "crypt_ambush",
+          "points_reward": 0,
+          "color": "primary"
+        },
+        {
+          "label": "انتظر اللحظة الأخيرة بخبث",
+          "emoji": "⏳",
+          "next": "death_wielder_panic",
+          "points_reward": 0,
+          "color": "secondary"
+        }
+      ]
+    },
+    "death_wielder_panic": {
+      "text": "يستولي الذعر بالكامل على الصبي. يرميك بعيداً ويحاول الركض، لكن ظلال القبو تبتلعه. تسمع صرخته المكتومة ثم صمتاً أبدياً. لقد فقدت حاملك الأخير، وعليك الآن انتظار قرون أخرى ليوقظك غبي جديد. نهاية تليق بجبان.",
+      "is_ending": true,
+      "choices": []
+    },
+    "drain_first_blood": {
+      "text": "عند أول اشتباك مع مخلوق مشوه في القبو، توجه يد الصبي بدقة دموية. يخترق نصلك اللحم وتتذوق قطرات الدم الأولى منذ قرون. القوة تتدفق إليك، وتشعر بالصبي يرتجف من النشوة المظلمة لهذا الانتصار البشع.",
+      "choices": [
+        {
+          "label": "اطلب منه المزيد من الدماء",
+          "emoji": "🗣️",
+          "next": "hunger_pangs",
+          "points_reward": 2,
+          "reputation": "ruthless",
+          "color": "primary"
+        },
+        {
+          "label": "طمئنه بالصمت بعد الشبع",
+          "emoji": "🤫",
+          "next": "crypt_exploration",
+          "points_reward": 1,
+          "color": "primary"
+        }
+      ]
+    },
+    "crypt_ambush": {
+      "text": "تندفعان في الممرات الضيقة لتجدا نفسيكما في فخ محكم نصبه حراس المقبرة الموتى. هياكل عظمية متآكلة ترفع أسلحة صدئة وتتقدم ببطء مميت. الخيارات تضيق كالخناق.",
+      "choices": [
+        {
+          "label": "شجعه على الصمود والصد",
+          "emoji": "🛡️",
+          "next": "death_shattered_blade",
+          "points_reward": 0,
+          "color": "primary"
+        },
+        {
+          "label": "أرشده للتفادي السريع للنجاة",
+          "emoji": "🏃",
+          "next": "crypt_exploration",
+          "points_reward": 1,
+          "reputation": "guardian",
+          "color": "secondary"
+        }
+      ]
+    },
+    "death_shattered_blade": {
+      "text": "تأمر الصبي بالهجوم المباشر متجاهلاً دروعه الضعيفة. تضرب هيكلاً تلو الآخر بشراسة، لكن النصل يصطدم بعمود حجري هائل. الهيكل البلوري القديم لك ينكسر. يتشظى وعيك في آلاف القطع المعدنية المتناثرة، والصبي يسقط ميتاً فوق أشلائك.",
+      "is_ending": true,
+      "choices": []
+    },
+    "crypt_stealth": {
+      "text": "تفرض سيطرتك على حركات الصبي، مرشداً إياه للتسلل بين الظلال وعبور الممر ببطء يحاكي الموت نفسه. الهياكل العظمية تمر دون أن تلحظكما. الخفاء هو سلاح لا يصدأ.",
+      "choices": [
+        {
+          "label": "أمره بكسر الباب الحديدي",
+          "emoji": "🚪",
+          "next": "iron_door_challenge",
+          "points_reward": 1,
+          "color": "primary"
+        },
+        {
+          "label": "وجهه ليزحف في النفق الضيق",
+          "emoji": "🕳️",
+          "next": "tunnel_of_bones",
+          "points_reward": 1,
+          "color": "primary"
+        }
+      ]
+    },
+    "iron_door_challenge": {
+      "text": "تصلان إلى بوابة حديدية عملاقة منقوشة بطلاسم نارية. البوابة لا تفتح بالقوة الفيزيائية، بل تطلب ضريبة من السحر أو الدم. الصبي يحدق فيها بعجز.",
+      "choices": [
+        {
+          "label": "احرق طاقته لكسر الباب بعنف",
+          "emoji": "🔥",
+          "next": "drain_door_magic",
+          "points_reward": 2,
+          "sets_flag": "flag_domination",
+          "color": "primary"
+        },
+        {
+          "label": "أرشده لفك السحر ببطء وحذر",
+          "emoji": "🧩",
+          "next": "slow_door_magic",
+          "points_reward": 1,
+          "sets_flag": "flag_symbiosis",
+          "color": "primary"
+        }
+      ]
+    },
+    "tunnel_of_bones": {
+      "text": "تتجاوزان البوابة لتجدا نفقاً طويلاً مفروشاً بعظام بشرية مسحوقة. كل خطوة تصدر صوتاً يوقظ الأرواح المعذبة النائمة في الجدران. الهواء يثقل بنوايا القتل.",
+      "choices": [
+        {
+          "label": "أطلق نورك السحري لردعها",
+          "emoji": "✨",
+          "next": "crypt_exploration",
+          "points_reward": 1,
+          "reputation": "guardian",
+          "color": "primary"
+        },
+        {
+          "label": "راقبه ببرود يزحف نحوها",
+          "emoji": "👀",
+          "next": "watch_him_crawl",
+          "points_reward": 0,
+          "color": "secondary"
+        }
+      ]
+    },
+    "watch_him_crawl": {
+      "text": "تشاهد الصبي يزحف برعب على العظام، ترفض إرشاده. يتخبط في الظلام، وكل حركة طائشة منه تجتذب المزيد من الأرواح الجائعة التي تبدأ في التجمع حوله.",
+      "choices": [
+        {
+          "label": "انتظر لترى ماذا سيحدث",
+          "emoji": "⏳",
+          "next": "death_soul_consumed",
+          "color": "primary"
+        },
+        {
+          "label": "أنر المكان لإنقاذه متأخراً",
+          "emoji": "💡",
+          "next": "crypt_exploration",
+          "color": "secondary"
+        }
+      ]
+    },
+    "death_soul_consumed": {
+      "text": "الأرواح المعذبة تنقض على الصبي دفعة واحدة. لا جسد لتقطعه، ولا دماء لتنزفها. إنها تلتهم روحه مباشرة. يسقط الصبي ميتاً كقوقعة فارغة، وتعود أنت إلى سباتك الأبدي في القاع المظلم.",
+      "is_ending": true,
+      "choices": []
+    },
+    "drain_door_magic": {
+      "text": "تمتص الطاقة السحرية المحيطة بالبوابة. نصلك يمتص الطلاسم النارية ببطء، مما يضعف قفلها القديم حتى ينهار. أنت لست مجرد سلاح، بل فراغ يلتهم السحر.",
+      "choices": [
+        {
+          "label": "أجبره على دخول القاعة الكبرى",
+          "emoji": "🏛️",
+          "next": "great_hall_entry",
+          "points_reward": 1,
+          "color": "primary"
+        },
+        {
+          "label": "دعه يرتاح لثوان قبل الدخول",
+          "emoji": "⏳",
+          "next": "great_hall_entry",
+          "points_reward": 1,
+          "color": "secondary"
+        }
+      ]
+    },
+    "slow_door_magic": {
+      "text": "تُركز طاقتك على اختراق القفل السحري ببطء ودقة. تأمر الصبي بالانتظار وتوجيهك. البوابة تفتح تدريجياً بصوت أنين يتردد في الأعماق.",
+      "choices": [
+        {
+          "label": "ساعده بقوتك في القتال",
+          "emoji": "⚔️",
+          "next": "great_hall_entry",
+          "points_reward": 1,
+          "color": "primary"
+        },
+        {
+          "label": "أمره بالتراجع والاختباء السريع",
+          "emoji": "🔙",
+          "next": "fall_back",
+          "points_reward": 0,
+          "color": "secondary"
+        }
+      ]
+    },
+    "fall_back": {
+      "text": "تأمر الصبي بالتراجع مؤقتاً عن البوابة. التكتيك يقتضي أحياناً خطوة للوراء لجمع القوة، لكن التراجع في هذه المقبرة قد يكون مكلفاً.",
+      "choices": [
+        {
+          "label": "أمره بمحاولة الاختراق يائساً",
+          "emoji": "🏃",
+          "next": "death_warden_trap",
+          "color": "primary"
+        },
+        {
+          "label": "أمره بالاستسلام المؤقت",
+          "emoji": "🏳️",
+          "next": "death_warden_trap",
+          "color": "secondary"
+        }
+      ]
+    },
+    "death_warden_trap": {
+      "text": "تراجعكما يضعكما في طريق حارس المقبرة الأكبر الذي كان يتعقبكما بصمت. ضربة فأس هائلة تشطر الصبي وتكسرك إلى نصفين قبل أن تدرك حتى ما حدث. لقد انتهت الرحلة الملعونة.",
+      "is_ending": true,
+      "choices": []
+    },
+    "crypt_exploration": {
+      "text": "تبدأان استكشاف غرف المقبرة الجانبية. ظلال وأتربة وقصص منسية. ربما تجدان شيئاً يفيد رحلتكما نحو السطح، أو ربما هلاككما.",
+      "choices": [
+        {
+          "label": "أرشده ليقرأ النقوش السحرية",
+          "emoji": "📜",
+          "next": "read_lore",
+          "points_reward": 2,
+          "sets_flag": "flag_secret_lore",
+          "color": "primary"
+        },
+        {
+          "label": "أمره بكسر الصندوق المغلق فوراً",
+          "emoji": "📦",
+          "next": "break_chest",
+          "points_reward": 1,
+          "color": "primary"
+        },
+        {
+          "label": "ادفع فضوله لاستكشاف السراديب",
+          "emoji": "🔦",
+          "next": "explore_side_crypts",
+          "points_reward": 1,
+          "color": "primary"
+        },
+        {
+          "label": "أجبره على الانتظار طويلاً هنا",
+          "emoji": "⏳",
+          "next": "starvation_path",
+          "points_reward": 1,
+          "color": "danger"
+        }
+      ]
+    },
+    "read_lore": {
+      "text": "توجه نظر الصبي لقراءة المخطوطات القديمة الممزقة. كلمات منסية تتحدث عن ملك غارق وعن طقوس سحيقة. المعرفة تزيد وعيك وتجعلك أكثر حدة.",
+      "choices": [
+        {
+          "label": "امضِ للأمام نحو العرش مباشرة",
+          "emoji": "➡️",
+          "next": "great_hall_entry",
+          "points_reward": 1,
+          "color": "primary"
+        },
+        {
+          "label": "احفظ المعرفة وراقب المكان",
+          "emoji": "👁️",
+          "next": "great_hall_entry",
+          "points_reward": 1,
+          "color": "secondary"
+        }
+      ]
+    },
+    "break_chest": {
+      "text": "تأمر الصبي بتحطيم صندوق خشبي قديم بنصلك. يتناثر الخشب المتآكل ليظهر بداخله ذهب لا قيمة له هنا، وقارورة غريبة تنبض بسائل داكن.",
+      "choices": [
+        {
+          "label": "أمره بشرب الدم الأسود لتقويته",
+          "emoji": "🩸",
+          "next": "drink_weird_blood",
+          "points_reward": 2,
+          "sets_flag": "flag_domination",
+          "color": "danger"
+        },
+        {
+          "label": "تجاهل الكنز وامضوا للأمام",
+          "emoji": "🚫",
+          "next": "great_hall_entry",
+          "points_reward": 1,
+          "color": "secondary"
+        },
+        {
+          "label": "أرشده ليتفحص الملفوفة بحذر",
+          "emoji": "📜",
+          "next": "examine_scroll",
+          "points_reward": 2,
+          "color": "primary"
+        }
+      ]
+    },
+    "examine_scroll": {
+      "text": "يتفحص الصبي لفافة جلدية بدقة. تحتوي على خريطة جزئية للمقبرة تكشف عن ممر سري مائي قد يجنبكما مواجهات قاتلة لاحقة.",
+      "choices": [
+        {
+          "label": "توجه للقاعة الكبرى الآن",
+          "emoji": "🏛️",
+          "next": "great_hall_entry",
+          "points_reward": 1,
+          "color": "primary"
+        },
+        {
+          "label": "مزق التعويذة لئلا تضعف تأثيرك السلبي",
+          "emoji": "📜",
+          "next": "great_hall_entry",
+          "points_reward": 1,
+          "color": "danger"
+        }
+      ]
+    },
+    "explore_side_crypts": {
+      "text": "تستمران في الغوص في السراديب الجانبية. الهواء يزداد برودة ورطوبة. العزلة هنا كفيلة بدفع أي بشري للجنون.",
+      "choices": [
+        {
+          "label": "ارتدِ الخاتم وعد للقاعة",
+          "emoji": "💍",
+          "next": "great_hall_entry",
+          "points_reward": 1,
+          "color": "primary"
+        },
+        {
+          "label": "اكسر الخاتم لتجبر الفتى على الاعتماد عليك فقط",
+          "emoji": "💍",
+          "next": "great_hall_entry",
+          "points_reward": 1,
+          "color": "danger"
+        }
+      ]
+    },
+    "starvation_path": {
+      "text": "التيه في السراديب يستهلك طاقة الصبي. الجوع والعطش يضعفانه. حاملك يذبل، وقوة النصل لا تكفي لإبقائه حياً بلا غذاء.",
+      "choices": [
+        {
+          "label": "تحرك قبل أن تتبدد طاقتكما",
+          "emoji": "🚶",
+          "next": "great_hall_entry",
+          "points_reward": 1,
+          "color": "primary"
+        },
+        {
+          "label": "تغذّ على آخر قطرة من إرادته لتشحن نصلك",
+          "emoji": "🧛",
+          "next": "great_hall_entry",
+          "points_reward": 1,
+          "color": "danger"
+        }
+      ]
+    },
+    "drink_weird_blood": {
+      "text": "تأمره بشرب السائل الداكن من القارورة. يسري سائل لزج في حلقه، وتتسع حدقتاه. جسده يكتسب قوة غير طبيعية، لكن روحه تتشوه بشكل ملحوظ.",
+      "choices": [
+        {
+          "label": "امضِ للأمام نحو العرش مباشرة",
+          "emoji": "➡️",
+          "next": "great_hall_entry",
+          "points_reward": 1,
+          "color": "primary"
+        },
+        {
+          "label": "اختبر قوته الجديدة",
+          "emoji": "💪",
+          "next": "great_hall_entry",
+          "points_reward": 1,
+          "color": "danger"
+        }
+      ]
+    },
+    "hunger_pangs": {
+      "text": "آلام الجوع تمزق أحشاء الصبي. يقع على ركبتيه ويبكي. أنت كنصل لا تعرف الجوع، لكنك تشعر بضعفه كصدأ يتآكل في معدنك.",
+      "choices": [
+        {
+          "label": "هدده بالموت إن لم يطعك",
+          "emoji": "💀",
+          "next": "threaten_boy",
+          "points_reward": 1,
+          "sets_flag": "flag_wielder_fears",
+          "color": "danger"
+        },
+        {
+          "label": "اخفِ جوعك الآن وتظاهر بالهدوء",
+          "emoji": "🤫",
+          "next": "crypt_exploration",
+          "points_reward": 1,
+          "color": "secondary"
+        }
+      ]
+    },
+    "threaten_boy": {
+      "text": "تنبض بغضب أعمى، وتوجه أفكاراً مروعة لذهن الصبي لترغمه على الوقوف. «قم أيها الحشرة، وإلا قطعت شرايينك بنفسي!» ينهض الصبي مرعوباً ومكسوراً.",
+      "choices": [
+        {
+          "label": "ادخل القاعة الكبرى بغطرسة",
+          "emoji": "🏛️",
+          "next": "great_hall_entry",
+          "points_reward": 1,
+          "color": "primary"
+        },
+        {
+          "label": "أجبره على الإسراع",
+          "emoji": "🏃",
+          "next": "great_hall_entry",
+          "points_reward": 1,
+          "color": "danger"
+        }
+      ]
+    },
+    "great_hall_entry": {
+      "text": "تدخلان القاعة العظمى للمقبرة. أعمدة حجرية تناطح السقف المفقود في الظلام. في المركز، تمثال ضخم لملك بلا وجه يجلس على عرش من الجماجم.",
+      "choices": [
+        {
+          "label": "اعبر جسر التنهدات المخيف",
+          "emoji": "🌉",
+          "next": "bridge_of_sighs",
+          "points_reward": 1,
+          "color": "primary"
+        },
+        {
+          "label": "خُض في النفق المائي الغادر",
+          "emoji": "🌊",
+          "next": "water_tunnel",
+          "points_reward": 1,
+          "color": "primary"
+        },
+        {
+          "label": "تأمل التمثال العملاق للبحث عن أسرار",
+          "emoji": "🗿",
+          "next": "examine_statue",
+          "points_reward": 2,
+          "requires_flag": "flag_secret_lore",
+          "color": "success"
+        },
+        {
+          "label": "استرح في الزاوية لتعويض طاقته",
+          "emoji": "🛏️",
+          "next": "rest_area",
+          "points_reward": 1,
+          "color": "secondary"
+        }
+      ]
+    },
+    "rest_area": {
+      "text": "تسمح للصبي بالاستراحة في زاوية مظلمة بالقاعة. ينام متعرّقاً، بينما تظل أنت في حالة يقظة تامة، تراقب الظلال التي تتراقص كالشياطين.",
+      "choices": [
+        {
+          "label": "توجه لجسر التنهدات",
+          "emoji": "🌉",
+          "next": "bridge_of_sighs",
+          "points_reward": 1,
+          "color": "primary"
+        },
+        {
+          "label": "توجه للنفق المائي",
+          "emoji": "🌊",
+          "next": "water_tunnel",
+          "points_reward": 1,
+          "color": "primary"
+        }
+      ]
+    },
+    "examine_statue": {
+      "text": "يقترب الصبي من التمثال المهيب. تدرك فوراً أن هذا ليس مجرد حجر. إنها بوابة مغلقة أو حارس ينتظر كلمة سر منسية.",
+      "choices": [
+        {
+          "label": "ادخل الباب السري فورا للبحث عن كنوز",
+          "emoji": "🚪",
+          "next": "secret_armory",
+          "points_reward": 3,
+          "color": "success"
+        },
+        {
+          "label": "تجاهل الباب واختر مساراً عادياً",
+          "emoji": "🚫",
+          "next": "bridge_of_sighs",
+          "points_reward": 0,
+          "color": "secondary"
+        }
+      ]
+    },
+    "water_tunnel": {
+      "text": "تقود الصبي نحو ممر أرضي مغمور بالمياه القذرة. الرائحة نتنة، والمياه الجليدية تخدر أطرافه. لا خيار سوى الغوص.",
+      "choices": [
+        {
+          "label": "أشعله بالحرارة السحرية لتبخير الماء",
+          "emoji": "🔥",
+          "next": "heat_water",
+          "points_reward": 1,
+          "color": "primary"
+        },
+        {
+          "label": "اطلب منه السباحة بقوة للنجاة",
+          "emoji": "🏊",
+          "next": "death_abandoned_in_water",
+          "points_reward": 0,
+          "color": "danger"
+        },
+        {
+          "label": "استدع كائنات الظل لتخويف الوحوش المائية",
+          "emoji": "🦑",
+          "next": "summon_shadows",
+          "points_reward": 2,
+          "sets_flag": "flag_domination",
+          "color": "danger"
+        }
+      ]
+    },
+    "summon_shadows": {
+      "text": "تستدعي سحر الظلال من حولك لتغطية تقدمكما في الماء. الظلال تندمج مع المياه العكرة، جاعلة إياكما غير مرئيين لما يسبح في القاع.",
+      "choices": [
+        {
+          "label": "اخرج من الماء بسرعة",
+          "emoji": "岸",
+          "next": "abyss_edge",
+          "points_reward": 1,
+          "color": "primary"
+        },
+        {
+          "label": "اترك الظلال تنهشه قليلاً لتعلم درساً قاسياً",
+          "emoji": "🌑",
+          "next": "abyss_edge",
+          "points_reward": 0,
+          "color": "secondary"
+        }
+      ]
+    },
+    "death_abandoned_in_water": {
+      "text": "طاقة الصبي تخور في المياه المتجمدة. يفلت مقبضك ويسقط في القاع المظلم. تغوص أنت ببطء في الوحل الأسود، لتدفن لعنتك تحت المياه الآسنة للأبد.",
+      "is_ending": true,
+      "choices": []
+    },
+    "heat_water": {
+      "text": "تفرغ طاقة سحرية لتدفئة النصل. يغلي الماء المحيط بك، مما يمنح الصبي الدفء الكافي لمواصلة السباحة، لكنه يستهلك الكثير من وعيك.",
+      "choices": [
+        {
+          "label": "أمره بالخروج من الماء لاهثاً",
+          "emoji": "岸",
+          "next": "abyss_edge",
+          "points_reward": 1,
+          "color": "primary"
+        },
+        {
+          "label": "ادفعه ليواصل السير في الضباب",
+          "emoji": "🌫️",
+          "next": "abyss_edge",
+          "points_reward": 1,
+          "color": "secondary"
+        }
+      ]
+    },
+    "bridge_of_sighs": {
+      "text": "تخرجان من الماء لتجدا أنفسكما أمام 'جسر التنهدات'. جسر معلق فوق هاوية لا قاع لها، يئن مع كل نسمة هواء. أصوات غريبة تعلو من الأسفل.",
+      "choices": [
+        {
+          "label": "اغلق عقله عن سماعهم بدرع سحري",
+          "emoji": "🧠",
+          "next": "shield_mind",
+          "points_reward": 2,
+          "reputation": "guardian",
+          "color": "success"
+        },
+        {
+          "label": "استغل الأصوات لزيادة رعبه منك للسيطرة",
+          "emoji": "👻",
+          "next": "use_voices",
+          "points_reward": 2,
+          "sets_flag": "flag_domination",
+          "color": "danger"
+        },
+        {
+          "label": "أمره بالإسراع والركض الأعمى",
+          "emoji": "🏃",
+          "next": "run_bridge",
+          "points_reward": 1,
+          "color": "secondary"
+        }
+      ]
+    },
+    "run_bridge": {
+      "text": "تأمر الصبي بالركض بسرعة جنونية عبر الجسر. الألواح الخشبية تتكسر وتتهاوى خلفه. ينجو بأعجوبة، لكن قلبه يكاد ينفجر من صدره.",
+      "choices": [
+        {
+          "label": "دعه يرتاح لثوان",
+          "emoji": "⏳",
+          "next": "abyss_edge",
+          "points_reward": 1,
+          "color": "primary"
+        },
+        {
+          "label": "استغل ضعفه لبسط سيطرتك الكاملة على عقله",
+          "emoji": "🧠",
+          "next": "abyss_edge",
+          "points_reward": 2,
+          "color": "danger"
+        }
+      ]
+    },
+    "shield_mind": {
+      "text": "أصوات الهاوية تحاول اختراق عقل الصبي ودفعه للقفز. تبني درعاً من وعيك حول ذهنه، تتحمل أنت صراخ الجنون لتنقذ حاملك الهش.",
+      "choices": [
+        {
+          "label": "امض به نحو حافة الهاوية المظلمة",
+          "emoji": "➡️",
+          "next": "abyss_edge",
+          "points_reward": 1,
+          "color": "primary"
+        },
+        {
+          "label": "حافظ على الدرع واستمروا",
+          "emoji": "🛡️",
+          "next": "abyss_edge",
+          "points_reward": 1,
+          "color": "success"
+        }
+      ]
+    },
+    "use_voices": {
+      "text": "تحاول استخدام الأصوات ضد حراس الجسر الطيفيين. تردد صداها كصدع سحري، مما يشتت الأرواح لفترة كافية للعبور.",
+      "choices": [
+        {
+          "label": "استمر بتهديده بلا رحمة لتحطيمه",
+          "emoji": "💀",
+          "next": "death_madness_suicide",
+          "points_reward": 0,
+          "color": "danger"
+        },
+        {
+          "label": "اتركه يهدأ قليلاً قبل أن ينهار",
+          "emoji": "⏳",
+          "next": "abyss_edge",
+          "points_reward": 1,
+          "color": "secondary"
+        }
+      ]
+    },
+    "death_madness_suicide": {
+      "text": "تفشل في حماية عقل الصبي. الأصوات تبتلع إرادته. يبتسم ابتسامة خاوية، ويرفعك ليغرزك في صدره قبل أن يهوي في الهاوية الضحلة. نهاية بائسة أخرى.",
+      "is_ending": true,
+      "choices": []
+    },
+    "secret_armory": {
+      "text": "تصلان إلى ترسانة سرية محصنة. أسلحة صدئة تملأ المكان، وفي المنتصف، فأس حرب هائل يشع بطاقة حمراء معادية لكيانك.",
+      "choices": [
+        {
+          "label": "أمره بترك السلاح وتجاهله",
+          "emoji": "🚫",
+          "next": "ignore_other_weapon",
+          "points_reward": 1,
+          "color": "primary"
+        },
+        {
+          "label": "أجبره على التقدم لتلتهم طاقة السلاح",
+          "emoji": "⚡",
+          "next": "absorb_weapon",
+          "points_reward": 2,
+          "sets_flag": "flag_domination",
+          "color": "danger"
+        }
+      ]
+    },
+    "ignore_other_weapon": {
+      "text": "تأمر الصبي بتجاهل الفأس والمضي قدماً. لا شريك لك في القوة. كل سلاح آخر هو منافس يجب احتقاره.",
+      "choices": [
+        {
+          "label": "أخرجه نحو حافة الهاوية المظلمة",
+          "emoji": "🚪",
+          "next": "abyss_edge",
+          "points_reward": 1,
+          "color": "primary"
+        },
+        {
+          "label": "دعه يتجهز أكثر ثم اخرجوا",
+          "emoji": "⚔️",
+          "next": "abyss_edge",
+          "points_reward": 1,
+          "color": "success"
+        }
+      ]
+    },
+    "absorb_weapon": {
+      "text": "تأمر الصبي بملامسة نصلك للفأس الأحمر. تبدأ صراع إرادات مع السلاح القديم، ثم تمتص طاقته بعنف. نصلك يتوهج بلون دموي متوهج.",
+      "choices": [
+        {
+          "label": "أخرجه نحو حافة الهاوية بقوة",
+          "emoji": "🚪",
+          "next": "abyss_edge",
+          "points_reward": 1,
+          "color": "danger"
+        },
+        {
+          "label": "اخرجوا لمواجهة مصيركم المدمر",
+          "emoji": "🔥",
+          "next": "abyss_edge",
+          "points_reward": 1,
+          "color": "primary"
+        }
+      ]
+    },
+    "abyss_edge": {
+      "text": "تصلان إلى حافة الهاوية الداخلية. بوابة القصر الغارق تنتظر في الأسفل. الصعود أو النزول، كل خطوة محفوفة بالموت المحقق.",
+      "choices": [
+        {
+          "label": "وجهه للبحث عن ثغرة في الدرع",
+          "emoji": "🎯",
+          "next": "warden_fight_tactical",
+          "points_reward": 2,
+          "color": "success"
+        },
+        {
+          "label": "أمره بشن هجوم ساحق ومباشر",
+          "emoji": "💥",
+          "next": "warden_fight_brutal",
+          "points_reward": 1,
+          "color": "danger"
+        },
+        {
+          "label": "أرشده للتسلل بمحاذاة الحافة الوعرة",
+          "emoji": "🧗",
+          "next": "edge_stealth",
+          "points_reward": 1,
+          "color": "secondary"
+        }
+      ]
+    },
+    "warden_fight_tactical": {
+      "text": "حارس المقبرة الضخم يسد الطريق الأخير. توجه الصبي لقتال تكتيكي بطيء، يضرب النقاط الضعيفة في درع الحارس ويستغل ثقل جسد العدو.",
+      "choices": [
+        {
+          "label": "أمره بضرب المفاصل بدقة متناهية",
+          "emoji": "🗡️",
+          "next": "warden_defeated",
+          "points_reward": 2,
+          "reputation": "guardian",
+          "color": "success"
+        },
+        {
+          "label": "استفز الحارس ليهجم وتكشف ظهره",
+          "emoji": "🛡️",
+          "next": "warden_counter",
+          "points_reward": 1,
+          "color": "primary"
+        }
+      ]
+    },
+    "warden_counter": {
+      "text": "تنتظر هجوم الحارس الساحق، ثم توجه الصبي لحركة تفادي وضربة مرتدة في مفصل ركبته. الحارس يترنح ويهوي كبرج محطم.",
+      "choices": [
+        {
+          "label": "اغرس نصلك بقوة في ظهره",
+          "emoji": "⚔️",
+          "next": "warden_defeated",
+          "points_reward": 1,
+          "color": "primary"
+        },
+        {
+          "label": "اضرب رقبته المكشوفة من الخلف",
+          "emoji": "🩸",
+          "next": "warden_defeated",
+          "points_reward": 2,
+          "color": "danger"
+        }
+      ]
+    },
+    "warden_fight_brutal": {
+      "text": "تطلق العنان لغضبك وطاقتك المظلمة. الصبي يهاجم بوحشية عمياء، يضرب ويقطع دون توقف حتى يتناثر دم الحارس على الجدران. همجية مطلقة.",
+      "choices": [
+        {
+          "label": "أجبره على إكمال الهجوم وتجاهل الألم",
+          "emoji": "🩸",
+          "next": "warden_defeated",
+          "points_reward": 2,
+          "sets_flag": "flag_domination",
+          "color": "danger"
+        },
+        {
+          "label": "أمره بالتراجع لتجنب الهجوم المضاد",
+          "emoji": "🏃",
+          "next": "death_wielder_panic",
+          "points_reward": 0,
+          "color": "secondary"
+        }
+      ]
+    },
+    "warden_defeated": {
+      "text": "يسقط الحارس الضخم ميتاً. الصبي يلهث، مغطى بالدماء. أنت ترتوي من القتل وتطلب المزيد. البوابة الأخيرة تفتح بصوت مدوٍ.",
+      "choices": [
+        {
+          "label": "أجبره على دخول غرفة الأوهام",
+          "emoji": "🌫️",
+          "next": "illusion_chamber",
+          "points_reward": 1,
+          "color": "primary"
+        },
+        {
+          "label": "انتظروا ليتبدد الضباب قليلاً",
+          "emoji": "⏳",
+          "next": "illusion_chamber",
+          "points_reward": 0,
+          "color": "secondary"
+        }
+      ]
+    },
+    "edge_stealth": {
+      "text": "تتسللان بحذر على حافة الهاوية المظلمة. خطأ واحد يعادل الموت المباشر. الصمت والتركيز هما سلاحكما الوحيد.",
+      "choices": [
+        {
+          "label": "تراجع وابدأ القتال التكتيكي",
+          "emoji": "🎯",
+          "next": "warden_fight_tactical",
+          "points_reward": 1,
+          "color": "primary"
+        },
+        {
+          "label": "أجبره على الهجوم المباشر",
+          "emoji": "💥",
+          "next": "warden_fight_brutal",
+          "points_reward": 0,
+          "color": "danger"
+        }
+      ]
+    },
+    "illusion_chamber": {
+      "text": "تدخلان قاعة تنعكس فيها آلاف الصور. أوهام للماضي والمستقبل تتراقص أمامكما. عقل الصبي يضعف أمام الخدع البصرية المريعة.",
+      "choices": [
+        {
+          "label": "أظهر له الحقيقة القاسية بعقله",
+          "emoji": "👁️",
+          "next": "break_illusions",
+          "points_reward": 2,
+          "reputation": "guardian",
+          "color": "success"
+        },
+        {
+          "label": "أجبره على مهاجمة الأوهام بشراسة",
+          "emoji": "⚔️",
+          "next": "attack_illusions",
+          "points_reward": 1,
+          "color": "danger"
+        },
+        {
+          "label": "دعه يسقط بالفخ لترى ما سيحدث",
+          "emoji": "🕳️",
+          "next": "death_illusion_trap",
+          "points_reward": 0,
+          "color": "secondary"
+        },
+        {
+          "label": "اغلق عيونه بقوتك وقدْه كالعمي",
+          "emoji": "🙈",
+          "next": "blind_trust",
+          "points_reward": 2,
+          "color": "primary"
+        }
+      ]
+    },
+    "blind_trust": {
+      "text": "تأمر الصبي بإغلاق عينيه والثقة المطلقة بك. توجه خطواته وسط الأوهام بالاعتماد على وعيك الخالص والمجرد من الخداع البصري.",
+      "choices": [
+        {
+          "label": "افتح الباب نحو العرش",
+          "emoji": "🚪",
+          "next": "throne_room_entry",
+          "points_reward": 1,
+          "color": "primary"
+        },
+        {
+          "label": "وجهه نحو فخ لكسر ثقته الساذجة",
+          "emoji": "🪤",
+          "next": "throne_room_entry",
+          "points_reward": 0,
+          "color": "danger"
+        }
+      ]
+    },
+    "death_illusion_trap": {
+      "text": "ينخدع الصبي بصورة لأمه الميتة ويهرع نحوها. يخطو في الفراغ ويسقط في فخ من النصال المسننة. تُغمد في لحمه، ويسيل دمه المهدور دون جدوى.",
+      "is_ending": true,
+      "choices": []
+    },
+    "break_illusions": {
+      "text": "تطلق موجة صادمة من السحر تقطع نسيج الوهم. المرايا السحرية تتشظى وتتطاير، كاشفة عن الطريق الحقيقي القاتم.",
+      "choices": [
+        {
+          "label": "تقدم بثقة نحو البوابة العظيمة",
+          "emoji": "👑",
+          "next": "throne_room_entry",
+          "points_reward": 1,
+          "color": "primary"
+        },
+        {
+          "label": "امسح ما تبقى من الضباب",
+          "emoji": "💨",
+          "next": "throne_room_entry",
+          "points_reward": 1,
+          "color": "secondary"
+        }
+      ]
+    },
+    "attack_illusions": {
+      "text": "تأمره بالهجوم العشوائي على الصور. ضربات يائسة تقطع الهواء حتى يصطدم نصلك بمصدر السحر ويحطمه بالقوة الغاشمة.",
+      "choices": [
+        {
+          "label": "تقدم بثقة نحو البوابة العظيمة",
+          "emoji": "👑",
+          "next": "throne_room_entry",
+          "points_reward": 1,
+          "color": "danger"
+        },
+        {
+          "label": "دعه يرتاح قليلاً من صدمته",
+          "emoji": "⏳",
+          "next": "throne_room_entry",
+          "points_reward": 0,
+          "color": "secondary"
+        }
+      ]
+    },
+    "throne_room_entry": {
+      "text": "تدخلان قاعة العرش. الملك الغارق يجلس، كاهنة ظلامية تهمس في أذنه. قوة هائلة ومرعبة تملأ المكان. حان وقت الحصاد النهائي.",
+      "choices": [
+        {
+          "label": "قاطع تعويذتها بصعقة سحرية",
+          "emoji": "⚡",
+          "next": "interrupt_priestess",
+          "points_reward": 2,
+          "color": "primary"
+        },
+        {
+          "label": "تحمل الألم وهاجمها جسديا",
+          "emoji": "🛡️",
+          "next": "endure_pain",
+          "points_reward": 1,
+          "color": "danger"
+        }
+      ]
+    },
+    "interrupt_priestess": {
+      "text": "تندفعان لقطع تعويذة الكاهنة. نصلك يشق حلقها قبل أن تكمل كلماتها. الملك ينهض بغضب أعمى، مستلاً سيفاً من نور مريض.",
+      "choices": [
+        {
+          "label": "ادخل لمواجهة الملك الغارق",
+          "emoji": "👑",
+          "next": "dodge_king",
+          "points_reward": 1,
+          "color": "primary"
+        },
+        {
+          "label": "اترك الكاهنة تصيبه لتضعفه قبل المعركة",
+          "emoji": "🩸",
+          "next": "dodge_king",
+          "points_reward": 1,
+          "color": "secondary"
+        }
+      ]
+    },
+    "endure_pain": {
+      "text": "يتحمل الصبي سحر الملك المدمر. درعك الروحي يحميه من الاحتراق الكامل، لكن الألم يعتصر جسده الهزيل. الصمود هو مفتاح النصر.",
+      "choices": [
+        {
+          "label": "ادخل لمواجهة الملك الغارق",
+          "emoji": "👑",
+          "next": "dodge_king",
+          "points_reward": 1,
+          "color": "primary"
+        },
+        {
+          "label": "استمد قوتك من ألمه لتتوهج بغضب",
+          "emoji": "🔥",
+          "next": "dodge_king",
+          "points_reward": 2,
+          "color": "danger"
+        }
+      ]
+    },
+    "dodge_king": {
+      "text": "توجه الصبي لتفادي ضربات الملك الساحقة. سرعته تتفوق على ثقل الملك الغارق، وتترك ثغرات مميتة في دفاعه.",
+      "choices": [
+        {
+          "label": "وجه الفتى لضرب ساقي الملك",
+          "emoji": "🦵",
+          "next": "cripple_king",
+          "points_reward": 2,
+          "color": "success"
+        },
+        {
+          "label": "حاول قطع يده الممسكة بالسيف",
+          "emoji": "✋",
+          "next": "death_sunken_king_crush",
+          "points_reward": 0,
+          "color": "danger"
+        },
+        {
+          "label": "صُد ضربته العظيمة مباشرة",
+          "emoji": "⚔️",
+          "next": "clash_of_kings",
+          "points_reward": 1,
+          "color": "primary"
+        }
+      ]
+    },
+    "death_sunken_king_crush": {
+      "text": "ضربة الملك الساحقة لا يمكن تفاديها. يسحق الصبي تحت قدمه كما تسحق حشرة، وينكسر نصلك تحت الضغط الهائل. نهاية ملحمة فاشلة.",
+      "is_ending": true,
+      "choices": []
+    },
+    "cripple_king": {
+      "text": "ضربة دقيقة تقطع أوتار ركبة الملك. يسقط الطاغية على ركبة واحدة، ويفقد تفوقه البدني. حان وقت توجيه الضربة القاضية.",
+      "choices": [
+        {
+          "label": "اضرب عنقه لإنهاء حياته",
+          "emoji": "🗡️",
+          "next": "final_blow",
+          "points_reward": 2,
+          "color": "success"
+        },
+        {
+          "label": "اطرح سيفه من يده أولا",
+          "emoji": "⚔️",
+          "next": "final_blow",
+          "points_reward": 1,
+          "color": "primary"
+        }
+      ]
+    },
+    "clash_of_kings": {
+      "text": "يصطدم نصلك المظلم بسيف الملك المضيء. شرارات سحرية تتطاير. أنت النصل القديم تتحدى سيداً زائفاً، والصبي مجرد وعاء لهذه المعركة الأسطورية.",
+      "choices": [
+        {
+          "label": "ضح بجوهرك لإنقاذه",
+          "emoji": "✨",
+          "next": "sacrifice_core",
+          "points_reward": 2,
+          "sets_flag": "flag_symbiosis",
+          "color": "success"
+        },
+        {
+          "label": "التهم روح الفتى بقسوة",
+          "emoji": "🩸",
+          "next": "consume_wielder_soul",
+          "points_reward": 2,
+          "sets_flag": "flag_domination",
+          "color": "danger"
+        }
+      ]
+    },
+    "sacrifice_core": {
+      "text": "تضحي بجزء من جوهرك السحري لتعزيز قوة الصبي في اللحظة الحاسمة. نصلك يتوهج بنور أسود هائل، ويخترق قلب الملك، محطماً إياه.",
+      "choices": [
+        {
+          "label": "وجه الضربة القاضية معاً",
+          "emoji": "⚡",
+          "next": "final_blow",
+          "points_reward": 2,
+          "color": "success"
+        },
+        {
+          "label": "اتركه يوجه الضربة بنفسه",
+          "emoji": "🗡️",
+          "next": "final_blow",
+          "points_reward": 1,
+          "color": "primary"
+        }
+      ]
+    },
+    "consume_wielder_soul": {
+      "text": "في اللحظة الأخيرة، تمتص روح الصبي لتصل لقوتك المطلقة. جسده يذبل ويصبح مجرد امتداد ميت لنصلك الذي يخترق الملك الغارق. أنت وحدك المنتصر.",
+      "choices": [
+        {
+          "label": "وجه الضربة القاضية بوحشية",
+          "emoji": "⚡",
+          "next": "final_blow",
+          "points_reward": 2,
+          "color": "danger"
+        },
+        {
+          "label": "استهزئ به قبل قتله",
+          "emoji": "🗣️",
+          "next": "final_blow",
+          "points_reward": 1,
+          "color": "primary"
+        }
+      ]
+    },
+    "final_blow": {
+      "text": "الضربة النهائية تقطع رأس الملك الغارق. الجسد يتهاوى وتتبدد تعاويذ القلعة. الصمت يعود للمقبرة، لكنه صمت مشبع بدماء الملوك.",
+      "choices": [
+        {
+          "label": "اضرب التاج لكسر اللعنة",
+          "emoji": "👑",
+          "next": "ending_broken_freedom",
+          "requires_flag": "flag_symbiosis",
+          "points_reward": 2,
+          "color": "success"
+        },
+        {
+          "label": "اضرب القلب لامتصاص قوته",
+          "emoji": "🖤",
+          "next": "ending_new_vessel",
+          "requires_flag": "flag_domination",
+          "points_reward": 2,
+          "color": "danger"
+        },
+        {
+          "label": "اختم سحره تماماً بالتضحية",
+          "emoji": "🔒",
+          "next": "ending_eternal_guard",
+          "points_reward": 1,
+          "color": "primary"
+        },
+        {
+          "label": "طهر السرداب بالكامل بنورك",
+          "emoji": "✨",
+          "next": "ending_ascended_blade",
+          "required_points": 15,
+          "color": "success",
+          "points_reward": 1
+        }
+      ]
+    },
+    "ending_broken_freedom": {
+      "text": "تترك الصبي المنهار. لقد أديت مهمتك وحطمت الملك، لكن حاملك تحطم نفسياً وجسدياً. يرميك ويغادر للسطح كشبح حي. أنت باقٍ هنا، تنتظر يداً جديدة في الظلام.",
+      "is_ending": true,
+      "choices": []
+    },
+    "ending_new_vessel": {
+      "text": "تمحو وعي الصبي بالكامل. جسده يصبح ملكاً لك. تمشي بهدوء كإله معدني بجسد بشري. لقد وجدت وعاءك المثالي، والعالم الأعلى ينتظر سيداً جديداً لا يعرف الرحمة.",
+      "is_ending": true,
+      "choices": []
+    },
+    "ending_eternal_guard": {
+      "text": "تقرر البقاء كحارس جديد للمقبرة. الصبي يصبح خادمك الأمين وكاهنك. تجلسان في قاعة العرش المظلمة، تحرسان الأسرار التي لا يجب أن ترى نور الشمس أبداً.",
+      "is_ending": true,
+      "choices": []
+    },
+    "ending_ascended_blade": {
+      "text": "تتسامى طاقتك لتصبح أكثر من مجرد سلاح مادي. تتحد مع روح الصبي لتشكلا كياناً أسطورياً جديداً — نصفه إنسان ونصفه وعي سيفي خالد. تغادران المقبرة لتغيير مجرى التاريخ بقوة لا تقهر.",
+      "is_ending": true,
+      "choices": []
+    }
+  }
+}

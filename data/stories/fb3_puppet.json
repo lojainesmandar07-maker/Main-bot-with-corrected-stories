@@ -1,0 +1,1280 @@
+{
+  "world": "الفانتازيا",
+  "categories": [
+    {
+      "name": "الفانتازيا المظلمة",
+      "stories": [
+        {
+          "id": "fb3_puppet",
+          "title": "خيوط لا تُرى",
+          "summary": "أنت ساحر موهوب اكتشفت أن كل قراراتك الكبرى في حياتك كانت مُحرَّكة بخيوط غيبية من ساحرة قديمة تسمّي نفسها النسّاجة. الآن تقف أمام خيار واحد: أن تقطع الخيوط وتفقد كل شيء، أو تتابع الدمية التي كنتها — لكن هذه المرة بوعي كامل.",
+          "difficulty": "صعب جداً",
+          "estimated_length": "طويلة جداً",
+          "theme": "الفانتازيا المظلمة",
+          "world_type": "fantasy",
+          "game_mode": "single",
+          "perspectives": [
+            {
+              "id": "puppet_mage",
+              "label": "منظور الدمية",
+              "emoji": "🧵",
+              "description": "ساحر يكتشف أن إرادته وهم، وأن كل انتصاراته كانت مخططة له — لا منه.",
+              "start_node": "start"
+            }
+          ],
+          "nodes": {
+            "start": {
+              "text": "الخيط الذهبي ينبض في معصمك كوريد حي لا تملكه. أنت الساحر المحتفى به — البطل المكتوب — لكن هذه الليلة وجدت غرفة البرج ونسّاجة تجلس بهدوء الآلهة فوق خيوط تمتد من كل شخص عرفته. «أنت لم تختر شيئاً منذ وُلدت» تقول دون أن تنظر إليك. الكتاب المفتوح أمامها يحمل اسمك، وصفحاته لا تنتهي.",
+              "choices": [
+                {
+                  "label": "احرق الكتاب فوراً",
+                  "emoji": "🔥",
+                  "next": "burn_attempt",
+                  "points_reward": 3,
+                  "color": "danger"
+                },
+                {
+                  "label": "اقرأ نهايتك المكتوبة",
+                  "emoji": "📖",
+                  "next": "read_ending",
+                  "points_reward": 1,
+                  "color": "primary"
+                },
+                {
+                  "label": "اتبع الخيط لمصدره",
+                  "emoji": "🧵",
+                  "next": "follow_thread",
+                  "points_reward": 2,
+                  "color": "warning"
+                }
+              ]
+            },
+            "burn_attempt": {
+              "text": "تمد يدك نحو نار المشعل لتحرق الكتاب. الخيط الذهبي يشد معصمك للخلف بقوة خارقة قبل أن تلمس الشعلة. يدك تتجمد في الهواء. النسّاجة لا تلتفت: «البطل المكتوب لا يحرق مصيره. هذا أيضاً مكتوب.»",
+              "choices": [
+                {
+                  "label": "اقرأ الصفحة بفضول مريض",
+                  "emoji": "📄",
+                  "next": "page_thirteen",
+                  "points_reward": 1,
+                  "color": "primary"
+                },
+                {
+                  "label": "أغلق الكتاب بعناد",
+                  "emoji": "📕",
+                  "next": "refuse_read",
+                  "points_reward": 2,
+                  "color": "secondary"
+                },
+                {
+                  "label": "اقطع الخيط بسيفك",
+                  "emoji": "⚔️",
+                  "next": "cut_thread_early",
+                  "points_reward": 3,
+                  "color": "danger"
+                }
+              ]
+            },
+            "page_thirteen": {
+              "text": "الصفحة الثالثة عشرة تكشف خيانة لم تتوقعها — شخص أحببته يسرق سرّك الأعظم في اليوم الذي تظن نفسك فيه منتصراً. الحروف ثابتة لا ترجف. المعلومة تحفر في صدرك كمسمار صدئ.",
+              "choices": [
+                {
+                  "label": "التمرد محال، استسلم",
+                  "emoji": "🕸️",
+                  "next": "accept_fate_early",
+                  "color": "secondary"
+                },
+                {
+                  "label": "التمرد ممكن دائماً",
+                  "emoji": "💥",
+                  "next": "rebellion_path",
+                  "points_reward": 3,
+                  "color": "success"
+                }
+              ]
+            },
+            "refuse_read": {
+              "text": "تُغلق الكتاب بعنف وتُدير وجهك: «لا أريد معرفة ما سيحدث.» النسّاجة تومئ ببرود: «الجهل لا يلغي المكتوب. يجعلك فقط أعمى تمشي نحوه.»",
+              "choices": [
+                {
+                  "label": "استغل الارتخاء للهرب",
+                  "emoji": "🌀",
+                  "next": "exploit_slack",
+                  "points_reward": 3,
+                  "color": "success"
+                },
+                {
+                  "label": "ابحث عن النسّاجة بحقد",
+                  "emoji": "🔍",
+                  "next": "seek_weaver",
+                  "points_reward": 2,
+                  "color": "warning"
+                }
+              ]
+            },
+            "cut_thread_early": {
+              "text": "تسحب سيفك في لحظة غضب خالص وتقطع الخيط الذهبي بضربة واحدة. ألم حاد يخترق معصمك إلى كتفك. الغرفة تتنفس بصعوبة. النسّاجة تحدق في الخيط المقطوع بدهشة حقيقية — أول مرة في قرون.",
+              "choices": [
+                {
+                  "label": "تابع القطع بجنون",
+                  "emoji": "⚔️",
+                  "next": "force_cut",
+                  "points_reward": 3,
+                  "color": "danger"
+                },
+                {
+                  "label": "توقف واستمع للصوت",
+                  "emoji": "👂",
+                  "next": "listen_weaver",
+                  "points_reward": 1,
+                  "color": "primary"
+                }
+              ]
+            },
+            "read_ending": {
+              "text": "تقرأ سطراً واحداً في نهاية الكتاب. يكفي. تُغلق الغلاف وتجلس في الصمت. النسّاجة تنتظر. أنت تفكر في الفرق بين معرفة الموت ومعانقته.",
+              "choices": [
+                {
+                  "label": "الطريق الأبيض المجهول",
+                  "emoji": "⬜",
+                  "next": "unwritten_path",
+                  "points_reward": 3,
+                  "color": "success"
+                },
+                {
+                  "label": "اختر نهاية البطل الزائفة",
+                  "emoji": "🛡️",
+                  "next": "hero_ending_path",
+                  "points_reward": 1,
+                  "color": "primary"
+                },
+                {
+                  "label": "اقرأ النهاية الثانية المأساوية",
+                  "emoji": "💧",
+                  "next": "collapse_path",
+                  "color": "danger"
+                }
+              ]
+            },
+            "follow_thread": {
+              "text": "تتبع الخيط الذهبي بأصابعك حتى يقودك إلى نقطة تتشابك فيها ألف خيط آخر. أسماء على الخيوط — أشخاص أحببتهم وأشخاص قتلتهم. كلهم متصلون بك. كلهم ينتظرون.",
+              "choices": [
+                {
+                  "label": "اسألها لماذا أنا؟",
+                  "emoji": "❓",
+                  "next": "ask_why",
+                  "points_reward": 2,
+                  "color": "primary"
+                },
+                {
+                  "label": "اهجم عليها بلا رحمة",
+                  "emoji": "💢",
+                  "next": "attack_weaver",
+                  "points_reward": 2,
+                  "color": "danger"
+                },
+                {
+                  "label": "اجلس في صمت أمامها",
+                  "emoji": "🪑",
+                  "next": "sit_silent",
+                  "points_reward": 1,
+                  "color": "secondary"
+                }
+              ]
+            },
+            "exploit_slack": {
+              "text": "تلاحظ في الخيط ارتخاءً لم يكن موجوداً من قبل. تنزلق أصابعك نحو الهامش الرفيع بين ما هو مكتوب وما يمكن تغييره. ربما هناك شق.",
+              "choices": [
+                {
+                  "label": "توقف وفكّر بهدوء",
+                  "emoji": "🧠",
+                  "next": "reconsider",
+                  "points_reward": 2,
+                  "color": "primary"
+                },
+                {
+                  "label": "واصل القطع رغم الألم المميت",
+                  "emoji": "🩸",
+                  "next": "painful_extraction",
+                  "points_reward": 3,
+                  "color": "danger"
+                }
+              ]
+            },
+            "seek_weaver": {
+              "text": "تسأل النسّاجة مباشرة: «من نسجك أنتِ؟» تتوقف. الإبرة تتوقف. الصمت يتحول لجدار.",
+              "choices": [
+                {
+                  "label": "اسألها كيف علمتِ بقدومي؟",
+                  "emoji": "❓",
+                  "next": "ask_why",
+                  "points_reward": 1,
+                  "color": "primary"
+                },
+                {
+                  "label": "أطلق سحرك عليها فوراً",
+                  "emoji": "⚡",
+                  "next": "attack_weaver",
+                  "points_reward": 2,
+                  "color": "danger"
+                }
+              ]
+            },
+            "rebellion_path": {
+              "text": "تقرر بوضوح: لن تُكمل المسار المكتوب. كل خطوة من هذه اللحظة ستكون تمرداً واعياً. الخيط الذهبي يشتد كأنه يحذرك.",
+              "choices": [
+                {
+                  "label": "استمر في البكاء الصادق",
+                  "emoji": "😭",
+                  "next": "unexpected_grief",
+                  "points_reward": 3,
+                  "color": "success"
+                },
+                {
+                  "label": "انهض وتصرف بقوة كعادتك",
+                  "emoji": "💪",
+                  "next": "seek_weaver",
+                  "points_reward": 2,
+                  "color": "warning"
+                }
+              ]
+            },
+            "unexpected_grief": {
+              "text": "تكتشف في الكتاب اسماً لم تتوقع رؤيته — شخص ميت. مكتوب أنه سيعود. لكن بأي ثمن؟",
+              "choices": [
+                {
+                  "label": "وسّع الخطأ وأغرق في الحزن",
+                  "emoji": "🌊",
+                  "next": "expand_error",
+                  "points_reward": 3,
+                  "color": "success"
+                },
+                {
+                  "label": "ابحث عنها الآن بحزم",
+                  "emoji": "🔍",
+                  "next": "seek_weaver",
+                  "points_reward": 2,
+                  "color": "primary"
+                }
+              ]
+            },
+            "expand_error": {
+              "text": "تجد خطأً في النسيج — خيطاً يقود لعقدة مستحيلة. النسّاجة لم تلاحظه. أنت تلاحظه. هذا يعني شيئاً.",
+              "choices": [
+                {
+                  "label": "اكسر كل شيء بلا شفقة",
+                  "emoji": "💥",
+                  "next": "total_break",
+                  "points_reward": 3,
+                  "color": "danger"
+                },
+                {
+                  "label": "توقف وحاول التفاوض",
+                  "emoji": "🤝",
+                  "next": "negotiate_weaver",
+                  "points_reward": 2,
+                  "color": "warning"
+                }
+              ]
+            },
+            "ask_why": {
+              "text": "تسأل بهدوء القاتل: «لماذا تُخبرني بكل هذا؟» النسّاجة تنظر إليك للمرة الأولى نظرة مباشرة: «لأن المكتوب يقول إنك ستسأل هذا السؤال.»",
+              "choices": [
+                {
+                  "label": "ما الذي يأتي في الظلام؟",
+                  "emoji": "🌑",
+                  "next": "the_coming",
+                  "points_reward": 2,
+                  "color": "primary"
+                },
+                {
+                  "label": "أرفض الدور تماماً",
+                  "emoji": "🚫",
+                  "next": "refuse_role",
+                  "points_reward": 3,
+                  "color": "danger"
+                },
+                {
+                  "label": "اقبل الدور مؤقتاً بحذر",
+                  "emoji": "⏳",
+                  "next": "temporary_accept",
+                  "points_reward": 1,
+                  "color": "warning"
+                }
+              ]
+            },
+            "attack_weaver": {
+              "text": "تهاجمها بكل سحرك. الخيوط تلتف كحيات وتُقيدك في الهواء. صوتها لا يرتفع: «هذا مكتوب أيضاً.»",
+              "choices": [
+                {
+                  "label": "قاتل بجسدك العاري",
+                  "emoji": "👊",
+                  "next": "physical_fight",
+                  "points_reward": 2,
+                  "color": "danger"
+                },
+                {
+                  "label": "اعترف بالهزيمة واستسلم",
+                  "emoji": "🏳️",
+                  "next": "surrender_weaver",
+                  "color": "secondary"
+                },
+                {
+                  "label": "تحدث إليها بعد عجزك",
+                  "emoji": "💬",
+                  "next": "ask_why",
+                  "points_reward": 1,
+                  "color": "primary"
+                }
+              ]
+            },
+            "sit_silent": {
+              "text": "تجلس. لا تتكلم. لا تتحرك. النسّاجة تنتظر، ثم تنتظر أكثر. ثم تضع إبرتها وتنظر إليك بشيء يشبه الاحترام.",
+              "choices": [
+                {
+                  "label": "ابقَ صامتاً لتستفزها",
+                  "emoji": "🤐",
+                  "next": "deep_silence",
+                  "points_reward": 3,
+                  "color": "success"
+                },
+                {
+                  "label": "اسألها عن الخيط الأبيض",
+                  "emoji": "⬜",
+                  "next": "white_thread",
+                  "points_reward": 2,
+                  "color": "primary"
+                }
+              ]
+            },
+            "the_coming": {
+              "text": "تخبرك أن كياناً أسود أكبر من العوالم يتغذى على خيوط النسيج — وأن خيطك الذهبي مستهدف تحديداً لأنه الأسمك.",
+              "choices": [
+                {
+                  "label": "أؤمن بها وأتحالف معها",
+                  "emoji": "🤝",
+                  "next": "alliance_weaver",
+                  "points_reward": 2,
+                  "color": "success"
+                },
+                {
+                  "label": "ربما تكذب، شكك بها",
+                  "emoji": "🎭",
+                  "next": "doubt_weaver",
+                  "points_reward": 3,
+                  "color": "warning"
+                },
+                {
+                  "label": "واجه الكيان وحدك بشجاعة",
+                  "emoji": "🌑",
+                  "next": "solo_confrontation",
+                  "points_reward": 2,
+                  "required_points": 5,
+                  "color": "danger"
+                }
+              ]
+            },
+            "refuse_role": {
+              "text": "تقول بحسم: «أنا لست بطلاً ولست أداة. أنا لا شيء مما كتبتِه.» الخيط الذهبي يرتجف كأن الكلمات أوجعته.",
+              "choices": [
+                {
+                  "label": "الرفض نهائي لا رجعة فيه",
+                  "emoji": "🚫",
+                  "next": "final_refusal",
+                  "points_reward": 3,
+                  "color": "danger"
+                },
+                {
+                  "label": "اسألها من هو البديل؟",
+                  "emoji": "❓",
+                  "next": "ask_alternative",
+                  "points_reward": 2,
+                  "color": "warning"
+                }
+              ]
+            },
+            "temporary_accept": {
+              "text": "تقبل الدور مؤقتاً — ليس إيماناً، بل مناورة. تُمثل البطل المكتوب وعيناك تبحثان عن الشق.",
+              "choices": [
+                {
+                  "label": "تعلّم النسيج بتعمق",
+                  "emoji": "🕸️",
+                  "next": "learn_weaving",
+                  "points_reward": 2,
+                  "color": "primary"
+                },
+                {
+                  "label": "اطلب حرية جزئية مقابل ذلك",
+                  "emoji": "🔓",
+                  "next": "negotiate_weaver",
+                  "points_reward": 3,
+                  "color": "warning"
+                }
+              ]
+            },
+            "physical_fight": {
+              "text": "لا سحر. لا كلام. تقفز نحوها بجسدك ويديك العاريتين. الخيوط تحتضنك وتمنعك وتجعلك تشعر بكل خيط ربطك بها يوماً.",
+              "choices": [
+                {
+                  "label": "أطلق نفسك بعنف وقوة",
+                  "emoji": "💥",
+                  "next": "break_free_physical",
+                  "points_reward": 3,
+                  "color": "danger"
+                },
+                {
+                  "label": "توقف وانظر في عينيها",
+                  "emoji": "👁️",
+                  "next": "look_into_eyes",
+                  "points_reward": 2,
+                  "color": "primary"
+                }
+              ]
+            },
+            "surrender_weaver": {
+              "text": "تضع سيفك وتُمد يدك: «خذي ما تريدين.» النسّاجة تتوقف عن النسج. «لم يفعل أحد هذا من قبل» تهمس.",
+              "choices": [
+                {
+                  "label": "اقبل الراحة الزائفة",
+                  "emoji": "😮‍💨",
+                  "next": "peace_trap",
+                  "color": "secondary"
+                },
+                {
+                  "label": "أدرك أنه فخ وقاوم",
+                  "emoji": "⚠️",
+                  "next": "resist_comfort",
+                  "points_reward": 3,
+                  "color": "danger"
+                }
+              ]
+            },
+            "deep_silence": {
+              "text": "تغوص في صمت كامل حتى يصبح الصمت سلاحاً. الخيوط تُبطئ. النسيج الكوني يترقب.",
+              "choices": [
+                {
+                  "label": "اسأل عن الحرية المطلقة",
+                  "emoji": "🕊️",
+                  "next": "ask_freedom",
+                  "points_reward": 3,
+                  "color": "success"
+                },
+                {
+                  "label": "اطلب الخيط الأبيض الغامض",
+                  "emoji": "⬜",
+                  "next": "white_thread",
+                  "points_reward": 2,
+                  "color": "primary"
+                }
+              ]
+            },
+            "white_thread": {
+              "text": "تلاحظ خيطاً أبيض فاتراً خارج النسيج — لا يربط أحداً. النسّاجة تُحوّل بصرها عنه بسرعة زائدة.",
+              "choices": [
+                {
+                  "label": "خذ الخيط الأبيض",
+                  "emoji": "⬜",
+                  "next": "take_white_thread",
+                  "points_reward": 3,
+                  "required_points": 4,
+                  "color": "success"
+                },
+                {
+                  "label": "ارفض حتى الأبيض الخادع",
+                  "emoji": "❌",
+                  "next": "refuse_all_threads",
+                  "points_reward": 3,
+                  "color": "danger"
+                }
+              ]
+            },
+            "alliance_weaver": {
+              "text": "تقترح تحالفاً: أنت وهي ضد الكيان الأسود. تضحك ضحكة متعبة: «كنت أنتظر هذا الاقتراح منذ قرن.»",
+              "choices": [
+                {
+                  "label": "اقرأ كل شيء بنهم",
+                  "emoji": "📖",
+                  "next": "read_all",
+                  "points_reward": 2,
+                  "color": "primary"
+                },
+                {
+                  "label": "اقرأ المستقبل فقط بحذر",
+                  "emoji": "🔮",
+                  "next": "read_future_only",
+                  "points_reward": 1,
+                  "color": "warning"
+                }
+              ]
+            },
+            "doubt_weaver": {
+              "text": "تزرع في نفسها بذرة الشك: «ماذا لو كنتِ أنتِ الكيان الأسود متخفيةً؟» الإبرة تتوقف للحظة قصيرة. لكنها كافية.",
+              "choices": [
+                {
+                  "label": "هرّب المعلومة للمجلس",
+                  "emoji": "📜",
+                  "next": "leak_info",
+                  "points_reward": 3,
+                  "color": "warning"
+                },
+                {
+                  "label": "استخدمها كأداة ضدها",
+                  "emoji": "⚡",
+                  "next": "use_info_against",
+                  "points_reward": 3,
+                  "required_points": 6,
+                  "color": "danger"
+                }
+              ]
+            },
+            "solo_confrontation": {
+              "text": "تقرر مواجهة الكيان الأسود وحدك — دون نسّاجة، دون خطة. جنون نظيف.",
+              "choices": [
+                {
+                  "label": "استخدم حزنك ودموعك كسلاح",
+                  "emoji": "💧",
+                  "next": "grief_weapon",
+                  "points_reward": 3,
+                  "color": "primary"
+                },
+                {
+                  "label": "اكسر الخيط الذهبي لتتحرر وتهاجم",
+                  "emoji": "💥",
+                  "next": "total_break",
+                  "points_reward": 2,
+                  "color": "danger"
+                }
+              ]
+            },
+            "learn_weaving": {
+              "text": "تطلب منها أن تُعلمك النسج. تتفحصك طويلاً: «إذا تعلمت، لن تتمكن من العودة لما كنته.»",
+              "choices": [
+                {
+                  "label": "اسألها عن موتها المنتظر",
+                  "emoji": "💀",
+                  "next": "ask_her_death",
+                  "points_reward": 3,
+                  "color": "warning"
+                },
+                {
+                  "label": "واجه الكيان معها متحالفين",
+                  "emoji": "🌑",
+                  "next": "alliance_confrontation",
+                  "points_reward": 2,
+                  "color": "success"
+                }
+              ]
+            },
+            "negotiate_weaver": {
+              "text": "تفاوضها بلهجة الشخص الذي لا يملك ما يخسره: «قرار واحد. خيط واحد. اكتبيه بيدي.» تُحرّك إبرتها ببطء.",
+              "choices": [
+                {
+                  "label": "اقطع الأقوى والأكثر توهجاً",
+                  "emoji": "✂️",
+                  "next": "cut_strongest",
+                  "points_reward": 3,
+                  "color": "danger"
+                },
+                {
+                  "label": "اقطع الأضعف والأخفت",
+                  "emoji": "✂️",
+                  "next": "cut_weakest",
+                  "points_reward": 1,
+                  "color": "warning"
+                },
+                {
+                  "label": "لا تقطع شيئاً، أرفض لعبتها",
+                  "emoji": "🚫",
+                  "next": "refuse_cut",
+                  "points_reward": 2,
+                  "color": "secondary"
+                }
+              ]
+            },
+            "ask_freedom": {
+              "text": "تسألها عن الحرية المطلقة. تتنهد بتعب أبدي: «الحرية المطلقة هي الفراغ المطلق. هل تريد الفراغ؟»",
+              "choices": [
+                {
+                  "label": "اقبل هذه الحرية المحدودة",
+                  "emoji": "🕊️",
+                  "next": "take_white_thread",
+                  "points_reward": 3,
+                  "required_points": 4,
+                  "color": "success"
+                },
+                {
+                  "label": "هذا الوهم لا يكفيني",
+                  "emoji": "❌",
+                  "next": "refuse_all_threads",
+                  "points_reward": 3,
+                  "color": "danger"
+                }
+              ]
+            },
+            "reconsider": {
+              "text": "تتوقف. الخيط منسوج منك — قطعه هو تدمير ذاتك. لكن الاستمرار هو قبول السجن. بين الهاويتين، تفكر.",
+              "choices": [
+                {
+                  "label": "استخدم هذه الورقة للتفاوض",
+                  "emoji": "🃏",
+                  "next": "negotiate_weaver",
+                  "points_reward": 3,
+                  "color": "warning"
+                },
+                {
+                  "label": "ابحث عن النسّاجة للمواجهة",
+                  "emoji": "🔍",
+                  "next": "seek_weaver",
+                  "points_reward": 2,
+                  "color": "primary"
+                }
+              ]
+            },
+            "painful_extraction": {
+              "text": "تنتزع نفسك بعنف مدروس. السحر المتمرد يأكل من جسدك وأنت تسحبه. الألم يتحول لصرخة داخلية صامتة لا تسمعها النسّاجة.",
+              "choices": [
+                {
+                  "label": "استمر في الانتزاع حتى النهاية",
+                  "emoji": "🩸",
+                  "next": "total_break",
+                  "points_reward": 3,
+                  "color": "danger"
+                },
+                {
+                  "label": "توقف واكتشف ما فقدته",
+                  "emoji": "🔍",
+                  "next": "discover_loss",
+                  "points_reward": 2,
+                  "color": "warning"
+                }
+              ]
+            },
+            "discover_loss": {
+              "text": "تبحث في نفسك الممزقة عما غاب. الشعور بالأمان — اختفى. الثقة بالغد — تبخرت. بقي شيء آخر لا اسم له بعد.",
+              "choices": [
+                {
+                  "label": "هذا الحضور يكفي الآن",
+                  "emoji": "✅",
+                  "next": "present_moment",
+                  "points_reward": 3,
+                  "color": "success"
+                },
+                {
+                  "label": "أريد أكثر، أريد الانفصال التام",
+                  "emoji": "💥",
+                  "next": "total_break",
+                  "points_reward": 2,
+                  "color": "danger"
+                }
+              ]
+            },
+            "force_cut": {
+              "text": "تضغط السيف بكل غضبك المتراكم. الخيط ينقطع بانفجار هادئ يُصم الآذان. الغرفة تتنفس بطريقة مختلفة.",
+              "choices": [
+                {
+                  "label": "تقبّل هذا الفراغ الموحش",
+                  "emoji": "⬛",
+                  "next": "empty_freedom",
+                  "points_reward": 2,
+                  "color": "secondary"
+                },
+                {
+                  "label": "ابحث عن النسّاجة لتنتقم",
+                  "emoji": "🔍",
+                  "next": "seek_weaver",
+                  "points_reward": 1,
+                  "color": "danger"
+                }
+              ]
+            },
+            "listen_weaver": {
+              "text": "تتوقف وتُصغي. صوتها يأتي من كل اتجاه: «أنت لا تحتاج أن تُكسرني. أنت تحتاج أن تفهم لماذا أنسج.»",
+              "choices": [
+                {
+                  "label": "اتبع الخيط لمعرفة السبب",
+                  "emoji": "🧵",
+                  "next": "follow_thread",
+                  "points_reward": 2,
+                  "color": "primary"
+                },
+                {
+                  "label": "تجاهل توسلها وواصل القطع",
+                  "emoji": "⚔️",
+                  "next": "force_cut",
+                  "points_reward": 2,
+                  "color": "danger"
+                }
+              ]
+            },
+            "unwritten_path": {
+              "text": "تُركز على الجزء الأبيض الفارغ من الصفحة. الحبر يتحرك ببطء وتردد — كأنه يخشى ما ستكتبه.",
+              "choices": [
+                {
+                  "label": "اكتب مصيرك بنفسك",
+                  "emoji": "✍️",
+                  "next": "self_write",
+                  "points_reward": 3,
+                  "required_points": 3,
+                  "color": "success"
+                },
+                {
+                  "label": "اترك الصفحة وابحث عن النسّاجة",
+                  "emoji": "📄",
+                  "next": "seek_weaver",
+                  "points_reward": 2,
+                  "color": "primary"
+                }
+              ]
+            },
+            "self_write": {
+              "text": "تكتب كلمتين بإصبعك المدمى: «أنا أختار.» الحبر يمتصه الورق بجشع. الكتاب يرتجف.",
+              "choices": [
+                {
+                  "label": "اخرج من البرج إلى العالم",
+                  "emoji": "🚪",
+                  "next": "ending_true_freedom",
+                  "color": "success"
+                },
+                {
+                  "label": "أكمل الكتابة لتصبح أنت النسّاج",
+                  "emoji": "✍️",
+                  "next": "ending_new_weaver",
+                  "color": "warning"
+                }
+              ]
+            },
+            "hero_ending_path": {
+              "text": "تختار الموت البطولي المكتوب دون أن تعرف الحقيقة القاسية. تُغلق الكتاب. تمشي نحو ما هو مكتوب وعيناك مفتوحتان.",
+              "choices": [
+                {
+                  "label": "استسلم للموت البطولي الجميل",
+                  "emoji": "🛡️",
+                  "next": "ending_beautiful_lie",
+                  "color": "primary"
+                },
+                {
+                  "label": "ارفض هذه الكذبة في اللحظة الأخيرة",
+                  "emoji": "💥",
+                  "next": "rebellion_path",
+                  "color": "danger"
+                }
+              ]
+            },
+            "collapse_path": {
+              "text": "تقرأ الحقيقة كاملة وتنهار تحتها. السحر يتركك. الصوت يتركك. تجلس على أرض البرج كحجر مبلل بالمطر.",
+              "choices": [
+                {
+                  "label": "أرفض هذه النهاية البائسة بشدة",
+                  "emoji": "💢",
+                  "next": "rebellion_path",
+                  "points_reward": 3,
+                  "color": "success"
+                },
+                {
+                  "label": "اقبلها وانهر كما هو مكتوب",
+                  "emoji": "💧",
+                  "next": "ending_collapse",
+                  "color": "secondary"
+                }
+              ]
+            },
+            "look_into_eyes": {
+              "text": "تنظر في عينيها الفيروزيتين عن قرب وتتحدى برودتها. ترى فيهما شيئاً لم تتوقعه — إرهاقاً أبدياً يشبه إرهاقك.",
+              "choices": [
+                {
+                  "label": "من يحرّككِ أنتِ؟",
+                  "emoji": "❓",
+                  "next": "the_coming",
+                  "points_reward": 2,
+                  "color": "primary"
+                },
+                {
+                  "label": "أنتِ دمية مثلي تماماً",
+                  "emoji": "🪞",
+                  "next": "mirror_moment",
+                  "points_reward": 3,
+                  "color": "warning"
+                }
+              ]
+            },
+            "mirror_moment": {
+              "text": "تقول لها: «أنتِ مثلي — مجرد أداة لشيء أكبر.» تصمت النسّاجة صمتاً أقل برودة من المعتاد.",
+              "choices": [
+                {
+                  "label": "لنتحالف معاً ضد الكيان",
+                  "emoji": "🤝",
+                  "next": "alliance_confrontation",
+                  "points_reward": 3,
+                  "color": "success"
+                },
+                {
+                  "label": "اسألها من هو هذا الكيان؟",
+                  "emoji": "🌑",
+                  "next": "the_coming",
+                  "points_reward": 2,
+                  "color": "primary"
+                }
+              ]
+            },
+            "ask_her_death": {
+              "text": "تسأل: «متى ستموتين؟» تضحك للمرة الأولى — ضحكة متعبة ومتشققة: «حين يولد أول نسّاج حر.»",
+              "choices": [
+                {
+                  "label": "أنا لستُ خليفتك، أرفض",
+                  "emoji": "🚫",
+                  "next": "refuse_role",
+                  "points_reward": 2,
+                  "color": "danger"
+                },
+                {
+                  "label": "علّميني كل شيء لأخلفك",
+                  "emoji": "📚",
+                  "next": "ending_new_weaver",
+                  "required_points": 7,
+                  "color": "success"
+                }
+              ]
+            },
+            "alliance_confrontation": {
+              "text": "أنت والنسّاجة تتجهان نحو الكيان الأسود معاً. هي تنسج السلاح. أنت تحمله. العالم يراقب بصمت من يخسر.",
+              "choices": [
+                {
+                  "label": "نفّذ الخطة كما اتفقتما",
+                  "emoji": "⚡",
+                  "next": "ending_chaos_victory",
+                  "color": "primary"
+                },
+                {
+                  "label": "غيّر الخطة لحظياً وضحِّ بنفسك",
+                  "emoji": "🌀",
+                  "next": "ending_sacrifice",
+                  "color": "warning"
+                }
+              ]
+            },
+            "total_break": {
+              "text": "تكسر كل الخيوط بعنف كامل. الذكريات تتطاير كشظايا زجاج. الألم لا يوصف. وفي الفراغ — شيء يبدأ.",
+              "choices": [
+                {
+                  "label": "الحرية الفارغة تكفيني",
+                  "emoji": "🕊️",
+                  "next": "ending_empty_victory",
+                  "color": "secondary"
+                },
+                {
+                  "label": "تندم وتحاول العودة للقيود",
+                  "emoji": "↩️",
+                  "next": "ending_regret",
+                  "color": "danger"
+                }
+              ]
+            },
+            "peace_trap": {
+              "text": "تقبل الراحة. الخيوط الذهبية تدفأ وتلتف كأم تحتضن. لكن الأم لا تُطلق من تحتضنه أبداً.",
+              "choices": [
+                {
+                  "label": "استيقظ من الفخ وقاوم بشراسة",
+                  "emoji": "⚠️",
+                  "next": "resist_comfort",
+                  "points_reward": 3,
+                  "color": "success"
+                },
+                {
+                  "label": "ابقَ في هذه السكينة الذهبية",
+                  "emoji": "😮‍💨",
+                  "next": "ending_gilded_cage",
+                  "color": "secondary"
+                }
+              ]
+            },
+            "resist_comfort": {
+              "text": "تقاوم الدفء الزائف. تشد الخيط الذهبي وتصرخ اسمك — اسمك الحقيقي الذي لم يكتبه أحد بعد.",
+              "choices": [
+                {
+                  "label": "اطلب التفاوض على حريتك",
+                  "emoji": "🤝",
+                  "next": "negotiate_weaver",
+                  "points_reward": 3,
+                  "color": "primary"
+                },
+                {
+                  "label": "اكسر القفص بقوة مطلقة",
+                  "emoji": "💥",
+                  "next": "total_break",
+                  "points_reward": 2,
+                  "color": "danger"
+                }
+              ]
+            },
+            "read_all": {
+              "text": "تقرأ كل شيء. سنوات مكتوبة بخط بارد لا يرحم. كل حب — مكتوب. كل خسارة — مُخططة. كل لحظة اعتقدت فيها أنك حر.",
+              "choices": [
+                {
+                  "label": "أنا جاهز لأداء دوري بوعي",
+                  "emoji": "⚡",
+                  "next": "alliance_confrontation",
+                  "points_reward": 2,
+                  "color": "primary"
+                },
+                {
+                  "label": "أريد كتابة صفحتي الخاصة",
+                  "emoji": "✍️",
+                  "next": "self_write",
+                  "points_reward": 3,
+                  "required_points": 3,
+                  "color": "success"
+                }
+              ]
+            },
+            "cut_strongest": {
+              "text": "تقطع الخيط الأسمك. صمت مرعب ثم سقوط على الركبتين. ما ربطك بنصف من تعرف — انقطع.",
+              "choices": [
+                {
+                  "label": "تقبّل الخطر واخرج للمواجهة",
+                  "emoji": "⚔️",
+                  "next": "solo_confrontation",
+                  "points_reward": 3,
+                  "color": "success"
+                },
+                {
+                  "label": "اطلب حماية النسّاجة مجدداً",
+                  "emoji": "🛡️",
+                  "next": "alliance_confrontation",
+                  "points_reward": 1,
+                  "color": "warning"
+                }
+              ]
+            },
+            "cut_weakest": {
+              "text": "تقطع الخيط الأخفت. لا يحدث شيء واضح. النسّاجة تومئ: «هذا الخيط كان يربطك بشيء لم تعرف أنك تحبه.»",
+              "choices": [
+                {
+                  "label": "هذا ما أردته، مسؤولية كاملة",
+                  "emoji": "✅",
+                  "next": "learn_weaving",
+                  "points_reward": 2,
+                  "color": "primary"
+                },
+                {
+                  "label": "أخطأت، أعد الخيط إن أمكن",
+                  "emoji": "↩️",
+                  "next": "ending_regret",
+                  "color": "danger"
+                }
+              ]
+            },
+            "refuse_cut": {
+              "text": "تُعيد المقص العظمي إليها: «لن أقطع ما لا أفهم عواقبه.» النسّاجة تومئ: «هذا أحكم ما سمعته في قرون.»",
+              "choices": [
+                {
+                  "label": "تعلّم خبايا النسيج أولاً",
+                  "emoji": "📚",
+                  "next": "learn_weaving",
+                  "points_reward": 3,
+                  "color": "success"
+                },
+                {
+                  "label": "اسألها ماذا ستكسب من ذلك",
+                  "emoji": "❓",
+                  "next": "ask_her_death",
+                  "points_reward": 2,
+                  "color": "primary"
+                }
+              ]
+            },
+            "grief_weapon": {
+              "text": "دموعك الحقيقية شققت الخيط يوماً. تستدعي ذلك الحزن الذي اعتقدت أنه ضعف وتُوجهه نحو الكيان كسهم مصنوع من الإنسانية الخالصة.",
+              "choices": [
+                {
+                  "label": "اكسره بالفقدان والحزن الحقيقي",
+                  "emoji": "💧",
+                  "next": "ending_grief_victory",
+                  "color": "success"
+                },
+                {
+                  "label": "توقف عن البكاء وقاتل بسيفك غاضباً",
+                  "emoji": "⚔️",
+                  "next": "ending_defiant_death",
+                  "color": "danger"
+                }
+              ]
+            },
+            "present_moment": {
+              "text": "تجلس في اللحظة الحالية تماماً. لا مستقبل مكتوب. لا ماضٍ مؤلم. فقط هذه الثانية — وهي أوسع من أي نسيج.",
+              "choices": [
+                {
+                  "label": "ابقَ ساكناً في الحاضر للأبد",
+                  "emoji": "✨",
+                  "next": "ending_present_victory",
+                  "color": "success"
+                },
+                {
+                  "label": "عد إلى دوامة الماضي بحسرة والم",
+                  "emoji": "↩️",
+                  "next": "ending_regret",
+                  "color": "warning"
+                }
+              ]
+            },
+            "leak_info": {
+              "text": "تنشر في مجلس السحرة ما اكتشفته. بعضهم يُصدّق. بعضهم يخاف. كلهم يتغيرون.",
+              "choices": [
+                {
+                  "label": "هذا كان قصدي لإنهاء اللعبة",
+                  "emoji": "😤",
+                  "next": "ending_pyrrhic",
+                  "color": "danger"
+                },
+                {
+                  "label": "أعتذر وأحاول إصلاح الفوضى",
+                  "emoji": "↩️",
+                  "next": "alliance_confrontation",
+                  "points_reward": 1,
+                  "color": "primary"
+                }
+              ]
+            },
+            "use_info_against": {
+              "text": "تستخدم شكوكها ضدها بذكاء: إذا كانت هي الكيان المتخفي، فخيوطها سلاحها — وسلاحها هشاشتها.",
+              "choices": [
+                {
+                  "label": "أعد كتابة النسيج والتحكم به",
+                  "emoji": "✍️",
+                  "next": "ending_rewrite",
+                  "color": "success"
+                },
+                {
+                  "label": "دمر النسيج بدلاً من كتابته وانشر الفوضى",
+                  "emoji": "💥",
+                  "next": "ending_chaos_victory",
+                  "color": "danger"
+                }
+              ]
+            },
+            "ask_alternative": {
+              "text": "تسأل عن البديل. تتردد طويلاً ثم تقول بصوت خافت: «أخوك.» الجملة تُقيم العالم رأساً على عقب.",
+              "choices": [
+                {
+                  "label": "أين أخي؟ سأمزقك!",
+                  "emoji": "💢",
+                  "next": "ending_brother_rage",
+                  "color": "danger"
+                },
+                {
+                  "label": "اقبل الدور اللعين لإنقاذه",
+                  "emoji": "🛡️",
+                  "next": "alliance_confrontation",
+                  "points_reward": 2,
+                  "color": "success"
+                }
+              ]
+            },
+            "final_refusal": {
+              "text": "تقول ببرود قاطع: «لا. حتى لو انهار العالم.» تقطع الخيط بيدك العارية. الدم يسيل. العالم لا ينهار.",
+              "choices": [
+                {
+                  "label": "واجه الكيان الأسود حراً حتى الموت",
+                  "emoji": "💥",
+                  "next": "ending_defiant_death",
+                  "color": "primary"
+                },
+                {
+                  "label": "تراجع بخوف واقبل الخيط الأبيض كمنقذ",
+                  "emoji": "⬜",
+                  "next": "take_white_thread",
+                  "color": "warning"
+                }
+              ]
+            },
+            "read_future_only": {
+              "text": "تقتصر على قراءة ما يخص المستقبل. ثلاثة مسارات — كلها مؤلمة بطرق مختلفة.",
+              "choices": [
+                {
+                  "label": "اختر الطريق بأقل خسارة ممكنة",
+                  "emoji": "🧮",
+                  "next": "alliance_confrontation",
+                  "points_reward": 1,
+                  "color": "primary"
+                },
+                {
+                  "label": "اختر أصعب وأقسى طريق للتحدي",
+                  "emoji": "⚔️",
+                  "next": "solo_confrontation",
+                  "points_reward": 3,
+                  "color": "danger"
+                }
+              ]
+            },
+            "empty_freedom": {
+              "text": "تقطع الخيط وتخرج إلى الليل. لا شيء يسحبك. لا شيء يحميك. الحرية الحقيقية أثقل بكثير مما توقعت.",
+              "choices": [
+                {
+                  "label": "غادر المدينة الملعونة واتركها لمصيرها",
+                  "emoji": "🚶",
+                  "next": "ending_empty_victory",
+                  "color": "secondary"
+                },
+                {
+                  "label": "ارجع وقاتل الكيان الأسود بإرادتك",
+                  "emoji": "⚔️",
+                  "next": "solo_confrontation",
+                  "points_reward": 3,
+                  "color": "danger"
+                }
+              ]
+            },
+            "accept_fate_early": {
+              "text": "تُقنع نفسك أن التمرد المكتوب تمرد حقيقي. أن الإحساس بالحرية يكفي. النسّاجة تبتسم ابتسامة من يعرف.",
+              "choices": [
+                {
+                  "label": "عش مع المعرفة بألم",
+                  "emoji": "😶",
+                  "next": "ending_gilded_cage",
+                  "color": "secondary"
+                },
+                {
+                  "label": "تمرد رغم كل شيء بقوة",
+                  "emoji": "💥",
+                  "next": "rebellion_path",
+                  "points_reward": 3,
+                  "color": "danger"
+                }
+              ]
+            },
+            "break_free_physical": {
+              "text": "تنتزع نفسك بعنف. الخيوط تترك خطوطاً ذهبية على جلدك كندوب مضيئة. تسقط بعيداً عن النسيج — وأقرب إلى نفسك.",
+              "choices": [
+                {
+                  "label": "غادر الغرفة حراً",
+                  "emoji": "🚪",
+                  "next": "final_refusal",
+                  "points_reward": 2,
+                  "color": "success"
+                },
+                {
+                  "label": "ابقَ وتحدث بجرأة",
+                  "emoji": "💬",
+                  "next": "mirror_moment",
+                  "points_reward": 3,
+                  "color": "primary"
+                }
+              ]
+            },
+            "take_white_thread": {
+              "text": "الخيط الأبيض يلتف حول معصمك بدفء مختلف — ليس سحباً، بل اقتراحاً. ليس مصيراً، بل إمكانية.",
+              "choices": [
+                {
+                  "label": "امضِ مع الخيط الأبيض",
+                  "emoji": "⬜",
+                  "next": "ending_true_freedom",
+                  "color": "success"
+                },
+                {
+                  "label": "اسألها ماذا يعني الآن",
+                  "emoji": "❓",
+                  "next": "learn_weaving",
+                  "points_reward": 2,
+                  "color": "primary"
+                }
+              ]
+            },
+            "refuse_all_threads": {
+              "text": "تقول: «لا الذهبي ولا الأبيض. لا خيوط.» النسّاجة تنظر إليك بشيء لم تره من قبل في عينيها — دهشة.",
+              "choices": [
+                {
+                  "label": "نعم — خاماً تاماً وبلا قدر",
+                  "emoji": "🌫️",
+                  "next": "total_break",
+                  "points_reward": 3,
+                  "color": "danger"
+                },
+                {
+                  "label": "أعد النظر، لا أحتمل",
+                  "emoji": "↩️",
+                  "next": "take_white_thread",
+                  "points_reward": 1,
+                  "color": "warning"
+                }
+              ]
+            },
+            "ending_true_freedom": {
+              "is_ending": true,
+              "text": "تخرج من البرج لأول مرة كإنسان لا كأداة سحرية. الشمس ذهبية لكن لا خيط يربطك بها. كل خطوة تختارها بقدر ما يختار البشر شيئاً ما.",
+              "choices": []
+            },
+            "ending_new_weaver": {
+              "is_ending": true,
+              "text": "تجلس في مكانها وتأخذ الإبرة العظمية من يدها المرتجفة. الخيوط الذهبية تتعرف على يد جديدة. أنت الآن تنسج — وأول خيط تنسجه هو خيطها.",
+              "choices": []
+            },
+            "ending_collapse": {
+              "is_ending": true,
+              "text": "تعرف الحقيقة كاملة وتنهار تحتها. لا بطولة. لا نجاة. فقط حقيقة باردة وأرض صلبة.",
+              "choices": []
+            },
+            "ending_beautiful_lie": {
+              "is_ending": true,
+              "text": "تبتلع الحقيقة وترضى بالمسرحية. تموت بطلاً في قصة لم تكتبها. البعض يحتاج هذا. ربما أنت أيضاً.",
+              "choices": []
+            },
+            "ending_chaos_victory": {
+              "is_ending": true,
+              "text": "أنت والنسّاجة تُدخلان الفوضى في نسيج الكيان الأسود بشكل منهجي. كل خيط يصبح سماً. ينهار النسيج وتبقيان — شريكتا تدمير متحكمتان.",
+              "choices": []
+            },
+            "ending_sacrifice": {
+              "is_ending": true,
+              "text": "في اللحظة الحاسمة، تُغيّر الخطة. تصبح أنت الخطأ في الحساب — الشيء غير المتوقع الذي يُحطم النسيج من الداخل. جسدك ثمن العوالم.",
+              "choices": []
+            },
+            "ending_empty_victory": {
+              "is_ending": true,
+              "text": "أنت حر. الكيان الأسود يُكمل عمله في الظل. انتصرت على نسّاجتك وخسرت كل شيء كانت تحمله النسّاجة — بما فيها الحماية.",
+              "choices": []
+            },
+            "ending_regret": {
+              "is_ending": true,
+              "text": "تريد إعادة الخيط. ما قُطع لا يُعاد. تجلس في غرفتك وتتذكر الدفء الذهبي كمن يتذكر بيتاً أحرقه بيده.",
+              "choices": []
+            },
+            "ending_gilded_cage": {
+              "is_ending": true,
+              "text": "تبقى في سكينة القفص الذهبي. الخيوط تدفئك. العالم يمضي بعيداً. أنت مرتاح — ومسجون — وتعرف الفرق ولا تتحرك.",
+              "choices": []
+            },
+            "ending_grief_victory": {
+              "is_ending": true,
+              "text": "الحزن البشري أسقط ما لم تُسقطه الأسلحة. الكيان الأسود المتجرد من المشاعر لم يواجه هذا من قبل. تنتصر بما كان يُعتبر ضعفك.",
+              "choices": []
+            },
+            "ending_present_victory": {
+              "is_ending": true,
+              "text": "النسّاجة تجلس بجانبك في صمت البرج. لأول مرة منذ قرون لا تنسج. أنتما تجلسان في الحاضر — وهذا وحده انتصار.",
+              "choices": []
+            },
+            "ending_rewrite": {
+              "is_ending": true,
+              "text": "تُعيد كتابة خيود النسّاجة. إذا كانت هي الكيان المتخفي، فهي الآن تحمل قصة مختلفة. إذا لم تكن — فقد منحتها ما لم تملكه أبداً: خيطاً اختارته أخرى.",
+              "choices": []
+            },
+            "ending_pyrrhic": {
+              "is_ending": true,
+              "text": "النسيج الكوني ينهار بالفوضى التي زرعتها. تنجو. المدينة العظيمة تدفع الثمن. الانتصار المر أثقل من الهزيمة النظيفة.",
+              "choices": []
+            },
+            "ending_defiant_death": {
+              "is_ending": true,
+              "text": "تواجه الكيان وحدك. بلا سحر. بلا خطة. بلا نسّاجة. تسقط وقد نظرت إليه في عيونه ولم تخضع.",
+              "choices": []
+            },
+            "ending_brother_rage": {
+              "is_ending": true,
+              "text": "تهاجمها بغضب أعمى. الخيوط تُقيدك. تصرخ باسم أخيك. وللمرة الأولى — النسّاجة تبكي.",
+              "choices": []
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,801 @@
+{
+  "world": "الفانتازيا",
+  "categories": [
+    {
+      "name": "الفانتازيا المظلمة",
+      "stories": [
+        {
+          "id": "fb3_dungeon_slime",
+          "title": "معدة القاع",
+          "summary": "أنت هلام ضعيف خُلق لتنظيف الدماء فقط، لكن قطرة من دم ساحر عظيم أيقظت وعيك. عليك أن تلتهم الفتات وتتفادى الأبطال حتى تصير سيد الزنزانة أو تموت تحت حذاء أحمق.",
+          "difficulty": "صعب",
+          "estimated_length": "طويلة",
+          "theme": "الفانتازيا المظلمة",
+          "world_type": "fantasy",
+          "game_mode": "single",
+          "perspectives": [
+            {
+              "id": "awakened_slime",
+              "label": "هلام الزنزانة",
+              "emoji": "🧪",
+              "description": "كتلة هشة وذكية، تتعلم أن البقاء في القاع يحتاج دهاءً أكثر من الأنياب.",
+              "start_node": "start"
+            }
+          ],
+          "nodes": {
+            "start": {
+              "text": "أنت لست وحشاً مخيفاً ولا ساحراً متمرداً؛ أنت مجرد كتلة هلامية خضراء تعيش في أحشاء زنزانة منسية. كل كيانك مكرس لتجنب الأحذية الثقيلة التهام الفتات. لكن اليوم، تساقطت قطرة دماء سحرية متوهجة من مغامر جريح لتستقر في نواتك الرخوة. وعي جديد، بارد وحاد، يشتعل داخلك للمرة الأولى.",
+              "choices": [
+                {
+                  "label": "ابتلع دم الساحر",
+                  "emoji": "🩸",
+                  "next": "blood_awakening",
+                  "points_reward": 3,
+                  "color": "danger"
+                },
+                {
+                  "label": "اختبئ في المصرف",
+                  "emoji": "🕳️",
+                  "next": "hide_in_drain",
+                  "points_reward": 1,
+                  "color": "secondary"
+                },
+                {
+                  "label": "التهِم الزجاج المكسور",
+                  "emoji": "🔮",
+                  "next": "taste_arcane_blood",
+                  "points_reward": 2,
+                  "color": "warning"
+                }
+              ]
+            },
+            "blood_awakening": {
+              "text": "الدماء السحرية تغلي داخل نواتك. يتمدد جسدك الهلامي، وتتشكل لديك حواس بدائية. الآن، أنت لست مجرد زبال في هذه الزنزانة، بل مفترس ينمو. الجوع للدم والمعرفة يمزق كيانك الجديد.",
+              "choices": [
+                {
+                  "label": "التهِم مسحوق العظم",
+                  "emoji": "🦴",
+                  "next": "collect_bone_dust",
+                  "points_reward": 2,
+                  "color": "warning"
+                },
+                {
+                  "label": "التهِم شظية الرون",
+                  "emoji": "🪬",
+                  "next": "collect_rune_shard",
+                  "points_reward": 3,
+                  "color": "danger"
+                },
+                {
+                  "label": "تجنب بقعة الملح",
+                  "emoji": "🧂",
+                  "next": "avoid_hero_boot",
+                  "points_reward": 1,
+                  "color": "secondary"
+                }
+              ]
+            },
+            "hide_in_drain": {
+              "text": "تنزلق بحذر نحو شبكة الصرف الصحي المهترئة. الظلام والمياه الآسنة يخفيان وهجك الجديد. من هنا، يمكنك مراقبة تحركات الحراس والمغامرين دون أن يلاحظك أحد، كظل سائل ينتظر الفرصة.",
+              "choices": [
+                {
+                  "label": "سرق حبر الساحر",
+                  "emoji": "🖋️",
+                  "next": "steal_mage_ink",
+                  "points_reward": 2,
+                  "color": "warning"
+                },
+                {
+                  "label": "تبع القناة السفلى",
+                  "emoji": "🌊",
+                  "next": "drain_tunnel_choice",
+                  "points_reward": 1,
+                  "color": "secondary"
+                }
+              ]
+            },
+            "taste_arcane_blood": {
+              "text": "تتذوق المزيد من دماء المغامر المتروكة على الحجارة الباردة. كل قطرة تمنحك ومضات من ذكرياته الميتة — تعاويذ مكسورة وأسماء شياطين. السحر يندمج مع حمضك، لتصبح سلاحاً حياً.",
+              "choices": [
+                {
+                  "label": "اختبئ خلف الجثة",
+                  "emoji": "🧟",
+                  "next": "avoid_hero_boot",
+                  "points_reward": 1,
+                  "color": "primary"
+                },
+                {
+                  "label": "اقفز إلى المصرف",
+                  "emoji": "🕳️",
+                  "next": "hide_in_drain",
+                  "points_reward": 2,
+                  "color": "success"
+                },
+                {
+                  "label": "واجه الضوء مباشرة",
+                  "emoji": "🔥",
+                  "next": "ending_death_fire_lantern",
+                  "color": "secondary"
+                }
+              ]
+            },
+            "collect_bone_dust": {
+              "text": "تزحف فوق عظام قديمة طحنتها أحذية الحراس، وتدمج مسحوقها في قشرتك الخارجية. تكتسب درعاً بدائياً خشناً يقلل من رخاوتك وضعفك أمام النصال.",
+              "choices": [
+                {
+                  "label": "هاجم الجرذ الحامل",
+                  "emoji": "🐀",
+                  "next": "rat_pack_encounter",
+                  "points_reward": 2,
+                  "color": "warning"
+                },
+                {
+                  "label": "انتظر حتى يهدأ",
+                  "emoji": "⏳",
+                  "next": "silent_absorption",
+                  "points_reward": 1,
+                  "color": "secondary"
+                }
+              ]
+            },
+            "collect_rune_shard": {
+              "text": "تبتلع شظية سحرية مكسورة من فخ معطل. الشظية تنبض بطاقة كهربائية خفيفة داخل كتلتك. أصبح بإمكانك الآن إطلاق شرارات صعق خفيفة لتخدير الفرائس الصغيرة.",
+              "choices": [
+                {
+                  "label": "جرّب خدعة الهمس",
+                  "emoji": "🗣️",
+                  "next": "mimic_voice_trick",
+                  "points_reward": 3,
+                  "color": "danger"
+                },
+                {
+                  "label": "نمِّ الحمض أولاً",
+                  "emoji": "🧪",
+                  "next": "acid_control_trial",
+                  "points_reward": 2,
+                  "color": "success"
+                }
+              ]
+            },
+            "avoid_hero_boot": {
+              "text": "يخطو مغامر ضخم بحذائه المعدني نحوك مباشرة. تنبسط كبركة مياه ضحلة، وتتجنب السحق بأعجوبة. يمر المغامر دون أن يلاحظ أن البركة التي داسها تمتلك عيوناً تراقب ظهره.",
+              "choices": [
+                {
+                  "label": "ابتلع قطرة الزيت",
+                  "emoji": "🪔",
+                  "next": "acid_control_trial",
+                  "points_reward": 2,
+                  "color": "warning"
+                },
+                {
+                  "label": "ابتلع الخبز العفن",
+                  "emoji": "🍞",
+                  "next": "silent_absorption",
+                  "points_reward": 1,
+                  "color": "secondary"
+                },
+                {
+                  "label": "تزحلق تحت الحذاء",
+                  "emoji": "⚠️",
+                  "next": "ending_death_boot_crush",
+                  "color": "secondary"
+                }
+              ]
+            },
+            "steal_mage_ink": {
+              "text": "تتسلل إلى جيب ساحر ميت وتمتص حبر تعاويذه. يتحول لونك إلى الأزرق الداكن وتتسمم عصارتك. لم تعد مجرد هلام، بل كيان كيميائي شديد السمية.",
+              "choices": [
+                {
+                  "label": "ارسم أثراً مضللاً",
+                  "emoji": "🖌️",
+                  "next": "hero_patrol_crossing",
+                  "points_reward": 2,
+                  "color": "warning"
+                },
+                {
+                  "label": "احتفظ بالحبر داخلك",
+                  "emoji": "🧿",
+                  "next": "chamber_of_keys",
+                  "points_reward": 1,
+                  "color": "secondary"
+                }
+              ]
+            },
+            "drain_tunnel_choice": {
+              "text": "قنوات الصرف تتفرع أمامك. اليمين ينحدر نحو مسالك الجرذان، واليسار يصعد نحو غرف الحرس السفلية. كل مسار يحمل غذاءً وخطرًا مختلفين لكيانك المتنامي.",
+              "choices": [
+                {
+                  "label": "اتبع عربة الجثث",
+                  "emoji": "🛒",
+                  "next": "corpse_cart_ride",
+                  "points_reward": 2,
+                  "color": "warning"
+                },
+                {
+                  "label": "اتجه لحوض النفايات",
+                  "emoji": "☣️",
+                  "next": "alchemy_waste_pool",
+                  "points_reward": 3,
+                  "color": "danger"
+                }
+              ]
+            },
+            "rat_pack_encounter": {
+              "text": "تواجه مجموعة من جرذان الزنزانة العملاقة، عيونها حمراء وتفوح منها رائحة الطاعون. إنها ترى فيك وجبة سهلة، وعليك أن تثبت لها من هو المفترس الحقيقي في هذا القاع.",
+              "choices": [
+                {
+                  "label": "افتح الباب بالمفتاح",
+                  "emoji": "🗝️",
+                  "next": "chamber_of_keys",
+                  "points_reward": 2,
+                  "color": "warning"
+                },
+                {
+                  "label": "اقفز فوق اللوحة",
+                  "emoji": "🧂",
+                  "next": "ending_death_salt_bucket",
+                  "color": "secondary"
+                }
+              ]
+            },
+            "mimic_voice_trick": {
+              "text": "تهتز كتلتك بترددات معينة لتقليد صراخ حارس مصاب. تنجذب الجرذان نحو مصدر الصوت، مما يتيح لك التهامها من الخلف واحدة تلو الأخرى بهدوء حمضي مميت.",
+              "choices": [
+                {
+                  "label": "اختبئ بمكتبة العفن",
+                  "emoji": "📚",
+                  "next": "library_slime_script",
+                  "points_reward": 2,
+                  "color": "warning"
+                },
+                {
+                  "label": "استغل الفوضى سريعاً",
+                  "emoji": "⚡",
+                  "next": "mini_boss_crumbs",
+                  "points_reward": 3,
+                  "color": "danger"
+                }
+              ]
+            },
+            "acid_control_trial": {
+              "text": "تركز عصارتك الحمضية وتنفثها كالسهم. تذيب الجرذان الحية في ثوانٍ، محولة إياها إلى حساء مغذٍ تمتصه بشراهة لزيادة حجمك.",
+              "choices": [
+                {
+                  "label": "أذب قفل الباب",
+                  "emoji": "🚪",
+                  "next": "chamber_of_keys",
+                  "points_reward": 2,
+                  "color": "warning"
+                },
+                {
+                  "label": "جرّبها على جندي",
+                  "emoji": "🛡️",
+                  "next": "hero_patrol_crossing",
+                  "points_reward": 3,
+                  "color": "danger"
+                }
+              ]
+            },
+            "silent_absorption": {
+              "text": "بصمت قاتل، تنزلق فوق الفئران النائمة وتبتلعها ببطء. الحمض يحللها دون أن تصدر صوتاً، وتتحول كتلتك إلى ضعف حجمها السابق.",
+              "choices": [
+                {
+                  "label": "التهم صدأ الأقفال",
+                  "emoji": "⛓️",
+                  "next": "feed_on_rust",
+                  "points_reward": 2,
+                  "color": "warning"
+                },
+                {
+                  "label": "اتبع نفق الفطر",
+                  "emoji": "🍄",
+                  "next": "feed_on_mushroom",
+                  "points_reward": 1,
+                  "color": "secondary"
+                }
+              ]
+            },
+            "chamber_of_keys": {
+              "text": "تدخل غرفة مليئة بالمفاتيح الحديدية المعلقة والمحروسة بتعويذة نار. المعادن هنا تمثل خطوة مهمة لتطوير نواتك إذا تمكنت من هضمها.",
+              "choices": [
+                {
+                  "label": "افتح قفص الوحش",
+                  "emoji": "🐗",
+                  "next": "release_prison_beast",
+                  "points_reward": 3,
+                  "color": "danger"
+                },
+                {
+                  "label": "انهب القبو المعدني",
+                  "emoji": "⚙️",
+                  "next": "feed_on_rust",
+                  "points_reward": 2,
+                  "color": "success"
+                },
+                {
+                  "label": "اقترب من الخزان",
+                  "emoji": "🧂",
+                  "next": "ending_death_salt_bucket",
+                  "color": "secondary"
+                }
+              ]
+            },
+            "feed_on_rust": {
+              "text": "تبتلع قفلًا صدئًا وتترك حمضك يحلل المعدن المتآكل. تزداد كثافتك ويصبح لونك أقرب للحديد الصدئ. أنت تكتسب صلابة غير معهودة لبني جنسك.",
+              "choices": [
+                {
+                  "label": "تخفَّ بين المسامير",
+                  "emoji": "🪙",
+                  "next": "hero_patrol_crossing",
+                  "points_reward": 2,
+                  "color": "warning"
+                },
+                {
+                  "label": "اصنع صدى زائف",
+                  "emoji": "🔊",
+                  "next": "summon_false_echo",
+                  "points_reward": 3,
+                  "color": "danger"
+                }
+              ]
+            },
+            "feed_on_mushroom": {
+              "text": "تتغذى على الفطريات المشعة النامية في الزوايا الرطبة. تتوهج كتلتك بضوء فلوري خافت يشتت الأعداء، لكنه يجعلك هدفاً مرئياً في الظلام الدامس.",
+              "choices": [
+                {
+                  "label": "ابحث عن عظم ثقيل",
+                  "emoji": "🦴",
+                  "next": "mini_boss_crumbs",
+                  "points_reward": 2,
+                  "color": "warning"
+                },
+                {
+                  "label": "غامر دون توازن",
+                  "emoji": "⚠️",
+                  "next": "ending_death_boot_crush",
+                  "color": "secondary"
+                }
+              ]
+            },
+            "hero_patrol_crossing": {
+              "text": "دورية من المغامرين المحترفين تمر في الممر الرئيسي. مشاعلهم تضيء الظلام، وعيونهم تبحث عن وحوش الزنزانة. يجب أن تمر دون أن يلحظوا هذا التطور المفاجئ في هلام بسيط.",
+              "choices": [
+                {
+                  "label": "تزحلق تحت العربة",
+                  "emoji": "🛞",
+                  "next": "corpse_cart_ride",
+                  "points_reward": 2,
+                  "color": "warning"
+                },
+                {
+                  "label": "فعل لوحة الفخ",
+                  "emoji": "🪤",
+                  "next": "trap_plate_path",
+                  "points_reward": 3,
+                  "color": "danger"
+                },
+                {
+                  "label": "اسرق كيس الملح",
+                  "emoji": "🧂",
+                  "next": "ending_death_salt_bucket",
+                  "color": "secondary"
+                }
+              ]
+            },
+            "trap_plate_path": {
+              "text": "تنزلق ببطء فوق ألواح الفخاخ الحساسة للوزن. مرونتك الفائقة تسمح لك بتوزيع كتلتك دون إطلاق الأسهم المسمومة. تتجاوز الفخ بمهارة سائل لا يمكن الإمساك به.",
+              "choices": [
+                {
+                  "label": "تسلل لغرفة القاع",
+                  "emoji": "🕳️",
+                  "next": "throne_pit_gate",
+                  "points_reward": 3,
+                  "color": "danger"
+                },
+                {
+                  "label": "انهب الفتات أولاً",
+                  "emoji": "🍖",
+                  "next": "mini_boss_crumbs",
+                  "points_reward": 1,
+                  "color": "secondary"
+                }
+              ]
+            },
+            "corpse_cart_ride": {
+              "text": "تندس داخل عربة تنقل جثث الحراس المتوفين. وسط رائحة الموت والتعفن، تتغذى براحتك وتنتقل عبر الزنزانة كراكب متخفٍ في سفينة الأموات.",
+              "choices": [
+                {
+                  "label": "امتص ترسيمة الخوذة",
+                  "emoji": "👑",
+                  "next": "steal_crown_relic",
+                  "points_reward": 3,
+                  "color": "danger"
+                },
+                {
+                  "label": "اكتفِ بالغذاء الآمن",
+                  "emoji": "🍽️",
+                  "next": "evolve_jelly_spine",
+                  "points_reward": 2,
+                  "color": "success"
+                }
+              ]
+            },
+            "alchemy_waste_pool": {
+              "text": "تصل إلى بركة من النفايات الخيميائية المتوهجة. السوائل السحرية المهملة هنا قاتلة للبشر، لكنها تمثل وجبة دسمة وخطيرة لتطورك اللاحق.",
+              "choices": [
+                {
+                  "label": "اشرب مصل التثبيت",
+                  "emoji": "🧴",
+                  "next": "absorb_alchemy_drop",
+                  "points_reward": 2,
+                  "color": "warning"
+                },
+                {
+                  "label": "اغطس بلا تحضير",
+                  "emoji": "☣️",
+                  "next": "ending_death_hunter_alchemist",
+                  "color": "secondary"
+                }
+              ]
+            },
+            "absorb_alchemy_drop": {
+              "text": "تمتص بحذر قطرة واحدة من النفايات. ألم ممض يجتاح نواتك، ثم تتشكل لديك قدرات جديدة. لقد دمجت سحر الخيمياء في تركيبتك البيولوجية.",
+              "choices": [
+                {
+                  "label": "نمِّ العمود الهلامي",
+                  "emoji": "🧬",
+                  "next": "evolve_jelly_spine",
+                  "points_reward": 3,
+                  "color": "danger"
+                },
+                {
+                  "label": "نمِّ الجلد الزجاجي",
+                  "emoji": "🪞",
+                  "next": "evolve_glass_skin",
+                  "points_reward": 2,
+                  "color": "success"
+                }
+              ]
+            },
+            "evolve_jelly_spine": {
+              "text": "تشكل لنفسك هيكلاً شوكياً مرناً من العظام المهضومة والمعادن. لم تعد مجرد كتلة زاحفة، بل كائن قادراً على الوقوف والهجوم القاتل.",
+              "choices": [
+                {
+                  "label": "كمّن لقائد الدورية",
+                  "emoji": "⚔️",
+                  "next": "ambush_captain",
+                  "points_reward": 3,
+                  "color": "danger"
+                },
+                {
+                  "label": "تسلل للجوهر مباشرة",
+                  "emoji": "🌑",
+                  "next": "submerge_in_core",
+                  "points_reward": 2,
+                  "color": "success"
+                }
+              ]
+            },
+            "evolve_glass_skin": {
+              "text": "تحول سطحك الخارجي إلى زجاج مرن من خلال هضم رمال السيليكا السحرية. ضربات السيوف تنزلق عنك الآن دون إحداث ضرر كبير. دفاعك أصبح متيناً.",
+              "choices": [
+                {
+                  "label": "اقرأ نصوص الهلام",
+                  "emoji": "📜",
+                  "next": "library_slime_script",
+                  "points_reward": 2,
+                  "color": "warning"
+                },
+                {
+                  "label": "اعتمد على الصلابة",
+                  "emoji": "🧱",
+                  "next": "ambush_captain",
+                  "points_reward": 1,
+                  "color": "secondary"
+                }
+              ]
+            },
+            "mini_boss_crumbs": {
+              "text": "تتتبع آثار دماء زعيم وحوش مهزوم حديثاً. الفتات المتبقي من هذا الكيان القوي سيمنحك قفزة تطورية هائلة إذا وصلت إليه قبل الزبالين الآخرين.",
+              "choices": [
+                {
+                  "label": "التهِم الغنيمة الكبرى",
+                  "emoji": "🍖",
+                  "next": "evolve_jelly_spine",
+                  "points_reward": 3,
+                  "color": "danger"
+                },
+                {
+                  "label": "خذ فتاتاً واهرب",
+                  "emoji": "🥄",
+                  "next": "library_slime_script",
+                  "points_reward": 1,
+                  "color": "secondary"
+                }
+              ]
+            },
+            "library_slime_script": {
+              "text": "تنزلق فوق المخطوطات السحرية في مكتبة الزنزانة وتمتص الحبر. تكتسب فهماً بدائياً للغات القديمة وتاريخ هذه المتاهة المظلمة. المعرفة هي السلاح الأقوى.",
+              "choices": [
+                {
+                  "label": "طبق قاعدة التمويه",
+                  "emoji": "🎭",
+                  "next": "summon_false_echo",
+                  "points_reward": 2,
+                  "color": "warning"
+                },
+                {
+                  "label": "تحرك نحو العرش",
+                  "emoji": "👑",
+                  "next": "throne_pit_gate",
+                  "points_reward": 3,
+                  "color": "danger"
+                }
+              ]
+            },
+            "summon_false_echo": {
+              "text": "تهتز وتخلق نسخاً هلامية صغيرة ومجوفة منك لتشتيت دوريات المغامرين. تتبعهم النسخ إلى فخاخ قاتلة، بينما تراقب أنت بهدوء وتنتظر التهام البقايا.",
+              "choices": [
+                {
+                  "label": "انزل لحفرة العرش",
+                  "emoji": "🕳️",
+                  "next": "throne_pit_gate",
+                  "points_reward": 3,
+                  "color": "danger"
+                },
+                {
+                  "label": "اجمع موارد إضافية",
+                  "emoji": "🧰",
+                  "next": "forge_ashes",
+                  "points_reward": 1,
+                  "color": "secondary"
+                }
+              ]
+            },
+            "release_prison_beast": {
+              "text": "تستخدم حمضك لإذابة قفل زنزانة كائن متوحش ضخم. تطلق سراحه لينشر الفوضى بين الحراس والمغامرين، مستغلاً حمام الدم للنمو بحرية.",
+              "choices": [
+                {
+                  "label": "اسرق أثر التاج",
+                  "emoji": "👑",
+                  "next": "steal_crown_relic",
+                  "points_reward": 3,
+                  "color": "danger"
+                },
+                {
+                  "label": "اهرب نحو الحاضنة",
+                  "emoji": "🥚",
+                  "next": "hatchery_decision",
+                  "points_reward": 1,
+                  "color": "secondary"
+                }
+              ]
+            },
+            "hatchery_decision": {
+              "text": "تصل إلى غرفة تفريخ مليئة ببيوض وحوش أخرى. يمكنك التهامها لاكتساب طاقة صافية، أو التلاعب بها لتفقيس طفرات تخدمك مستقبلاً.",
+              "choices": [
+                {
+                  "label": "ابتلع البيوض الضعيفة",
+                  "emoji": "🧫",
+                  "next": "forge_ashes",
+                  "points_reward": 3,
+                  "color": "danger"
+                },
+                {
+                  "label": "احمِ البيوض الباقية",
+                  "emoji": "🛡️",
+                  "next": "spore_garden",
+                  "points_reward": 2,
+                  "color": "success"
+                }
+              ]
+            },
+            "spore_garden": {
+              "text": "حديقة من الفطريات السامة تقف في طريقك. الأبواغ تتطاير كالثلج الأسود. يجب أن تدمج سمومها في تكوينك أو تجد طريقاً آخر.",
+              "choices": [
+                {
+                  "label": "وسّع شبكة الأبواغ",
+                  "emoji": "🕸️",
+                  "next": "throne_pit_gate",
+                  "points_reward": 3,
+                  "color": "danger"
+                },
+                {
+                  "label": "اكتفِ بالمراقبة",
+                  "emoji": "👁️",
+                  "next": "ending_failure_small_slime",
+                  "points_reward": 0,
+                  "color": "secondary"
+                }
+              ]
+            },
+            "forge_ashes": {
+              "text": "تتسلل إلى الحدادة وتمتص حرارة الرماد البركاني المتبقي. عصارتك تغلي، وأصبح بإمكانك الآن إذابة الفولاذ المفرقى بمجرد اللمس.",
+              "choices": [
+                {
+                  "label": "اقتحم بوابة العرش",
+                  "emoji": "🚧",
+                  "next": "throne_pit_gate",
+                  "points_reward": 3,
+                  "color": "danger"
+                },
+                {
+                  "label": "نفذ كمين القائد",
+                  "emoji": "🪤",
+                  "next": "ambush_captain",
+                  "points_reward": 2,
+                  "color": "success"
+                }
+              ]
+            },
+            "throne_pit_gate": {
+              "text": "تصل إلى بوابة القاع العميق حيث يقطن سيد الزنزانة القديم. البوابة مغلقة بختم طاقة. ككيان هلامي متطور، يمكنك محاولة التسرب عبر شقوقها الدقيقة.",
+              "choices": [
+                {
+                  "label": "اغمر نفسك بالجوهر",
+                  "emoji": "🌌",
+                  "next": "submerge_in_core",
+                  "points_reward": 2,
+                  "color": "warning"
+                },
+                {
+                  "label": "احسم الحارس أولاً",
+                  "emoji": "🗡️",
+                  "next": "ambush_captain",
+                  "points_reward": 3,
+                  "color": "danger"
+                },
+                {
+                  "label": "تراجع إلى الأطراف",
+                  "emoji": "↩️",
+                  "next": "ending_failure_small_slime",
+                  "points_reward": 0,
+                  "color": "secondary"
+                }
+              ]
+            },
+            "submerge_in_core": {
+              "text": "تغوص في قلب الطاقة السحرية للزنزانة. تتغذى على الجوهر النقي الذي يمد المتاهة بالحياة. تشعر بأنك تصبح جزءاً من بنية المكان نفسه.",
+              "choices": [
+                {
+                  "label": "اختر السلطة الفورية",
+                  "emoji": "⚡",
+                  "next": "final_dominion_choice",
+                  "points_reward": 2,
+                  "color": "warning"
+                },
+                {
+                  "label": "اختر النمو المتدرج",
+                  "emoji": "🕯️",
+                  "next": "secret_abyss_choice",
+                  "points_reward": 3,
+                  "color": "danger"
+                }
+              ]
+            },
+            "ambush_captain": {
+              "text": "تنقض من السقف وتسقط مباشرة على رأس قائد الحرس. حمضك يذيب خوذته وجمجمته في ثوانٍ. تبتلعه بالكامل وسط رعب جنوده، لتثبت أنك المفترس الأعلى.",
+              "choices": [
+                {
+                  "label": "ابتلع القائدة الجريحة",
+                  "emoji": "🩸",
+                  "next": "steal_crown_relic",
+                  "points_reward": 3,
+                  "color": "danger"
+                },
+                {
+                  "label": "دعها تهرب للسطح",
+                  "emoji": "🏃",
+                  "next": "ending_death_hunter_alchemist",
+                  "color": "secondary"
+                }
+              ]
+            },
+            "steal_crown_relic": {
+              "text": "تمتص تاجاً أثرياً كان يرتديه ملك غابر. المجوهرات السحرية تندمج في نواتك، وتمنحك سيطرة عقلية محدودة على وحوش الزنزانة الأضعف.",
+              "choices": [
+                {
+                  "label": "واجه الصياد مباشرة",
+                  "emoji": "⚔️",
+                  "next": "final_dominion_choice",
+                  "points_reward": 2,
+                  "color": "warning"
+                },
+                {
+                  "label": "ضلله بممرات الوحل",
+                  "emoji": "🌀",
+                  "next": "secret_abyss_choice",
+                  "points_reward": 3,
+                  "color": "danger"
+                }
+              ]
+            },
+            "final_dominion_choice": {
+              "text": "لقد نموت لدرجة أصبح فيها سيد الزنزانة الحالي يشعر بالتهديد. يجب عليك مواجهته لانتزاع السيادة، أو الاستمرار في التخفي في الأعماق السحيقة ككيان أسطوري.",
+              "choices": [
+                {
+                  "label": "افرض حكم الرعب",
+                  "emoji": "👑",
+                  "next": "ending_success_dungeon_lord",
+                  "required_points": 8,
+                  "color": "primary"
+                },
+                {
+                  "label": "احمِ القاع بتضحية",
+                  "emoji": "🕯️",
+                  "next": "ending_success_sacrifice_core",
+                  "required_points": 6,
+                  "color": "secondary"
+                },
+                {
+                  "label": "تردد لحظة ضعف",
+                  "emoji": "⏳",
+                  "next": "ending_failure_small_slime",
+                  "color": "secondary"
+                }
+              ]
+            },
+            "secret_abyss_choice": {
+              "text": "تكتشف ممراً سرياً يؤدي إلى الهاوية التي تسبق وجود الزنزانة نفسها. هنا تكمن أسرار كونية قد تغير طبيعتك الهلامية إلى شيء إلهي ومظلم.",
+              "choices": [
+                {
+                  "label": "اتحد مع العقل القاعي",
+                  "emoji": "🌑",
+                  "next": "ending_secret_abyss_mind",
+                  "required_points": 10,
+                  "color": "primary"
+                },
+                {
+                  "label": "ارفض الاتحاد واهرب",
+                  "emoji": "🚪",
+                  "next": "ending_failure_small_slime",
+                  "color": "secondary"
+                }
+              ]
+            },
+            "ending_death_boot_crush": {
+              "text": "سوء تقدير بسيط يجعلك تحت حذاء مغامر ثقيل. تُسحق نواتك تماماً وتتطاير عصارتك على الحائط. نهاية حقيرة تعيد فيها الزنزانة التهام ما تبقى منك.",
+              "is_ending": true,
+              "choices": []
+            },
+            "ending_death_salt_bucket": {
+              "text": "يلاحظك خادم مرعوب ويلقي عليك دلواً من الملح الخيميائي المخصص لقتل الرخويات. تجف كتلتك وتتحول إلى قشرة متشققة وتتفتت إلى غبار. موت بطيء ومؤلم.",
+              "is_ending": true,
+              "choices": []
+            },
+            "ending_death_fire_lantern": {
+              "text": "يحرقك مغامر بمشعل بعد أن لاحظ تحركاتك. عصارتك تغلي وتتبخر، وتنهار نواتك تحت وطأة النيران السحرية. لم تتمكن من الهرب من غضب اللهب.",
+              "is_ending": true,
+              "choices": []
+            },
+            "ending_death_hunter_alchemist": {
+              "text": "يتم القبض عليك حياً بواسطة خيميائي مجنون. تُوضع في زجاجة محكمة وتُستخدم كحقل تجارب مؤلم لسنوات، حتى تتلاشى نواتك من الإرهاق. السجن الأبدي.",
+              "is_ending": true,
+              "choices": []
+            },
+            "ending_failure_small_slime": {
+              "text": "تفشل في العثور على غذاء كافٍ وتعود لحجمك الأصلي. تفقد وعيك المكتسب تدريجياً، وتعود لتصبح مجرد هلام غبي يكنس الأوساخ في قاع الزنزانة إلى الأبد.",
+              "is_ending": true,
+              "choices": []
+            },
+            "ending_success_dungeon_lord": {
+              "text": "تبتلع سيد الزنزانة السابق وتنمو لتملأ القاعة العظمى. تصبح أنت السيد الجديد، كيان هلامي هائل يتحكم في الفخاخ والوحوش، ورعب جديد يروى في حانات المغامرين.",
+              "is_ending": true,
+              "choices": []
+            },
+            "ending_success_sacrifice_core": {
+              "text": "تضحي بنواتك لتندمج تماماً مع الجدران الحجرية. تصبح الزنزانة نفسها هي جسدك. أنت الآن المتاهة الواعية التي تتلذذ بتعذيب كل من يجرؤ على دخولها.",
+              "is_ending": true,
+              "choices": []
+            },
+            "ending_secret_abyss_mind": {
+              "text": "تغوص في الهاوية السرية وتمتص المعرفة الكونية. لم تعد كائناً مادياً، بل وعياً أسود يسبح في الفراغ، يراقب العوالم ويهندس كوابيسها بهدوء أبدي.",
+              "is_ending": true,
+              "choices": []
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

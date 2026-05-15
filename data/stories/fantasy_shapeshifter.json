@@ -1,0 +1,426 @@
+{
+  "world": "الفانتازيا",
+  "categories": [
+    {
+      "id": "fantasy_batch_2",
+      "name": "الفانتازيا المظلمة",
+      "emoji": "🎭",
+      "stories": [
+        {
+          "id": "fb2_shapeshifter",
+          "title": "قناع المختار",
+          "summary": "أنت مغير شكلي قتل البطل المختار للتو وسلخ وجهه ليرتديه. عليك قيادة رفاقه إلى فخ عميق في أنقاض ملعونة، دون أن يرتفع منسوب الشك لديهم إلى حد فضحك وقتلك.",
+          "difficulty": "صعب",
+          "estimated_length": "طويلة",
+          "theme": "الفانتازيا المظلمة",
+          "world_type": "fantasy",
+          "game_mode": "single",
+          "nodes": {
+            "start": {
+              "text": "أنت لست البطل الذي يبكونه. أنت وحش يتخذ شكله، تلبس وجهه وصوته ببراعة مريعة. لقد قتلت قائدهم الحقيقي في غابة الضباب، والآن تقود بقايا فصيلته المحطمة نحو فخ سيمحوهم من الوجود. ينظرون إليك كمنقذهم الأخير، لا يعلمون أن الموت يمشي بينهم.",
+              "choices": [
+                {
+                  "label": "قلل الكلام لدرء الخطر",
+                  "emoji": "🤐",
+                  "next": "silent_lead",
+                  "points_reward": 2,
+                  "color": "primary"
+                },
+                {
+                  "label": "العب دور الحزين والمنهك",
+                  "emoji": "😢",
+                  "next": "grief_act",
+                  "points_reward": 1,
+                  "color": "secondary"
+                },
+                {
+                  "label": "أظهر شجاعة زائفة واندفاع",
+                  "emoji": "⚔️",
+                  "next": "heroic_mask",
+                  "points_reward": 0,
+                  "color": "danger"
+                }
+              ]
+            },
+            "silent_lead": {
+              "text": "تمضي في صمت بارد. عيناك القاسيتان تراقبهم وهم يتعثرون في الوحل. تتجنب الكلام خوفاً من زلة لسان تكشف أنك لا تملك ذكريات قائدهم المحبوب.",
+              "choices": [
+                {
+                  "label": "أعط أوامر قصيرة وحازمة",
+                  "emoji": "📍",
+                  "next": "road_split",
+                  "points_reward": 2,
+                  "color": "primary"
+                },
+                {
+                  "label": "دعهم يقررون الوجهة لاختبارهم",
+                  "emoji": "🧭",
+                  "next": "group_tension",
+                  "points_reward": 1,
+                  "color": "secondary"
+                }
+              ]
+            },
+            "grief_act": {
+              "text": "تتصنع الحزن العميق، تفرك جبهتك بيد مرتجفة. «لقد فقدنا الكثير»، تهمس بصوت مبحوح. الجنود يلتفون حولك للتعزية، وتكتم ابتسامة خبيثة تراقص شفتيك.",
+              "choices": [
+                {
+                  "label": "ذكّرهم بعهد الانتقام القديم",
+                  "emoji": "📜",
+                  "next": "road_split",
+                  "points_reward": 1,
+                  "color": "primary"
+                },
+                {
+                  "label": "اتهم أحداً بالخيانة لتشتيتهم",
+                  "emoji": "🗡️",
+                  "next": "group_tension",
+                  "points_reward": 2,
+                  "color": "danger"
+                }
+              ]
+            },
+            "heroic_mask": {
+              "text": "ترتدي قناع الشجاعة. ترفع سيف قائدهم وتلقي خطبة حماسية عن الشرف والانتقام. الجنود يرفعون أسلحتهم مبهورين. السيطرة عليهم باتت مطلقة، كقطيع يتبع جزاراً.",
+              "choices": [
+                {
+                  "label": "تجاهل سؤاله وحوّل الموضوع",
+                  "emoji": "↪️",
+                  "next": "road_split",
+                  "points_reward": 1,
+                  "color": "secondary"
+                },
+                {
+                  "label": "هدده مباشرة لفرض السيطرة",
+                  "emoji": "☠️",
+                  "next": "suspicion_spike",
+                  "points_reward": 0,
+                  "color": "danger"
+                }
+              ]
+            },
+            "road_split": {
+              "text": "تصلون إلى مفترق طرق. يميناً، الطريق المفتوح نحو السهول. يساراً، الممر الجبلي الضيق حيث ينتظر بني جنسك في الكمين. يجب أن تقنعهم باختيار طريق الهلاك.",
+              "choices": [
+                {
+                  "label": "اختر المختصر بحجة كسب الوقت",
+                  "emoji": "🕳️",
+                  "next": "ruin_entry",
+                  "points_reward": 2,
+                  "color": "primary"
+                },
+                {
+                  "label": "اختر الآمن لإخفاء نواياك",
+                  "emoji": "🌊",
+                  "next": "safe_route",
+                  "points_reward": 1,
+                  "color": "secondary"
+                }
+              ]
+            },
+            "group_tension": {
+              "text": "الشك يبدأ في التسرب. ملازم الفصيلة يحدق فيك طويلاً، يتساءل بصوت خافت لماذا تخلت عن تكتيكاتكم المعتادة. الهواء يثقل بالخيانة المحتملة.",
+              "choices": [
+                {
+                  "label": "اقبل الاختبار بهدوء مصطنع",
+                  "emoji": "🔮",
+                  "next": "truth_test",
+                  "points_reward": 2,
+                  "color": "primary"
+                },
+                {
+                  "label": "اقمع الجدل بغضب ديكتاتوري",
+                  "emoji": "🪓",
+                  "next": "suspicion_spike",
+                  "points_reward": 0,
+                  "color": "danger"
+                }
+              ]
+            },
+            "suspicion_spike": {
+              "text": "يسألك أحدهم عن معركة قديمة لم تخضها. تتلعثم، والتبرير الذي تقدمه يبدو واهياً. الأيادي تقترب من مقابض السيوف. قناعك بدأ يتشقق.",
+              "choices": [
+                {
+                  "label": "اذكر سراً قديماً لتهدئتهم",
+                  "emoji": "🧠",
+                  "next": "memory_gamble",
+                  "required_points": 2,
+                  "color": "success"
+                },
+                {
+                  "label": "باغت واقتل المستكشف",
+                  "emoji": "🔪",
+                  "next": "ending_exposed_blood",
+                  "color": "danger"
+                }
+              ]
+            },
+            "ruin_entry": {
+              "text": "تقودهم نحو الأطلال القديمة بحجة الاحتماء. الجدران المتداعية هي مسلخ مثالي. الظلال تطول، وتسمع همس الوحوش المختبئة تنتظر إشارتك.",
+              "choices": [
+                {
+                  "label": "اسحب الرمز لفتح الفخ فوراً",
+                  "emoji": "🪙",
+                  "next": "pit_trigger",
+                  "points_reward": 2,
+                  "color": "danger"
+                },
+                {
+                  "label": "أجل الفخ وتظاهر بالبحث",
+                  "emoji": "⏳",
+                  "next": "truth_test",
+                  "points_reward": 1,
+                  "color": "secondary"
+                }
+              ]
+            },
+            "safe_route": {
+              "text": "تفقد أعصابك للحظة وتقودهم نحو طريق آمن. تنجو الفصيلة مؤقتاً، لكنك تثير غضب بني جنسك الذين كانوا ينتظرون وجبتهم. خيانة مزدوجة.",
+              "choices": [
+                {
+                  "label": "سمّ شرابهم بخفية",
+                  "emoji": "🍲",
+                  "next": "camp_betrayal",
+                  "points_reward": 2,
+                  "color": "danger"
+                },
+                {
+                  "label": "زيّف رؤيا إلهية في النار",
+                  "emoji": "🌫️",
+                  "next": "vision_lie",
+                  "points_reward": 1,
+                  "color": "primary"
+                }
+              ]
+            },
+            "truth_test": {
+              "text": "يصر الملازم على فحص جرح قديم في كتفك الأيسر، جرح لا تملكه. يجب أن تخترع عذراً فورياً أو تواجه النصل.",
+              "choices": [
+                {
+                  "label": "ارتجل العهد وتلاعب بالنبرة",
+                  "emoji": "🗣️",
+                  "next": "memory_gamble",
+                  "points_reward": 1,
+                  "color": "primary"
+                },
+                {
+                  "label": "اكسر الدائرة واتهمه بالخيانة",
+                  "emoji": "💥",
+                  "next": "pit_trigger",
+                  "points_reward": 0,
+                  "color": "danger"
+                }
+              ]
+            },
+            "memory_gamble": {
+              "text": "تغامر بذكر تفصيلة صغيرة وجدتها في مذكرات القائد. تنجح المغامرة، وتسترخي ملامح الملازم المتريبة. لقد اشتريت المزيد من الوقت المسموم.",
+              "choices": [
+                {
+                  "label": "استغل تعاطف المحاربة للتقدم",
+                  "emoji": "🛡️",
+                  "next": "pit_trigger",
+                  "points_reward": 2,
+                  "color": "primary"
+                },
+                {
+                  "label": "اسكت المستكشف بحجة الإرهاق",
+                  "emoji": "🕳️",
+                  "next": "camp_betrayal",
+                  "points_reward": 1,
+                  "color": "secondary"
+                }
+              ]
+            },
+            "pit_trigger": {
+              "text": "تستدرج الملازم المشكك إلى حافة الهاوية. نظرة واحدة خالية من المشاعر، ودفعة خفيفة. يسقط صارخاً في الظلام. تخبر الباقين أنه زلت قدمه.",
+              "choices": [
+                {
+                  "label": "ادفعها للأسفل ببرود",
+                  "emoji": "⬇️",
+                  "next": "ending_trap_success",
+                  "required_points": 7,
+                  "color": "success"
+                },
+                {
+                  "label": "أنقذها مؤقتاً لتكسب ثقة مطلقة",
+                  "emoji": "🤲",
+                  "next": "final_mask",
+                  "points_reward": 2,
+                  "color": "primary"
+                },
+                {
+                  "label": "راقبها تسقط دون تدخل",
+                  "emoji": "👀",
+                  "next": "ending_exposed_blood",
+                  "color": "danger"
+                }
+              ]
+            },
+            "camp_betrayal": {
+              "text": "أثناء نومهم في المخيم، تتسلل بخفة وتقطع حبال خيامهم لتسهيل الهجوم. تنظر إلى وجوههم النائمة بازدراء، فهم مجرد لحم وضعف.",
+              "choices": [
+                {
+                  "label": "فعّل السم بالتعويذة الآن",
+                  "emoji": "🧪",
+                  "next": "ending_poison_mask",
+                  "color": "success"
+                },
+                {
+                  "label": "تراجع وتخلص من السم المتبقي",
+                  "emoji": "↩️",
+                  "next": "final_mask",
+                  "points_reward": 1,
+                  "color": "primary"
+                }
+              ]
+            },
+            "vision_lie": {
+              "text": "تدعي أنك رأيت رؤيا إلهية تأمركم بالتقدم نحو الوادي المظلم. الإيمان الأعمى يغشي أبصارهم، ويتبعونك كعميان نحو حتفهم.",
+              "choices": [
+                {
+                  "label": "اتهم الساحر بالعمى الروحي",
+                  "emoji": "⚡",
+                  "next": "final_mask",
+                  "points_reward": 1,
+                  "color": "primary"
+                },
+                {
+                  "label": "تظاهر بالإغماء من الإرهاق",
+                  "emoji": "🌙",
+                  "next": "camp_betrayal",
+                  "points_reward": 2,
+                  "color": "secondary"
+                }
+              ]
+            },
+            "final_mask": {
+              "text": "الكمين بات وشيكاً. تتخلى عن تعابير القائد البشرية تدريجياً. عيناك تلمعان في الظلام كحيوان مفترس. لم يعد هناك حاجة للتمثيل، فالنهاية هنا.",
+              "choices": [
+                {
+                  "label": "قدهم للمحرقة النهائية",
+                  "emoji": "🔥",
+                  "next": "ending_trap_success",
+                  "required_points": 9,
+                  "color": "success"
+                },
+                {
+                  "label": "اعقد صفقة مظلمة مع الساحر",
+                  "emoji": "🤝",
+                  "next": "ending_dark_alliance",
+                  "required_points": 6,
+                  "color": "primary"
+                },
+                {
+                  "label": "اعترف بالحقيقة وانزع القناع",
+                  "emoji": "🪞",
+                  "next": "ending_confession",
+                  "color": "danger"
+                },
+                {
+                  "label": "اختلق أثراً لوحش كاذب يطاردكم",
+                  "emoji": "🧷",
+                  "next": "false_monster_trace",
+                  "required_points": 8,
+                  "color": "secondary"
+                }
+              ]
+            },
+            "false_monster_trace": {
+              "text": "تفتعل آثاراً وهمية لمخلوق خطير لتبعدهم عن الطريق الرئيسي وتجبرهم على دخول الوادي الضيق حيث ينتظر الكمين. هم يطاردون ظلاً، بينما الظل يطمح لافتراسهم.",
+              "choices": [
+                {
+                  "label": "قدهم للوادي لعمل كمين",
+                  "emoji": "🕳️",
+                  "next": "ambush_valley",
+                  "points_reward": 2,
+                  "color": "primary"
+                },
+                {
+                  "label": "زيف إصابة بالغة لإبطائهم",
+                  "emoji": "🩸",
+                  "next": "fake_wound",
+                  "points_reward": 1,
+                  "color": "secondary"
+                }
+              ]
+            },
+            "ambush_valley": {
+              "text": "تدخلون الوادي الضيق. فجأة، تتساقط الصخور وتسد طريق العودة. الوحوش الحقيقية تظهر من الشقوق وتنقض على الجنود العزل. المجزرة تبدأ.",
+              "choices": [
+                {
+                  "label": "أطلق سحابة الفطر السام",
+                  "emoji": "🍄",
+                  "next": "ending_perfect_cover",
+                  "color": "success"
+                },
+                {
+                  "label": "أسقط عليهم الانهيار الصخري",
+                  "emoji": "🪨",
+                  "next": "ending_perfect_cover",
+                  "color": "success"
+                }
+              ]
+            },
+            "fake_wound": {
+              "text": "تجرح نفسك عمداً لتبدو كضحية مثلهم. تصرخ متألماً بينما الوحوش تتجاهلك بحذر وتفتك برفاقك الوهميين. قمة الخداع المريض.",
+              "choices": [
+                {
+                  "label": "شوش بصره بسحر الظل",
+                  "emoji": "🌫️",
+                  "next": "ending_perfect_cover",
+                  "required_points": 10,
+                  "color": "success"
+                },
+                {
+                  "label": "انقض عليه واهرب مكشوفاً",
+                  "emoji": "🏃",
+                  "next": "ending_exposed_blood",
+                  "color": "danger"
+                }
+              ]
+            },
+            "ending_trap_success": {
+              "text": "المجزرة تنتهي. دماء الجنود تروي أرض الوادي. تستعيد شكلك الأصلي المرعب وتتذوق الانتصار مع بني جنسك. لقد دمرت فصيلة كاملة بسلاح واحد: الثقة.",
+              "is_ending": true,
+              "choices": []
+            },
+            "ending_poison_mask": {
+              "text": "أثناء محاولتك تسميم مياههم، يكتشفك الملازم متلبساً. لا مجال للهرب. يمزقون جسدك المستعار أشلاءً. تموت وأنت تلعن هذا الجلد البشري الضعيف.",
+              "is_ending": true,
+              "choices": []
+            },
+            "ending_dark_alliance": {
+              "text": "تشعر بشيء غريب نحو هؤلاء البشر — ربما احترام لوضعهم اليائس. تخون بني جنسك وتقود الفصيلة نحو النجاة. أصبحت مسخاً منبوذاً من العالمين، لكنك للمرة الأولى اخترت بملء إرادتك.",
+              "is_ending": true,
+              "choices": []
+            },
+            "ending_confession": {
+              "text": "لا تتحمل ثقل القناع. في منتصف الطريق، تكشف عن شكلك الحقيقي وتخبرهم بما فعلت بقائدهم. تُقتل فوراً، لكنك تموت بوجهك أنت، لا بوجه شخص آخر.",
+              "is_ending": true,
+              "choices": []
+            },
+            "ending_exposed_blood": {
+              "text": "أثناء معركة عابرة، تُجرح وينزف دمك ذو اللون الأسود المائل للخضرة بدلاً من الأحمر البشري. يدركون الحقيقة فوراً وتنقلب الفصيلة عليك. القناع يسقط مع سقوطك.",
+              "is_ending": true,
+              "choices": []
+            },
+            "ending_perfect_cover": {
+              "text": "تقتل الفصيلة بأكملها في الكمين، لكنك تقرر الاحتفاظ بشكل القائد والعودة إلى مدينتهم الكبرى. كبطل ناجٍ ووحيد، ستصبح جاسوساً في قلب مملكة البشر. اللعبة الكبرى قد بدأت للتو.",
+              "is_ending": true,
+              "choices": []
+            }
+          },
+          "perspectives": [
+            {
+              "id": "shapeshifter_pov",
+              "label": "منظور المغير",
+              "emoji": "🦴",
+              "description": "تلعب كمغير شكلي يحافظ على غطاء المختار ويقود رفاقه إلى مصيدة.",
+              "start_node": "start"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

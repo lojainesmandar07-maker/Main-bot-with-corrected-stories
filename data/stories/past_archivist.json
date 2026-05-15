@@ -1,0 +1,2553 @@
+{
+  "id": "past_archivist",
+  "title": "حارس الأرشيف",
+  "world": "الماضي",
+  "world_type": "past",
+  "category": "جواسيس التاريخ",
+  "summary": "بين ولاء للعرش وحماية لحقيقة مظلمة، حارس أرشيف يواجه ليلة تمحو تاريخ إمبراطورية.",
+  "difficulty": "صعب جدا",
+  "estimated_length": "طويلة",
+  "theme": "جواسيس التاريخ",
+  "game_mode": "single",
+  "perspective": {
+    "id": "archivist_perspective",
+    "label": "منظور حارس الأرشيف",
+    "emoji": "📜",
+    "description": "أنت المؤرخ العجوز الذي يحرس الوثائق المحرمة للإمبراطورية.",
+    "start_node": "p_start"
+  },
+  "nodes": {
+    "p_start": {
+      "text": "ضوء شمعتك يُرجرج على الأرفف العالية. الغبار يتطاير في كل اتجاه تتحرك فيه. أنتَ حارس الأرشيف، أمين ذاكرة الإمبراطورية وأسرارها الدفينة. دقات عنيفة تدقّ على الباب — صوت من لا يعتاد الانتظار.",
+      "choices": [
+        {
+          "label": "افتح الباب الرئيسي",
+          "emoji": "🚪",
+          "next": "p_node2_door",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        },
+        {
+          "label": "انتظر واستمع للطارق",
+          "emoji": "👂",
+          "next": "p_node2_wait",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        }
+      ],
+      "is_ending": false,
+      "image_url": null,
+      "title": "p_start"
+    },
+    "p_node2_door": {
+      "text": "تفتح الباب فيملأ الإطار محقق إمبراطوري بخاتمه الذهبي وعينين لا تطمئن لشيء. يخبرك أن متسللاً في المبنى يبحث عن لفافة محرمة — الوصول إليها يُعادل الخيانة العظمى.",
+      "choices": [
+        {
+          "label": "اسمح له بالدخول",
+          "emoji": "✅",
+          "next": "p_node3_inquisitor_in",
+          "sets_flag": "trusted_inquisitor",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "requires_flag": null,
+          "reputation": null
+        },
+        {
+          "label": "اطلب منه أمرا",
+          "emoji": "📜",
+          "next": "p_node3_demand_warrant",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        }
+      ],
+      "is_ending": false,
+      "image_url": null,
+      "title": "p_node2_door"
+    },
+    "p_node2_wait": {
+      "text": "تنتظر والدقات تتصاعد. ثم — صوت زجاج يُكسر من الخلف. المحقق لا يزال يطرق الباب الرئيسي بعنف كمن لا يُصدّق أنك لم تسمعه.",
+      "choices": [
+        {
+          "label": "افتح للمحقق فورا",
+          "emoji": "🚪",
+          "next": "p_node3_inquisitor_in",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        },
+        {
+          "label": "تفقد الزجاج المكسور",
+          "emoji": "🪟",
+          "next": "p_node3_check_glass",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        }
+      ],
+      "is_ending": false,
+      "image_url": null,
+      "title": "p_node2_wait"
+    },
+    "p_node3_inquisitor_in": {
+      "text": "يدخل المحقق ويُقفل الباب بنفسه. يسألك عن شاب يرتدي عباءة سوداء. عيناه تُمسحان الغرفة وأنت تعرف أن كل كلمة ستقولها ستُوزن بميزان لا يرحم.",
+      "choices": [
+        {
+          "label": "أنكر رؤية أحد",
+          "emoji": "🤐",
+          "next": "p_node4_deny",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        },
+        {
+          "label": "أشر للأروقة الخلفية",
+          "emoji": "👉",
+          "next": "p_node4_point_back",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        }
+      ],
+      "is_ending": false,
+      "image_url": null,
+      "title": "p_node3_inquisitor_in"
+    },
+    "p_node3_demand_warrant": {
+      "text": "يغضب المحقق ويدفع الباب بكتفه فيُكسر المزلاج. يدخل ووجهه يقول ما لا يقوله لسانه: أنا لا أحتاج أمراً لأفعل ما أريد هنا.",
+      "choices": [
+        {
+          "label": "أنكر تماما",
+          "emoji": "🤐",
+          "next": "p_node4_deny",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        },
+        {
+          "label": "تظاهر بالخوف",
+          "emoji": "😨",
+          "next": "p_node4_act_scared",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        }
+      ],
+      "is_ending": false,
+      "image_url": null,
+      "title": "p_node3_demand_warrant"
+    },
+    "p_node3_check_glass": {
+      "text": "تجد شاباً جريحاً ينزف من كفّه ويُمسك بخنجر صدئ. عيناه لا تُشبهان عيني لص — فيهما شيء يشبه خوف الأحرار. يهمس: 'لست هنا للسرقة... أريد الحقيقة فحسب.'",
+      "choices": [
+        {
+          "label": "اخف الشاب سريعا",
+          "emoji": "🤫",
+          "next": "p_node4_hide_rebel",
+          "sets_flag": "saved_rebel",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "requires_flag": null,
+          "reputation": null
+        },
+        {
+          "label": "اطلب منه الهرب",
+          "emoji": "🏃",
+          "next": "p_node4_tell_run",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        }
+      ],
+      "is_ending": false,
+      "image_url": null,
+      "title": "p_node3_check_glass"
+    },
+    "p_node4_deny": {
+      "text": "المحقق يُحدّق بك طويلاً بما يكفي لتشعر بأن الهواء في الغرفة تراجع درجة واحدة. يقرر أخذك معه لتفتيش المكان غرفة بغرفة — أمام عينيك.",
+      "choices": [
+        {
+          "label": "امش أمامه بهدوء",
+          "emoji": "🚶",
+          "next": "p_node5_walk_ahead",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        },
+        {
+          "label": "تحدث لتشتيته",
+          "emoji": "🗣️",
+          "next": "p_node5_distract",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        }
+      ],
+      "is_ending": false,
+      "image_url": null,
+      "title": "p_node4_deny"
+    },
+    "p_node4_point_back": {
+      "text": "يركض المحقق للأروقة الخلفية وخطواته تُعبّر عن ثقة من تعوّد الصيد في الظلام. أنت وحدك في الصالة الرئيسية للحظات — والوقت هنا ثمين.",
+      "choices": [
+        {
+          "label": "اتبعه للمساعدة",
+          "emoji": "🏃",
+          "next": "p_node5_follow_him",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        },
+        {
+          "label": "اسرع للأرشيف السري",
+          "emoji": "🗝️",
+          "next": "p_node5_secret_archive",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        }
+      ],
+      "is_ending": false,
+      "image_url": null,
+      "title": "p_node4_point_back"
+    },
+    "p_node4_act_scared": {
+      "text": "يُصدّق أنك مجرد عجوز خائف من صوت الدقات. يأمرك بحمل الفانوس وإضاءة الطريق له — يريد أن يرى، ولا يريدك أن ترى ما ينظر إليه.",
+      "choices": [
+        {
+          "label": "احمل الفانوس وتقدم",
+          "emoji": "🏮",
+          "next": "p_node5_walk_ahead",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        },
+        {
+          "label": "اسقط الفانوس عمدا",
+          "emoji": "💥",
+          "next": "p_node5_drop_lantern",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        }
+      ],
+      "is_ending": false,
+      "image_url": null,
+      "title": "p_node4_act_scared"
+    },
+    "p_node4_hide_rebel": {
+      "text": "تُخفيه وراء أكثر الأرفف تزاحماً وتفتح للمحقق بوجه ينزّ هدوءاً مُصطنعاً. المحقق يُقيّم تأخّرك بعيون ضيّقة: 'لماذا هذا الوقت كله؟'",
+      "choices": [
+        {
+          "label": "كنت نائما بعمق",
+          "emoji": "😴",
+          "next": "p_node5_lie_sleep",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        },
+        {
+          "label": "المفتاح كان ضائعا",
+          "emoji": "🔑",
+          "next": "p_node5_lie_key",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        }
+      ],
+      "is_ending": false,
+      "image_url": null,
+      "title": "p_node4_hide_rebel"
+    },
+    "p_node4_tell_run": {
+      "text": "يهرب الشاب للداخل وحين تفتح للمحقق تجد قطرات دم تُنقّط على الحجارة البيضاء كنقاط فاصلة في جملة لم تُكتمل.",
+      "choices": [
+        {
+          "label": "ادع الجهل بالدماء",
+          "emoji": "🤷",
+          "next": "p_node5_ignore_blood",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        },
+        {
+          "label": "قل إنك جرحت نفسك",
+          "emoji": "🩸",
+          "next": "p_node5_claim_wound",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        }
+      ],
+      "is_ending": false,
+      "image_url": null,
+      "title": "p_node4_tell_run"
+    },
+    "p_node5_walk_ahead": {
+      "text": "تمشي أمامه وشمعتك ترسم ظلك طويلاً على الجدران. في القسم القديم، تلاحظ فخاً أرضياً قديم الصنع — تحفة من تحف أسلافك في حماية المكان.",
+      "choices": [
+        {
+          "label": "حذره من الفخ",
+          "emoji": "⚠️",
+          "next": "p_node6_warn_trap",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        },
+        {
+          "label": "تجاهل الفخ وامش",
+          "emoji": "🚶",
+          "next": "p_node6_ignore_trap",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        }
+      ],
+      "is_ending": false,
+      "image_url": null,
+      "title": "p_node5_walk_ahead"
+    },
+    "p_node5_distract": {
+      "text": "تحكي له عن تاريخ المبنى بأسلوب عجوز يُحبّ الكلام. يتوقف وهيئته تتصلّب: 'اصمت.' ثم يُضيف بصوت أخفض: 'أسمع شيئاً.'",
+      "choices": [
+        {
+          "label": "اصمت واستمع",
+          "emoji": "🤫",
+          "next": "p_node6_listen",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        },
+        {
+          "label": "اسعل بصوت عال",
+          "emoji": "🗣️",
+          "next": "p_node6_cough",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        }
+      ],
+      "is_ending": false,
+      "image_url": null,
+      "title": "p_node5_distract"
+    },
+    "p_node5_follow_him": {
+      "text": "تلحق به فتجده يقف أمام باب الأرشيف السري وكأنه كان يعرف موقعه قبل أن تقوده. 'المفتاح' — يقولها لا يسألها.",
+      "choices": [
+        {
+          "label": "أعطه المفتاح الحقيقي",
+          "emoji": "🗝️",
+          "next": "p_node6_give_key",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        },
+        {
+          "label": "أعطه مفتاحا خاطئا",
+          "emoji": "🔑",
+          "next": "p_node6_fake_key",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        }
+      ],
+      "is_ending": false,
+      "image_url": null,
+      "title": "p_node5_follow_him"
+    },
+    "p_node5_secret_archive": {
+      "text": "تصل للباب السري لتجد الشاب يحاول كسره بخنجره الصغير في مواجهة خشب يعمره المسمار والسنون.",
+      "choices": [
+        {
+          "label": "افتح الباب له",
+          "emoji": "🗝️",
+          "next": "p_node6_open_for_rebel",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        },
+        {
+          "label": "أوقفه عن الكسر",
+          "emoji": "✋",
+          "next": "p_node6_stop_rebel",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        }
+      ],
+      "is_ending": false,
+      "image_url": null,
+      "title": "p_node5_secret_archive"
+    },
+    "p_node5_drop_lantern": {
+      "text": "تُسقط الفانوس عمداً. الزجاج يتحطم والضوء ينطفئ. الظلام يبتلع الغرفة فيما يُشعل المحقق شعلته الخاصة وهو يتمتم.",
+      "choices": [
+        {
+          "label": "اعتذر بشدة",
+          "emoji": "🙇",
+          "next": "p_node6_apologize",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        },
+        {
+          "label": "انسحب في الظلام",
+          "emoji": "🌑",
+          "next": "p_node6_hide_dark",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        }
+      ],
+      "is_ending": false,
+      "image_url": null,
+      "title": "p_node5_drop_lantern"
+    },
+    "p_node5_lie_sleep": {
+      "text": "يُصدّقك مؤقتاً — أو يتظاهر بذلك. يطلب منك مرافقته للأسفل حيث توجد الوثائق المحرمة في برودة الحجارة القديمة.",
+      "choices": [
+        {
+          "label": "رافقه بصمت",
+          "emoji": "🚶",
+          "next": "p_node6_go_down",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        },
+        {
+          "label": "اسأله عن السبب",
+          "emoji": "❓",
+          "next": "p_node6_ask_reason",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        }
+      ],
+      "is_ending": false,
+      "image_url": null,
+      "title": "p_node5_lie_sleep"
+    },
+    "p_node5_lie_key": {
+      "text": "يلاحظ توترك لكنه يُقرّر أن البحث أهم من التحقق. تتجهان للمكتبة السفلية وصمته أثقل من كلامه.",
+      "choices": [
+        {
+          "label": "امش بجانبه",
+          "emoji": "🚶",
+          "next": "p_node6_go_down",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        },
+        {
+          "label": "تأخر بخطواتك",
+          "emoji": "🐢",
+          "next": "p_node6_lag_behind",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        }
+      ],
+      "is_ending": false,
+      "image_url": null,
+      "title": "p_node5_lie_key"
+    },
+    "p_node5_ignore_blood": {
+      "text": "يتبع قطرات الدم بهدوء متعلّم. تصلان لممر مسدود ثم تختفي الدم فجأة كأن الأرض ابتلعتها.",
+      "choices": [
+        {
+          "label": "اقترح العودة",
+          "emoji": "🔙",
+          "next": "p_node6_suggest_return",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        },
+        {
+          "label": "ابحث عن باب سري",
+          "emoji": "🚪",
+          "next": "p_node6_search_secret",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        }
+      ],
+      "is_ending": false,
+      "image_url": null,
+      "title": "p_node5_ignore_blood"
+    },
+    "p_node5_claim_wound": {
+      "text": "يفحص يدك بعينين لا تُخطئان. لا جرح، لا دم. يُجيبك بضربة غير مُعلَنة ثم: 'الحقيقة. الآن.'",
+      "choices": [
+        {
+          "label": "اعترف بوجود متسلل",
+          "emoji": "🗣️",
+          "next": "p_node6_confess",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        },
+        {
+          "label": "استمر بالكذب",
+          "emoji": "🤥",
+          "next": "p_node6_keep_lying",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        }
+      ],
+      "is_ending": false,
+      "image_url": null,
+      "title": "p_node5_claim_wound"
+    },
+    "p_node6_warn_trap": {
+      "text": "يشكرك — شكر من لا يعتاد الشكر — ويثق بك قليلاً أكثر مما كان. يطلب إرشاده.",
+      "choices": [
+        {
+          "label": "تقدم للمكتبة السفلية",
+          "emoji": "📚",
+          "next": "p_node7_library",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        },
+        {
+          "label": "اقترح تفتيش الأبراج",
+          "emoji": "🏰",
+          "next": "p_node7_tower",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        }
+      ],
+      "is_ending": false,
+      "image_url": null,
+      "title": "p_node6_warn_trap"
+    },
+    "p_node6_ignore_trap": {
+      "text": "ينتبه للفخ في آخر ثانية وينظر إليك كمن يُسجّل ديناً في دفتره الداخلي. يطلب إرشاده.",
+      "choices": [
+        {
+          "label": "تقدم للمكتبة السفلية",
+          "emoji": "📚",
+          "next": "p_node7_library",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        },
+        {
+          "label": "اقترح تفتيش الأبراج",
+          "emoji": "🏰",
+          "next": "p_node7_tower",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        }
+      ],
+      "is_ending": false,
+      "image_url": null,
+      "title": "p_node6_ignore_trap"
+    },
+    "p_node6_listen": {
+      "text": "تسمعان معاً خطوات خفيفة تأتي من الأعلى. يُضيّق المحقق عينيه ويطلب الإرشاد.",
+      "choices": [
+        {
+          "label": "تقدم للمكتبة السفلية",
+          "emoji": "📚",
+          "next": "p_node7_library",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        },
+        {
+          "label": "اقترح تفتيش الأبراج",
+          "emoji": "🏰",
+          "next": "p_node7_tower",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        }
+      ],
+      "is_ending": false,
+      "image_url": null,
+      "title": "p_node6_listen"
+    },
+    "p_node6_cough": {
+      "text": "تسعل فيغضب ويدفعك بقوة رجل لا وقت عنده للأعذار. يطلب إرشاده.",
+      "choices": [
+        {
+          "label": "تقدم للمكتبة السفلية",
+          "emoji": "📚",
+          "next": "p_node7_library",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        },
+        {
+          "label": "اقترح تفتيش الأبراج",
+          "emoji": "🏰",
+          "next": "p_node7_tower",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        }
+      ],
+      "is_ending": false,
+      "image_url": null,
+      "title": "p_node6_cough"
+    },
+    "p_node6_give_key": {
+      "text": "يفتح الباب ويجدان ممراً طويلاً تأكله الظلمة. يطلب الإرشاد.",
+      "choices": [
+        {
+          "label": "تقدم للمكتبة السفلية",
+          "emoji": "📚",
+          "next": "p_node7_library",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        },
+        {
+          "label": "اقترح تفتيش الأبراج",
+          "emoji": "🏰",
+          "next": "p_node7_tower",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        }
+      ],
+      "is_ending": false,
+      "image_url": null,
+      "title": "p_node6_give_key"
+    },
+    "p_node6_fake_key": {
+      "text": "المفتاح لا يدور. يكسر القفل بغضب باردٍ ثم ينظر إليك. يطلب الإرشاد.",
+      "choices": [
+        {
+          "label": "تقدم للمكتبة السفلية",
+          "emoji": "📚",
+          "next": "p_node7_library",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        },
+        {
+          "label": "اقترح تفتيش الأبراج",
+          "emoji": "🏰",
+          "next": "p_node7_tower",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        }
+      ],
+      "is_ending": false,
+      "image_url": null,
+      "title": "p_node6_fake_key"
+    },
+    "p_node6_open_for_rebel": {
+      "text": "تفتح الباب وتدخلان معاً قبل أن يصل صوت المحقق. الشاب يُمسك ذراعك ويطلب المساعدة بأسلوب من لا يزال يثق بأحد.",
+      "choices": [
+        {
+          "label": "تقدم للمكتبة السفلية",
+          "emoji": "📚",
+          "next": "p_node7_library",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        },
+        {
+          "label": "اقترح تفتيش الأبراج",
+          "emoji": "🏰",
+          "next": "p_node7_tower",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        }
+      ],
+      "is_ending": false,
+      "image_url": null,
+      "title": "p_node6_open_for_rebel"
+    },
+    "p_node6_stop_rebel": {
+      "text": "توقفه بيدك. يُديم النظر إليك ثم يقول بهدوء: 'أنا لا أبحث عن كنز. أبحث عن حقيقة.'",
+      "choices": [
+        {
+          "label": "تقدم للمكتبة السفلية",
+          "emoji": "📚",
+          "next": "p_node7_library",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        },
+        {
+          "label": "اقترح تفتيش الأبراج",
+          "emoji": "🏰",
+          "next": "p_node7_tower",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        }
+      ],
+      "is_ending": false,
+      "image_url": null,
+      "title": "p_node6_stop_rebel"
+    },
+    "p_node6_apologize": {
+      "text": "تعتذر وتُؤدّي الاعتذار بإتقان. يقبله ويحمل الشعلة. يطلب الإرشاد.",
+      "choices": [
+        {
+          "label": "تقدم للمكتبة السفلية",
+          "emoji": "📚",
+          "next": "p_node7_library",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        },
+        {
+          "label": "اقترح تفتيش الأبراج",
+          "emoji": "🏰",
+          "next": "p_node7_tower",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        }
+      ],
+      "is_ending": false,
+      "image_url": null,
+      "title": "p_node6_apologize"
+    },
+    "p_node6_hide_dark": {
+      "text": "تنسحب في الظلام وهو يبحث عنك. أنت تُقرّر وجهتك وحدك في الصمت.",
+      "choices": [
+        {
+          "label": "تقدم للمكتبة السفلية",
+          "emoji": "📚",
+          "next": "p_node7_library",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        },
+        {
+          "label": "اقترح تفتيش الأبراج",
+          "emoji": "🏰",
+          "next": "p_node7_tower",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        }
+      ],
+      "is_ending": false,
+      "image_url": null,
+      "title": "p_node6_hide_dark"
+    },
+    "p_node6_go_down": {
+      "text": "تذهبان للأسفل ببطء أشبه بالاحتياط منه بالهدوء. يطلب إرشادك.",
+      "choices": [
+        {
+          "label": "تقدم للمكتبة السفلية",
+          "emoji": "📚",
+          "next": "p_node7_library",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        },
+        {
+          "label": "اقترح تفتيش الأبراج",
+          "emoji": "🏰",
+          "next": "p_node7_tower",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        }
+      ],
+      "is_ending": false,
+      "image_url": null,
+      "title": "p_node6_go_down"
+    },
+    "p_node6_ask_reason": {
+      "text": "يُجيبك بأنها أوامر الإمبراطور ومن يُجادل الإمبراطور يُجادل الإله نفسه. يطلب الإرشاد.",
+      "choices": [
+        {
+          "label": "تقدم للمكتبة السفلية",
+          "emoji": "📚",
+          "next": "p_node7_library",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        },
+        {
+          "label": "اقترح تفتيش الأبراج",
+          "emoji": "🏰",
+          "next": "p_node7_tower",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        }
+      ],
+      "is_ending": false,
+      "image_url": null,
+      "title": "p_node6_ask_reason"
+    },
+    "p_node6_lag_behind": {
+      "text": "تتأخر فيأمرك أن تتقدم أمامه. يريد أن يرى ما لا يمكنك إخفاؤه. يطلب الإرشاد.",
+      "choices": [
+        {
+          "label": "تقدم للمكتبة السفلية",
+          "emoji": "📚",
+          "next": "p_node7_library",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        },
+        {
+          "label": "اقترح تفتيش الأبراج",
+          "emoji": "🏰",
+          "next": "p_node7_tower",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        }
+      ],
+      "is_ending": false,
+      "image_url": null,
+      "title": "p_node6_lag_behind"
+    },
+    "p_node6_suggest_return": {
+      "text": "يرفض ببساطة. يأمرك بالبحث عن مدخل — وصوته لا يقبل النقاش.",
+      "choices": [
+        {
+          "label": "تقدم للمكتبة السفلية",
+          "emoji": "📚",
+          "next": "p_node7_library",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        },
+        {
+          "label": "اقترح تفتيش الأبراج",
+          "emoji": "🏰",
+          "next": "p_node7_tower",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        }
+      ],
+      "is_ending": false,
+      "image_url": null,
+      "title": "p_node6_suggest_return"
+    },
+    "p_node6_search_secret": {
+      "text": "تجد باباً خفياً خلف رف كتب قديم. يفتح بصمت أربعين سنة.",
+      "choices": [
+        {
+          "label": "تقدم للمكتبة السفلية",
+          "emoji": "📚",
+          "next": "p_node7_library",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        },
+        {
+          "label": "اقترح تفتيش الأبراج",
+          "emoji": "🏰",
+          "next": "p_node7_tower",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        }
+      ],
+      "is_ending": false,
+      "image_url": null,
+      "title": "p_node6_search_secret"
+    },
+    "p_node6_confess": {
+      "text": "تعترف. يتوقف المحقق عن الضرب ويُومئ بما يشبه الارتياح. تعترف لتحيا. يطلب الإرشاد.",
+      "choices": [
+        {
+          "label": "تقدم للمكتبة السفلية",
+          "emoji": "📚",
+          "next": "p_node7_library",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        },
+        {
+          "label": "اقترح تفتيش الأبراج",
+          "emoji": "🏰",
+          "next": "p_node7_tower",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        }
+      ],
+      "is_ending": false,
+      "image_url": null,
+      "title": "p_node6_confess"
+    },
+    "p_node6_keep_lying": {
+      "text": "يضربك مجدداً وأنت تبقى صامداً على كذبتك. يسحبك معه كمن يعرف أنه سيكسر ما لم يُكسَر بعد.",
+      "choices": [
+        {
+          "label": "تقدم للمكتبة السفلية",
+          "emoji": "📚",
+          "next": "p_node7_library",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        },
+        {
+          "label": "اقترح تفتيش الأبراج",
+          "emoji": "🏰",
+          "next": "p_node7_tower",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        }
+      ],
+      "is_ending": false,
+      "image_url": null,
+      "title": "p_node6_keep_lying"
+    },
+    "p_node7_library": {
+      "text": "المكتبة السفلية. الهدوء هنا ليس هدوء السلام — هو هدوء الأماكن التي لا تسمع فيها المصيبة تقترب. قسمان أمامك.",
+      "choices": [
+        {
+          "label": "ابحث في السجلات القديمة",
+          "emoji": "📖",
+          "next": "p_node8_records",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        },
+        {
+          "label": "تفتيش غرفة الوثائق",
+          "emoji": "🚪",
+          "next": "p_node8_documents",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        }
+      ],
+      "is_ending": false,
+      "image_url": null,
+      "title": "p_node7_library"
+    },
+    "p_node7_tower": {
+      "text": "في الأبراج، الريح تعصف والظلام أعمق. لا أثر للشاب هنا إلا صدى الريح التي ربما أخطأتَ في قراءتها. تقرر النزول للسجلات.",
+      "choices": [
+        {
+          "label": "ابحث في السجلات القديمة",
+          "emoji": "📖",
+          "next": "p_node8_records",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        },
+        {
+          "label": "تفتيش غرفة الوثائق",
+          "emoji": "🚪",
+          "next": "p_node8_documents",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        }
+      ],
+      "is_ending": false,
+      "image_url": null,
+      "title": "p_node7_tower"
+    },
+    "p_node8_records": {
+      "text": "بين السجلات القديمة يظهر الشاب — يُمسك بسجل محرم مُختوم بشمع الإمبراطور. المحقق يرفع سيفه ببطء من لا يتسرع لأنه واثق من النتيجة.",
+      "choices": [
+        {
+          "label": "اقفز لحماية الشاب",
+          "emoji": "🛡️",
+          "next": "p_node9_protect_rebel",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        },
+        {
+          "label": "ساعد المحقق فورا",
+          "emoji": "⚔️",
+          "next": "p_node9_help_inq",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        },
+        {
+          "label": "حاول تهدئة الوضع",
+          "emoji": "✋",
+          "next": "p_node9_calm_down",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        },
+        {
+          "label": "خذ اللفافة واهرب وحدك",
+          "emoji": "🏃",
+          "next": "p_node9_run_alone",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        },
+        {
+          "label": "ارفع سيفا وحارب المحقق",
+          "emoji": "⚔️",
+          "next": "p_node9_fight_inq",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        }
+      ],
+      "is_ending": false,
+      "image_url": null,
+      "title": "p_node8_records"
+    },
+    "p_node8_documents": {
+      "text": "في غرفة الوثائق، الشاب جالس يقرأ لفافة الحقيقة بيدين ترتجفان. ثم يكسر المحقق الباب ويدخل والهواء يتغير.",
+      "choices": [
+        {
+          "label": "اهرب مع الشاب",
+          "emoji": "🏃",
+          "next": "p_node9_run_rebel",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        },
+        {
+          "label": "اغلق الباب على المحقق",
+          "emoji": "🚪",
+          "next": "p_node9_lock_door",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        },
+        {
+          "label": "استسلم للمحقق",
+          "emoji": "🏳️",
+          "next": "p_node9_surrender",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        },
+        {
+          "label": "اهرب في ممر سري",
+          "emoji": "🚪",
+          "next": "p_node11_filler",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        }
+      ],
+      "is_ending": false,
+      "image_url": null,
+      "title": "p_node8_documents"
+    },
+    "p_node9_protect_rebel": {
+      "text": "تقفز لحماية الشاب. المحقق لا يتردد — يطعنك في قلبك بضربة واحدة نظيفة. تسقط على أرضية المكتبة والكتب تُحيط بك كشهود لا أصوات لهم. الشاب هرب واللفافة معه. وأنت نمت هنا للأبد بين ما حرستَه.",
+      "is_ending": true,
+      "ending_type": "death",
+      "choices": [],
+      "image_url": null,
+      "title": "p_node9_protect_rebel"
+    },
+    "p_node9_help_inq": {
+      "text": "تُساعد المحقق وتطعن الشاب من الخلف. المحقق يبتسم ابتسامة لا دفء فيها ويأخذ اللفافة. ثم يُدير سيفه نحوك: 'لا شهود على الحقيقة.' يطعنك أنت أيضاً بنفس الهدوء. كنتَ تعتقد أن الولاء يُصنع أمناء — لكنه يصنع ضحايا.",
+      "is_ending": true,
+      "ending_type": "death",
+      "choices": [],
+      "image_url": null,
+      "title": "p_node9_help_inq"
+    },
+    "p_node9_calm_down": {
+      "text": "ترفع يديك وتُحاول التهدئة. الشاب يظنّك ستُسلّمه — يطعنك في عنقك بخنجره ويهرب. المحقق يتركك تنزف ويلاحقه. الحياد في المعارك المصيرية ليس حكمة — إنه تقديم نفسك هدية للجميع.",
+      "is_ending": true,
+      "ending_type": "death",
+      "choices": [],
+      "image_url": null,
+      "title": "p_node9_calm_down"
+    },
+    "p_node9_run_rebel": {
+      "text": "تركض مع الشاب في الظلام وتتعثر في فخ قديم لم تنتبه له. تسقط في حفرة عميقة والصوت الوحيد بعدها هو صوت الشاب يُواصل الركض. مُتَّ بين جدران ما أمضيتَ حياتك تحرسه.",
+      "is_ending": true,
+      "ending_type": "death",
+      "choices": [],
+      "image_url": null,
+      "title": "p_node9_run_rebel"
+    },
+    "p_node9_lock_door": {
+      "text": "تُغلق الباب لكن المحقق يكسره بضربة واحدة. يصطدم الباب بك فتسقط. يضربك بسيفه وأنت لا تزال تنظر نحو الشاب. مُتَّ لأنك حاولت إيقاف طغيان بباب خشبي.",
+      "is_ending": true,
+      "ending_type": "death",
+      "choices": [],
+      "image_url": null,
+      "title": "p_node9_lock_door"
+    },
+    "p_node9_surrender": {
+      "text": "ترفع يديك. المحقق لا يرى في الاستسلام أماناً — يرى فيه فرصة. يذبحك فوراً لضمان أن لا أحد سيُشهد على ما جرى هنا. الاستسلام أمام وحش لا يرحم ليس نهاية آمنة — إنه مجرد نهاية.",
+      "is_ending": true,
+      "ending_type": "death",
+      "choices": [],
+      "image_url": null,
+      "title": "p_node9_surrender"
+    },
+    "p_node9_run_alone": {
+      "text": "تخطف اللفافة من بين يدَيهما وتركض. كلاهما يُطاردك في الدهاليز. أمامك ممران مُتفرّعان يتنافسان على إقناعك.",
+      "choices": [
+        {
+          "label": "الممر الشرقي المضيء",
+          "emoji": "☀️",
+          "next": "p_node10_east",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        },
+        {
+          "label": "الممر الغربي المظلم",
+          "emoji": "🌑",
+          "next": "p_node10_west",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        }
+      ],
+      "is_ending": false,
+      "image_url": null,
+      "title": "p_node9_run_alone"
+    },
+    "p_node10_east": {
+      "text": "الممر المضيء يؤدي لقاعة الحرس. تجد نفسك في دائرة سيوف لا تسأل أسئلة. قتلوك بتهمة السرقة. الضوء هنا لم يكن دليلاً للنجاة — كان دليلاً للموت.",
+      "is_ending": true,
+      "ending_type": "death",
+      "choices": [],
+      "image_url": null,
+      "title": "p_node10_east"
+    },
+    "p_node10_west": {
+      "text": "تختبئ في الظلام وتفقد أثرهما. تفتح اللفافة وتقرأ — وكلما تقدّمت في السطور، تفهم لماذا أرادوا إخفاءها. سلالة الحكام مبنية على دم ليس دمهم. ماذا ستفعل بهذه الحقيقة؟",
+      "choices": [
+        {
+          "label": "احرقها للسلام",
+          "emoji": "🔥",
+          "next": "p_ending_burned_truth",
+          "points_reward": 2,
+          "color": "primary",
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        },
+        {
+          "label": "أعطها للثوار",
+          "emoji": "🤝",
+          "next": "p_ending_rebel_victory",
+          "points_reward": 2,
+          "color": "primary",
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        },
+        {
+          "label": "احتفظ بها للابتزاز",
+          "emoji": "💰",
+          "next": "p_ending_new_inquisitor",
+          "points_reward": 2,
+          "color": "primary",
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        },
+        {
+          "label": "خبئها في مكان سري",
+          "emoji": "🗺️",
+          "next": "p_ending_hidden_sanctuary",
+          "required_points": 2,
+          "color": "primary",
+          "points_reward": 0,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        }
+      ],
+      "is_ending": false,
+      "image_url": null,
+      "title": "p_node10_west"
+    },
+    "p_ending_burned_truth": {
+      "text": "تُحرق اللفافة. الرماد الدافئ يبدد سنوات من السؤال في ثوانٍ. يعود المحقق ويجد الرماد فيُومئ راضياً — يُبدو الأمر كأنك فعلت ما يجب. تعيش ما تبقى من أيامك في هدوء كئيب وأنت الوحيد الذي يحمل في صدره ما لم يُوجد على ورقة. هل استقرار الإمبراطورية يستحق أن يكون ثمنه أنتَ؟",
+      "is_ending": true,
+      "ending_type": "success",
+      "choices": [],
+      "image_url": null,
+      "title": "p_ending_burned_truth"
+    },
+    "p_ending_rebel_victory": {
+      "text": "تجد طريقك خارجاً وتُسلّم اللفافة لزعيم الثوار. في اليوم التالي تشتعل الثورة وتُدمّر العاصمة. تُعدَم على يد الحرس الإمبراطوري قبل سقوطهم — لكنك تموت وعلى وجهك شيء لا يُطفأ بسيف. هل كان الدم الذي سال ثمناً عادلاً؟",
+      "is_ending": true,
+      "ending_type": "success",
+      "choices": [],
+      "image_url": null,
+      "title": "p_ending_rebel_victory"
+    },
+    "p_ending_new_inquisitor": {
+      "text": "تحتفظ باللفافة وتضع سمّاً في شراب المحقق في ليلة لاحقة. تُسرب ما تحتاجه للإمبراطور بدقة من يعرف كيف يُقدّم السكين مُغلّفاً بالولاء. يُعيّنك المحقق الإمبراطوري الجديد. أصبحتَ الظل خلف العرش — وفقدتَ كل ما كنتَ تحرسه إلا المبنى نفسه.",
+      "is_ending": true,
+      "ending_type": "success",
+      "choices": [],
+      "image_url": null,
+      "title": "p_ending_new_inquisitor"
+    },
+    "p_ending_hidden_sanctuary": {
+      "text": "تهرب من المدينة تماماً وتؤسس نظاماً سرياً في الجبال البعيدة مهمته حماية المعرفة من كل من يريد تزويرها — سواء كان إمبراطوراً أو ثائراً. تركتَ العالم يُقرّر مصيره بنفسه. الهروب بالمعرفة بعيداً عن المعركة — هل هو حكمة أم جُبن لطيف؟",
+      "is_ending": true,
+      "ending_type": "success",
+      "choices": [],
+      "image_url": null,
+      "title": "p_ending_hidden_sanctuary"
+    },
+    "p_node9_fight_inq": {
+      "text": "تحمل سيفاً صدئاً وتُحاول المبارزة. يضحك المحقق — ثم يقطعك نصفين بضربة واحدة. شجاعة بلا حساب هي الشكل الأجمل للانتحار.",
+      "is_ending": true,
+      "ending_type": "death",
+      "choices": [],
+      "image_url": null,
+      "title": "p_node9_fight_inq"
+    },
+    "p_node11_filler": {
+      "text": "تمشي في ظلام الدهاليز والهواء يحمل رائحة الورق العتيق والتراب القديم. خطواتك تُرسم في الصمت كأنها لا تريد أن تُسمع.",
+      "choices": [
+        {
+          "label": "امش يمينا",
+          "emoji": "➡️",
+          "next": "p_node12_filler",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        },
+        {
+          "label": "امش يسارا",
+          "emoji": "⬅️",
+          "next": "p_node12_filler",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        }
+      ],
+      "is_ending": false,
+      "image_url": null,
+      "title": "p_node11_filler"
+    },
+    "p_node12_filler": {
+      "text": "تُلاحظ أن الجدران هنا تبدو أقرب مما ينبغي. الأرشيف أعمق مما كنتَ تظن — أو أنك لم تحاول أن تعرف.",
+      "choices": [
+        {
+          "label": "امش يمينا",
+          "emoji": "➡️",
+          "next": "p_node13_filler",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        },
+        {
+          "label": "امش يسارا",
+          "emoji": "⬅️",
+          "next": "p_node13_filler",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        }
+      ],
+      "is_ending": false,
+      "image_url": null,
+      "title": "p_node12_filler"
+    },
+    "p_node13_filler": {
+      "text": "شمعتك تكاد تنطفئ من تيار هواء لا مصدر له. تُحمي لهبها بكفّك وتُكمل.",
+      "choices": [
+        {
+          "label": "امش يمينا",
+          "emoji": "➡️",
+          "next": "p_node14_filler",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        },
+        {
+          "label": "امش يسارا",
+          "emoji": "⬅️",
+          "next": "p_node14_filler",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        }
+      ],
+      "is_ending": false,
+      "image_url": null,
+      "title": "p_node13_filler"
+    },
+    "p_node14_filler": {
+      "text": "كتب متراكمة تُكوّن جدراناً من المعرفة المُهملة. هل وجودها هنا هو ما حماها؟",
+      "choices": [
+        {
+          "label": "امش يمينا",
+          "emoji": "➡️",
+          "next": "p_node15_filler",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        },
+        {
+          "label": "امش يسارا",
+          "emoji": "⬅️",
+          "next": "p_node15_filler",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        }
+      ],
+      "is_ending": false,
+      "image_url": null,
+      "title": "p_node14_filler"
+    },
+    "p_node15_filler": {
+      "text": "تسمع صدى خطواتك يعود إليك مُتأخراً كأن الممر يُعيد التفكير قبل أن يُجيبك.",
+      "choices": [
+        {
+          "label": "امش يمينا",
+          "emoji": "➡️",
+          "next": "p_node16_filler",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        },
+        {
+          "label": "امش يسارا",
+          "emoji": "⬅️",
+          "next": "p_node16_filler",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        }
+      ],
+      "is_ending": false,
+      "image_url": null,
+      "title": "p_node15_filler"
+    },
+    "p_node16_filler": {
+      "text": "لفافة قديمة مُلقاة على الأرض. لا تعرف إن كانت بلا قيمة أم إن قيمتها هي ما جعل أصحابها يتركونها هنا.",
+      "choices": [
+        {
+          "label": "امش يمينا",
+          "emoji": "➡️",
+          "next": "p_node17_filler",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        },
+        {
+          "label": "امش يسارا",
+          "emoji": "⬅️",
+          "next": "p_node17_filler",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        }
+      ],
+      "is_ending": false,
+      "image_url": null,
+      "title": "p_node16_filler"
+    },
+    "p_node17_filler": {
+      "text": "الجدران تتضيق ثم تتسع. هذا المكان صُمّم ليُربك من يُعجّل.",
+      "choices": [
+        {
+          "label": "امش يمينا",
+          "emoji": "➡️",
+          "next": "p_node18_filler",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        },
+        {
+          "label": "امش يسارا",
+          "emoji": "⬅️",
+          "next": "p_node18_filler",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        }
+      ],
+      "is_ending": false,
+      "image_url": null,
+      "title": "p_node17_filler"
+    },
+    "p_node18_filler": {
+      "text": "تشعر أن أحداً ما كان هنا قبلك بوقت قصير جداً — الهواء لا يكذب.",
+      "choices": [
+        {
+          "label": "امش يمينا",
+          "emoji": "➡️",
+          "next": "p_node19_filler",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        },
+        {
+          "label": "امش يسارا",
+          "emoji": "⬅️",
+          "next": "p_node19_filler",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        }
+      ],
+      "is_ending": false,
+      "image_url": null,
+      "title": "p_node18_filler"
+    },
+    "p_node19_filler": {
+      "text": "يدك تُلامس الحجر البارد وتتذكر كم قضيتَ من السنوات في هذا المكان وكم بقي فيه ما لم تُلمسه.",
+      "choices": [
+        {
+          "label": "امش يمينا",
+          "emoji": "➡️",
+          "next": "p_node20_filler",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        },
+        {
+          "label": "امش يسارا",
+          "emoji": "⬅️",
+          "next": "p_node20_filler",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        }
+      ],
+      "is_ending": false,
+      "image_url": null,
+      "title": "p_node19_filler"
+    },
+    "p_node20_filler": {
+      "text": "سواد ثقيل يسبق ضوء شمعتك بخطوة واحدة دائماً. لا يمكنك الوصول إليه.",
+      "choices": [
+        {
+          "label": "امش يمينا",
+          "emoji": "➡️",
+          "next": "p_node21_filler",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        },
+        {
+          "label": "امش يسارا",
+          "emoji": "⬅️",
+          "next": "p_node21_filler",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        }
+      ],
+      "is_ending": false,
+      "image_url": null,
+      "title": "p_node20_filler"
+    },
+    "p_node21_filler": {
+      "text": "تمشي في ظلام الدهاليز والهواء يحمل رائحة الورق العتيق والتراب القديم. خطواتك تُرسم في الصمت كأنها لا تريد أن تُسمع.",
+      "choices": [
+        {
+          "label": "امش يمينا",
+          "emoji": "➡️",
+          "next": "p_node22_filler",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        },
+        {
+          "label": "امش يسارا",
+          "emoji": "⬅️",
+          "next": "p_node22_filler",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        }
+      ],
+      "is_ending": false,
+      "image_url": null,
+      "title": "p_node21_filler"
+    },
+    "p_node22_filler": {
+      "text": "تُلاحظ أن الجدران هنا تبدو أقرب مما ينبغي. الأرشيف أعمق مما كنتَ تظن — أو أنك لم تحاول أن تعرف.",
+      "choices": [
+        {
+          "label": "امش يمينا",
+          "emoji": "➡️",
+          "next": "p_node23_filler",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        },
+        {
+          "label": "امش يسارا",
+          "emoji": "⬅️",
+          "next": "p_node23_filler",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        }
+      ],
+      "is_ending": false,
+      "image_url": null,
+      "title": "p_node22_filler"
+    },
+    "p_node23_filler": {
+      "text": "شمعتك تكاد تنطفئ من تيار هواء لا مصدر له. تُحمي لهبها بكفّك وتُكمل.",
+      "choices": [
+        {
+          "label": "امش يمينا",
+          "emoji": "➡️",
+          "next": "p_node24_filler",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        },
+        {
+          "label": "امش يسارا",
+          "emoji": "⬅️",
+          "next": "p_node24_filler",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        }
+      ],
+      "is_ending": false,
+      "image_url": null,
+      "title": "p_node23_filler"
+    },
+    "p_node24_filler": {
+      "text": "كتب متراكمة تُكوّن جدراناً من المعرفة المُهملة. هل وجودها هنا هو ما حماها؟",
+      "choices": [
+        {
+          "label": "امش يمينا",
+          "emoji": "➡️",
+          "next": "p_node25_filler",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        },
+        {
+          "label": "امش يسارا",
+          "emoji": "⬅️",
+          "next": "p_node25_filler",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        }
+      ],
+      "is_ending": false,
+      "image_url": null,
+      "title": "p_node24_filler"
+    },
+    "p_node25_filler": {
+      "text": "تسمع صدى خطواتك يعود إليك مُتأخراً كأن الممر يُعيد التفكير قبل أن يُجيبك.",
+      "choices": [
+        {
+          "label": "امش يمينا",
+          "emoji": "➡️",
+          "next": "p_node26_filler",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        },
+        {
+          "label": "امش يسارا",
+          "emoji": "⬅️",
+          "next": "p_node26_filler",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        }
+      ],
+      "is_ending": false,
+      "image_url": null,
+      "title": "p_node25_filler"
+    },
+    "p_node26_filler": {
+      "text": "لفافة قديمة مُلقاة على الأرض. لا تعرف إن كانت بلا قيمة أم إن قيمتها هي ما جعل أصحابها يتركونها هنا.",
+      "choices": [
+        {
+          "label": "امش يمينا",
+          "emoji": "➡️",
+          "next": "p_node27_filler",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        },
+        {
+          "label": "امش يسارا",
+          "emoji": "⬅️",
+          "next": "p_node27_filler",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        }
+      ],
+      "is_ending": false,
+      "image_url": null,
+      "title": "p_node26_filler"
+    },
+    "p_node27_filler": {
+      "text": "الجدران تتضيق ثم تتسع. هذا المكان صُمّم ليُربك من يُعجّل.",
+      "choices": [
+        {
+          "label": "امش يمينا",
+          "emoji": "➡️",
+          "next": "p_node28_filler",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        },
+        {
+          "label": "امش يسارا",
+          "emoji": "⬅️",
+          "next": "p_node28_filler",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        }
+      ],
+      "is_ending": false,
+      "image_url": null,
+      "title": "p_node27_filler"
+    },
+    "p_node28_filler": {
+      "text": "تشعر أن أحداً ما كان هنا قبلك بوقت قصير جداً — الهواء لا يكذب.",
+      "choices": [
+        {
+          "label": "امش يمينا",
+          "emoji": "➡️",
+          "next": "p_node29_filler",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        },
+        {
+          "label": "امش يسارا",
+          "emoji": "⬅️",
+          "next": "p_node29_filler",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        }
+      ],
+      "is_ending": false,
+      "image_url": null,
+      "title": "p_node28_filler"
+    },
+    "p_node29_filler": {
+      "text": "يدك تُلامس الحجر البارد وتتذكر كم قضيتَ من السنوات في هذا المكان وكم بقي فيه ما لم تُلمسه.",
+      "choices": [
+        {
+          "label": "امش يمينا",
+          "emoji": "➡️",
+          "next": "p_node30_filler",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        },
+        {
+          "label": "امش يسارا",
+          "emoji": "⬅️",
+          "next": "p_node30_filler",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        }
+      ],
+      "is_ending": false,
+      "image_url": null,
+      "title": "p_node29_filler"
+    },
+    "p_node30_filler": {
+      "text": "سواد ثقيل يسبق ضوء شمعتك بخطوة واحدة دائماً. لا يمكنك الوصول إليه.",
+      "choices": [
+        {
+          "label": "امش يمينا",
+          "emoji": "➡️",
+          "next": "p_node31_filler",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        },
+        {
+          "label": "امش يسارا",
+          "emoji": "⬅️",
+          "next": "p_node31_filler",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        }
+      ],
+      "is_ending": false,
+      "image_url": null,
+      "title": "p_node30_filler"
+    },
+    "p_node31_filler": {
+      "text": "تمشي في ظلام الدهاليز والهواء يحمل رائحة الورق العتيق والتراب القديم. خطواتك تُرسم في الصمت كأنها لا تريد أن تُسمع.",
+      "choices": [
+        {
+          "label": "امش يمينا",
+          "emoji": "➡️",
+          "next": "p_node32_filler",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        },
+        {
+          "label": "امش يسارا",
+          "emoji": "⬅️",
+          "next": "p_node32_filler",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        }
+      ],
+      "is_ending": false,
+      "image_url": null,
+      "title": "p_node31_filler"
+    },
+    "p_node32_filler": {
+      "text": "تُلاحظ أن الجدران هنا تبدو أقرب مما ينبغي. الأرشيف أعمق مما كنتَ تظن — أو أنك لم تحاول أن تعرف.",
+      "choices": [
+        {
+          "label": "امش يمينا",
+          "emoji": "➡️",
+          "next": "p_node33_filler",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        },
+        {
+          "label": "امش يسارا",
+          "emoji": "⬅️",
+          "next": "p_node33_filler",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        }
+      ],
+      "is_ending": false,
+      "image_url": null,
+      "title": "p_node32_filler"
+    },
+    "p_node33_filler": {
+      "text": "شمعتك تكاد تنطفئ من تيار هواء لا مصدر له. تُحمي لهبها بكفّك وتُكمل.",
+      "choices": [
+        {
+          "label": "امش يمينا",
+          "emoji": "➡️",
+          "next": "p_node34_filler",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        },
+        {
+          "label": "امش يسارا",
+          "emoji": "⬅️",
+          "next": "p_node34_filler",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        }
+      ],
+      "is_ending": false,
+      "image_url": null,
+      "title": "p_node33_filler"
+    },
+    "p_node34_filler": {
+      "text": "كتب متراكمة تُكوّن جدراناً من المعرفة المُهملة. هل وجودها هنا هو ما حماها؟",
+      "choices": [
+        {
+          "label": "امش يمينا",
+          "emoji": "➡️",
+          "next": "p_node35_filler",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        },
+        {
+          "label": "امش يسارا",
+          "emoji": "⬅️",
+          "next": "p_node35_filler",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        }
+      ],
+      "is_ending": false,
+      "image_url": null,
+      "title": "p_node34_filler"
+    },
+    "p_node35_filler": {
+      "text": "تسمع صدى خطواتك يعود إليك مُتأخراً كأن الممر يُعيد التفكير قبل أن يُجيبك.",
+      "choices": [
+        {
+          "label": "امش يمينا",
+          "emoji": "➡️",
+          "next": "p_node36_filler",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        },
+        {
+          "label": "امش يسارا",
+          "emoji": "⬅️",
+          "next": "p_node36_filler",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        }
+      ],
+      "is_ending": false,
+      "image_url": null,
+      "title": "p_node35_filler"
+    },
+    "p_node36_filler": {
+      "text": "لفافة قديمة مُلقاة على الأرض. لا تعرف إن كانت بلا قيمة أم إن قيمتها هي ما جعل أصحابها يتركونها هنا.",
+      "choices": [
+        {
+          "label": "امش يمينا",
+          "emoji": "➡️",
+          "next": "p_node37_filler",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        },
+        {
+          "label": "امش يسارا",
+          "emoji": "⬅️",
+          "next": "p_node37_filler",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        }
+      ],
+      "is_ending": false,
+      "image_url": null,
+      "title": "p_node36_filler"
+    },
+    "p_node37_filler": {
+      "text": "الجدران تتضيق ثم تتسع. هذا المكان صُمّم ليُربك من يُعجّل.",
+      "choices": [
+        {
+          "label": "امش يمينا",
+          "emoji": "➡️",
+          "next": "p_node38_filler",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        },
+        {
+          "label": "امش يسارا",
+          "emoji": "⬅️",
+          "next": "p_node38_filler",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        }
+      ],
+      "is_ending": false,
+      "image_url": null,
+      "title": "p_node37_filler"
+    },
+    "p_node38_filler": {
+      "text": "تشعر أن أحداً ما كان هنا قبلك بوقت قصير جداً — الهواء لا يكذب.",
+      "choices": [
+        {
+          "label": "امش يمينا",
+          "emoji": "➡️",
+          "next": "p_node39_filler",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        },
+        {
+          "label": "امش يسارا",
+          "emoji": "⬅️",
+          "next": "p_node39_filler",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        }
+      ],
+      "is_ending": false,
+      "image_url": null,
+      "title": "p_node38_filler"
+    },
+    "p_node39_filler": {
+      "text": "يدك تُلامس الحجر البارد وتتذكر كم قضيتَ من السنوات في هذا المكان وكم بقي فيه ما لم تُلمسه.",
+      "choices": [
+        {
+          "label": "امش يمينا",
+          "emoji": "➡️",
+          "next": "p_node40_filler",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        },
+        {
+          "label": "امش يسارا",
+          "emoji": "⬅️",
+          "next": "p_node40_filler",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        }
+      ],
+      "is_ending": false,
+      "image_url": null,
+      "title": "p_node39_filler"
+    },
+    "p_node40_filler": {
+      "text": "سواد ثقيل يسبق ضوء شمعتك بخطوة واحدة دائماً. لا يمكنك الوصول إليه.",
+      "choices": [
+        {
+          "label": "امش يمينا",
+          "emoji": "➡️",
+          "next": "p_node41_filler",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        },
+        {
+          "label": "امش يسارا",
+          "emoji": "⬅️",
+          "next": "p_node41_filler",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        }
+      ],
+      "is_ending": false,
+      "image_url": null,
+      "title": "p_node40_filler"
+    },
+    "p_node41_filler": {
+      "text": "تمشي في ظلام الدهاليز والهواء يحمل رائحة الورق العتيق والتراب القديم. خطواتك تُرسم في الصمت كأنها لا تريد أن تُسمع.",
+      "choices": [
+        {
+          "label": "امش يمينا",
+          "emoji": "➡️",
+          "next": "p_node42_filler",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        },
+        {
+          "label": "امش يسارا",
+          "emoji": "⬅️",
+          "next": "p_node42_filler",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        }
+      ],
+      "is_ending": false,
+      "image_url": null,
+      "title": "p_node41_filler"
+    },
+    "p_node42_filler": {
+      "text": "تُلاحظ أن الجدران هنا تبدو أقرب مما ينبغي. الأرشيف أعمق مما كنتَ تظن — أو أنك لم تحاول أن تعرف.",
+      "choices": [
+        {
+          "label": "امش يمينا",
+          "emoji": "➡️",
+          "next": "p_node43_filler",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        },
+        {
+          "label": "امش يسارا",
+          "emoji": "⬅️",
+          "next": "p_node43_filler",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        }
+      ],
+      "is_ending": false,
+      "image_url": null,
+      "title": "p_node42_filler"
+    },
+    "p_node43_filler": {
+      "text": "شمعتك تكاد تنطفئ من تيار هواء لا مصدر له. تُحمي لهبها بكفّك وتُكمل.",
+      "choices": [
+        {
+          "label": "امش يمينا",
+          "emoji": "➡️",
+          "next": "p_node44_filler",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        },
+        {
+          "label": "امش يسارا",
+          "emoji": "⬅️",
+          "next": "p_node44_filler",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        }
+      ],
+      "is_ending": false,
+      "image_url": null,
+      "title": "p_node43_filler"
+    },
+    "p_node44_filler": {
+      "text": "كتب متراكمة تُكوّن جدراناً من المعرفة المُهملة. هل وجودها هنا هو ما حماها؟",
+      "choices": [
+        {
+          "label": "امش يمينا",
+          "emoji": "➡️",
+          "next": "p_node45_filler",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        },
+        {
+          "label": "امش يسارا",
+          "emoji": "⬅️",
+          "next": "p_node45_filler",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        }
+      ],
+      "is_ending": false,
+      "image_url": null,
+      "title": "p_node44_filler"
+    },
+    "p_node45_filler": {
+      "text": "تسمع صدى خطواتك يعود إليك مُتأخراً كأن الممر يُعيد التفكير قبل أن يُجيبك.",
+      "choices": [
+        {
+          "label": "امش يمينا",
+          "emoji": "➡️",
+          "next": "p_node10_west",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        },
+        {
+          "label": "امش يسارا",
+          "emoji": "⬅️",
+          "next": "p_node10_west",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        },
+        {
+          "label": "المس التمثال القديم",
+          "emoji": "🗿",
+          "next": "p_node46_statue_death",
+          "color": "primary",
+          "points_reward": 0,
+          "required_points": null,
+          "sets_flag": null,
+          "requires_flag": null,
+          "reputation": null
+        }
+      ],
+      "is_ending": false,
+      "image_url": null,
+      "title": "p_node45_filler"
+    },
+    "p_node46_statue_death": {
+      "text": "تلمس التمثال فينهار السقف فوقك لتسحق تحت الأنقاض. فخ قديم لم تكن تعرفه. هل كان فضولك يستحق هذه النهاية؟",
+      "is_ending": true,
+      "ending_type": "death",
+      "choices": [],
+      "image_url": null,
+      "title": "p_node46_statue_death"
+    }
+  }
+}

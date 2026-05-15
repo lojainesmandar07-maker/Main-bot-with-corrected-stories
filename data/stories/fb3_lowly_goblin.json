@@ -1,0 +1,737 @@
+{
+  "world": "الفانتازيا",
+  "categories": [
+    {
+      "name": "الفانتازيا المظلمة",
+      "stories": [
+        {
+          "id": "fb3_lowly_goblin",
+          "title": "ليلة الناب المكسور",
+          "summary": "أنت غول صغير هزيل في زنزانة دامسة. أبطال متغطرسون يذبحون عشيرتك بلا رحمة، وعليك النجاة بالمكر والخيانة، وربما التحول إلى شيء أشد ظلمة ورعباً.",
+          "difficulty": "صعب",
+          "estimated_length": "طويلة",
+          "theme": "الفانتازيا المظلمة",
+          "world_type": "fantasy",
+          "game_mode": "single",
+          "perspectives": [
+            {
+              "id": "lowly_goblin",
+              "label": "الغول الحقير",
+              "emoji": "🧟",
+              "description": "كائن ضعيف يحتقره الجميع، ممزق بين رغبة البقاء المذلة وعطش دفين لأن يصير مفترساً حاكماً.",
+              "start_node": "start"
+            }
+          ],
+          "nodes": {
+            "start": {
+              "text": "أنت لست زعيم حرب أو بطلاً أسطورياً؛ أنت مجرد غوبلن حقير ذو جلد أخضر شاحب وعيون جاحظة، تقبع في أسفل السلسلة الغذائية في هذا الكهف. رائحة الدماء الطازجة توقظك. فرقة من المغامرين البشر المصفحين تجتاح الكهف، تذبح بني جنسك كأنهم حشرات. زعيمك الضخم قد سقط للتو، صرخته الأخيرة تتردد في الأنفاق، والآن، البقاء هو قاعدتك الوحيدة.",
+              "choices": [
+                {
+                  "label": "تزحف نحو الظل العميق",
+                  "emoji": "🌑",
+                  "next": "crawl_into_cracks",
+                  "points_reward": 2,
+                  "color": "primary"
+                },
+                {
+                  "label": "تطلق صرخة خداع مدوية",
+                  "emoji": "📣",
+                  "next": "fake_alarm_shout",
+                  "points_reward": 1,
+                  "color": "warning"
+                },
+                {
+                  "label": "تنهب جثة قائدك الميت",
+                  "emoji": "🪙",
+                  "next": "loot_fallen_boss",
+                  "points_reward": 1,
+                  "color": "danger"
+                }
+              ]
+            },
+            "crawl_into_cracks": {
+              "text": "تنزلق كالسحلية في شق ضيق بين الصخور. تتجاهل صرخات أبناء جنسك وهم يُسحقون تحت أحذية البشر. الظلام البارد للشق يخفي أنفاسك المذعورة، والمغامرون يمرون دون أن يلاحظوك، مكملين مذبحتهم.",
+              "choices": [
+                {
+                  "label": "تتبع خطاهم صامتاً كالطيف",
+                  "emoji": "👣",
+                  "next": "shadow_tail_heroes",
+                  "points_reward": 2,
+                  "color": "primary"
+                },
+                {
+                  "label": "تنزل لقبو الفخاخ المنسي",
+                  "emoji": "🪤",
+                  "next": "trap_basement_access",
+                  "points_reward": 1,
+                  "color": "secondary"
+                }
+              ]
+            },
+            "fake_alarm_shout": {
+              "text": "تطلق صرخة إنذار حادة كالمسمار لتدفع المغامرين نحو فخاخ لم تنفجر بعد. يلتفتون نحوك، تطلق عليهم ابتسامة بشعة، وتركض نحو الظلام، تاركاً إياهم يتخبطون في حيرتهم.",
+              "choices": [
+                {
+                  "label": "تبدل الممر فوراً قبل وصولها",
+                  "emoji": "↪️",
+                  "next": "rat_tunnel_escape",
+                  "points_reward": 1,
+                  "color": "primary"
+                },
+                {
+                  "label": "تكرر الخداع بغباء",
+                  "emoji": "🎭",
+                  "next": "voice_mimic_overreach",
+                  "points_reward": 0,
+                  "color": "danger"
+                }
+              ]
+            },
+            "loot_fallen_boss": {
+              "text": "بجشع فطري، تزحف نحو جثة الزعيم الميت قبل أن يصل إليها البشر. تسرق قلادته السحرية الملطخة بالدماء. قوتها البدائية تسري في عروقك، وتدرك أن هذه القلادة قد تكون مفتاح نجاتك... أو هلاكك المبرم.",
+              "choices": [
+                {
+                  "label": "تأخذ المفاتيح وتتراجع",
+                  "emoji": "🗝️",
+                  "next": "cellblock_detour",
+                  "points_reward": 2,
+                  "color": "success"
+                },
+                {
+                  "label": "تشرب السائل فوراً للطاقة",
+                  "emoji": "🧪",
+                  "next": "ending_death_poison_draught",
+                  "color": "danger"
+                }
+              ]
+            },
+            "shadow_tail_heroes": {
+              "text": "بدلاً من الهرب، تتبع المغامرين في الظل كطفيلي خفي. تستفيد من مسارهم الدموي، تجمع الفتات وتنتظر لحظة ضعفهم عندما ينهكهم القتال المستمر مع وحوش الكهف الأقوى.",
+              "choices": [
+                {
+                  "label": "تستهدف القنّاص الغافل",
+                  "emoji": "🏹",
+                  "next": "sabotage_archer_perch",
+                  "points_reward": 2,
+                  "color": "danger"
+                },
+                {
+                  "label": "تستدرج الفارس المثقل",
+                  "emoji": "🛡️",
+                  "next": "lure_knight_to_pit",
+                  "points_reward": 1,
+                  "color": "warning"
+                }
+              ]
+            },
+            "trap_basement_access": {
+              "text": "تتسلل نحو قبو الفخاخ السفلي. الممرات هنا ضيقة ومليئة بالنصال الصدئة والحفر المميتة. يجب أن تعيد ضبط هذه الآلات القديمة لتحصد أرواح البشر الدخلاء.",
+              "choices": [
+                {
+                  "label": "تسلح بالفخاخ وأعدها",
+                  "emoji": "🪚",
+                  "next": "prepare_kill_corridor",
+                  "points_reward": 2,
+                  "color": "primary"
+                },
+                {
+                  "label": "توقظ الوحش المقيد في الركن",
+                  "emoji": "⛓️",
+                  "next": "release_chained_brute",
+                  "points_reward": 1,
+                  "color": "danger"
+                }
+              ]
+            },
+            "rat_tunnel_escape": {
+              "text": "تهرب عبر نفق للجرذان العملاقة. الرائحة مقززة، ومخالب الجرذان تخدش جلدك، لكنه المسار الوحيد الذي لا تستطيع أجساد البشر الضخمة عبوره. البقاء يتطلب الانحطاط.",
+              "choices": [
+                {
+                  "label": "تنقذ الحضّانة والصغار",
+                  "emoji": "🍼",
+                  "next": "nursery_choice",
+                  "points_reward": 3,
+                  "color": "success"
+                },
+                {
+                  "label": "تتجه لمخزن السم لاستغلاله",
+                  "emoji": "☠️",
+                  "next": "poison_store_room",
+                  "points_reward": 1,
+                  "color": "danger"
+                }
+              ]
+            },
+            "voice_mimic_overreach": {
+              "text": "تحاول تقليد صرخة استغاثة بشرية لاستدراجهم. تبالغ في نبرة الرعب، مما يجعل الساحرة في المجموعة تشك فوراً. تطلق تعويذة استكشاف تكشف موقعك. خدعتك الرخيصة انقلبت عليك.",
+              "choices": [
+                {
+                  "label": "تقفز في البئر الجافة للنجاة",
+                  "emoji": "🕳️",
+                  "next": "well_descent_gamble",
+                  "points_reward": 1,
+                  "color": "secondary"
+                },
+                {
+                  "label": "تركض عشوائياً في الممر المضاء",
+                  "emoji": "🏃",
+                  "next": "ending_death_corridor_hack",
+                  "color": "danger"
+                }
+              ]
+            },
+            "cellblock_detour": {
+              "text": "تتجه نحو قسم الزنازين حيث كان زعيمكم يحتفظ ببعض الوحوش المتمردة. تحريرهم سيخلق فوضى عارمة، لكنهم قد يقتلونك قبل أن يهاجموا البشر.",
+              "choices": [
+                {
+                  "label": "تطلق الساحر المجنون فقط",
+                  "emoji": "🔮",
+                  "next": "free_mad_sorcerer",
+                  "points_reward": 2,
+                  "color": "warning"
+                },
+                {
+                  "label": "تطلق الغولة العمياء",
+                  "emoji": "🧌",
+                  "next": "free_blind_ogress",
+                  "points_reward": 1,
+                  "color": "primary"
+                }
+              ]
+            },
+            "sabotage_archer_perch": {
+              "text": "تتسلق خلسة نحو نقطة تمركز رامية السهام البشرية. تقطع حبل جسرها الخشبي ببطء شديد. عندما تخطو عليه، ينهار الجسر وتصرخ وهي تسقط في الهاوية، بينما تختفي أنت في الظلام بضحكة مكتومة.",
+              "choices": [
+                {
+                  "label": "تنهيه برمي الحجر الثقيل",
+                  "emoji": "🪨",
+                  "next": "ending_success_survivor_lord",
+                  "required_points": 5,
+                  "color": "success"
+                },
+                {
+                  "label": "تكتفي بسرقة سهامه الثمينة",
+                  "emoji": "🏹",
+                  "next": "arrow_cache_gain",
+                  "points_reward": 2,
+                  "color": "primary"
+                }
+              ]
+            },
+            "lure_knight_to_pit": {
+              "text": "تستفز الفارس المدرع بإلقاء الحجارة على خوذته. يغضب ويندفع نحوك، متجاهلاً حذره. تقوده ببراعة نحو حفرة مستترة بالأشواك، وتستمتع بصوت انكسار عظامه تحت درعه الثقيل.",
+              "choices": [
+                {
+                  "label": "تكسر الدعامة الخشبية ليسقط",
+                  "emoji": "🪵",
+                  "next": "pit_collapse_result",
+                  "points_reward": 2,
+                  "color": "primary"
+                },
+                {
+                  "label": "تتراجع قبل الأوان خوفاً",
+                  "emoji": "↩️",
+                  "next": "ending_death_knight_charge",
+                  "color": "danger"
+                }
+              ]
+            },
+            "prepare_kill_corridor": {
+              "text": "تصل إلى ممر ضيق وتجهز سلسلة من الفخاخ البدائية؛ أحجار متساقطة، وزيت قابل للاشتعال، ومسامير صدئة. تستعد لتحويل هذا الممر إلى مسلخ لأولئك الذين استهانوا بذكاء غوبلن.",
+              "choices": [
+                {
+                  "label": "استدرج الساحرة المغرورة",
+                  "emoji": "🪄",
+                  "next": "bait_mage_into_traps",
+                  "points_reward": 2,
+                  "color": "primary"
+                },
+                {
+                  "label": "استدرج الكاهن البطيء",
+                  "emoji": "🕯️",
+                  "next": "bait_healer_into_traps",
+                  "points_reward": 1,
+                  "color": "warning"
+                }
+              ]
+            },
+            "release_chained_brute": {
+              "text": "تكسر قفل سلسلة الوحش المصفح الضخم الذي كان يعذبكم. ينهض الوحش بغضب أعمى. تتوارى عن الأنظار بينما يندفع الوحش كعاصفة من العضلات نحو المغامرين، ممزقاً دروعهم كأنها ورق.",
+              "choices": [
+                {
+                  "label": "تطعمه جثة غول ليرضى",
+                  "emoji": "🥩",
+                  "next": "brute_redirected",
+                  "points_reward": 1,
+                  "color": "warning"
+                },
+                {
+                  "label": "تأمره بالهجوم بشجاعة غبية",
+                  "emoji": "⚔️",
+                  "next": "ending_death_brute_turns",
+                  "color": "danger"
+                }
+              ]
+            },
+            "nursery_choice": {
+              "text": "تمر بحضانة الغوبلن المليئة بالصغار. الخيار مرعب: هل تحاول تهريبهم المخاطرة بحياتك، أم تتركهم لمصيرهم تحت سيوف البشر؟ البقاء للأنانية المطلقة.",
+              "choices": [
+                {
+                  "label": "تهرب بهم جميعاً وتخاطر",
+                  "emoji": "🤲",
+                  "next": "burdened_escape_route",
+                  "points_reward": 2,
+                  "color": "success"
+                },
+                {
+                  "label": "تغلق الباب عليهم ببرود",
+                  "emoji": "🚪",
+                  "next": "cold_survival_path",
+                  "points_reward": 0,
+                  "color": "secondary"
+                }
+              ]
+            },
+            "poison_store_room": {
+              "text": "تجد مخزن السموم السري. قوارير مليئة بسوائل حارقة ومميتة. تتسلح بها، وتحول نفسك من هارب جبان إلى قاتل غير مرئي قادر على إنهاء حياة أعتى الأبطال بقطرة واحدة.",
+              "choices": [
+                {
+                  "label": "سمّم البئر العليا للأبطال",
+                  "emoji": "🧫",
+                  "next": "poison_upper_well",
+                  "points_reward": 2,
+                  "color": "primary"
+                },
+                {
+                  "label": "اطلِ خنجرك بالسم القاتل",
+                  "emoji": "🗡️",
+                  "next": "venom_dagger_ready",
+                  "points_reward": 1,
+                  "color": "danger"
+                }
+              ]
+            },
+            "well_descent_gamble": {
+              "text": "تقرر النزول عبر البئر الجاف المظلم، وهي مقامرة يائسة. الحبل مهترئ والجدران زلقة، وأنت لا تعرف ما يقبع في القاع السحيق المنسي.",
+              "choices": [
+                {
+                  "label": "تزحف نحو المذبح المحرم",
+                  "emoji": "🩸",
+                  "next": "forbidden_altar_chamber",
+                  "points_reward": 2,
+                  "color": "primary"
+                },
+                {
+                  "label": "تتخفى تحت الماء العفن",
+                  "emoji": "🌊",
+                  "next": "ending_death_drowned_silently",
+                  "color": "danger"
+                }
+              ]
+            },
+            "free_mad_sorcerer": {
+              "text": "تحرر ساحراً بشرياً مجنوناً كان محتجزاً هنا لسنوات. يضحك بهستيريا ويعدك بتدمير رفاقه السابقين مقابل حريته. لقد أطلقت شيطاناً لا يمكن السيطرة عليه.",
+              "choices": [
+                {
+                  "label": "تصدقه وتتبعه كظل",
+                  "emoji": "🔥",
+                  "next": "sorcerer_bargain_path",
+                  "points_reward": 2,
+                  "color": "warning"
+                },
+                {
+                  "label": "تطعنه من الخلف لتسرقه",
+                  "emoji": "🗡️",
+                  "next": "ending_death_arcane_blast",
+                  "color": "danger"
+                }
+              ]
+            },
+            "free_blind_ogress": {
+              "text": "تحرر الغولة العملاقة العمياء. غضبها الهائل يحتاج فقط لتوجيه. تصرخ لتخبرها بمكان البشر، فتندفع كالطاحونة لتحطم كل من يقف في طريقها.",
+              "choices": [
+                {
+                  "label": "قدها نحو الأبطال ككاسحة",
+                  "emoji": "🪓",
+                  "next": "ogress_rampage_cover",
+                  "points_reward": 2,
+                  "color": "danger"
+                },
+                {
+                  "label": "تهرب وتتركها كطعم",
+                  "emoji": "🏃",
+                  "next": "cold_survival_path",
+                  "points_reward": 1,
+                  "color": "secondary"
+                }
+              ]
+            },
+            "arrow_cache_gain": {
+              "text": "تعثر على مخبأ لسهام مسمومة. تتسلح بقوس صغير وتصبح قناصاً مميتاً في الظلام. كل سهم يطلق، يحمل معه سم الشلل البطئ الذي سيعذب الدخلاء.",
+              "choices": [
+                {
+                  "label": "تنصب كميناً أخيراً",
+                  "emoji": "🎯",
+                  "next": "final_ambush_gallery",
+                  "points_reward": 2,
+                  "color": "danger"
+                },
+                {
+                  "label": "تتجه لبوابة الهرب",
+                  "emoji": "🚪",
+                  "next": "burdened_escape_route",
+                  "points_reward": 1,
+                  "color": "primary"
+                }
+              ]
+            },
+            "pit_collapse_result": {
+              "text": "انهيار الحفرة يسحب الفارس وبعض رفاقه. تستغل الغبار والصراخ لتنزلق نحو المخرج، لكنك تشعر بنظرات باردة تلاحقك من الظلام المتبقي.",
+              "choices": [
+                {
+                  "label": "استغل الصراخ طعماً لأصحابه",
+                  "emoji": "🪤",
+                  "next": "final_ambush_gallery",
+                  "points_reward": 2,
+                  "color": "primary"
+                },
+                {
+                  "label": "أجهز عليه الآن بحجر",
+                  "emoji": "☠️",
+                  "next": "ending_success_sacrifice_hatchlings",
+                  "required_points": 5,
+                  "color": "success"
+                }
+              ]
+            },
+            "bait_mage_into_traps": {
+              "text": "تستخدم بريق الذهب لاستدراج الساحر الجشع نحو غرفة مليئة بفخاخ الحمض. كبرياؤه يعميه عن ملاحظة الأسلاك الرفيعة، والحمض يذيب لحمه قبل أن يدرك خطأه.",
+              "choices": [
+                {
+                  "label": "تطعنها بالخنجر المسموم",
+                  "emoji": "🧪",
+                  "next": "venom_finish_mage",
+                  "points_reward": 2,
+                  "color": "danger"
+                },
+                {
+                  "label": "تفر بهدوء قبل ردها",
+                  "emoji": "🌫️",
+                  "next": "cold_survival_path",
+                  "points_reward": 1,
+                  "color": "secondary"
+                }
+              ]
+            },
+            "bait_healer_into_traps": {
+              "text": "تتظاهر بالموت قرب فخ سقف شوكي. يقترب المعالج البشري للتأكد، وبمجرد وقوفه في النقطة المحددة، تضغط على الزناد. السقف يهوي ليحوله إلى مجرد ذكرى دموية.",
+              "choices": [
+                {
+                  "label": "تغمره بضباب مخدر كثيف",
+                  "emoji": "🌫️",
+                  "next": "final_ambush_gallery",
+                  "points_reward": 2,
+                  "color": "primary"
+                },
+                {
+                  "label": "تنتظر حتى يفيق من رعبه",
+                  "emoji": "⌛",
+                  "next": "ending_death_holy_hammer",
+                  "color": "danger"
+                }
+              ]
+            },
+            "brute_redirected": {
+              "text": "الوحش الضخم ينتهي من تمزيق البشر، ثم يستدير نحوك فجأة. الغضب الأعمى لا يفرق بين حليف وعدو. يجب أن تهرب مرة أخرى من وحش أنت أطلقته.",
+              "choices": [
+                {
+                  "label": "تنقض على الساحة الخلفية",
+                  "emoji": "🗡️",
+                  "next": "final_ambush_gallery",
+                  "points_reward": 2,
+                  "color": "danger"
+                },
+                {
+                  "label": "تهرب للسطح فوراً بجبن",
+                  "emoji": "🪜",
+                  "next": "ending_survival_coward",
+                  "color": "secondary"
+                }
+              ]
+            },
+            "burdened_escape_route": {
+              "text": "محملًا بما سرقته، يصبح هروبك بطيئاً ومجهداً. الجشع يثقل حركتك، ويجعلك هدفاً سهلاً لمن تبقى من المغامرين المتعطشين للانتقام.",
+              "choices": [
+                {
+                  "label": "تضحّي بجرحى اثنين لتخفيف الحمل",
+                  "emoji": "💔",
+                  "next": "ending_success_sacrifice_hatchlings",
+                  "points_reward": 2,
+                  "color": "warning"
+                },
+                {
+                  "label": "تقاتل لفتح الباب بالصغار",
+                  "emoji": "🚪",
+                  "next": "ending_death_last_stand",
+                  "color": "danger"
+                }
+              ]
+            },
+            "cold_survival_path": {
+              "text": "تختار النجاة الصامتة والقاسية. تقتل كل جريح في طريقك، غوبلن أو بشري، لتأمين مسارك ولإزالة أي شاهد قد يفضحك. قلبك أصبح أبرد من صخور الكهف.",
+              "choices": [
+                {
+                  "label": "تسعى للتطور والقوة المطلقة",
+                  "emoji": "🧬",
+                  "next": "forbidden_altar_chamber",
+                  "points_reward": 2,
+                  "color": "primary"
+                },
+                {
+                  "label": "تكتفي بالهرب والنجاة كفأر",
+                  "emoji": "🏚️",
+                  "next": "ending_survival_coward",
+                  "color": "secondary"
+                }
+              ]
+            },
+            "poison_upper_well": {
+              "text": "تفرغ السموم في منبع المياه الجوفية الذي يشرب منه البشر في الأعلى. موت بطيء وصامت سيحصد أرواحهم واحداً تلو الآخر، وأنت تراقب من الأسفل بابتسامة خبيثة.",
+              "choices": [
+                {
+                  "label": "استغل اضطرابهم واهجم",
+                  "emoji": "🎯",
+                  "next": "final_ambush_gallery",
+                  "points_reward": 2,
+                  "color": "danger"
+                },
+                {
+                  "label": "اتركهم يتعافون ببطء",
+                  "emoji": "🕰️",
+                  "next": "ending_death_captured_alive",
+                  "color": "danger"
+                }
+              ]
+            },
+            "venom_dagger_ready": {
+              "text": "تغمس خنجرك الصدئ في أشد السموم فتكاً. طعنة سطحية واحدة تكفي الآن لإنهاء حياة بطل أسطوري. لقد أصبحت الموت الذي يمشي في الظلام.",
+              "choices": [
+                {
+                  "label": "استهدف الساحرة بهدوء",
+                  "emoji": "🔮",
+                  "next": "venom_finish_mage",
+                  "points_reward": 2,
+                  "color": "success"
+                },
+                {
+                  "label": "استهدف الكاهن المحصن",
+                  "emoji": "🕯️",
+                  "next": "final_ambush_gallery",
+                  "points_reward": 1,
+                  "color": "warning"
+                }
+              ]
+            },
+            "forbidden_altar_chamber": {
+              "text": "تصل إلى المذبح المحرم، حيث الدماء القديمة تهمس بالوعود المظلمة. الطقوس هنا قادرة على تحويل الغوبلن الضعيف إلى كيان مرعب، لكن الثمن هو روحك.",
+              "choices": [
+                {
+                  "label": "قدّم دمك للمذبح للتحول",
+                  "emoji": "🩸",
+                  "next": "blood_rite_evolution",
+                  "points_reward": 3,
+                  "color": "danger"
+                },
+                {
+                  "label": "اكسر القلب الحجري لإنهائه",
+                  "emoji": "🪨",
+                  "next": "ending_success_survivor_lord",
+                  "required_points": 5,
+                  "color": "success"
+                }
+              ]
+            },
+            "sorcerer_bargain_path": {
+              "text": "يطلب الساحر المجنون أن تدله على المذبح مقابل قوتك. ترشده، لكنك تخطط لسرقة القوة لنفسك عندما يضعف بعد التعويذة. خيانة الخائنين.",
+              "choices": [
+                {
+                  "label": "تسرق مخطوطه الغامض وتهرب",
+                  "emoji": "📕",
+                  "next": "blood_rite_evolution",
+                  "points_reward": 2,
+                  "color": "primary"
+                },
+                {
+                  "label": "تبقى بجانبه وتثق به",
+                  "emoji": "🔥",
+                  "next": "ending_death_burned_with_madman",
+                  "color": "danger"
+                }
+              ]
+            },
+            "ogress_rampage_cover": {
+              "text": "تستخدم الغولة المندفعة كغطاء مثالي. بينما ينشغل البشر بمحاولة إسقاطها، تتسلل أنت خلفهم وتطعنهم في النقاط العمياء بدقة قاتلة.",
+              "choices": [
+                {
+                  "label": "تذبح الناجي الأخير من الأبطال",
+                  "emoji": "🩸",
+                  "next": "final_ambush_gallery",
+                  "points_reward": 2,
+                  "color": "danger"
+                },
+                {
+                  "label": "تهرب قبل النهاية الدموية",
+                  "emoji": "🌘",
+                  "next": "ending_survival_coward",
+                  "color": "secondary"
+                }
+              ]
+            },
+            "venom_finish_mage": {
+              "text": "تطعن الساحر من الخلف بخنجرك المسموم أثناء انشغاله بالغولة. ينظر إليك بصدمة وهو يسعل الدماء السوداء، غير مصدق أن غوبلن حقير أنهى حياته.",
+              "choices": [
+                {
+                  "label": "تلاحق الباقين لتصفيتهم",
+                  "emoji": "🐾",
+                  "next": "final_ambush_gallery",
+                  "points_reward": 2,
+                  "color": "danger"
+                },
+                {
+                  "label": "تنسحب للمذبح للتطور",
+                  "emoji": "🩸",
+                  "next": "forbidden_altar_chamber",
+                  "points_reward": 1,
+                  "color": "primary"
+                }
+              ]
+            },
+            "final_ambush_gallery": {
+              "text": "الرواق الأخير قبل المخرج. تنصب الكمين النهائي للبقية المنهكة من البشر. كل فخ وكل سم تم تحضيره لهذه اللحظة الحاسمة.",
+              "choices": [
+                {
+                  "label": "أسقط الشرفة الثقيلة عليهم",
+                  "emoji": "🏛️",
+                  "next": "ending_success_survivor_lord",
+                  "required_points": 5,
+                  "color": "success"
+                },
+                {
+                  "label": "أشعل براميل الزيت المتفجرة",
+                  "emoji": "🔥",
+                  "next": "ending_success_sacrifice_hatchlings",
+                  "required_points": 3,
+                  "color": "warning"
+                },
+                {
+                  "label": "حاول الفرار مكشوفاً للسطح",
+                  "emoji": "🚨",
+                  "next": "ending_death_arrow_in_back",
+                  "color": "danger"
+                }
+              ]
+            },
+            "blood_rite_evolution": {
+              "text": "تؤدي طقس الدم المحرم على المذبح. ألم ممزق يجتاح جسدك الهزيل بينما تتضخم عضلاتك ويتحول جلدك إلى درع داكن. لقد ارتقيت لتصبح (مفترس الظلام)، كابوساً جديداً للمغامرين.",
+              "choices": [
+                {
+                  "label": "تبتلع روحك القديمة للتطور",
+                  "emoji": "🕳️",
+                  "next": "ending_secret_evolved_overlord",
+                  "required_points": 7,
+                  "color": "danger"
+                },
+                {
+                  "label": "تقاوم التحول الأخير خوفاً",
+                  "emoji": "⛓️",
+                  "next": "ending_death_ritual_rejection",
+                  "color": "danger"
+                }
+              ]
+            },
+            "ending_death_poison_draught": {
+              "text": "تخطئ في خلط السموم السريعة وتستنشق الغاز القاتل. تسقط ميتاً في الظلام، مخنوقاً بذكائك الفاسد. لم يتذكرك أحد.",
+              "is_ending": true,
+              "choices": []
+            },
+            "ending_death_corridor_hack": {
+              "text": "تخطئ في تقدير سرعة الفارس في الممر. سيفه الضخم يشطرك إلى نصفين قبل أن تطلق فخك. تموت كغوبلن ضعيف كما ولدت.",
+              "is_ending": true,
+              "choices": []
+            },
+            "ending_death_knight_charge": {
+              "text": "ينجو الفارس من فخ الحفرة، ويندفع نحوك بغضب أعمى. درعه يحميه من سهامك المسمومة، ويسحق جمجمتك بقدمه الحديدية.",
+              "is_ending": true,
+              "choices": []
+            },
+            "ending_death_brute_turns": {
+              "text": "الوحش الضخم الذي أطلقته يمسك بك ويمزقك إرباً بعد أن أنهى المغامرين. وحشيته لا تعرف الامتنان.",
+              "is_ending": true,
+              "choices": []
+            },
+            "ending_death_drowned_silently": {
+              "text": "تنزلق في البئر المظلم وتغرق في المياه الجليدية العميقة، بصمت وبلا شهود. الموت البارد في قاع النسيان.",
+              "is_ending": true,
+              "choices": []
+            },
+            "ending_death_arcane_blast": {
+              "text": "تعويذة الساحرة الاستكشافية تكشفك، وتتبعها بكرة لهب سحرية تحولك إلى رماد متفحم قبل أن تتمكن من الصراخ.",
+              "is_ending": true,
+              "choices": []
+            },
+            "ending_death_holy_hammer": {
+              "text": "يلمحك الكاهن البشري ويسحق رأسك بمطرقته المقدسة بحجة تطهير الكهف من الرجس. النور كان نهاية ظلامك.",
+              "is_ending": true,
+              "choices": []
+            },
+            "ending_death_captured_alive": {
+              "text": "يفشلون في قتلك، لكنهم يأسرونك حياً. ستُقاد كحيوان أليف مشوه في مدن البشر أو تباع في أسواق العبيد الرخيصة. أسوأ من الموت.",
+              "is_ending": true,
+              "choices": []
+            },
+            "ending_death_last_stand": {
+              "text": "محاصراً في رواق مسدود، تقاتل بشجاعة يائسة لا تليق بغوبلن. تسقط بعد أن تصيب اثنين، محتفظاً بقليل من الشرف في موتك الحتمي.",
+              "is_ending": true,
+              "choices": []
+            },
+            "ending_death_burned_with_madman": {
+              "text": "الساحر المجنون يفقد السيطرة على تعويذته ويفجر نفسه وإياك والمذبح بلهيب الجحيم. لقد وثقت بمجنون ودفعتم الثمن معاً.",
+              "is_ending": true,
+              "choices": []
+            },
+            "ending_death_arrow_in_back": {
+              "text": "أثناء هروبك المثقل بالغنائم، يخترق سهم دقيق ظهرك من رامية السهام البشرية. الجشع كان وزنك القاتل.",
+              "is_ending": true,
+              "choices": []
+            },
+            "ending_death_ritual_rejection": {
+              "text": "المذبح المحرم يرفض دمك الحقير. بدلاً من التطور، تمتصك الطقوس وتجفف جسدك ليصبح مجرد قشرة فارغة. طموحك كان انتحاراً.",
+              "is_ending": true,
+              "choices": []
+            },
+            "ending_survival_coward": {
+              "text": "تهرب من الكهف حياً ولكن خالي الوفاض ومذعوراً. ستعيش كمنبوذ وجبان، تقتات على الجيف، لكنك على الأقل تتنفس.",
+              "is_ending": true,
+              "choices": []
+            },
+            "ending_success_sacrifice_hatchlings": {
+              "text": "استخدمت صغار الغوبلن كطعم لتشتيت البشر ونجوت. تعيش بندبة الجريمة، لكنك تتعلم أن البقاء لا يعرف الشفقة. تصبح زعيماً لقطيع جديد لا يرحم.",
+              "is_ending": true,
+              "choices": []
+            },
+            "ending_success_survivor_lord": {
+              "text": "بعد قتل جميع المغامرين بفخاخك وسمومك، تقف فوق جثثهم. بني جنسك المتبقين ينحنون لك برعب واحترام. أنت الآن زعيمهم الجديد، الزعيم الذي قهر البشر بذكائه ومكره.",
+              "is_ending": true,
+              "choices": []
+            },
+            "ending_secret_evolved_overlord": {
+              "text": "لقد نجحت في الطقس المحرم. جسدك الهائل وقوتك المظلمة تجعلك سيداً للكهف. لن تجرؤ أي فرقة مغامرين على دخول مملكتك مجدداً، لقد أصبحت كابوساً يمشي على قدمين.",
+              "is_ending": true,
+              "choices": []
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

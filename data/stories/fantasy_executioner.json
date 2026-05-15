@@ -1,0 +1,917 @@
+{
+  "world": "الفانتازيا",
+  "categories": [
+    {
+      "id": "fantasy_batch_3",
+      "name": "الفانتازيا المظلمة",
+      "emoji": "🪓",
+      "stories": [
+        {
+          "id": "fb3_executioner",
+          "title": "سيف العدالة الأعمى",
+          "summary": "أنت جلاد الملك، مقيد بقسم دم سحري لا يمكن كسره. اليوم، الرأس المطلوب قطعه هو رأس معلمك القديم الذي اكتشف سراً مظلماً عن العرش.",
+          "difficulty": "صعب جداً",
+          "estimated_length": "طويلة جداً",
+          "theme": "الفانتازيا المظلمة",
+          "world_type": "fantasy",
+          "game_mode": "single",
+          "perspective": {
+            "id": "executioner_view",
+            "label": "منظور الجلاد",
+            "emoji": "🪓",
+            "description": "جلاد الملك، ينفذ الأوامر بقوة قسم الدم.",
+            "start_node": "start"
+          },
+          "nodes": {
+            "start": {
+              "text": "الصدأ العتيق يفوح من نصل فأسك كأنفاس مقبرة. أنت جلاد الملك الأوحد — لا قسَم يُحنَث، ولا عنق يُخطأ، ولا إرادة تُعصى. لكن الجسد المرتجف أمام المقصلة اليوم ليس جسد غريب؛ إنه معلمك. يرفع رأسه الأشيب ويهمس بما بقي له من نفَس: «العرش يُطعم شيطاناً... ابحث في زنزانتي». أعين الحرس تثقب ظهرك كنصال. النصل يلمع. الحشد يصخب. والوقت يتآكل.",
+              "choices": [
+                {
+                  "label": "نفذ الحكم فوراً واقطع رأسه",
+                  "emoji": "🪓",
+                  "next": "execute_mentor",
+                  "points_reward": 2,
+                  "color": "danger",
+                  "reputation": "ruthless"
+                },
+                {
+                  "label": "زيف موته بضربة خادعة",
+                  "emoji": "🩸",
+                  "next": "fake_execution",
+                  "points_reward": 3,
+                  "color": "success",
+                  "reputation": "guardian"
+                },
+                {
+                  "label": "تصنع تفحص الفأس لتتأخر",
+                  "emoji": "⏳",
+                  "next": "delay_execution",
+                  "points_reward": 1,
+                  "color": "secondary"
+                }
+              ]
+            },
+            "delay_execution": {
+              "text": "تتصنع تفحص النصل لشراء ثوانٍ لا تكفي. قائد الحرس يتقدم بخطوات تُرجّ الخشب، يديه تعتصران مقبض سيفه المسموم: «هل ثمة خلل يا جلاد؟» — لا يسأل، بل يُحذّر. كل ثانية تمر تحفر قبرك أعمق.",
+              "choices": [
+                {
+                  "label": "تحدث إلى المعلم متجاهلا القائد",
+                  "emoji": "🗣️",
+                  "next": "talk_to_mentor",
+                  "points_reward": 0,
+                  "color": "danger"
+                },
+                {
+                  "label": "راقب تحركات الحراس بحذر",
+                  "emoji": "👁️",
+                  "next": "observe_guards",
+                  "points_reward": 1,
+                  "color": "primary"
+                },
+                {
+                  "label": "تراجع ونفذ الحكم فوراً",
+                  "emoji": "🪓",
+                  "next": "execute_mentor",
+                  "points_reward": 2,
+                  "color": "danger"
+                }
+              ]
+            },
+            "talk_to_mentor": {
+              "text": "تتجاهل القائد وتنحني نحو معلمك. خطأ أخير. السيف يخترق قفصك الصدري من الخلف قبل أن تسمع آخر كلمة. دماؤك تختلط بدماء المنصة، وعيناك تنطفئان على وجه معلمك وهو يُجزّ بعدك.",
+              "is_ending": true,
+              "choices": []
+            },
+            "observe_guards": {
+              "text": "زاوية عينك تكشف التشكيل: نصف دائرة، أيدٍ على قبضات، قرار مسبق. لقد حكموا عليك قبل أن تحكم على معلمك. أمامك شظايا ثوانٍ.",
+              "choices": [
+                {
+                  "label": "نفذ الحكم ببرود القاتل",
+                  "emoji": "🪓",
+                  "next": "execute_mentor",
+                  "points_reward": 2,
+                  "color": "danger"
+                },
+                {
+                  "label": "زيف الموت بسرعة خاطفة",
+                  "emoji": "🩸",
+                  "next": "fake_execution",
+                  "points_reward": 3,
+                  "color": "success"
+                }
+              ]
+            },
+            "execute_mentor": {
+              "text": "يهوي النصل. الرأس يسقط. مجرى من الحرارة السحرية يحرق عروقك — القسم يكافئ الطاعة العمياء. يتفرق الحشد. تبقى وحيداً تمسح النصل والهمس يسكن جمجمتك.",
+              "choices": [
+                {
+                  "label": "تسلل لتبحث في زنزانته",
+                  "emoji": "🗝️",
+                  "next": "search_cell",
+                  "points_reward": 2,
+                  "color": "primary",
+                  "reputation": "seeker"
+                },
+                {
+                  "label": "اشرب في الحانة لتنسى جريمته",
+                  "emoji": "🍷",
+                  "next": "drink_in_grief",
+                  "points_reward": 1,
+                  "color": "danger"
+                }
+              ]
+            },
+            "drink_in_grief": {
+              "text": "تغرق في نبيذ الحانة محاولاً إسكات الأصوات. في الكأس الرابعة تُدرك أن النبيذ يحترق حرقاً حقيقياً. الملك لا يُبقي على من يعرف أسراره. تسعل دماءك على الطاولة وتموت كما يموت الكلاب — غرقاً في جُبنك.",
+              "is_ending": true,
+              "choices": []
+            },
+            "fake_execution": {
+              "text": "دقة استثنائية تضرب خشبة الإعدام وتقطع جيباً دموياً مخفياً. جرح سطحي مبهر يُغطي عنق معلمك. تدفع جسده المغمى عليه نحو سلة الجثث — لكن الحراس تحركهم غريزة الشك.",
+              "choices": [
+                {
+                  "label": "ادفع الجسد للمجرى واخفه",
+                  "emoji": "🧺",
+                  "next": "hide_body",
+                  "points_reward": 2,
+                  "color": "primary"
+                },
+                {
+                  "label": "خاطر بإغراء الحرس بالذهب",
+                  "emoji": "💰",
+                  "next": "bribe_guards",
+                  "points_reward": 0,
+                  "color": "danger"
+                }
+              ]
+            },
+            "bribe_guards": {
+              "text": "تُنزلق الصرة الذهبية بهدوء. يقبضها الحارس، يزنها، ثم ينغرس خنجره في معدتك. «مكافأة الملك تفوق ثروتك يا جلاد.» كان الأجدر بك أن تثق بفأسك.",
+              "is_ending": true,
+              "choices": []
+            },
+            "hide_body": {
+              "text": "تركل جسد المعلم في ممر التخلص من الجثث وتنزلق خلفه في ظلام يفوح بعفن الموت. شهيقه المتقطع في الظلام هو الثقل المادي لأول تمرد في حياتك.",
+              "choices": [
+                {
+                  "label": "تسلل عبر السراديب المظلمة",
+                  "emoji": "🚶",
+                  "next": "dungeon_stealth",
+                  "points_reward": 3,
+                  "color": "success"
+                },
+                {
+                  "label": "انتظر في الظلام للمواجهة",
+                  "emoji": "🌑",
+                  "next": "shadow_ambush",
+                  "points_reward": 1,
+                  "color": "danger"
+                }
+              ]
+            },
+            "search_cell": {
+              "text": "رطوبة الزنزانة تصفع وجهك. جدران مطلية برموز خُطت بدم متخثر. بلاطة مرتفعة تخفي سراً، وصندوق مقفل يقبع قرب سرير القش المتعفن.",
+              "choices": [
+                {
+                  "label": "افحص البلاطة المتحركة بحذر",
+                  "emoji": "📜",
+                  "next": "find_mentor_notes",
+                  "points_reward": 3,
+                  "color": "primary"
+                },
+                {
+                  "label": "حطم أقفال الصندوق الخشبي",
+                  "emoji": "📦",
+                  "next": "trigger_ward",
+                  "points_reward": 0,
+                  "color": "danger"
+                }
+              ]
+            },
+            "trigger_ward": {
+              "text": "تحطم القفل بتهور. الرموز تتوهج قرمزاً. الجدران تنبض كلحم حي. الصندوق ينفجر وهباً أبيض يلتهم اللحم قبل أن يصل صراخك للهواء. المعلم أعد هذا الفخ لكل يد جاهلة.",
+              "is_ending": true,
+              "choices": []
+            },
+            "find_mentor_notes": {
+              "text": "تكشف البلاطة عن تجويف يحمل دفتراً مجلداً بجلد بشري ومفتاحاً أسود بارداً كالموت. الصفحات الممزقة تتحدث عن 'ناسج العهود' وعن ملك يُغذّي شيطاناً بأرواح سجنائه ليحافظ على شبابه.",
+              "choices": [
+                {
+                  "label": "اقرأ المذكرات واستوعب الحقيقة",
+                  "emoji": "📖",
+                  "next": "read_notes",
+                  "points_reward": 2,
+                  "color": "primary"
+                },
+                {
+                  "label": "احرق المذكرات للنجاة بجهلك",
+                  "emoji": "🔥",
+                  "next": "burn_notes",
+                  "points_reward": 1,
+                  "color": "danger"
+                }
+              ]
+            },
+            "burn_notes": {
+              "text": "تُحرق المعرفة. الرماد يتطاير كذرات حرية لن تعيشها. تغادر الزنزانة هارباً من حقيقة أكبر منك.",
+              "choices": [
+                {
+                  "label": "عد إلى منزلك لتنام وتنسى",
+                  "emoji": "🏠",
+                  "next": "go_home",
+                  "points_reward": 1,
+                  "color": "danger"
+                },
+                {
+                  "label": "أبلغ الملك بولائك المطلق",
+                  "emoji": "👑",
+                  "next": "report_to_king",
+                  "points_reward": 0,
+                  "color": "danger"
+                }
+              ]
+            },
+            "go_home": {
+              "text": "تنام وتوهم نفسك بالأمان. صرير النافذة يوقظك، ونصل حلاقة بارد يفعل ما لا يفعله الوهم. الملك لا يُبقي على الأدوات حين تقترب من النار.",
+              "is_ending": true,
+              "choices": []
+            },
+            "report_to_king": {
+              "text": "تصعد خافضاً رأسك. السحرة يُحيطون بك. التعويذة تخترق عمق عقلك الباطن وتمزق إنسانيتك. تُولد من جديد قوقعةً فارغة تحمل فأساً وتُطيع بلا روح.",
+              "is_ending": true,
+              "choices": []
+            },
+            "shadow_ambush": {
+              "text": "الظلام يتنفس. القتلة يندمجون مع العتمة كأنهم وُلدوا منها. لقد كانوا بانتظارك منذ سقط الرأس الوهمي.",
+              "choices": [
+                {
+                  "label": "قاتلهم بكل ما أوتيت من قوة",
+                  "emoji": "⚔️",
+                  "next": "fight_shadows",
+                  "points_reward": 0,
+                  "color": "danger"
+                },
+                {
+                  "label": "اسحب المعلم واهرب فورا",
+                  "emoji": "🏃",
+                  "next": "flee_shadows",
+                  "points_reward": 2,
+                  "color": "success"
+                }
+              ]
+            },
+            "fight_shadows": {
+              "text": "الفأس يمزق الأجساد لكن الأجساد لا تنفد. خنجر سام في ركبتك، وآخر في جنبك. السم يسري كجمر. تسقط على ركبتيك وتراقب كيف تُسحب جثتك نحو مجاري القلعة.",
+              "is_ending": true,
+              "choices": []
+            },
+            "flee_shadows": {
+              "text": "تحمل المعلم على كتفك وتجري. الممرات الحجرية تبتلعك. عند المفترق — قناة صرف أو جدار صخري رطب — تتوقف نصف ثانية.",
+              "choices": [
+                {
+                  "label": "تسلق الجدار الصخري الزلق",
+                  "emoji": "🧗",
+                  "next": "climb_walls",
+                  "points_reward": 0,
+                  "color": "danger"
+                },
+                {
+                  "label": "اختبئ في الصرف الصحي النتن",
+                  "emoji": "🕳️",
+                  "next": "hide_in_sewers",
+                  "points_reward": 2,
+                  "color": "primary"
+                }
+              ]
+            },
+            "climb_walls": {
+              "text": "الطحالب تسرق قبضتك. الوزن المضاعف يكسر أصابعك. تهوي في بئر الأساسات وتصطدم الصخور بظهورهما. الجهل بحدود جسدك لا يُغتفر في القلاع.",
+              "is_ending": true,
+              "choices": []
+            },
+            "hide_in_sewers": {
+              "text": "المياه القذرة تبتلع عبق دمائكما. في التقاطع الموحش — ضوء خافت ونابض يساراً، وجرذ ضخم يتجه يميناً.",
+              "choices": [
+                {
+                  "label": "اتبع الضوء الخافت المريب",
+                  "emoji": "💡",
+                  "next": "follow_light",
+                  "points_reward": 0,
+                  "color": "danger"
+                },
+                {
+                  "label": "اتبع مسار الجرذ للنجاة",
+                  "emoji": "🐀",
+                  "next": "follow_rat",
+                  "points_reward": 2,
+                  "color": "primary"
+                }
+              ]
+            },
+            "follow_light": {
+              "text": "الضوء ليس نجاة بل عيون وحش طيني يستوطن القاع. مجساته تلتف حول رقبتك. الفأس يقطع الهواء دون جدوى. الظلمة تطبق عليكما.",
+              "is_ending": true,
+              "choices": []
+            },
+            "follow_rat": {
+              "text": "الحشرات تحفظ شقوق النجاة أفضل من الملوك. تتبع الجرذ عبر أنفاق جافة لتصل مأوى يعج بمقنعين يُرددون ترانيم شائنة.",
+              "choices": [
+                {
+                  "label": "اطلب من مهرب إخراجكم سرا",
+                  "emoji": "🛶",
+                  "next": "find_smuggler",
+                  "points_reward": 0,
+                  "color": "danger"
+                },
+                {
+                  "label": "استكشف طقوسهم بصمت وحذر",
+                  "emoji": "🔍",
+                  "next": "find_cult",
+                  "points_reward": 2,
+                  "color": "primary"
+                }
+              ]
+            },
+            "find_smuggler": {
+              "text": "المهرب يأخذ ذهبك ويفتح باباً على كمين. يردك المهرب ساخراً ويقبض مكافأته. الثقة بالمجهولين في عاصمة مهترئة جريمة انتحار.",
+              "is_ending": true,
+              "choices": []
+            },
+            "find_cult": {
+              "text": "الرموز على جباههم تطابق رموز زنزانة المعلم. تميمة فوق مذبح رخامي تنبض بحرارة مألوفة — وكأنها تناديك.",
+              "choices": [
+                {
+                  "label": "انضم إليهم للتعلم من سحرهم",
+                  "emoji": "🙌",
+                  "next": "join_cult",
+                  "points_reward": 0,
+                  "color": "danger"
+                },
+                {
+                  "label": "اسرق التميمة واهرب بقوة",
+                  "emoji": "🏃",
+                  "next": "fight_cult",
+                  "points_reward": 3,
+                  "color": "success"
+                }
+              ]
+            },
+            "join_cult": {
+              "text": "يشمون لعنة الملك في جلدك. لا قربان أثمن من جسد جلاد مشبع بالدم. تُنحر حنجرتك ببطء مقيت. فضولك الأعمى حوّلك إلى وجبة.",
+              "is_ending": true,
+              "choices": []
+            },
+            "fight_cult": {
+              "text": "تخطف التميمة وتدفع المعلم نحو المنفذ. التميمة تنبض في يدك كمغناطيس يرشدك. أنت الآن تملك مفتاحاً — وخيارين.",
+              "choices": [
+                {
+                  "label": "تتبع النبض نحو الأرشيف السري",
+                  "emoji": "🏛️",
+                  "next": "archives_entrance",
+                  "points_reward": 2,
+                  "color": "primary"
+                },
+                {
+                  "label": "توجه للسطح فوراً للمواجهة",
+                  "emoji": "🏙️",
+                  "next": "upper_city",
+                  "points_reward": 1,
+                  "color": "secondary"
+                }
+              ]
+            },
+            "dungeon_stealth": {
+              "text": "تمشي كظل في ممرات السجن. حارس ضخم يغط في نوم عميق أمام البوابة. مفاتيحه تتدلى من حزامه المترهل كفرصة.",
+              "choices": [
+                {
+                  "label": "اضرب الحارس وأفقده الوعي تماما",
+                  "emoji": "👊",
+                  "next": "knockout_guard",
+                  "points_reward": 1,
+                  "color": "danger"
+                },
+                {
+                  "label": "تسلل من جانبه بصمت كالظل",
+                  "emoji": "🥷",
+                  "next": "sneak_past",
+                  "points_reward": 2,
+                  "color": "success"
+                },
+                {
+                  "label": "استكشف الممر الشرقي الطويل المهجور",
+                  "emoji": "🗺️",
+                  "next": "explore_corridor",
+                  "points_reward": 1,
+                  "color": "secondary"
+                },
+                {
+                  "label": "ادخل غرفة استراحة الحرس بحذر",
+                  "emoji": "🛡️",
+                  "next": "guard_room",
+                  "points_reward": 1,
+                  "color": "primary"
+                }
+              ]
+            },
+            "knockout_guard": {
+              "text": "مقبض الفأس يصطدم بمؤخرة الجمجمة. يسقط كحجر. المفاتيح البرونزية في يدك الآن.",
+              "choices": [
+                {
+                  "label": "اصعد نحو الأرشيف السري للبحث",
+                  "emoji": "🏛️",
+                  "next": "archives_entrance",
+                  "points_reward": 2,
+                  "color": "primary"
+                },
+                {
+                  "label": "انزل للزنزانات السفلية للمساجين",
+                  "emoji": "⛓️",
+                  "next": "lower_prison",
+                  "points_reward": 1,
+                  "color": "secondary"
+                }
+              ]
+            },
+            "sneak_past": {
+              "text": "تتجاوزانه كظلين. الممر يفرض قراراً لا رجعة فيه.",
+              "choices": [
+                {
+                  "label": "اصعد صامتا نحو الأرشيف",
+                  "emoji": "🏛️",
+                  "next": "archives_entrance",
+                  "points_reward": 2,
+                  "color": "primary"
+                },
+                {
+                  "label": "انزل للزنزانات السفلية للبحث",
+                  "emoji": "⛓️",
+                  "next": "lower_prison",
+                  "points_reward": 1,
+                  "color": "secondary"
+                }
+              ]
+            },
+            "lower_prison": {
+              "text": "هواء القاع بارد كأنفاس الموتى. السجناء كهياكل. الأقفال هشة، والأرواح الغاضبة تحوم بعنف حول القضبان الصدئة.",
+              "choices": [
+                {
+                  "label": "حرر السجناء وحطم أبوابهم",
+                  "emoji": "🔓",
+                  "next": "free_prisoners",
+                  "points_reward": 3,
+                  "color": "success",
+                  "reputation": "guardian"
+                },
+                {
+                  "label": "تجاهلهم واكمل طريقك بأنانية",
+                  "emoji": "🚶",
+                  "next": "ignore_prisoners",
+                  "points_reward": 0,
+                  "color": "danger"
+                }
+              ]
+            },
+            "ignore_prisoners": {
+              "text": "أذرع شبحية تعتصر رقبتك. الأرواح المعذبة لا تسمح لمن تجاهلها بالمرور. تموت مختنقاً دون قطرة دماء.",
+              "is_ending": true,
+              "choices": []
+            },
+            "free_prisoners": {
+              "text": "تضرب الأقفال وتنهار السدود. جيش الغضب المحتقن يتدفق — غطاء مثالي لمن يعرف كيف يستثمر الفوضى.",
+              "choices": [
+                {
+                  "label": "قُد التمرد بنفسك لمواجهة الملك",
+                  "emoji": "⚔️",
+                  "next": "lead_rebellion",
+                  "points_reward": 2,
+                  "color": "danger"
+                },
+                {
+                  "label": "استغل الفوضى للهرب متخفيا",
+                  "emoji": "🏃",
+                  "next": "escape_alone",
+                  "points_reward": 2,
+                  "color": "primary"
+                }
+              ]
+            },
+            "escape_alone": {
+              "text": "تستثمر صرخات التمرد للتسلل خارج الأسوار. الغابات المحرمة تبتلعكما. لعنة الدم لا تزال تسري، ومطاردة الملك لن تتوقف. لكن الحرية المرة أثمن من الطاعة النظيفة.",
+              "is_ending": true,
+              "choices": []
+            },
+            "lead_rebellion": {
+              "text": "ترفع الفأس وتقود الجياع. تمزقك الرماح الملكية من كل اتجاه وأنت تحمي من أعتقت. تموت بطلاً في مجزرة ستُكتب كأبشع إبادة جماعية في تاريخ العرش.",
+              "is_ending": true,
+              "choices": []
+            },
+            "read_notes": {
+              "text": "الحقيقة تنبثق من الصفحات المتعفنة: قسم الدم يمكن كسره بطقس مدون في مخطوطات 'ناسج العهود'. المعرفة سلاح أمضى من الفأس.",
+              "choices": [
+                {
+                  "label": "اذهب إلى الأرشيف السري للمخطوطة",
+                  "emoji": "🏛️",
+                  "next": "archives_entrance",
+                  "points_reward": 2,
+                  "color": "primary"
+                },
+                {
+                  "label": "تجاهل الأرشيف وتوجه للمدينة للقتال",
+                  "emoji": "🏙️",
+                  "next": "ignore_curse",
+                  "points_reward": 0,
+                  "color": "danger"
+                }
+              ]
+            },
+            "archives_entrance": {
+              "text": "ورق متعفن وأرفف تئن تحت مخطوطات محرمة. الأمين الأعمى يغط في زاوية. وفي أقصى الصالة قسم مقفل كُتب عليه بقرمز مشين: «مخطوطات الدم والمعاهدة».",
+              "choices": [
+                {
+                  "label": "تحدث لأمين الأرشيف العجوز بحذر",
+                  "emoji": "🗣️",
+                  "next": "talk_to_archivist",
+                  "points_reward": 0,
+                  "color": "danger"
+                },
+                {
+                  "label": "تسلل لمخطوطات الدم لكسر القسم فورا",
+                  "emoji": "📚",
+                  "next": "read_blood_tomes",
+                  "points_reward": 3,
+                  "color": "primary"
+                },
+                {
+                  "label": "استكشف مكتبة الظلال الجانبية",
+                  "emoji": "📚",
+                  "next": "library_section",
+                  "points_reward": 1,
+                  "color": "secondary"
+                }
+              ]
+            },
+            "talk_to_archivist": {
+              "text": "المحجران الأسودان يبتلعان الضوء. «متمرد ساذج آخر.» يضرب جرساً خفياً فيتحول الهواء كريستالاً يخنق رئتيك. تتحجر وأنت تشعر بكل ثانية من موتك البطيء.",
+              "is_ending": true,
+              "choices": []
+            },
+            "read_blood_tomes": {
+              "text": "المخطوطة تكشف الطريق: لكسر القسم يجب تجريد 'ناسج العهود' من طاقته. بعدها — إما قتل الملك أو امتصاص السيادة الشيطانية كلها.",
+              "choices": [
+                {
+                  "label": "تعلم طقس فك اللعنة الأسود",
+                  "emoji": "🔮",
+                  "next": "learn_curse",
+                  "points_reward": 3,
+                  "color": "primary"
+                },
+                {
+                  "label": "احتفظ بقوتك القتالية وتجاهل الطقس",
+                  "emoji": "❌",
+                  "next": "ignore_curse",
+                  "points_reward": 0,
+                  "color": "danger"
+                }
+              ]
+            },
+            "ignore_curse": {
+              "text": "تثق بفأسك وتقتحم قاعة العرش. لكن حين تعقد نية القتل يتفعل القسم. دمك يغلي حتى التبخر. قلبك ينفجر كقنبلة. الملك يرتشف نبيذه ويضحك.",
+              "is_ending": true,
+              "choices": []
+            },
+            "ending_storm_throne": {
+              "text": "الفأس يرتفع والقسم يُفجر قلبك قبل أن تُكمل الخطوة. تسقط ميتاً على عتبة عرشه. «القوة الغاشمة لا تقطع أوتار السحر يا جلادي الغبي.»",
+              "is_ending": true,
+              "choices": []
+            },
+            "learn_curse": {
+              "text": "الإيقاع السحري محفور الآن في ذاكرتك كجرح نظيف. أنت تملك أخيراً سلاحاً يقطع ما لا يقطعه الفأس.",
+              "choices": [
+                {
+                  "label": "واجه الملك مباشرة وتحدّه",
+                  "emoji": "👑",
+                  "next": "confront_king_early",
+                  "points_reward": 1,
+                  "color": "primary"
+                },
+                {
+                  "label": "ابحث عن ناسج العهود في الظلام",
+                  "emoji": "🕸️",
+                  "next": "seek_oathweaver",
+                  "points_reward": 2,
+                  "color": "secondary"
+                }
+              ]
+            },
+            "confront_king_early": {
+              "text": "تقتحم القاعة وتبدأ الإيقاع المضاد. الملك يصرخ بخوف حقيقي للمرة الأولى في عمره. فأسك يرتقب قرارك.",
+              "choices": [
+                {
+                  "label": "اقطع رأس الملك بضربة نهائية مدمرة",
+                  "emoji": "🪓",
+                  "next": "kill_king",
+                  "points_reward": 3,
+                  "color": "danger"
+                },
+                {
+                  "label": "اعرض عليه الاستسلام والموت بشرف",
+                  "emoji": "🏳️",
+                  "next": "spare_king",
+                  "points_reward": 0,
+                  "color": "primary"
+                }
+              ]
+            },
+            "upper_city": {
+              "text": "ذهب القصور يقطر بسحر الظلام. كل طريق هنا يقود نحو العرش الذي يتحكم بزمام أنفاسك.",
+              "choices": [
+                {
+                  "label": "اقتحم قاعة العرش للقتل",
+                  "emoji": "⚔️",
+                  "next": "ending_storm_throne",
+                  "points_reward": 0,
+                  "color": "danger"
+                },
+                {
+                  "label": "تراجع وابحث عن المعرفة أولاً",
+                  "emoji": "🌑",
+                  "next": "archives_entrance",
+                  "points_reward": 1,
+                  "color": "secondary"
+                }
+              ]
+            },
+            "seek_oathweaver": {
+              "text": "الكيان القرمزي المشوه يضخ طاقة السلالات الحاكمة عبر أوردة بلورية ضخمة. تحطيم البلورة يحطم الملك — أو يمكنك امتصاصها إن كنت تستحق.",
+              "choices": [
+                {
+                  "label": "حطم البلورة ودمر الكيان تماما",
+                  "emoji": "💥",
+                  "next": "break_curse",
+                  "points_reward": 2,
+                  "color": "primary"
+                },
+                {
+                  "label": "امتص السيادة والطاقة المظلمة لنفسك",
+                  "emoji": "🌌",
+                  "next": "absorb_power",
+                  "points_reward": 2,
+                  "required_points": 8,
+                  "color": "danger"
+                }
+              ]
+            },
+            "absorb_power": {
+              "text": "ملايين الأرواح تمزق بشريتك وتصبّ فيك إلهاً للدم. تُفني الملك بنظرة. تجلس على العرش الأسود كحكم أبدي يخشاه الزمان. دمرت الطاغية لتصير ما هو أشد فتكاً منه.",
+              "is_ending": true,
+              "choices": []
+            },
+            "break_curse": {
+              "text": "الفأس يحطم القلب البلوري. صرخة تمزق القلعة. آلاف الإبر الساخنة تُسحب من جلدك دفعة واحدة. الألم يُجرّدك من كل قوة ويُعيدك إنساناً — لكن إنساناً حراً.",
+              "choices": [
+                {
+                  "label": "واجه الملك المهزوز واقض عليه",
+                  "emoji": "👑",
+                  "next": "confront_king",
+                  "points_reward": 3,
+                  "color": "danger"
+                },
+                {
+                  "label": "تخلى عن فأسك واهرب كحر",
+                  "emoji": "🏃",
+                  "next": "ending_free_man",
+                  "points_reward": 0,
+                  "color": "success"
+                }
+              ]
+            },
+            "confront_king": {
+              "text": "وجهه الشاحب يعرق. يتراجع نحو البوابة الشيطانية صارخاً بيأس. الفأس الذي أطعته طويلاً يرتقب قرارك الأخير.",
+              "choices": [
+                {
+                  "label": "اقطع رأس الملك بضربة نهائية",
+                  "emoji": "🪓",
+                  "next": "kill_king",
+                  "points_reward": 4,
+                  "color": "danger"
+                },
+                {
+                  "label": "اعرض عليه الاستسلام والموت بشرف",
+                  "emoji": "🏳️",
+                  "next": "spare_king",
+                  "points_reward": 0,
+                  "color": "primary"
+                }
+              ]
+            },
+            "spare_king": {
+              "text": "تخفض النصل. الملك يبتسم ويشير نحو البوابة. أنياب مريعة تنبثق وتلتف حولك ساحبةً إياك نحو جحيم اللامكان. شفقتك في ساحة لا تعرف إلا القوة كانت انتحاراً مهذباً.",
+              "is_ending": true,
+              "choices": []
+            },
+            "kill_king": {
+              "text": "النصل يفصل الرأس المتوج بضربة واحدة. البوابة الشيطانية تنفجر بضوء أبيض يعميك تماماً. تقف في رماد العرش برؤية مطموسة، لكنك تقف حراً. الظلام الأبدي في عينيك — والنور الخالص في إرادتك.",
+              "is_ending": true,
+              "choices": []
+            },
+            "guard_room": {
+              "text": "أغطية ممزقة وكؤوس متعفنة. حارس يشخر. وعلى الجدار — خنجر مدهون بطلاء الظلام يصمت وينتظر.",
+              "choices": [
+                {
+                  "label": "اسرق الخنجر المسموم خفية",
+                  "emoji": "🗡️",
+                  "next": "steal_dagger",
+                  "points_reward": 2,
+                  "color": "primary"
+                },
+                {
+                  "label": "اخرج بهدوء دون مخاطرة الانتباه",
+                  "emoji": "🚪",
+                  "next": "leave_quietly",
+                  "points_reward": 1,
+                  "color": "secondary"
+                }
+              ]
+            },
+            "steal_dagger": {
+              "text": "الخنجر اللامع يعد بتغطية صامتة. في القلاع، الصمت القاتل هو العملة الأثمن.",
+              "choices": [
+                {
+                  "label": "تقدم نحو الأرشيف السري بأسلحتك",
+                  "emoji": "🏛️",
+                  "next": "archives_entrance",
+                  "points_reward": 2,
+                  "color": "primary"
+                },
+                {
+                  "label": "انزل للزنزانات السفلية لاستكشافها",
+                  "emoji": "⛓️",
+                  "next": "lower_prison",
+                  "points_reward": 1,
+                  "color": "secondary"
+                }
+              ]
+            },
+            "leave_quietly": {
+              "text": "تحافظ على الصمت وترتد. بعض الغنائم لا تستحق ثمن الانتباه.",
+              "choices": [
+                {
+                  "label": "تقدم نحو الأرشيف للبحث",
+                  "emoji": "🏛️",
+                  "next": "archives_entrance",
+                  "points_reward": 2,
+                  "color": "primary"
+                },
+                {
+                  "label": "انزل للزنزانات لإنقاذ من يمكن",
+                  "emoji": "⛓️",
+                  "next": "lower_prison",
+                  "points_reward": 1,
+                  "color": "secondary"
+                }
+              ]
+            },
+            "explore_corridor": {
+              "text": "سجاد مخملي رث ولوحات ملوك غابرين يحدقون بجمود ملكي. هنا تخفي الفنون آليات لا يعلمها الجنود الغافلون.",
+              "choices": [
+                {
+                  "label": "تحسس خلف اللوحات الجدارية بدقة",
+                  "emoji": "🖼️",
+                  "next": "examine_paintings",
+                  "points_reward": 2,
+                  "color": "primary"
+                },
+                {
+                  "label": "تابع المسير متجاهلا الفن المزيف",
+                  "emoji": "🚶",
+                  "next": "continue_walking",
+                  "points_reward": 0,
+                  "color": "secondary"
+                }
+              ]
+            },
+            "examine_paintings": {
+              "text": "طقطقة ميكانيكية خلف بؤبؤ عين مرسومة. مقبض نحاسي غائر يحمل شعاراً ملكياً مندثراً يلمسك بصمت.",
+              "choices": [
+                {
+                  "label": "أدر المقبض السري لاكتشاف النفق",
+                  "emoji": "🔘",
+                  "next": "press_button",
+                  "points_reward": 2,
+                  "color": "primary"
+                },
+                {
+                  "label": "تجاهل الأسرار وتابع المشي للأمام",
+                  "emoji": "🚶",
+                  "next": "continue_walking",
+                  "points_reward": 0,
+                  "color": "secondary"
+                }
+              ]
+            },
+            "press_button": {
+              "text": "اللوحة تنفرج عن نفق حلزوني — هدية خالية من الحراس تقودك لقلب الأرشيف. أو تهبط نحو الزنزانات.",
+              "choices": [
+                {
+                  "label": "ادخل الممر الصاعد وتوجه للأرشيف",
+                  "emoji": "🏛️",
+                  "next": "archives_entrance",
+                  "points_reward": 2,
+                  "color": "primary"
+                },
+                {
+                  "label": "اسلك التفرع السفلي نحو السجون",
+                  "emoji": "⛓️",
+                  "next": "lower_prison",
+                  "points_reward": 1,
+                  "color": "secondary"
+                }
+              ]
+            },
+            "continue_walking": {
+              "text": "بوابة حديدية بأطراف مسننة تسد الطريق. المعمار يتركك وجهين: فتحات هوائية للأرشيف أو شبك أرضي للزنزانات.",
+              "choices": [
+                {
+                  "label": "تسلق الفتحات نحو الأرشيف السري",
+                  "emoji": "🏛️",
+                  "next": "archives_entrance",
+                  "points_reward": 2,
+                  "color": "primary"
+                },
+                {
+                  "label": "انزل عبر الشبك للزنزانات السفلية",
+                  "emoji": "⛓️",
+                  "next": "lower_prison",
+                  "points_reward": 1,
+                  "color": "secondary"
+                }
+              ]
+            },
+            "library_section": {
+              "text": "ورق محترق ومجلدات حرب الظلال. مسودة بغلاف أحمر قانٍ وأخرى سوداء تمتص الضوء — كلتاهما تعدان بمعرفة مختلفة.",
+              "choices": [
+                {
+                  "label": "تصفح مسودة الدم للتعلم",
+                  "emoji": "📖",
+                  "next": "read_blood_book",
+                  "points_reward": 1,
+                  "color": "primary"
+                },
+                {
+                  "label": "تصفح مسودة الظلال للتخفي",
+                  "emoji": "📓",
+                  "next": "read_shadow_book",
+                  "points_reward": 1,
+                  "color": "secondary"
+                }
+              ]
+            },
+            "read_blood_book": {
+              "text": "قوة القسم تكمن في كبرياء الروح لا في الكلمات. تعويذة دفاعية بسيطة تنضم لترسانتك.",
+              "choices": [
+                {
+                  "label": "اقتحم قسم مخطوطات الدم العميقة",
+                  "emoji": "🏛️",
+                  "next": "read_blood_tomes",
+                  "points_reward": 2,
+                  "color": "danger"
+                },
+                {
+                  "label": "تراجع لمدخل الأرشيف السري",
+                  "emoji": "🚪",
+                  "next": "archives_entrance",
+                  "points_reward": 0,
+                  "color": "secondary"
+                }
+              ]
+            },
+            "read_shadow_book": {
+              "text": "الزوايا العمياء دروع عضوية. تقنيات التخفي تتغلغل في حركتك وتجعلك أشد خفاءً في الحصون.",
+              "choices": [
+                {
+                  "label": "اقتحم قسم مخطوطات الدم السري",
+                  "emoji": "🏛️",
+                  "next": "read_blood_tomes",
+                  "points_reward": 2,
+                  "color": "danger"
+                },
+                {
+                  "label": "تراجع لمدخل الأرشيف بحذر",
+                  "emoji": "🚪",
+                  "next": "archives_entrance",
+                  "points_reward": 0,
+                  "color": "secondary"
+                }
+              ]
+            },
+            "ending_free_man": {
+              "text": "ترمي الفأس في الهاوية. تنسل من القلعة. هواء الفجر البارد يملأ رئتيك لأول مرة كإنسان حر. الملك سيُرسل كلابه — لا يهم. الحرية تستحق أن تُقاتَل عليها كل يوم.",
+              "is_ending": true,
+              "choices": []
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

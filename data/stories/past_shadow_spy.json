@@ -1,0 +1,1720 @@
+{
+  "id": "p_shadow_spy",
+  "title": "ظل القصر",
+  "world": "past",
+  "world_type": "past",
+  "category": "جواسيس التاريخ",
+  "summary": "أنت جاسوس تندمج كخادم أبكم في قصر الوزير الأعظم. مهمتك اغتياله، لكن ما تكتشفه في ليلة التنفيذ قد يقلب الممالك.",
+  "difficulty": "very hard",
+  "estimated_length": "very long",
+  "theme": "جواسيس التاريخ",
+  "game_mode": "single",
+  "perspective": {
+    "id": "shadow_servant",
+    "label": "الخادم الأبكم",
+    "emoji": "🧎",
+    "description": "تسمع كل شيء، وتتظاهر بالصمم. حياتك معلقة برد فعل خاطئ لضوضاء مفاجئة.",
+    "start_node": "start"
+  },
+  "nodes": {
+    "start": {
+      "text": "ليلة المأدبة الكبرى. الضيوف يتوافدون، وأنت تحمل صينية النبيذ بملابس الخدم المتواضعة. قيل لك أن الوزير سيشرب من الكأس الفضي. لكنك تلاحظ همسات متوترة بين حراسه. المتمردون ينتظرون إشارتك بعد سقوط الوزير. وأنت، الخادم 'الأبكم'، تقف في المنتصف.",
+      "choices": [
+        {
+          "label": "تقدم نحو الوزير",
+          "emoji": "🍷",
+          "next": "banquet_approach",
+          "points_reward": 0,
+          "color": "primary"
+        },
+        {
+          "label": "استمع لحديث الحراس",
+          "emoji": "👂",
+          "next": "eavesdrop_guards",
+          "points_reward": 1,
+          "color": "secondary"
+        },
+        {
+          "label": "اذهب للمطبخ أولاً",
+          "emoji": "🔪",
+          "next": "kitchen_detour",
+          "points_reward": 0,
+          "color": "secondary"
+        }
+      ]
+    },
+    "banquet_approach": {
+      "text": "تتقدم ببطء، رأسك منخفض. الوزير يتحدث بثقة مع أحد السفراء. كأسه الفضي شبه فارغ. حارسه الشخصي، ذو ندبة على عينه، يراقب كل من يقترب بشك.",
+      "choices": [
+        {
+          "label": "اسكب النبيذ المسموم",
+          "emoji": "🧪",
+          "next": "poison_attempt_1",
+          "points_reward": 0,
+          "color": "primary"
+        },
+        {
+          "label": "اسكب نبيذاً عادياً",
+          "emoji": "🏺",
+          "next": "safe_pour",
+          "points_reward": 1,
+          "color": "secondary"
+        },
+        {
+          "label": "تظاهر بالتعثر",
+          "emoji": "💥",
+          "next": "trip_distraction",
+          "points_reward": 2,
+          "color": "warning"
+        }
+      ]
+    },
+    "death_caught_poisoning": {
+      "text": "تخرج القارورة الصغيرة بحركة سريعة. لكن الحارس ذو الندبة أسرع. يمسك معصمك، ويسقط الكأس أرضاً. نظرات الوزير الباردة هي آخر ما تراه قبل أن يقطع الحارس حنجرتك. لو انتظرت الفرصة المناسبة، لكانت النتيجة مختلفة.",
+      "is_ending": true,
+      "choices": [],
+      "ending_type": "death"
+    },
+    "safe_pour": {
+      "text": "تسكب النبيذ العادي بثبات. الوزير لا يلتفت إليك حتى. الحارس ذو الندبة يومئ برأسه إيذاناً بانصرافك. لقد كسبت بعض الوقت، لكن المهمة لم تنجز بعد.",
+      "choices": [
+        {
+          "label": "عد إلى المطبخ",
+          "emoji": "⬅️",
+          "next": "kitchen_detour",
+          "points_reward": 0,
+          "color": "primary"
+        },
+        {
+          "label": "راقب من بعيد",
+          "emoji": "👁️",
+          "next": "watch_from_shadows",
+          "points_reward": 1,
+          "color": "secondary"
+        }
+      ]
+    },
+    "trip_distraction": {
+      "text": "تتعثر عن عمد، وتسقط الصينية بصوت عالٍ. السفير ينتفض. الحارس يتقدم نحوك غاضباً. الوزير يرفع يده ليوقفه، ينظر إليك باحتقار ويأمرك بتنظيف الفوضى. في وسط الفوضى، لاحظت الحارس يترك موقعه للحظة.",
+      "choices": [
+        {
+          "label": "اسرق مفتاح الحارس",
+          "emoji": "🗝️",
+          "next": "steal_key_success",
+          "points_reward": 2,
+          "sets_flag": "flag_stole_master_key",
+          "color": "warning"
+        },
+        {
+          "label": "نظف واعتذر بصمت",
+          "emoji": "🧹",
+          "next": "clean_up",
+          "points_reward": 0,
+          "color": "secondary"
+        }
+      ]
+    },
+    "steal_key_success": {
+      "text": "بينما تجمع الزجاج المكسور، تمتد يدك بخفة لتسحب حلقة المفاتيح من حزام الحارس. لم يلاحظ شيئاً. أنت الآن تملك مفتاحاً قد يفتح لك أبواباً مغلقة.",
+      "choices": [
+        {
+          "label": "انسحب بهدوء",
+          "emoji": "🚶",
+          "next": "kitchen_detour",
+          "points_reward": 0,
+          "color": "primary"
+        },
+        {
+          "label": "توجه لجناح الوزير",
+          "emoji": "🚪",
+          "next": "vizier_study_door",
+          "points_reward": 1,
+          "color": "secondary"
+        }
+      ]
+    },
+    "clean_up": {
+      "text": "تنظف الفوضى وتنسحب. لم تثر المزيد من الشكوك، لكنك فقدت فرصة ذهبية.",
+      "choices": [
+        {
+          "label": "اذهب للمطبخ",
+          "emoji": "🍲",
+          "next": "kitchen_detour",
+          "points_reward": 0,
+          "color": "primary"
+        },
+        {
+          "label": "انسحب نحو الممرات الخلفية",
+          "emoji": "🚪",
+          "next": "kitchen_detour",
+          "color": "secondary"
+        }
+      ]
+    },
+    "eavesdrop_guards": {
+      "text": "تقف بجوار عمود مزخرف، تتظاهر بمسح الغبار. تسمع الحارسين يتهامسان: 'الملك أرسل كلابه هذه الليلة. الوزير يعلم.' يبدو أن هناك خطراً أكبر من المتمردين يهدد هذا المكان.",
+      "choices": [
+        {
+          "label": "تقدم نحو الوزير",
+          "emoji": "🍷",
+          "next": "banquet_approach",
+          "points_reward": 0,
+          "color": "primary"
+        },
+        {
+          "label": "اذهب للمطبخ",
+          "emoji": "🔪",
+          "next": "kitchen_detour",
+          "points_reward": 0,
+          "color": "secondary"
+        }
+      ]
+    },
+    "kitchen_detour": {
+      "text": "المطبخ يعج بالحركة والصراخ. كبير الطهاة يوجه الخدم. هناك قدر كبير من الحساء يغلي، وباب خلفي يؤدي إلى فناء الموظفين.",
+      "choices": [
+        {
+          "label": "اخلط السم بالحساء",
+          "emoji": "🍲",
+          "next": "poison_soup",
+          "points_reward": 1,
+          "color": "primary"
+        },
+        {
+          "label": "اخرج للفناء",
+          "emoji": "🌙",
+          "next": "staff_courtyard",
+          "points_reward": 0,
+          "color": "secondary"
+        },
+        {
+          "label": "أشعل حريقاً للتشتيت",
+          "emoji": "🔥",
+          "next": "fire_attempt_1",
+          "points_reward": 0,
+          "color": "secondary"
+        }
+      ]
+    },
+    "death_kitchen_fire": {
+      "text": "تسكب الزيت قرب الفرن وتلقي شعلة. النيران تنتشر بسرعة تفوق توقعاتك. قبل أن تتمكن من الهرب، يسقط عمود خشبي محترق ليسد الباب. تحترق بين الخدم الذين كنت تحاول استغلالهم. الفوضى غير المدروسة تقتل صاحبها.",
+      "is_ending": true,
+      "choices": [],
+      "ending_type": "death"
+    },
+    "poison_soup": {
+      "text": "تستغل انشغال الطاهي وتفرغ السم في الحساء الخاص بوجبة الوزير المتأخرة. لكنك تتذكر... الوزير لا يأكل الحساء، بل يطعمه لكلابه أولاً.",
+      "choices": [
+        {
+          "label": "اسكب الحساء عمداً",
+          "emoji": "🗑️",
+          "next": "spill_soup",
+          "points_reward": 1,
+          "color": "primary"
+        },
+        {
+          "label": "اتركه كما هو",
+          "emoji": "🤷",
+          "next": "leave_poisoned_soup",
+          "points_reward": 0,
+          "color": "secondary"
+        }
+      ]
+    },
+    "spill_soup": {
+      "text": "تدفع القدر كأنها حادثة. يصرخ الطاهي في وجهك وتتلقى صفعة قوية، لكنك حافظت على سرك من الانكشاف المبكر عبر الكلاب الميتة.",
+      "choices": [
+        {
+          "label": "اخرج للفناء",
+          "emoji": "🌙",
+          "next": "staff_courtyard",
+          "points_reward": 0,
+          "color": "primary"
+        },
+        {
+          "label": "تظاهر بالخوف والارتجاف",
+          "emoji": "😨",
+          "next": "staff_courtyard",
+          "color": "warning"
+        }
+      ]
+    },
+    "leave_poisoned_soup": {
+      "text": "تترك الحساء. بعد ساعة، تسمع عواء الكلاب المحتضرة. الحراس يستنفرون ويتم إغلاق القصر مبكراً. لقد ضيقت الخناق على نفسك.",
+      "choices": [
+        {
+          "label": "تسلل للأعلى",
+          "emoji": "⬆️",
+          "next": "stairs_up",
+          "points_reward": 0,
+          "sets_flag": "flag_kings_spies_alerted",
+          "color": "primary"
+        },
+        {
+          "label": "تراجع قبل أن يكتشفوك",
+          "emoji": "⬅️",
+          "next": "stairs_up",
+          "color": "primary"
+        }
+      ]
+    },
+    "staff_courtyard": {
+      "text": "الفناء هادئ نسبياً. تجد جهة الاتصال الخاصة بك من المتمردين، بستاني عجوز، يمسك مجرفة. يهمس لك: 'هل أنجزت الأمر؟'",
+      "choices": [
+        {
+          "label": "ليس بعد",
+          "emoji": "⏳",
+          "next": "gardener_talk",
+          "points_reward": 0,
+          "color": "primary"
+        },
+        {
+          "label": "أحتاج لمساعدتك",
+          "emoji": "🤝",
+          "next": "gardener_help",
+          "points_reward": 1,
+          "color": "secondary"
+        }
+      ]
+    },
+    "gardener_talk": {
+      "text": "يعبس البستاني. 'لا تضيع الوقت. عيون الملك هنا أيضاً. إذا لم تقتله الليلة، سيقتلنا جميعاً'.",
+      "choices": [
+        {
+          "label": "عد للداخل",
+          "emoji": "🚪",
+          "next": "stairs_up",
+          "points_reward": 0,
+          "color": "primary"
+        },
+        {
+          "label": "اطلب منه سلاحا إضافيا",
+          "emoji": "🗡️",
+          "next": "stairs_up",
+          "color": "danger"
+        }
+      ]
+    },
+    "gardener_help": {
+      "text": "تعطيه إشارة بأنك تحتاج لطريق آمن لجناح الوزير. يومئ ويدلك على سلم خدم مخفي خلف التعريشة.",
+      "choices": [
+        {
+          "label": "تسلق السلم المخفي",
+          "emoji": "🪜",
+          "next": "hidden_stairs_up",
+          "points_reward": 2,
+          "color": "warning"
+        },
+        {
+          "label": "ارفع صوتك طالبا المزيد من العون",
+          "emoji": "🗣️",
+          "next": "hidden_stairs_up",
+          "color": "warning"
+        }
+      ]
+    },
+    "watch_from_shadows": {
+      "text": "تراقب المأدبة من الزاوية. فجأة، يسقط أحد ضيوف الوزير أرضاً، يختنق. لم يكن سمك، بل سم شخص آخر. الحراس يستلون سيوفهم، ويبدأ إخلاء القاعة.",
+      "choices": [
+        {
+          "label": "تظاهر بالذعر والهرب",
+          "emoji": "🏃",
+          "next": "fake_panic",
+          "points_reward": 0,
+          "color": "primary"
+        },
+        {
+          "label": "تسلل في الفوضى",
+          "emoji": "🥷",
+          "next": "stairs_up",
+          "points_reward": 1,
+          "color": "secondary"
+        }
+      ]
+    },
+    "fake_panic": {
+      "text": "تجري مع الخدم الخائفين. يعترض طريقك حارس متوتر، يصرخ فيك لتتوقف ويسألك ماذا رأيت. تذكر... أنت تتظاهر بأنك أبكم وأصم.",
+      "choices": [
+        {
+          "label": "تجاهله واستمر بالركض",
+          "emoji": "🏃",
+          "next": "guard_interrogation_1",
+          "points_reward": 0,
+          "color": "primary"
+        },
+        {
+          "label": "أشر بعشوائية وابكِ",
+          "emoji": "😭",
+          "next": "act_mute_success",
+          "points_reward": 2,
+          "color": "success"
+        }
+      ]
+    },
+    "death_guard_interrogation": {
+      "text": "تركض هرباً. لو كنت حقاً أصم، لما سمعت أمره بالتوقف أصلاً. استجابتك للصوت فضحتك. يرميك الحارس برمح في ظهرك مردياً إياك قتيلاً. الجاسوس الجيد لا ينسى دوره أبداً.",
+      "is_ending": true,
+      "choices": [],
+      "ending_type": "death"
+    },
+    "act_mute_success": {
+      "text": "تلوح بيديك وتبكي بهستيريا مصطنعة دون إصدار صوت بشري واضح. الحارس يشتم ويدفعك بعيداً ليكمل طريقه. لقد نجوت بجلدك.",
+      "choices": [
+        {
+          "label": "اصعد السلالم ببطء",
+          "emoji": "⬆️",
+          "next": "stairs_up",
+          "points_reward": 0,
+          "color": "primary"
+        },
+        {
+          "label": "انتظر حتى يبتعد الحارس تماما",
+          "emoji": "⏳",
+          "next": "stairs_up",
+          "color": "secondary"
+        }
+      ]
+    },
+    "stairs_up": {
+      "text": "تصل إلى الطابق العلوي. الممرات مظلمة ومضاءة بمشاعل متباعدة. جناح الوزير في نهاية الممر، يحرسه رجلان.",
+      "choices": [
+        {
+          "label": "انتظر مغادرتهما",
+          "emoji": "⏳",
+          "next": "wait_guards_leave",
+          "points_reward": 0,
+          "color": "primary"
+        },
+        {
+          "label": "استخدم السلم المخفي",
+          "emoji": "🪜",
+          "next": "hidden_stairs_up",
+          "points_reward": 1,
+          "color": "secondary"
+        }
+      ]
+    },
+    "hidden_stairs_up": {
+      "text": "تصعد السلم الخشبي الضيق الذي دلك عليه البستاني. يوصلك مباشرة إلى باب جانبي غير محروس لجناح الوزير. الباب مقفل.",
+      "choices": [
+        {
+          "label": "افتح بالمفتاح المسروق",
+          "emoji": "🗝️",
+          "next": "vizier_study_enter",
+          "requires_flag": "flag_stole_master_key",
+          "points_reward": 2,
+          "color": "warning"
+        },
+        {
+          "label": "اكسر القفل بهدوء",
+          "emoji": "🔓",
+          "next": "pick_lock",
+          "points_reward": 1,
+          "color": "secondary"
+        }
+      ]
+    },
+    "wait_guards_leave": {
+      "text": "تنتظر في الظلال طويلاً. في النهاية، يتم استدعاء أحد الحراس للأسفل بسبب الفوضى. يبقى حارس واحد.",
+      "choices": [
+        {
+          "label": "اغتله بصمت",
+          "emoji": "🗡️",
+          "next": "kill_lone_guard",
+          "points_reward": 0,
+          "reputation": "ruthless",
+          "color": "primary"
+        },
+        {
+          "label": "القي حجراً لتشتيته",
+          "emoji": "🪨",
+          "next": "distract_lone_guard",
+          "points_reward": 1,
+          "color": "secondary"
+        }
+      ]
+    },
+    "kill_lone_guard": {
+      "text": "تتسلل خلفه وتطعنه في رقبته. تدرك متأخراً أن دمه لطخ ثيابك. لا يمكنك التجول بهذه الحالة طويلاً.",
+      "choices": [
+        {
+          "label": "ادخل الجناح بسرعة",
+          "emoji": "🚪",
+          "next": "vizier_study_enter",
+          "points_reward": 0,
+          "color": "primary"
+        },
+        {
+          "label": "خبئ الجثة في خزانة قريبة",
+          "emoji": "🚪",
+          "next": "vizier_study_enter",
+          "color": "secondary"
+        }
+      ]
+    },
+    "distract_lone_guard": {
+      "text": "ترمي قطعة نقود ذهبية في الممر المقابل. الحارس يذهب لتفقد الصوت. تتسلل عبر الباب المفتوح إلى الجناح.",
+      "choices": [
+        {
+          "label": "ادخل بحذر",
+          "emoji": "🚶",
+          "next": "vizier_study_enter",
+          "points_reward": 0,
+          "color": "primary"
+        },
+        {
+          "label": "هاجمه من الخلف أثناء انشغاله",
+          "emoji": "🔪",
+          "next": "vizier_study_enter",
+          "color": "danger"
+        }
+      ]
+    },
+    "pick_lock": {
+      "text": "تستخدم أدواتك لفتح القفل. يأخذ الأمر وقتاً، وتسمع خطوات تقترب من الداخل. ينفتح الباب أخيراً، وتندفع للداخل وتغلقه خلفك، مختبئاً خلف الستائر.",
+      "choices": [
+        {
+          "label": "راقب الغرفة",
+          "emoji": "👀",
+          "next": "vizier_study_hide",
+          "points_reward": 0,
+          "color": "primary"
+        },
+        {
+          "label": "اكسر القفل بقوة بدلا من ذلك",
+          "emoji": "💥",
+          "next": "vizier_study_hide",
+          "color": "danger"
+        }
+      ]
+    },
+    "vizier_study_door": {
+      "text": "تقترب من الباب الرئيسي للجناح. الحراس يوقفونك.",
+      "choices": [
+        {
+          "label": "أشر للداخل وأنت تبكي",
+          "emoji": "😭",
+          "next": "act_urgent_message",
+          "points_reward": 0,
+          "color": "primary"
+        },
+        {
+          "label": "تراجع بهدوء",
+          "emoji": "⬅️",
+          "next": "stairs_up",
+          "points_reward": 0,
+          "color": "secondary"
+        }
+      ]
+    },
+    "act_urgent_message": {
+      "text": "تحاول إقناعهم بأن هناك رسالة عاجلة للوزير. لكن الحارس يضربك بقوة ويطردك. لفت الانتباه هنا ليس فكرة جيدة.",
+      "choices": [
+        {
+          "label": "ابحث عن السلم المخفي",
+          "emoji": "🪜",
+          "next": "hidden_stairs_up",
+          "points_reward": 0,
+          "color": "primary"
+        },
+        {
+          "label": "حاول التسلل من النافذة الجانبية",
+          "emoji": "🪟",
+          "next": "hidden_stairs_up",
+          "color": "primary"
+        }
+      ]
+    },
+    "vizier_study_enter": {
+      "text": "تدخل غرفة المكتب الخاصة بالوزير. إنها خالية مؤقتاً، مضاءة بشموع خافتة. الرفوف مليئة بالمخطوطات. هناك مكتب ضخم في المنتصف، وباب آخر يؤدي لغرفة النوم.",
+      "choices": [
+        {
+          "label": "ابحث في المكتب",
+          "emoji": "📜",
+          "next": "search_desk",
+          "points_reward": 1,
+          "color": "primary"
+        },
+        {
+          "label": "اختبئ وانتظر الوزير",
+          "emoji": "🥷",
+          "next": "vizier_study_hide",
+          "points_reward": 0,
+          "color": "secondary"
+        },
+        {
+          "label": "تفقد غرفة النوم",
+          "emoji": "🛏️",
+          "next": "bedroom_check",
+          "points_reward": 0,
+          "color": "secondary"
+        }
+      ]
+    },
+    "search_desk": {
+      "text": "تعبث بالأوراق على المكتب. تجد مراسلات سرية بختم الملك، وبجوارها خطة تفصيلية للوزير... إنه يخطط للإطاحة بالملك غداً! المتمردون لا يعلمون هذا. قتل الوزير الآن يعني إبقاء الملك الطاغية على العرش.",
+      "choices": [
+        {
+          "label": "خذ الوثائق",
+          "emoji": "📑",
+          "next": "take_documents",
+          "points_reward": 2,
+          "sets_flag": "flag_vizier_secret_known",
+          "color": "warning"
+        },
+        {
+          "label": "أعدها كما كانت",
+          "emoji": "🔄",
+          "next": "vizier_study_hide",
+          "points_reward": 0,
+          "color": "secondary"
+        }
+      ]
+    },
+    "take_documents": {
+      "text": "تضع الوثائق في سترتك. فجأة، تسمع صوتاً خلفك. 'من أنت؟ وماذا تفعل في مكتب أبي؟' إنه وريث الوزير، صبي صغير لا يتجاوز العاشرة، يحمل شمعة ويرتجف.",
+      "choices": [
+        {
+          "label": "هدده بالخنجر",
+          "emoji": "🗡️",
+          "next": "threaten_heir",
+          "points_reward": 0,
+          "reputation": "ruthless",
+          "color": "primary"
+        },
+        {
+          "label": "أشر بعلامة الصمت بود",
+          "emoji": "🤫",
+          "next": "calm_heir",
+          "points_reward": 2,
+          "reputation": "guardian",
+          "color": "success"
+        }
+      ]
+    },
+    "vizier_study_hide": {
+      "text": "تختبئ خلف ستارة مخملية ثقيلة. يفتح الباب ويدخل الوزير، يبدو متعباً ومهموماً. يجلس على مكتبه ويفرك جبهته. هذه فرصتك الذهبية.",
+      "choices": [
+        {
+          "label": "هاجمه من الخلف",
+          "emoji": "🗡️",
+          "next": "attack_vizier",
+          "points_reward": 0,
+          "color": "primary"
+        },
+        {
+          "label": "انتظر أكثر",
+          "emoji": "⏳",
+          "next": "wait_longer_vizier",
+          "points_reward": 1,
+          "color": "secondary"
+        }
+      ]
+    },
+    "bedroom_check": {
+      "text": "تفتح باب غرفة النوم لتجد وريث الوزير نائماً. يستيقظ فجأة عند صرير الباب وينظر إليك برعب.",
+      "choices": [
+        {
+          "label": "تقدم نحوه بسرعة",
+          "emoji": "🏃",
+          "next": "threaten_heir",
+          "points_reward": 0,
+          "color": "primary"
+        },
+        {
+          "label": "تراجع وأغلق الباب",
+          "emoji": "🚪",
+          "next": "vizier_study_hide",
+          "points_reward": 0,
+          "color": "secondary"
+        }
+      ]
+    },
+    "threaten_heir": {
+      "text": "ترفع خنجرك وتقترب محاولاً إخافته. لكن الصبي يذعر أكثر ويطلق صرخة مدوية تشق صمت الليل.",
+      "choices": [
+        {
+          "label": "أسكته للأبد",
+          "emoji": "🩸",
+          "next": "death_heir_scream",
+          "points_reward": 0,
+          "color": "primary"
+        },
+        {
+          "label": "اهرب بسرعة",
+          "emoji": "🏃",
+          "next": "death_heir_scream",
+          "points_reward": 0,
+          "color": "secondary"
+        }
+      ]
+    },
+    "death_heir_scream": {
+      "text": "صرخة الوريث تجلب الحرس فوراً. قبل أن تتخذ قرارك، يقتحم الحرس الغرفة. السيوف تخترق جسدك من كل اتجاه. إخافة طفل كانت خطيئة قاتلة في لعبة الظلال هذه.",
+      "is_ending": true,
+      "choices": [],
+      "ending_type": "death"
+    },
+    "calm_heir": {
+      "text": "تنزل لركبتيك لتكون في مستوى نظره، وتضع إصبعك على شفتيك، ثم ترسم ابتسامة لطيفة. يهدأ الصبي قليلاً ويهمس: 'أنت لست من هنا... هل جاء رجال الملك؟ أبي قال إنهم سيأتون.'",
+      "choices": [
+        {
+          "label": "أومئ برأسك",
+          "emoji": "👌",
+          "next": "heir_trust_gained",
+          "points_reward": 2,
+          "sets_flag": "flag_trusted_heir",
+          "color": "warning"
+        },
+        {
+          "label": "أشر بأنك لا تعرف",
+          "emoji": "🤷",
+          "next": "heir_confused",
+          "points_reward": 1,
+          "color": "secondary"
+        }
+      ]
+    },
+    "heir_trust_gained": {
+      "text": "يأخذ الصبي بيدك ويسحبك نحو خزانة مخفية. 'اختبئ هنا، سيبحثون في كل مكان.' تدخل الخزانة، وبفضل ذلك، لا يكتشفك الحراس عندما يفتشون الجناح لاحقاً.",
+      "choices": [
+        {
+          "label": "انتظر في الخزانة",
+          "emoji": "🚪",
+          "next": "vizier_arrives_closet",
+          "points_reward": 1,
+          "color": "primary"
+        },
+        {
+          "label": "أصر على أخذ الصبي وتهريبه فورا",
+          "emoji": "🏃",
+          "next": "vizier_arrives_closet",
+          "color": "danger"
+        }
+      ]
+    },
+    "heir_confused": {
+      "text": "ينظر إليك الصبي بشك. قبل أن يتكلم، تسمع ضجة في الممر الخارجي. الحراس يصرخون.",
+      "choices": [
+        {
+          "label": "اختبئ بسرعة",
+          "emoji": "🥷",
+          "next": "vizier_study_hide",
+          "points_reward": 0,
+          "color": "primary"
+        },
+        {
+          "label": "أسكته بالقوة قبل أن يصرخ",
+          "emoji": "🤫",
+          "next": "vizier_study_hide",
+          "color": "danger"
+        }
+      ]
+    },
+    "attack_vizier": {
+      "text": "تخرج من خلف الستارة بخنجرك المسموم وتندفع نحوه. قبل أن تصل إليه، يلتفت الوزير بسرعة ويوجه مسدساً صغيراً نحو صدرك. 'كنت أنتظرك'، يقول بهدوء.",
+      "choices": [
+        {
+          "label": "أسقط سلاحك",
+          "emoji": "👐",
+          "next": "surrender_to_vizier",
+          "points_reward": 1,
+          "color": "primary"
+        },
+        {
+          "label": "استمر بالهجوم",
+          "emoji": "⚔️",
+          "next": "death_hesitation",
+          "points_reward": 0,
+          "color": "secondary"
+        }
+      ]
+    },
+    "death_hesitation": {
+      "text": "تندفع للأمام معتقداً أنك أسرع من الرصاصة. لم تكن كذلك. دوي الطلقة يصم أذنيك، وتشعر بالنار تخترق صدرك. تسقط أرضاً، وتسمع الوزير يتنهد: 'مغفل آخر'. الثقة المفرطة تقتل.",
+      "is_ending": true,
+      "choices": [],
+      "ending_type": "death"
+    },
+    "surrender_to_vizier": {
+      "text": "تسقط الخنجر. ينظر إليك الوزير بتمعن. 'أنت من المتمردين. أرسلوك لقتلي. ما لا يعرفونه هو أن قتلي الليلة يعني فوز الملك في حربه. أريد عقد صفقة.'",
+      "choices": [
+        {
+          "label": "استمع لصفقته",
+          "emoji": "👂",
+          "next": "vizier_deal",
+          "points_reward": 1,
+          "color": "primary"
+        },
+        {
+          "label": "حاول الهجوم مجدداً",
+          "emoji": "🗡️",
+          "next": "death_vizier_trap",
+          "points_reward": 0,
+          "color": "secondary"
+        }
+      ]
+    },
+    "death_vizier_trap": {
+      "text": "تحاول ركله وإسقاط المسدس. كان مستعداً. يطلق النار على ركبتك فتسقط، ثم يستدعي الحرس. تُساق إلى الأقبية للتعذيب. من يرفض الحوار في ساحة السياسة يموت في الزنازين.",
+      "is_ending": true,
+      "choices": [],
+      "ending_type": "death"
+    },
+    "vizier_deal": {
+      "text": "'جواسيس الملك في طريقهم لاغتيالي. إذا ساعدتني في الهرب مع ابني الليلة، سأمول تمردكم بذهب يكفي لإسقاط الملك.'",
+      "choices": [
+        {
+          "label": "اقبل عرض الوزير",
+          "emoji": "🤝",
+          "next": "accept_vizier_deal",
+          "points_reward": 2,
+          "color": "warning"
+        },
+        {
+          "label": "ارفع يدك ببطء",
+          "emoji": "✋",
+          "next": "fake_accept_deal",
+          "points_reward": 0,
+          "color": "secondary"
+        }
+      ]
+    },
+    "wait_longer_vizier": {
+      "text": "تنتظر. الوزير يفتح درجاً سرياً، ويخرج صندوقاً مليئاً بالذهب والمجوهرات. وفجأة، يدخل حارس من الباب يلهث: 'سيدي، جواسيس الملك اقتحموا البوابات! إنهم يقتلون الجميع!'",
+      "choices": [
+        {
+          "label": "استمر بالاختباء",
+          "emoji": "🥷",
+          "next": "chaos_ensues",
+          "points_reward": 1,
+          "color": "primary"
+        },
+        {
+          "label": "اخرج لمواجهتهم",
+          "emoji": "⚔️",
+          "next": "reveal_to_vizier_chaos",
+          "points_reward": 0,
+          "color": "secondary"
+        }
+      ]
+    },
+    "vizier_arrives_closet": {
+      "text": "من شق الباب، ترى الوزير يدخل الغرفة مسرعاً ويجمع الأوراق. يهمس لنفسه: 'الملك تحرك مبكراً'. ثم يفتح باب غرفة النوم ليطمئن على ابنه.",
+      "choices": [
+        {
+          "label": "اخرج واعرض المساعدة",
+          "emoji": "🤝",
+          "next": "reveal_to_vizier_chaos",
+          "points_reward": 1,
+          "color": "primary"
+        },
+        {
+          "label": "ابق مختبئاً",
+          "emoji": "🤫",
+          "next": "chaos_ensues",
+          "points_reward": 0,
+          "color": "secondary"
+        }
+      ]
+    },
+    "reveal_to_vizier_chaos": {
+      "text": "تخرج من مخبئك. الوزير يرفع سلاحه، لكنك تشير إلى الوريث أو تشير للصمت لتهدئته. 'من أنت؟' يسأل. قبل أن تجيب، تسمع أصوات تحطم في الطابق السفلي.",
+      "choices": [
+        {
+          "label": "استسلم له وتفاوض",
+          "emoji": "🗣️",
+          "next": "surrender_to_vizier",
+          "points_reward": 0,
+          "color": "primary"
+        },
+        {
+          "label": "أشر للهرب معاً",
+          "emoji": "🏃",
+          "next": "accept_vizier_deal",
+          "points_reward": 1,
+          "color": "secondary"
+        }
+      ]
+    },
+    "chaos_ensues": {
+      "text": "الضجة ترتفع. جواسيس الملك يقتحمون الجناح فجأة. يطلقون النار على حارس الوزير. الوزير يحتمي خلف المكتب. أنت لا تزال مختبئاً.",
+      "choices": [
+        {
+          "label": "اغتنم الفرصة واهرب",
+          "emoji": "🏃",
+          "next": "escape_attempt",
+          "points_reward": 0,
+          "color": "primary"
+        },
+        {
+          "label": "هاجم جواسيس الملك",
+          "emoji": "⚔️",
+          "next": "fight_kings_spies",
+          "points_reward": 2,
+          "color": "success"
+        },
+        {
+          "label": "اسرق صندوق الذهب",
+          "emoji": "💰",
+          "next": "steal_gold_chaos",
+          "points_reward": 0,
+          "color": "secondary"
+        }
+      ]
+    },
+    "steal_gold_chaos": {
+      "text": "تخرج من مخبئك نحو الصندوق المفتوح. طمعك أعماك عن الرصاص المتطاير. إحدى رصاصات جواسيس الملك تستقر في ظهرك.",
+      "choices": [
+        {
+          "label": "حاول النهوض",
+          "emoji": "🩸",
+          "next": "death_kings_spies",
+          "points_reward": 0,
+          "color": "primary"
+        },
+        {
+          "label": "احتمِ خلف الصندوق الحديدي",
+          "emoji": "🛡️",
+          "next": "death_kings_spies",
+          "color": "secondary"
+        }
+      ]
+    },
+    "death_kings_spies": {
+      "text": "الوقوف في ساحة معركة دون حليف يعني الموت. جواسيس الملك يجهزون عليك دون اهتمام بمن تكون. لو اخترت الهروب أو الانحياز، لربما عشت لترى الفجر.",
+      "is_ending": true,
+      "choices": [],
+      "ending_type": "death"
+    },
+    "escape_attempt": {
+      "text": "تتسلل نحو النافذة بينما يشتعل القتال. تفتحها وتتسلق إلى السطح القرميدي الزلق. المطر بدأ يهطل، والموت يحيط بالقصر.",
+      "choices": [
+        {
+          "label": "اقفز للسطح المجاور",
+          "emoji": "🦘",
+          "next": "roof_jump",
+          "points_reward": 1,
+          "color": "primary"
+        },
+        {
+          "label": "تسلل عبر المزاريب",
+          "emoji": "🧗",
+          "next": "gutter_climb",
+          "points_reward": 0,
+          "color": "secondary"
+        }
+      ]
+    },
+    "gutter_climb": {
+      "text": "تتعلق بالمزراب الحديدي. إنه صدئ ويصدر صريراً. فجأة، ينكسر المزراب وتهوي للأسفل.",
+      "choices": [
+        {
+          "label": "حاول التشبث",
+          "emoji": "🤲",
+          "next": "death_roof_fall",
+          "points_reward": 0,
+          "color": "primary"
+        },
+        {
+          "label": "اقفز نحو الشرفة السفلية",
+          "emoji": "⬇️",
+          "next": "death_roof_fall",
+          "color": "danger"
+        }
+      ]
+    },
+    "death_roof_fall": {
+      "text": "الجاذبية لا ترحم. تسقط من الطابق الثالث لتتحطم عظامك على فناء حجري بارد. تموت وحيداً في الطين، مهمتك نُسيت إلى الأبد.",
+      "is_ending": true,
+      "choices": [],
+      "ending_type": "death"
+    },
+    "roof_jump": {
+      "text": "تقفز وتتدحرج على السطح المجاور بصعوبة. لقد نجوت من القصر، لكنك لم تنجز مهمتك. يجب أن تواجه قادة التمرد في الملاذ الآمن.",
+      "choices": [
+        {
+          "label": "توجه للملاذ الآمن",
+          "emoji": "🏃",
+          "next": "rebellion_safehouse",
+          "points_reward": 0,
+          "color": "primary"
+        },
+        {
+          "label": "اختبئ فوق السطح لبعض الوقت",
+          "emoji": "🌑",
+          "next": "rebellion_safehouse",
+          "color": "secondary"
+        }
+      ]
+    },
+    "fight_kings_spies": {
+      "text": "تخرج من مخبئك وتطعن جاسوساً للملك في رقبته. الوزير يستغل الفرصة ويطلق النار على الآخر. تنظران لبعضكما وسط الجثث.",
+      "choices": [
+        {
+          "label": "أشر للوزير بالهرب",
+          "emoji": "🏃",
+          "next": "escape_with_heir_force",
+          "points_reward": 1,
+          "color": "primary"
+        },
+        {
+          "label": "اقتل الوزير الآن",
+          "emoji": "🗡️",
+          "next": "kill_vizier_now",
+          "points_reward": 0,
+          "color": "secondary"
+        }
+      ]
+    },
+    "kill_vizier_now": {
+      "text": "رغم مساعدته لك للتو، تطعنه بخنجرك، تنفيذاً لمهمتك الأصلية. يسقط الوزير ميتاً. 'أنت... أعمى' يهمس قبل موته. تلوذ بالفرار عبر النافذة.",
+      "choices": [
+        {
+          "label": "اهرب للسطح",
+          "emoji": "🪟",
+          "next": "roof_jump",
+          "points_reward": 0,
+          "color": "primary"
+        },
+        {
+          "label": "فتش جثته عن وثائق سرية",
+          "emoji": "📜",
+          "next": "roof_jump",
+          "color": "primary"
+        }
+      ]
+    },
+    "fake_accept_deal": {
+      "text": "تتظاهر بالموافقة. الوزير يلتفت ليجمع وثائقه. هذه لحظتك لضربه في ظهره.",
+      "choices": [
+        {
+          "label": "اغتله في ظهره",
+          "emoji": "🗡️",
+          "next": "kill_vizier_now",
+          "points_reward": 0,
+          "color": "primary"
+        },
+        {
+          "label": "غير رأيك وساعده",
+          "emoji": "🤝",
+          "next": "accept_vizier_deal",
+          "points_reward": 1,
+          "color": "secondary"
+        }
+      ]
+    },
+    "accept_vizier_deal": {
+      "text": "تقرر مساعدته. 'خذ ابني من الممر السري خلف المكتبة. سأشتت انتباههم وألحق بكم في المرفأ.'",
+      "choices": [
+        {
+          "label": "خذ الوريث واهرب",
+          "emoji": "🏃",
+          "next": "escape_with_heir",
+          "points_reward": 2,
+          "reputation": "guardian",
+          "color": "warning"
+        },
+        {
+          "label": "ارفض، طالبه بالقدوم",
+          "emoji": "✋",
+          "next": "argue_with_vizier",
+          "points_reward": 0,
+          "color": "secondary"
+        }
+      ]
+    },
+    "argue_with_vizier": {
+      "text": "تحاول إجباره على المجيء. هذا التأخير يسمح لجواسيس الملك باقتحام الغرفة.",
+      "choices": [
+        {
+          "label": "قاتل بجانبه",
+          "emoji": "⚔️",
+          "next": "death_vizier_delayed",
+          "points_reward": 0,
+          "color": "primary"
+        },
+        {
+          "label": "اتركه وواجه الجواسيس وحدك",
+          "emoji": "⚔️",
+          "next": "death_vizier_delayed",
+          "color": "danger"
+        }
+      ]
+    },
+    "escape_with_heir": {
+      "text": "تدفع المكتبة لتكشف عن ممر مظلم. تسحب الصبي معك وتنزلان في العتمة بينما تسمع أصوات طلقات نارية من الأعلى. الوزير يضحي بنفسه.",
+      "choices": [
+        {
+          "label": "استمر بالنزول",
+          "emoji": "⬇️",
+          "next": "tunnels_dark",
+          "points_reward": 1,
+          "color": "primary"
+        },
+        {
+          "label": "أشعل مشعلا لرؤية الطريق",
+          "emoji": "🔥",
+          "next": "tunnels_dark",
+          "color": "warning"
+        }
+      ]
+    },
+    "tunnels_dark": {
+      "text": "الأنفاق باردة وتفوح منها رائحة العفن. الصبي يبكي بصمت. 'هل مات أبي؟' يهمس. تتذكر أنك لا زلت تتظاهر بالبكم.",
+      "choices": [
+        {
+          "label": "عانقه وربت عليه",
+          "emoji": "🫂",
+          "next": "comfort_heir",
+          "points_reward": 1,
+          "color": "primary"
+        },
+        {
+          "label": "اكسر صمتك وتكلم",
+          "emoji": "🗣️",
+          "next": "speak_to_heir",
+          "points_reward": 2,
+          "color": "success"
+        }
+      ]
+    },
+    "comfort_heir": {
+      "text": "تربت على كتفه وتستمران في المشي حتى تصلان إلى مخرج يطل على المرفأ.",
+      "choices": [
+        {
+          "label": "ابحث عن قارب",
+          "emoji": "⛵",
+          "next": "find_boat",
+          "points_reward": 0,
+          "color": "primary"
+        },
+        {
+          "label": "اسأله عن أسرار القصر أثناء المشي",
+          "emoji": "🗣️",
+          "next": "find_boat",
+          "color": "primary"
+        }
+      ]
+    },
+    "speak_to_heir": {
+      "text": "تقول بصوت خشن لم تستخدمه منذ سنوات: 'والدك كان شجاعاً. يجب أن نعيش من أجله.' الصبي ينظر إليك بدهشة، ثم يمسك بيدك بقوة أكبر.",
+      "choices": [
+        {
+          "label": "اكمل الطريق",
+          "emoji": "🚶",
+          "next": "find_boat",
+          "points_reward": 1,
+          "color": "primary"
+        },
+        {
+          "label": "التزم الصمت وركز على الطريق",
+          "emoji": "🤐",
+          "next": "find_boat",
+          "color": "secondary"
+        }
+      ]
+    },
+    "find_boat": {
+      "text": "تجدان قارباً صغيراً. لكن بستاني القصر (جهة اتصالك من التمرد) يقف هناك، يوجه مسدساً نحوكما. 'خنتنا من أجل الطفل والذهب؟' يسأل بغضب.",
+      "choices": [
+        {
+          "label": "أقنعه بالسر",
+          "emoji": "📜",
+          "next": "convince_gardener",
+          "requires_flag": "flag_vizier_secret_known",
+          "points_reward": 2,
+          "color": "warning"
+        },
+        {
+          "label": "أطلق النار عليه أولاً",
+          "emoji": "🔫",
+          "next": "shoot_gardener",
+          "points_reward": 0,
+          "color": "secondary"
+        },
+        {
+          "label": "حاول التفاوض بالذهب",
+          "emoji": "💰",
+          "next": "bribe_gardener",
+          "points_reward": 0,
+          "color": "secondary"
+        }
+      ]
+    },
+    "bribe_gardener": {
+      "text": "تعرض عليه الذهب الذي وعد به الوزير. يضحك ساخراً، 'أنت أحمق. التمرد لا يباع.' ثم يطلق النار.",
+      "choices": [
+        {
+          "label": "حاول تفادي الرصاصة",
+          "emoji": "🏃",
+          "next": "death_betrayed_by_rebellion",
+          "points_reward": 0,
+          "color": "primary"
+        },
+        {
+          "label": "هاجمه قبل أن يسحب الزناد",
+          "emoji": "⚔️",
+          "next": "death_betrayed_by_rebellion",
+          "color": "danger"
+        }
+      ]
+    },
+    "death_betrayed_by_rebellion": {
+      "text": "تخترق الرصاصة صدرك. تسقط في الماء البارد. البستاني يأخذ الصبي ليبيعه للملك. خيانة أسيادك دون خطة محكمة هي انتحار.",
+      "is_ending": true,
+      "choices": [],
+      "ending_type": "death"
+    },
+    "convince_gardener": {
+      "text": "تخرج الوثائق التي سرقتها. 'الوزير كان سيطيح بالملك! قتله كان خطأ استراتيجياً. يجب أن نحمي هذا الصبي، فهو يملك شرعية أموال والده.' البستاني يتردد، ثم يخفض سلاحه.",
+      "choices": [
+        {
+          "label": "اصعد القارب",
+          "emoji": "⛵",
+          "next": "ending_heirs_protector",
+          "points_reward": 1,
+          "color": "primary"
+        },
+        {
+          "label": "اطلب منه مرافقتك للحماية",
+          "emoji": "🤝",
+          "next": "ending_heirs_protector",
+          "color": "primary"
+        }
+      ]
+    },
+    "shoot_gardener": {
+      "text": "تسحب مسدسك وتطلق النار بسرعة. يسقط البستاني ميتاً. لقد قطعت آخر خيط يربطك بالتمرد.",
+      "choices": [
+        {
+          "label": "اركب القارب واهرب",
+          "emoji": "🚣",
+          "next": "ending_vizier_alliance",
+          "points_reward": 0,
+          "color": "primary"
+        },
+        {
+          "label": "ارمه في النهر لإخفاء الجثة",
+          "emoji": "🌊",
+          "next": "ending_vizier_alliance",
+          "color": "secondary"
+        }
+      ]
+    },
+    "rebellion_safehouse": {
+      "text": "تصل إلى الملاذ الآمن. قائد التمرد ينتظرك مع رجاله. 'سمعنا أن الوزير مات، لكن جواسيس الملك سيطروا على القصر. ماذا حدث؟'",
+      "choices": [
+        {
+          "label": "أنجزت المهمة",
+          "emoji": "✔️",
+          "next": "report_success",
+          "points_reward": 0,
+          "color": "primary"
+        },
+        {
+          "label": "اكشف سر الوزير",
+          "emoji": "📜",
+          "next": "reveal_secret_to_rebel",
+          "requires_flag": "flag_vizier_secret_known",
+          "points_reward": 2,
+          "color": "success"
+        }
+      ]
+    },
+    "report_success": {
+      "text": "'مات الوزير'، تقولها ببرود. يبتسم القائد، 'جيد. رغم أن فوضى الملك ستكلفنا الكثير. سنبدأ حربنا غداً.'",
+      "choices": [
+        {
+          "label": "استعد للحرب",
+          "emoji": "⚔️",
+          "next": "ending_rebellion_victory",
+          "points_reward": 0,
+          "color": "primary"
+        },
+        {
+          "label": "طالب بمكافأتك المالية فورا",
+          "emoji": "💰",
+          "next": "ending_rebellion_victory",
+          "color": "warning"
+        }
+      ]
+    },
+    "reveal_secret_to_rebel": {
+      "text": "تخبره بخطة الوزير للإطاحة بالملك وتعطيه الوثائق. يتسع بؤبؤ عينه. 'إذن... كنا بيادق للملك دون أن ندري. قتلك للوزير عزز قوة الملك.'",
+      "choices": [
+        {
+          "label": "اعرض إصلاح الخطأ",
+          "emoji": "🔧",
+          "next": "ending_rebellion_victory",
+          "points_reward": 0,
+          "color": "primary"
+        },
+        {
+          "label": "طالب بقيادة التمرد",
+          "emoji": "👑",
+          "next": "ending_shadow_master",
+          "required_points": 8,
+          "points_reward": 2,
+          "color": "success"
+        }
+      ]
+    },
+    "ending_rebellion_victory": {
+      "text": "نفذت أوامرك ونجوت، لكن نصرك جاء مرعقاً. بقتلك للوزير، منحت الملك الطاغية سيطرة مطلقة على العاصمة. المتمردون يحتفلون بموت 'الخائن'، لكنك تعلم أن الحرب الحقيقية، والأكثر دموية، قد بدأت للتو. هل حقاً خدمت قضيتك، أم كنت مجرد أداة؟",
+      "is_ending": true,
+      "ending_type": "incomplete_victory",
+      "choices": []
+    },
+    "ending_vizier_alliance": {
+      "text": "هربت مع الوريث بعد أن قتلت رفاقك في التمرد. الوزير مات، لكنك تملك مفاتيح ثروته وسره من خلال ابنه. ستعيش في المنفى، تحرس صبياً وتدربّه على الانتقام يوماً ما. لقد أنقذته، لكنك فقدت هويتك. هل يستحق هذا الطفل أن تضحي بكل ما آمنت به؟",
+      "is_ending": true,
+      "ending_type": "success_with_sacrifice",
+      "choices": []
+    },
+    "ending_heirs_protector": {
+      "text": "اخترت الرحمة على الواجب. بإقناعك للمتمردين بقيمة الوريث، أنقذت الصبي من الموت ومنحت التمرد سلاحاً مالياً هائلاً. خسرت فرصتك في اغتيال الملك فوراً، لكنك كسبت حليفاً مستقبلياً قوياً. لقد كسرت حلقة الدم، لكن هل سيغفر لك الطفل عندما يكبر ويعلم أنك كنت السبب في موت والده؟",
+      "is_ending": true,
+      "ending_type": "honorable_defeat",
+      "choices": []
+    },
+    "ending_shadow_master": {
+      "text": "بفضل ذكائك وجمعك لكل الأسرار، اكتشفت اللعبة بأكملها. التمرد، الملك، والوزير... كلهم كانوا يلعبون بك. لكنك قلبت الطاولة. باستخدام وثائق الوزير وثروته المخبأة، تطيح بقائد التمرد الضعيف وتأخذ مكانه. أنت الآن تقود حرب الظلال الحقيقية. هل أصبحت الوحش الذي كنت تحاربه منذ البداية؟",
+      "is_ending": true,
+      "ending_type": "secret_ending",
+      "choices": []
+    },
+    "death_vizier_delayed": {
+      "text": "النقاش معه أضاع وقتاً ثميناً. جواسيس الملك يقتحمون الجناح ويطلقون النار. تموت بجانب الوزير دون إكمال المهمة أو النجاة.",
+      "is_ending": true,
+      "ending_type": "death",
+      "choices": []
+    },
+    "escape_with_heir_force": {
+      "text": "تسحب الوريث رغماً عنه وتهربان نحو الممر السري، بينما الوزير يغطي انسحابكما ويسقط صريعاً. تركض في الظلام.",
+      "choices": [
+        {
+          "label": "انزل في النفق",
+          "emoji": "⬇️",
+          "next": "tunnels_dark",
+          "points_reward": 1,
+          "color": "primary"
+        },
+        {
+          "label": "توقف لمساعدة الوزير المنهار",
+          "emoji": "ع",
+          "next": "tunnels_dark",
+          "color": "danger"
+        }
+      ]
+    },
+    "poison_attempt_1": {
+      "text": "تخرج القارورة بحذر. الحارس ذو الندبة يلتفت. يجب أن تتصرف بسرعة قبل أن يلاحظ.",
+      "choices": [
+        {
+          "label": "اسكب السم فوراً",
+          "emoji": "🧪",
+          "next": "poison_attempt_2",
+          "points_reward": 0,
+          "color": "primary"
+        },
+        {
+          "label": "خبئ القارورة",
+          "emoji": "🫣",
+          "next": "safe_pour",
+          "points_reward": 1,
+          "color": "secondary"
+        }
+      ]
+    },
+    "poison_attempt_2": {
+      "text": "تسكب السم. لون النبيذ يتغير قليلاً. الحارس يقترب وينظر للكأس بريبة.",
+      "choices": [
+        {
+          "label": "قدم الكأس للوزير",
+          "emoji": "🍷",
+          "next": "poison_attempt_3",
+          "points_reward": 0,
+          "color": "primary"
+        },
+        {
+          "label": "تظاهر بالتعثر",
+          "emoji": "💥",
+          "next": "trip_distraction",
+          "points_reward": 1,
+          "color": "secondary"
+        }
+      ]
+    },
+    "poison_attempt_3": {
+      "text": "الوزير يمسك الكأس. الحارس يمسك يدك فجأة ويشم الكأس.",
+      "choices": [
+        {
+          "label": "حاول سحب يدك",
+          "emoji": "✋",
+          "next": "poison_attempt_4",
+          "points_reward": 0,
+          "color": "primary"
+        },
+        {
+          "label": "العب دور الأبكم",
+          "emoji": "🧎",
+          "next": "poison_attempt_5",
+          "points_reward": 1,
+          "color": "secondary"
+        }
+      ]
+    },
+    "poison_attempt_4": {
+      "text": "المقاومة تؤكد التهمة. الحارس يسحب سيفه.",
+      "choices": [
+        {
+          "label": "هاجم الحارس",
+          "emoji": "⚔️",
+          "next": "poison_attempt_6",
+          "points_reward": 0,
+          "color": "primary"
+        },
+        {
+          "label": "اهرب للباب",
+          "emoji": "🏃",
+          "next": "poison_attempt_7",
+          "points_reward": 0,
+          "color": "secondary"
+        }
+      ]
+    },
+    "poison_attempt_5": {
+      "text": "تبكي وتتظاهر بالجهل. الوزير يأمر الحارس بتركك، لكنه يطلب من حارس آخر تذوق النبيذ أولاً.",
+      "choices": [
+        {
+          "label": "انتظر النتيجة",
+          "emoji": "⏳",
+          "next": "poison_attempt_8",
+          "points_reward": 0,
+          "color": "primary"
+        },
+        {
+          "label": "اهرب في الزحام",
+          "emoji": "🏃",
+          "next": "fake_panic",
+          "points_reward": 1,
+          "color": "secondary"
+        }
+      ]
+    },
+    "poison_attempt_6": {
+      "text": "تهاجم الحارس بصينية النبيذ. تضربه في وجهه.",
+      "choices": [
+        {
+          "label": "استل خنجرك",
+          "emoji": "🗡️",
+          "next": "poison_attempt_8",
+          "points_reward": 0,
+          "color": "primary"
+        },
+        {
+          "label": "اهرب نحو النافذة",
+          "emoji": "🏃",
+          "next": "poison_attempt_8",
+          "color": "secondary"
+        }
+      ]
+    },
+    "poison_attempt_7": {
+      "text": "تركض نحو الباب. حرس القصر يستنفرون.",
+      "choices": [
+        {
+          "label": "اركض أكثر",
+          "emoji": "🏃",
+          "next": "poison_attempt_8",
+          "points_reward": 0,
+          "color": "primary"
+        },
+        {
+          "label": "اختبئ تحت الطاولة",
+          "emoji": "⬇️",
+          "next": "poison_attempt_8",
+          "color": "warning"
+        }
+      ]
+    },
+    "poison_attempt_8": {
+      "text": "الأمور تخرج عن السيطرة. لقد فشلت في التخفي.",
+      "choices": [
+        {
+          "label": "استسلم للقدر",
+          "emoji": "💀",
+          "next": "death_caught_poisoning",
+          "points_reward": 0,
+          "color": "primary"
+        },
+        {
+          "label": "حاول رشوتهم ببعض الذهب",
+          "emoji": "💰",
+          "next": "death_caught_poisoning",
+          "color": "primary"
+        }
+      ]
+    },
+    "fire_attempt_1": {
+      "text": "تأخذ قنينة زيت. المطبخ مزدحم للغاية. تحتاج لمكان مناسب.",
+      "choices": [
+        {
+          "label": "اسكب قرب الفرن",
+          "emoji": "🔥",
+          "next": "fire_attempt_2",
+          "points_reward": 0,
+          "color": "primary"
+        },
+        {
+          "label": "تراجع للخارج",
+          "emoji": "⬅️",
+          "next": "staff_courtyard",
+          "points_reward": 1,
+          "color": "secondary"
+        }
+      ]
+    },
+    "fire_attempt_2": {
+      "text": "تسكب الزيت وتلقي شعلة. النار تبدأ بالاشتعال.",
+      "choices": [
+        {
+          "label": "زد من الزيت",
+          "emoji": "🛢️",
+          "next": "fire_attempt_3",
+          "points_reward": 0,
+          "color": "primary"
+        },
+        {
+          "label": "اهرب بسرعة",
+          "emoji": "🏃",
+          "next": "fake_panic",
+          "points_reward": 1,
+          "color": "secondary"
+        }
+      ]
+    },
+    "fire_attempt_3": {
+      "text": "تزيد الزيت. النار تمتد للستائر الخشبية. الدخان يملأ المكان.",
+      "choices": [
+        {
+          "label": "ابحث عن مخرج",
+          "emoji": "🚪",
+          "next": "fire_attempt_4",
+          "points_reward": 0,
+          "color": "primary"
+        },
+        {
+          "label": "اختبئ في مخزن",
+          "emoji": "📦",
+          "next": "fire_attempt_5",
+          "points_reward": 0,
+          "color": "secondary"
+        }
+      ]
+    },
+    "fire_attempt_4": {
+      "text": "المدخل الرئيسي مسدود بسبب تدافع الخدم.",
+      "choices": [
+        {
+          "label": "ادفعهم بقوة",
+          "emoji": "💪",
+          "next": "fire_attempt_6",
+          "points_reward": 0,
+          "color": "primary"
+        },
+        {
+          "label": "عد للخلف",
+          "emoji": "⬅️",
+          "next": "fire_attempt_7",
+          "points_reward": 0,
+          "color": "secondary"
+        }
+      ]
+    },
+    "fire_attempt_5": {
+      "text": "المخزن يمتلئ بالدخان. لا يوجد هواء.",
+      "choices": [
+        {
+          "label": "اخرج من المخزن",
+          "emoji": "🚪",
+          "next": "fire_attempt_7",
+          "points_reward": 0,
+          "color": "primary"
+        },
+        {
+          "label": "احفر في الجدار الخشبي",
+          "emoji": "⛏️",
+          "next": "fire_attempt_7",
+          "color": "danger"
+        }
+      ]
+    },
+    "fire_attempt_6": {
+      "text": "تدفعهم، لكن الخشب المحترق يتساقط من السقف.",
+      "choices": [
+        {
+          "label": "تجنب الحطام",
+          "emoji": "💥",
+          "next": "fire_attempt_8",
+          "points_reward": 0,
+          "color": "primary"
+        },
+        {
+          "label": "غطِ وجهك بقطعة قماش مبللة",
+          "emoji": "💧",
+          "next": "fire_attempt_8",
+          "color": "primary"
+        }
+      ]
+    },
+    "fire_attempt_7": {
+      "text": "النار تحاصرك من كل مكان.",
+      "choices": [
+        {
+          "label": "ابحث عن نافذة",
+          "emoji": "🪟",
+          "next": "fire_attempt_8",
+          "points_reward": 0,
+          "color": "primary"
+        },
+        {
+          "label": "اصرخ طالبا النجدة",
+          "emoji": "🗣️",
+          "next": "fire_attempt_8",
+          "color": "warning"
+        }
+      ]
+    },
+    "fire_attempt_8": {
+      "text": "لا يوجد مفر. الدخان يعمي عينيك والحرارة لا تطاق.",
+      "choices": [
+        {
+          "label": "استسلم للاختناق",
+          "emoji": "💀",
+          "next": "death_kitchen_fire",
+          "points_reward": 0,
+          "color": "primary"
+        },
+        {
+          "label": "اندفع نحو اللهب في محاولة يائسة",
+          "emoji": "🔥",
+          "next": "death_kitchen_fire",
+          "color": "danger"
+        }
+      ]
+    },
+    "guard_interrogation_1": {
+      "text": "تتجاهله. يغضب الحارس ويركض خلفك ويمسك بك بقوة من كتفك.",
+      "choices": [
+        {
+          "label": "ادفع يده",
+          "emoji": "✋",
+          "next": "guard_interrogation_2",
+          "points_reward": 0,
+          "color": "primary"
+        },
+        {
+          "label": "العب دور الأبكم",
+          "emoji": "🧎",
+          "next": "act_mute_success",
+          "points_reward": 1,
+          "color": "secondary"
+        }
+      ]
+    },
+    "guard_interrogation_2": {
+      "text": "تدفع يده. الحارس يرفع سيفه. يصرخ في وجهك بغضب.",
+      "choices": [
+        {
+          "label": "انظر له بصمت",
+          "emoji": "😶",
+          "next": "guard_interrogation_3",
+          "points_reward": 0,
+          "color": "primary"
+        },
+        {
+          "label": "هاجمه بسرعة",
+          "emoji": "⚔️",
+          "next": "guard_interrogation_4",
+          "points_reward": 0,
+          "color": "secondary"
+        }
+      ]
+    },
+    "guard_interrogation_3": {
+      "text": "تنظر له بصمت. يصرخ، ثم يضرب سيفه بالحائط بجانبك فجأة ليختبرك.",
+      "choices": [
+        {
+          "label": "انتفض من الصوت",
+          "emoji": "😱",
+          "next": "guard_interrogation_5",
+          "points_reward": 0,
+          "color": "primary"
+        },
+        {
+          "label": "لا تبدِ أي رد فعل",
+          "emoji": "🗿",
+          "next": "act_mute_success",
+          "points_reward": 2,
+          "color": "success"
+        }
+      ]
+    },
+    "guard_interrogation_4": {
+      "text": "تهاجمه، لكنه يتفادى هجومك بسهولة ويوجه نصله لرقبتك.",
+      "choices": [
+        {
+          "label": "تراجع بصمت",
+          "emoji": "⬅️",
+          "next": "guard_interrogation_6",
+          "points_reward": 0,
+          "color": "primary"
+        },
+        {
+          "label": "اعرض عليه معلومات سرية",
+          "emoji": "📜",
+          "next": "guard_interrogation_6",
+          "color": "primary"
+        }
+      ]
+    },
+    "guard_interrogation_5": {
+      "text": "الانتفاضة تفضحك. يصرخ الحارس بغضب.",
+      "choices": [
+        {
+          "label": "حاول الهرب مجدداً",
+          "emoji": "🏃",
+          "next": "guard_interrogation_6",
+          "points_reward": 0,
+          "color": "primary"
+        },
+        {
+          "label": "ادعِ الجنون والصراخ",
+          "emoji": "🤪",
+          "next": "guard_interrogation_6",
+          "color": "warning"
+        }
+      ]
+    },
+    "guard_interrogation_6": {
+      "text": "يحاصرك الحراس الآخرون.",
+      "choices": [
+        {
+          "label": "تلقى مصيرك",
+          "emoji": "💀",
+          "next": "death_guard_interrogation",
+          "points_reward": 0,
+          "color": "primary"
+        },
+        {
+          "label": "استل خنجرك المخفي وقاتل",
+          "emoji": "🗡️",
+          "next": "death_guard_interrogation",
+          "color": "danger"
+        }
+      ]
+    }
+  }
+}

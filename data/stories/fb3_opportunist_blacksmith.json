@@ -1,0 +1,661 @@
+{
+  "world": "الفانتازيا",
+  "categories": [
+    {
+      "name": "الفانتازيا المظلمة",
+      "stories": [
+        {
+          "id": "fb3_opportunist_blacksmith",
+          "title": "حداد على الحد الفاصل",
+          "summary": "أنت حداد محايد في بلدة حدودية تنهشها الحرب. عليك موازنة الجشع والخوف والموارد لتنجو وتخرج بثروة من نار الجميع.",
+          "difficulty": "صعب",
+          "estimated_length": "طويلة",
+          "theme": "الفانتازيا المظلمة",
+          "world_type": "fantasy",
+          "game_mode": "single",
+          "perspectives": [
+            {
+              "id": "neutral_blacksmith",
+              "label": "الحداد الرمادي",
+              "emoji": "⚒️",
+              "description": "صانع سلاح يؤمن أن الحديد بلا ولاء، لكنه يكتشف أن ضميره أثقل من المطارق.",
+              "start_node": "start"
+            }
+          ],
+          "nodes": {
+            "start": {
+              "text": "حرارة الكير تلفح وجهك، لكنها لا تدفئ قلبك. أنت لست بطلاً ولا ساحراً، أنت حداد الانتهازية في مدينة محاصرة. رائحة الفولاذ المنصهر والصدأ تملأ الهواء. خارج ورشتك، جيش الظلام يطرق الأبواب، وداخلها، فرسان المملكة يطالبون بالسلاح. الحرب بالنسبة لهم عقيدة، لكنها بالنسبة لك مجرد فرصة لتكديس الذهب. في ظل الموت المحقق، الجميع يحتاج إلى شفرة حادة.",
+              "choices": [
+                {
+                  "label": "بايع الظل المظلم",
+                  "emoji": "🕷️",
+                  "next": "oath_evil_army",
+                  "points_reward": 2,
+                  "color": "danger"
+                },
+                {
+                  "label": "بايع فرسان المملكة",
+                  "emoji": "🛡️",
+                  "next": "oath_kingdom_knights",
+                  "points_reward": 2,
+                  "color": "primary"
+                },
+                {
+                  "label": "بع للجميع سراً بمكر",
+                  "emoji": "🪙",
+                  "next": "double_deal_begin",
+                  "points_reward": 1,
+                  "color": "warning"
+                }
+              ]
+            },
+            "oath_evil_army": {
+              "text": "تلتقي بمندوب جيش الظلام في الأزقة الخلفية. وجهه مخفي تحت قلنسوة ممزقة. تعرض عليه ولاءك الكامل. سيوفك ستخترق دروع بني جلدتك، مقابل حماية ورشتك عندما تسقط المدينة. خيانة بدم بارد، لكن البقاء للأذكى.",
+              "choices": [
+                {
+                  "label": "اقبل الشروط المظلمة",
+                  "emoji": "✍️",
+                  "next": "shadow_contract",
+                  "points_reward": 2,
+                  "color": "danger"
+                },
+                {
+                  "label": "اطلب مهلة بحذر",
+                  "emoji": "⏳",
+                  "next": "delay_under_threat",
+                  "points_reward": 0,
+                  "color": "secondary"
+                }
+              ]
+            },
+            "oath_kingdom_knights": {
+              "text": "تعلن ولاءك المطلق لفرسان المملكة. تعمل ليل نهار لصقل أسلحتهم وتدريع أسوارهم. أنت تلعب دور الوطني المخلص، راجياً أن يصمدوا، أو على الأقل أن يدفعوا لك قبل أن تنهار البوابات.",
+              "choices": [
+                {
+                  "label": "اقسم ولاءك للتاج",
+                  "emoji": "👑",
+                  "next": "crown_contract",
+                  "points_reward": 2,
+                  "color": "primary"
+                },
+                {
+                  "label": "ساوم على الثمن بجرأة",
+                  "emoji": "💰",
+                  "next": "price_haggle_knights",
+                  "points_reward": 1,
+                  "color": "warning"
+                }
+              ]
+            },
+            "double_deal_begin": {
+              "text": "تقرر اللعب على الحبلين. تصنع السيوف اللامعة للفرسان نهاراً، وتهرب الخناجر السامة لجيش الظلام ليلاً. الرقص على حافة السيف خطير، لكن الأرباح مضاعفة، وكذلك فرصة النجاة أياً كان المنتصر.",
+              "choices": [
+                {
+                  "label": "ارشو كاتب الجمارك لتأمينك",
+                  "emoji": "📜",
+                  "next": "bribe_clerk",
+                  "points_reward": 2,
+                  "color": "success"
+                },
+                {
+                  "label": "جنّد صبياً يتيماً للتهريب",
+                  "emoji": "🧒",
+                  "next": "hire_orphan_runner",
+                  "points_reward": 1,
+                  "color": "primary"
+                }
+              ]
+            },
+            "shadow_contract": {
+              "text": "توقع عقداً بالدم مع مبعوث الظل. يجب أن تسلم مائة نصل مسموم قبل اكتمال القمر. المبعوث لا يهدد، بل يعدك بمكانة في النظام الجديد. الخوف والجشع يتصارعان في صدرك.",
+              "choices": [
+                {
+                  "label": "اصهر الخام فوراً واعمل",
+                  "emoji": "🔥",
+                  "next": "forge_night_rush",
+                  "points_reward": 2,
+                  "color": "primary"
+                },
+                {
+                  "label": "خبئ جزءاً نادراً للبيع سراً",
+                  "emoji": "🪙",
+                  "next": "stash_secret_ingots",
+                  "points_reward": 1,
+                  "color": "warning"
+                }
+              ]
+            },
+            "delay_under_threat": {
+              "text": "تتذرع بنقص الفحم لتأخير تسليم أسلحة جيش الظلام. المبعوث يحدق بك بعيون كالجمر المشتعل. التأخير قد يُحسب خيانة، والظلال لا تقبل الأعذار. لقد كسبت وقتاً، لكن الثمن سيكون باهظاً.",
+              "choices": [
+                {
+                  "label": "اعمل حتى الإنهاك الشديد",
+                  "emoji": "⚒️",
+                  "next": "forge_night_rush",
+                  "points_reward": 1,
+                  "color": "primary"
+                },
+                {
+                  "label": "اطلب حماية الفرسان فوراً",
+                  "emoji": "🏰",
+                  "next": "ending_death_exposed_to_shadow",
+                  "color": "danger"
+                }
+              ]
+            },
+            "crown_contract": {
+              "text": "تتلقى عقداً رسمياً من التاج. ختم الملك يزين المخطوطة. يطلبون تسليح النخبة. هذا العقد وحده كفيل بجعلك ثرياً، لكنه يضعك في مرمى البصر كأهم هدف لجيش الظلام.",
+              "choices": [
+                {
+                  "label": "ركّز على صنع دروع ثقيلة",
+                  "emoji": "🛡️",
+                  "next": "fortify_north_gate",
+                  "points_reward": 2,
+                  "color": "primary"
+                },
+                {
+                  "label": "صغ خناجر خفية للسوق السوداء",
+                  "emoji": "🗡️",
+                  "next": "secret_side_trade",
+                  "points_reward": 1,
+                  "color": "warning"
+                }
+              ]
+            },
+            "price_haggle_knights": {
+              "text": "تساوم قائد الفرسان بوقاحة. ترفع أسعار الأسلحة في وقت الشدة، مدعياً نقص الموارد الحيوية. القائد يغضب، لكنه يدفع. لقد كسبت الذهب، لكنك خسرت احترامهم للأبد.",
+              "choices": [
+                {
+                  "label": "اقبل الجاسوس وتصرف بذكاء",
+                  "emoji": "👁️",
+                  "next": "fortify_north_gate",
+                  "points_reward": 1,
+                  "color": "primary"
+                },
+                {
+                  "label": "ضلّل الجاسوس بتقارير مزيفة",
+                  "emoji": "🎭",
+                  "next": "mislead_spy_route",
+                  "points_reward": 2,
+                  "color": "success"
+                }
+              ]
+            },
+            "bribe_clerk": {
+              "text": "ترشي موظف التموين في القلعة ليغض الطرف عن نقص الموارد التي تسرقها لنفسك. كيس صغير من العملات الفضية يخرس ضميره. الفساد في وقت الحرب يسهل الأعمال لكنه يسرع السقوط.",
+              "choices": [
+                {
+                  "label": "غيّر مسار القوافل لتضليلهم",
+                  "emoji": "🚚",
+                  "next": "hidden_convoy_route",
+                  "points_reward": 2,
+                  "color": "success"
+                },
+                {
+                  "label": "زد الرشوة الآن لشرائه كلياً",
+                  "emoji": "💸",
+                  "next": "ending_death_bribe_exposed",
+                  "color": "danger"
+                }
+              ]
+            },
+            "hire_orphan_runner": {
+              "text": "تستأجر صبياً يتيماً ليكون عيناً لك في الشوارع. ينقل لك تحركات الدوريات وأخبار الجبهة. الطفولة هنا تُستغل كأداة رخيصة للنجاة.",
+              "choices": [
+                {
+                  "label": "عامله بإنصاف وأطعمه جيداً",
+                  "emoji": "🍞",
+                  "next": "loyal_runner_network",
+                  "points_reward": 3,
+                  "color": "success"
+                },
+                {
+                  "label": "استنزفه بقسوة وتهديد",
+                  "emoji": "⛓️",
+                  "next": "runner_betrayal_seed",
+                  "points_reward": 0,
+                  "color": "danger"
+                }
+              ]
+            },
+            "forge_night_rush": {
+              "text": "تشعل الأفران ليلاً بشكل سري لتنفيذ عقد جيش الظلام. الدخان الكثيف قد يكشف أمرك للفرسان. تعمل في توتر شديد، كل طرقة مطرقة تبدو كأنها تدق مسامير نعشك.",
+              "choices": [
+                {
+                  "label": "سلّم الدفعة كما هي بمخاطرها",
+                  "emoji": "📦",
+                  "next": "deliver_flawed_batch",
+                  "points_reward": 1,
+                  "color": "warning"
+                },
+                {
+                  "label": "أتلف القطع الرديئة وواجه النقص",
+                  "emoji": "🧯",
+                  "next": "resource_shortage_crunch",
+                  "points_reward": 2,
+                  "color": "success"
+                }
+              ]
+            },
+            "stash_secret_ingots": {
+              "text": "تخفي السبائك المعدنية الثمينة في قبو سري تحت الورشة. مهما كانت نتيجة الحرب، فإن هذه السبائك ستكون تذكرتك لرحلة الهروب أو بدء حياة جديدة.",
+              "choices": [
+                {
+                  "label": "بعها للفرسان بسعر خيالي",
+                  "emoji": "🛡️",
+                  "next": "secret_side_trade",
+                  "points_reward": 2,
+                  "color": "success"
+                },
+                {
+                  "label": "احتفظ بها للنهاية كضمانة",
+                  "emoji": "🏴",
+                  "next": "resource_shortage_crunch",
+                  "points_reward": 1,
+                  "color": "primary"
+                }
+              ]
+            },
+            "fortify_north_gate": {
+              "text": "تساعد في تحصين البوابة الشمالية للمدينة. تقوم بصب الحديد المنصهر في الشقوق لتعزيزها. الفرسان يشكرونك، ولا يعلمون أنك تفعل ذلك فقط لحماية ورشتك القريبة.",
+              "choices": [
+                {
+                  "label": "استخدم مخزونك كله بإخلاص",
+                  "emoji": "🪨",
+                  "next": "ending_death_empty_forge",
+                  "color": "danger"
+                },
+                {
+                  "label": "وفّر الفحم للسراديب والأيام الصعبة",
+                  "emoji": "🕳️",
+                  "next": "resource_shortage_crunch",
+                  "points_reward": 2,
+                  "color": "success"
+                }
+              ]
+            },
+            "secret_side_trade": {
+              "text": "تكتشف سوقاً سوداء مزدهرة للغذاء والدواء. تقايض بعض أسلحتك مقابل مؤن نادرة. السلاح مهم، لكن لا قيمة له ومعدتك خاوية عند الحصار.",
+              "choices": [
+                {
+                  "label": "استمر في التهريب وجني الأرباح",
+                  "emoji": "🌒",
+                  "next": "hidden_convoy_route",
+                  "points_reward": 2,
+                  "color": "primary"
+                },
+                {
+                  "label": "أغلق السوق فوراً لتجنب الكشف",
+                  "emoji": "🚪",
+                  "next": "resource_shortage_crunch",
+                  "points_reward": 1,
+                  "color": "secondary"
+                }
+              ]
+            },
+            "mislead_spy_route": {
+              "text": "توفر للفرسان معلومات كاذبة عن طرق الإمداد لجيش الظلام لتثبت ولاءك الوهمي. الكذبة قد تنكشف في أي لحظة، وتدفعك خطوة أقرب إلى حبل المشنقة.",
+              "choices": [
+                {
+                  "label": "اختف ليلة كاملة لتهدئة الشكوك",
+                  "emoji": "🌫️",
+                  "next": "hidden_convoy_route",
+                  "points_reward": 2,
+                  "color": "primary"
+                },
+                {
+                  "label": "واجه القائد مباشرة بثقة كاذبة",
+                  "emoji": "⚔️",
+                  "next": "ending_death_accused_by_knights",
+                  "color": "danger"
+                }
+              ]
+            },
+            "hidden_convoy_route": {
+              "text": "ترتب مساراً سرياً عبر المجاري لنقل الأسلحة إلى مبعوث الظلام. الرائحة مقززة والخطر دائم، لكن الذهب الذي تتلقاه يغسل كل الأدران.",
+              "choices": [
+                {
+                  "label": "اشتر حرساً خاصاً لحماية ثروتك",
+                  "emoji": "🪖",
+                  "next": "private_guards_choice",
+                  "points_reward": 2,
+                  "color": "success"
+                },
+                {
+                  "label": "أخف الذهب بعناية تحت الفرن",
+                  "emoji": "🏺",
+                  "next": "gold_cache_under_anvil",
+                  "points_reward": 1,
+                  "color": "warning"
+                }
+              ]
+            },
+            "loyal_runner_network": {
+              "text": "تشكل شبكة من اليتامى المتسولين. يصبحون جواسيسك المخلصين. معلوماتهم الدقيقة تمنحك أفضلية على كلا الجيشين. أنت الآن لست مجرد حداد، بل وسيط معلومات.",
+              "choices": [
+                {
+                  "label": "كلفهم بمراقبة تحركات العدو",
+                  "emoji": "🕯️",
+                  "next": "intel_before_siege",
+                  "points_reward": 2,
+                  "color": "success"
+                },
+                {
+                  "label": "كلفهم بتهريب القطع الصغيرة",
+                  "emoji": "📦",
+                  "next": "hidden_convoy_route",
+                  "points_reward": 1,
+                  "color": "primary"
+                }
+              ]
+            },
+            "runner_betrayal_seed": {
+              "text": "أحد اليتامى يبدو متوتراً. تدرك أنه قد يفشي أسرارك للحرس مقابل الخبز. تزرع الشك بين أقرانه لعزله، خطوة قاسية لكنها ضرورية لحماية إمبراطوريتك السرية.",
+              "choices": [
+                {
+                  "label": "اهرب قبل الفجر حامل دفاتر الديون",
+                  "emoji": "🏃",
+                  "next": "flight_with_ledgers",
+                  "points_reward": 1,
+                  "color": "primary"
+                },
+                {
+                  "label": "طارد الصبي لتصفيته وإسكاته",
+                  "emoji": "🔍",
+                  "next": "ending_death_alley_ambush",
+                  "color": "danger"
+                }
+              ]
+            },
+            "deliver_flawed_batch": {
+              "text": "تسلم دفعة من الأسلحة المعيبة عمداً لفرسان المملكة. الشفرات ستنكسر في المعركة الأولى. خيانة عظمى لتسهيل دخول جيش الظلام، وربما لتوقيع صك موتك إذا انكشف الأمر.",
+              "choices": [
+                {
+                  "label": "اعترف بالخطأ واعتذر برجاء",
+                  "emoji": "🙇",
+                  "next": "ending_death_shadow_punishment",
+                  "color": "danger"
+                },
+                {
+                  "label": "اتهم منافساً بتخريب الدفعة سراً",
+                  "emoji": "🦂",
+                  "next": "flight_with_ledgers",
+                  "points_reward": 1,
+                  "color": "primary"
+                }
+              ]
+            },
+            "resource_shortage_crunch": {
+              "text": "ينفد الفحم والحديد من المدينة. الحصار يشتد. ورشتك تصبح باردة وصامتة. يجب أن تجد مصدرًا جديدًا أو تصبح الورشة قبرك.",
+              "choices": [
+                {
+                  "label": "بع خردة مطلية كحل أخير",
+                  "emoji": "🎨",
+                  "next": "counterfeit_weapons_gamble",
+                  "points_reward": 1,
+                  "color": "warning"
+                },
+                {
+                  "label": "اسرق من المخازن العسكرية",
+                  "emoji": "🗝️",
+                  "next": "steal_from_war_depot",
+                  "points_reward": 2,
+                  "color": "danger"
+                },
+                {
+                  "label": "اصنع تحفة واحدة نادرة بالباقي",
+                  "emoji": "🌟",
+                  "next": "masterpiece_blade_offer",
+                  "points_reward": 3,
+                  "color": "success"
+                }
+              ]
+            },
+            "intel_before_siege": {
+              "text": "تصلك معلومة حاسمة عن موعد الهجوم النهائي لجيش الظلام. هذه المعلومة أغلى من أي سلاح. لمن ستبيعها؟ الثمن هو تحديد المنتصر في هذه الحرب.",
+              "choices": [
+                {
+                  "label": "ساوم الطرفين معاً بجرأة أخيرة",
+                  "emoji": "⚖️",
+                  "next": "final_negotiation_hall",
+                  "points_reward": 2,
+                  "color": "success"
+                },
+                {
+                  "label": "أخل المدينة سراً للنجاة",
+                  "emoji": "🚪",
+                  "next": "flight_with_ledgers",
+                  "points_reward": 1,
+                  "color": "primary"
+                }
+              ]
+            },
+            "private_guards_choice": {
+              "text": "تستأجر مرتزقة قساة لحماية ورشتك من النهب المحتمل عند بدء الهجوم. الذهب ينزف من خزانتك، لكن الحماية مضمونة في لحظات الفوضى العارمة.",
+              "choices": [
+                {
+                  "label": "ادفع لهم بسخاء لضمان حياتك",
+                  "emoji": "💎",
+                  "next": "final_negotiation_hall",
+                  "points_reward": 2,
+                  "color": "success"
+                },
+                {
+                  "label": "خفّض أجورهم لطمعك المتزايد",
+                  "emoji": "📉",
+                  "next": "ending_death_guard_mutiny",
+                  "color": "danger"
+                }
+              ]
+            },
+            "gold_cache_under_anvil": {
+              "text": "تفرغ صندوقاً خشبياً وتدفنه تحت سندانك الثقيل. تملأه بالذهب الذي جمعته من كلا الطرفين. ثروة ضخمة تكفي لملكين، مخبأة تحت أداة عمل بسيطة.",
+              "choices": [
+                {
+                  "label": "انقل الخبأ ليلاً قبل فوات الأوان",
+                  "emoji": "🌙",
+                  "next": "flight_with_ledgers",
+                  "points_reward": 1,
+                  "color": "primary"
+                },
+                {
+                  "label": "اتركه مكانه وغامر بكل شيء",
+                  "emoji": "🪨",
+                  "next": "final_negotiation_hall",
+                  "points_reward": 2,
+                  "color": "warning"
+                }
+              ]
+            },
+            "flight_with_ledgers": {
+              "text": "تجمع دفاترك المحاسبية التي تثبت تعاملاتك المزدوجة. إنها أداة ابتزاز قوية، لكنها أيضاً دليل إدانتك. تقرر الهروب بها في جنح الظلام.",
+              "choices": [
+                {
+                  "label": "اهرب وحدك لتكون أخف واسرع",
+                  "emoji": "🕳️",
+                  "next": "ending_survival_poor",
+                  "points_reward": 0,
+                  "color": "secondary"
+                },
+                {
+                  "label": "خذ الصبي اليتيم معك لإنقاذه",
+                  "emoji": "🤝",
+                  "next": "ending_success_sacrifice",
+                  "required_points": 5,
+                  "color": "success"
+                }
+              ]
+            },
+            "counterfeit_weapons_gamble": {
+              "text": "تبدأ في إنتاج سيوف بختم الملوك المزيف لتباع بأسعار خيالية للنبلاء الخائفين المرتعبين في الداخل. احتيال وقح في وقت الهلاك.",
+              "choices": [
+                {
+                  "label": "ارمِ التهمة عليهم بشجاعة كاذبة",
+                  "emoji": "🗣️",
+                  "next": "ending_death_dual_execution",
+                  "color": "danger"
+                },
+                {
+                  "label": "اشتر وقتاً بالذهب المتبقي لديك",
+                  "emoji": "🪙",
+                  "next": "final_negotiation_hall",
+                  "points_reward": 1,
+                  "color": "primary"
+                }
+              ]
+            },
+            "steal_from_war_depot": {
+              "text": "تتسلل إلى مستودع أسلحة المملكة وتسرق المعادن الثمينة التي صادروها. الجرأة قد تصنع الغنى، لكن الفشل يعني الإعدام الفوري بتهمة الخيانة.",
+              "choices": [
+                {
+                  "label": "لفّق تقرير حريق لتغطية السرقة",
+                  "emoji": "🧾",
+                  "next": "final_negotiation_hall",
+                  "points_reward": 2,
+                  "color": "warning"
+                },
+                {
+                  "label": "أحرق المخزن كلياً لإخفاء أثرك",
+                  "emoji": "🔥",
+                  "next": "ending_death_city_hunt",
+                  "color": "danger"
+                }
+              ]
+            },
+            "masterpiece_blade_offer": {
+              "text": "تعرض على قائد جيش الظلام تحفتك الفنية: سيف ملعون يعطش للدماء، صنعته ببراعة نادرة. العرض قد يمنحك مكانة كبرى في الإمبراطورية الجديدة.",
+              "choices": [
+                {
+                  "label": "بعها للأعلى سعراً بلا ضمير",
+                  "emoji": "💰",
+                  "next": "final_negotiation_hall",
+                  "points_reward": 2,
+                  "color": "primary"
+                },
+                {
+                  "label": "اكسرها أمامهم لفرض هيبتك",
+                  "emoji": "💥",
+                  "next": "ending_success_honorable_peace",
+                  "points_reward": 3,
+                  "color": "success"
+                }
+              ]
+            },
+            "final_negotiation_hall": {
+              "text": "تُستدعى للقلعة لاجتماع مع قادة الجيوش. لحظة الحقيقة. يجب أن تتلاعب بالكلمات وتضمن حمايتك في اللحظات الأخيرة قبل سقوط البوابات.",
+              "choices": [
+                {
+                  "label": "ابتز الطرفين بكل أسرارهم",
+                  "emoji": "🦂",
+                  "next": "ending_success_golden_exile",
+                  "required_points": 7,
+                  "color": "danger"
+                },
+                {
+                  "label": "اختر جانباً أخيراً وانحز إليه",
+                  "emoji": "⚔️",
+                  "next": "ending_death_chosen_then_betrayed",
+                  "color": "danger"
+                },
+                {
+                  "label": "افرض هدنة قسرية بقوة نفوذك",
+                  "emoji": "🕊️",
+                  "next": "ending_secret_iron_throne",
+                  "required_points": 9,
+                  "color": "success"
+                },
+                {
+                  "label": "احرق كل الدفاتر وتخلى عن السيطرة",
+                  "emoji": "📚",
+                  "next": "ending_survival_anonymous",
+                  "points_reward": 1,
+                  "color": "secondary"
+                }
+              ]
+            },
+            "ending_death_exposed_to_shadow": {
+              "text": "مبعوث الظلام يكتشف أسلحتك المعيبة أو تأخيرك المتعمد. يُسلط عليك قاتلاً محترفاً يمزق حنجرتك في زقاق مظلم. الانتهازية لا تجدي نفعاً مع الظلال.",
+              "is_ending": true,
+              "choices": []
+            },
+            "ending_death_bribe_exposed": {
+              "text": "موظف التموين يشي بك للحرس. تداهم الدوريات ورشتك وتجد السبائك المسروقة والذهب. تُشنق علناً في ساحة المدينة بتهمة الخيانة وقت الحرب.",
+              "is_ending": true,
+              "choices": []
+            },
+            "ending_death_accused_by_knights": {
+              "text": "فرسان المملكة يكتشفون تعاملك مع جيش الظلام. لم ينتظروا المحاكمة، بل أحرقوك حياً داخل ورشتك، والنيران تلتهم جسدك مع خياناتك.",
+              "is_ending": true,
+              "choices": []
+            },
+            "ending_death_alley_ambush": {
+              "text": "في طريق هروبك ليلاً، يعترضك مجموعة من الناهبين الجائعين. يقتلونك من أجل كسرة خبز وبعض العملات، متجاهلين ثروتك الكبرى. موت تافه لانتهازي ذكي.",
+              "is_ending": true,
+              "choices": []
+            },
+            "ending_death_shadow_punishment": {
+              "text": "جيش الظلام يدخل المدينة، وبدلاً من مكافأتك، يعتبرون أن من يخون قومه لا يستحق الثقة. تُصلب على باب ورشتك ليكون موتك عبرة للخونة.",
+              "is_ending": true,
+              "choices": []
+            },
+            "ending_death_empty_forge": {
+              "text": "تنفد كل مواردك، وتُترك ورشتك مهجورة وباردة. تموت ببطء من الجوع والمرض وسط الأنقاض بينما تدور الحرب من حولك. الانتهازية الخاوية.",
+              "is_ending": true,
+              "choices": []
+            },
+            "ending_death_guard_mutiny": {
+              "text": "المرتزقة الذين استأجرتهم يدركون أن خزانتك مليئة بالذهب، وأن الفوضى تحميهم. ينقلبون عليك، يذبحونك بلا رحمة ويسرقون كل ما جمعته.",
+              "is_ending": true,
+              "choices": []
+            },
+            "ending_death_dual_execution": {
+              "text": "تنكشف خطتك المزدوجة لكلا الطرفين في آن واحد. يقرر الفرسان والظلال أن موتك هو الشيء الوحيد الذي يتفقون عليه. إعدام مشترك ومريع.",
+              "is_ending": true,
+              "choices": []
+            },
+            "ending_death_city_hunt": {
+              "text": "المدينة تسقط في الفوضى. الحشود الغاضبة التي جوعتها حربك الاستغلالية تهاجم ورشتك وتسحلك في الشوارع. الغوغاء لا يعرفون سوى الغضب.",
+              "is_ending": true,
+              "choices": []
+            },
+            "ending_death_chosen_then_betrayed": {
+              "text": "بعد تسليم التحفة الفنية لزعيم الظلام، يقتلك فوراً بسيفك نفسه ليضمن عدم قدرتك على صنع سلاح مثله لأحد غيره. المكافأة كانت الموت المطلق.",
+              "is_ending": true,
+              "choices": []
+            },
+            "ending_survival_poor": {
+              "text": "تهرب من المدينة بأعجوبة، تاركاً وراءك الذهب والورشة وكل شيء. تعيش بقية حياتك كحداد فقير ونازح في قرية نائية، لكنك على الأقل حي تتنفس.",
+              "is_ending": true,
+              "choices": []
+            },
+            "ending_success_sacrifice": {
+              "text": "في لحظة ندم نادرة، تستخدم ثروتك لتهريب الأطفال اليتامى خارج المدينة قبل سقوطها، مفلساً نفسك تماماً. تنجو بلا ذهب، لكن بضمير مرتاح وروح جديدة.",
+              "is_ending": true,
+              "choices": []
+            },
+            "ending_success_honorable_peace": {
+              "text": "معلوماتك القيمة تجبر الطرفين على عقد هدنة هشة. تصبح بطلاً شعبياً بشكل غريب، وتحتفظ بورشتك ومكانتك. لقد لعبت بمهارة ونجوت بشرف.",
+              "is_ending": true,
+              "choices": []
+            },
+            "ending_success_golden_exile": {
+              "text": "تنجح في الهروب عبر طريق سري حاملاً صندوق الذهب الذي خبأته تحت السندان. تشتري لنفسك منزلة النبلاء في قارة بعيدة. انتصار الانتهازية المطلق.",
+              "is_ending": true,
+              "choices": []
+            },
+            "ending_secret_iron_throne": {
+              "text": "تتلاعب بالجميع ببراعة مرعبة، وبفضل ثروتك وعلاقاتك وشبكتك التجسسية، تنتهي الحرب بكونك أنت الحاكم الفعلي للمدينة من خلف الستار، الجالس على عرش من حديد وذهب.",
+              "is_ending": true,
+              "choices": []
+            },
+            "ending_survival_anonymous": {
+              "text": "تتخلى عن هويتك كحداد. تختلط مع الجموع النازحة، وتذوب في المجهول دون ثروة أو اسم. مجرد ناجٍ آخر من أهوال الحرب، يبدأ من الصفر.",
+              "is_ending": true,
+              "choices": []
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

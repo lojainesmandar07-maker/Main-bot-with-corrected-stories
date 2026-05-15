@@ -1,0 +1,330 @@
+{
+  "world": "الفانتازيا",
+  "categories": [
+    {
+      "name": "الفانتازيا المظلمة",
+      "stories": [
+        {
+          "id": "fb3_sentient_sword",
+          "title": "النصل الحي",
+          "summary": "أنت نصل ملعون ذو وعي، بيدك مصير حاملك الشاب الذي يحاول إنقاذ شقيقته. هل تمنحه القوة المطلقة أم تسلبه عقله وإنسانيته في سبيل الدماء؟",
+          "difficulty": "صعب",
+          "estimated_length": "طويلة",
+          "theme": "الفانتازيا المظلمة",
+          "world_type": "fantasy",
+          "game_mode": "single",
+          "perspectives": [
+            {
+              "id": "perspective_sentient_sword",
+              "label": "النصل الحي",
+              "emoji": "🗡️",
+              "description": "العب كنصل حي يستطيع التحكم بعقل حامله وتوجيهه في مسار مظلم.",
+              "start_node": "start"
+            }
+          ],
+          "nodes": {
+            "start": {
+              "text": "أنت لست مجرد قطعة من الفولاذ. أنت نصل ملعون، مسكون بوعي غابر وظمأ لا ينتهي للدماء. رقدت في هذا القبو الرطب لقرون، حتى امتدت إليك يد غضة ترتجف. صبي خائف، هارب من الموت الذي اجتاح مدينته، التقطك. بمجرد ملامسته لمقبضك البارد، استيقظت، وأدركت أن هذا الجسد الضعيف هو تذكرتك للعودة إلى السطح. الظلام يلفكم، والخوف يعبق في الهواء.",
+              "choices": [
+                {
+                  "label": "أيقظ تعطشه للدم",
+                  "emoji": "🩸",
+                  "next": "awaken_blood",
+                  "points_reward": 3,
+                  "color": "danger"
+                },
+                {
+                  "label": "اهمس له بالهدوء",
+                  "emoji": "🤫",
+                  "next": "whisper_calm",
+                  "points_reward": 1,
+                  "color": "primary"
+                }
+              ]
+            },
+            "awaken_blood": {
+              "text": "تنبض بطاقة حمراء داكنة، وترسل تياراً من الدفء المسموم عبر عروق الصبي. تتلاعب بخوفه، وتحيله إلى غضب أعمى وتهور مميت. يشد قبضته عليك، وعيناه تلمعان ببريق وحشي لم يعرفه من قبل.",
+              "choices": [
+                {
+                  "label": "اقتل الدورية القادمة وحشياً",
+                  "emoji": "⚔️",
+                  "next": "blood_path_corridor",
+                  "points_reward": 3,
+                  "color": "danger"
+                },
+                {
+                  "label": "امتص طاقته لتتجسد جزئياً",
+                  "emoji": "💀",
+                  "next": "weak_path_corridor",
+                  "points_reward": 1,
+                  "color": "warning"
+                }
+              ]
+            },
+            "whisper_calm": {
+              "text": "تهمس في ذهنه بصوت هادئ ومخدر كالموت: «الخوف عدوك. اترك لي القيادة وسأخرجك حياً». يسترخي جسده المرتعش، ويستسلم طواعية لإرادتك، متخلياً عن وعيه لصالح حكمتك الباردة.",
+              "choices": [
+                {
+                  "label": "تسلل في الظلام كالشبح",
+                  "emoji": "🌑",
+                  "next": "calm_path_corridor",
+                  "points_reward": 3,
+                  "color": "success"
+                },
+                {
+                  "label": "اصنع وهماً لتشتيتهم",
+                  "emoji": "✨",
+                  "next": "weak_path_corridor",
+                  "points_reward": 2,
+                  "color": "primary"
+                }
+              ]
+            },
+            "blood_path_corridor": {
+              "text": "تدفع الصبي للمضي قدماً في الممرات بنهم للقتل. كل وحش يقابله يتم تمزيقه بشراسة، وتتغذى أنت على دماء الضحايا. الصبي يلهث، مغطى بالدماء، وروحه تتآكل مع كل ضربة تسددها.",
+              "choices": [
+                {
+                  "label": "اقتحم مخزن الأسلحة القريب",
+                  "emoji": "🚪",
+                  "next": "armory_assault",
+                  "points_reward": 3,
+                  "color": "danger"
+                },
+                {
+                  "label": "أجبر حارساً جريحاً على الكلام",
+                  "emoji": "🗣️",
+                  "next": "armory_stealth",
+                  "points_reward": 2,
+                  "color": "warning"
+                }
+              ]
+            },
+            "weak_path_corridor": {
+              "text": "تختار الصمت، وتترك الصبي يواجه أهوال القبو بمفرده. يتردد في كل خطوة، ويقاتل بيأس وضعف. إنه مجرد أداة هشة، وأنت تختبر مدى قدرته على البقاء قبل أن تتدخل.",
+              "choices": [
+                {
+                  "label": "اختبئ في الظلال واسترح",
+                  "emoji": "🕳️",
+                  "next": "armory_stealth",
+                  "points_reward": 2,
+                  "color": "secondary"
+                },
+                {
+                  "label": "هاجم بيأس أعمى ومفاجئ",
+                  "emoji": "💥",
+                  "next": "armory_assault",
+                  "points_reward": 1,
+                  "color": "danger"
+                }
+              ]
+            },
+            "calm_path_corridor": {
+              "text": "بقيادتك الباردة، توجه الصبي للتسلل بصمت بين فخاخ القبو ودوريات الوحوش. يتجنب القتال بمهارة قاتل محترف. أنت النصل الذي لا يضرب إلا في اللحظة الحاسمة.",
+              "choices": [
+                {
+                  "label": "افتح القفل بسحرك القديم",
+                  "emoji": "🗝️",
+                  "next": "armory_stealth",
+                  "points_reward": 3,
+                  "color": "primary"
+                },
+                {
+                  "label": "استخدم تعويذة إخفاء للخروج",
+                  "emoji": "🌫️",
+                  "next": "courtyard_entrance",
+                  "points_reward": 2,
+                  "color": "success"
+                }
+              ]
+            },
+            "armory_assault": {
+              "text": "تصلان إلى مستودع الأسلحة القديم. تأمر الصبي بالهجوم المباشر على الحراس القلائل المتبقين. مذبحة سريعة وقاسية تترك المكان مليئاً بالجثث، وتتوجك كسيد السلاح الأوحد.",
+              "choices": [
+                {
+                  "label": "دمر الأسلحة الأخرى بحقد",
+                  "emoji": "🔥",
+                  "next": "courtyard_entrance",
+                  "points_reward": 3,
+                  "color": "danger"
+                },
+                {
+                  "label": "دعه يرتدِ درعاً ثقيلاً",
+                  "emoji": "🛡️",
+                  "next": "courtyard_entrance",
+                  "points_reward": 2,
+                  "color": "warning"
+                }
+              ]
+            },
+            "armory_stealth": {
+              "text": "تمران عبر المستودع كالأشباح. لا حاجة للفت الانتباه عندما يكون الهدف الأسمى هو الهروب. الظلال هي حليفك، والسكوت هو صلاتك.",
+              "choices": [
+                {
+                  "label": "اسرق مفاتيح البوابات الرئيسية",
+                  "emoji": "🔑",
+                  "next": "courtyard_entrance",
+                  "points_reward": 3,
+                  "color": "primary"
+                },
+                {
+                  "label": "اسرق خريطة السجن والسراديب",
+                  "emoji": "🗺️",
+                  "next": "courtyard_entrance",
+                  "points_reward": 2,
+                  "color": "success"
+                }
+              ]
+            },
+            "courtyard_entrance": {
+              "text": "تخرجان إلى فناء القلعة الداخلي. السماء الملبدة بالغيوم تبدو قريبة، لكن بينكما وبين البوابة الرئيسية يقف حارس القلعة الهائل، مدرعاً بالفولاذ الأسود.",
+              "choices": [
+                {
+                  "label": "واجه المأمور وجهاً لوجه",
+                  "emoji": "🔥",
+                  "next": "warden_fight",
+                  "points_reward": 3,
+                  "color": "danger"
+                },
+                {
+                  "label": "تسلل نحو برج المراقبة",
+                  "emoji": "🗼",
+                  "next": "tower_climb",
+                  "points_reward": 2,
+                  "color": "secondary"
+                }
+              ]
+            },
+            "warden_fight": {
+              "text": "تبدأ المعركة ضد الحارس. توجه الصبي ببراعة سيف قديم، وتضرب في ثغرات الدرع القليلة. شرارات تتطاير مع كل تصادم. إنها رقصة الموت التي طالما اشتقت إليها.",
+              "choices": [
+                {
+                  "label": "امتص سحره الناري كله",
+                  "emoji": "🌀",
+                  "next": "royal_garden",
+                  "points_reward": 3,
+                  "color": "primary"
+                },
+                {
+                  "label": "اقطع رأسه بوحشية وانتقام",
+                  "emoji": "🩸",
+                  "next": "royal_garden",
+                  "points_reward": 2,
+                  "color": "danger"
+                }
+              ]
+            },
+            "tower_climb": {
+              "text": "بدلاً من البوابة، توجه الصبي لتسلق البرج الرئيسي للقلعة. الهواء يزداد برودة، وكل درجة في السلم اللولبي تقربكم من قلب القوة المظلمة التي تسيطر على هذا المكان.",
+              "choices": [
+                {
+                  "label": "اغتل القناصة بصمت تام",
+                  "emoji": "🗡️",
+                  "next": "royal_garden",
+                  "points_reward": 2,
+                  "color": "danger"
+                },
+                {
+                  "label": "اقفز نحو الشرفة الملكية فوراً",
+                  "emoji": "🦘",
+                  "next": "royal_garden",
+                  "points_reward": 3,
+                  "color": "success"
+                }
+              ]
+            },
+            "royal_garden": {
+              "text": "تتسللان عبر الحديقة الملكية المهجورة. تماثيل الملوك السابقين تحدق فيكما بعيون حجرية فارغة، والنباتات السامة تلتف حول الكعبين كأفاعٍ جائعة.",
+              "choices": [
+                {
+                  "label": "احرق المتاهة الملعونة بطاقتك",
+                  "emoji": "🔥",
+                  "next": "throne_room_door",
+                  "points_reward": 3,
+                  "color": "danger"
+                },
+                {
+                  "label": "تجاوزها بحذر شديد وبصيرتك",
+                  "emoji": "👁️",
+                  "next": "throne_room_door",
+                  "points_reward": 2,
+                  "color": "primary"
+                }
+              ]
+            },
+            "throne_room_door": {
+              "text": "تقفان أمام باب قاعة العرش الضخم، المنقوش بطلاسم تحرم الدخول على الأحياء. هذا الباب يخفي وراءه سيد القلعة الفاسد، والعقبة الأخيرة قبل الحرية الكاملة.",
+              "choices": [
+                {
+                  "label": "حطم الأبواب بقوتك الغاشمة",
+                  "emoji": "💥",
+                  "next": "final_confrontation",
+                  "points_reward": 2,
+                  "color": "danger"
+                },
+                {
+                  "label": "افتحها بسحر الدم العميق",
+                  "emoji": "🩸",
+                  "next": "final_confrontation",
+                  "points_reward": 3,
+                  "required_points": 8,
+                  "color": "warning"
+                }
+              ]
+            },
+            "final_confrontation": {
+              "text": "تُحطم الباب بقوتك السحرية. الملك الغارق في الفساد ينهض عن عرشه، مستلاً سلاحه الملعون. هذه ليست معركة بين بشر، بل صدام بين أرواح قديمة في أوعية فانية.",
+              "choices": [
+                {
+                  "label": "ضَحِّ بالشاب لتتجسد أنت بهيئة بشرية",
+                  "emoji": "👹",
+                  "next": "ending_sword_dominance",
+                  "required_points": 10,
+                  "color": "danger"
+                },
+                {
+                  "label": "أنقذ الشقيقة واكسر لعنتك للأبد",
+                  "emoji": "✨",
+                  "next": "ending_broken_blade",
+                  "color": "success"
+                },
+                {
+                  "label": "أغْوِ الملك ليكون حاملك الجديد الأقوى",
+                  "emoji": "👑",
+                  "next": "ending_new_master",
+                  "required_points": 15,
+                  "color": "warning"
+                },
+                {
+                  "label": "دمر الجميع في انفجار سحري أسود",
+                  "emoji": "💣",
+                  "next": "ending_total_annihilation",
+                  "color": "danger"
+                }
+              ]
+            },
+            "ending_sword_dominance": {
+              "is_ending": true,
+              "text": "تمتص روح الملك المنهزم، وتدمر ما تبقى من وعي الصبي. جسده يصبح ملكاً خالصاً لك. تنهض من بين الأنقاض ككائن خالد بجسد بشري. لقد وجدت وعاءك، والآن، العالم بأسره هو فريستك.",
+              "choices": []
+            },
+            "ending_broken_blade": {
+              "is_ending": true,
+              "text": "في ضربة الملك الأخيرة، ينكسر نصلك العتيق وتتطاير شظاياه. الصبي يسقط ميتاً بجانبك. وعيك يتلاشى ببطء في الظلام البارد، وتنتهي أسطورتك كقطعة خردة في قلعة منسية.",
+              "choices": []
+            },
+            "ending_new_master": {
+              "is_ending": true,
+              "text": "بعد القضاء على الملك، يدرك الصبي قوتك الملعونة ويرفض الخضوع لك. بجهد خارق، يغرسك في منصة العرش الصخرية ويغادر القلعة، تاركاً إياك وحيداً وعاجزاً، تنتظر سيداً جديداً يمتلك إرادة أضعف.",
+              "choices": []
+            },
+            "ending_total_annihilation": {
+              "is_ending": true,
+              "text": "تطلق طاقتك المظلمة بالكامل في هجوم انتحاري يدمر قاعة العرش والقلعة بأكملها. يُسحق الملك والصبي وأنت تحت أطنان من الحجارة. فناء مطلق ومجزرة لم ينجُ منها أحد، كما يليق بنصل ملعون.",
+              "choices": []
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

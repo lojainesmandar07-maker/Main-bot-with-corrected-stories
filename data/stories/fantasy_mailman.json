@@ -1,0 +1,627 @@
+{
+  "world": "الفانتازيا",
+  "categories": [
+    {
+      "id": "fantasy_batch_1",
+      "name": "الفانتازيا المظلمة",
+      "emoji": "🐉",
+      "stories": [
+        {
+          "id": "fb1_mailman",
+          "title": "عبء الساعي",
+          "summary": "أنت ساعي بريد بلا سحر. معك خريطة مهترئة ورسالة لا بد أن تصل إلى حنّا، بينما القاتل النخبوي إرين يطاردك بين غابات ملعونة لا ترحم.",
+          "difficulty": "صعب",
+          "estimated_length": "طويلة",
+          "theme": "الفانتازيا المظلمة",
+          "world_type": "fantasy",
+          "game_mode": "single",
+          "nodes": {
+            "start": {
+              "text": "المطر يغسل دم سلفك عن الرسالة المختومة بالشمع الأسود. أنت لست مقاتلاً، أنت ساعي بريد، لكن القسم الذي قطعته لا يعرف الأعذار. الرسالة التي بين يديك تحمل سر سقوط المدينة العظيمة، ويجب أن تصل إلى الساحر الأكبر قبل الفجر. الغابة الملعونة أمامك تتنفس في الظلام، كأنها تعرف ما تحمله.",
+              "choices": [
+                {
+                  "label": "اقرأ الخريطة للبحث عن مسار",
+                  "emoji": "🗺️",
+                  "next": "map_read",
+                  "points_reward": 2,
+                  "color": "primary"
+                },
+                {
+                  "label": "غيّر الطريق للمستنقع",
+                  "emoji": "🌲",
+                  "next": "swamp_path",
+                  "points_reward": 1,
+                  "color": "secondary"
+                },
+                {
+                  "label": "اطلب مساعدة من الكوخ",
+                  "emoji": "🏚️",
+                  "next": "hut_path",
+                  "points_reward": 0,
+                  "color": "danger"
+                }
+              ]
+            },
+            "map_read": {
+              "text": "تفتح الخريطة الجلدية المهترئة. المسارات المرسومة بدم جاف تشير إلى خيارين محفوفين بالموت: مستنقع يبتلع الأحياء، أو كوخ يقطنه من لا يُذكر اسمه.",
+              "choices": [
+                {
+                  "label": "ادخل النفق المظلم بأمان",
+                  "emoji": "🕳️",
+                  "next": "tunnel_entry",
+                  "points_reward": 2,
+                  "color": "primary"
+                },
+                {
+                  "label": "خاطر واعبر الجسر المقطوع",
+                  "emoji": "🌉",
+                  "next": "bridge_cross",
+                  "points_reward": 0,
+                  "color": "danger"
+                },
+                {
+                  "label": "مر بحذر عبر حقل الفطر",
+                  "emoji": "🍄",
+                  "next": "fungus_field",
+                  "points_reward": 1,
+                  "color": "secondary"
+                }
+              ]
+            },
+            "swamp_path": {
+              "text": "تختار المستنقع. رائحة العفن تملأ رئتيك. كل خطوة تغوص في الوحل اللزج، والضباب الكثيف يعزل حواسك عن العالم. أصوات فقاعات غازية ترتفع من القاع المجهول.",
+              "choices": [
+                {
+                  "label": "اتبع مسار الأوتاد ببطء",
+                  "emoji": "🪵",
+                  "next": "reed_maze",
+                  "points_reward": 2,
+                  "color": "primary"
+                },
+                {
+                  "label": "اختصر الركض فوق السطح",
+                  "emoji": "💧",
+                  "next": "sink_risk",
+                  "points_reward": 0,
+                  "color": "danger"
+                }
+              ]
+            },
+            "hut_path": {
+              "text": "تتجه نحو الكوخ المائل. نافذة واحدة تشع بنور مريض. يُقال إن الساحرة العجوز هنا تبيع أسرار النجاة، لكن الثمن نادراً ما يكون نقوداً.",
+              "choices": [
+                {
+                  "label": "ادفع عملة لمعرفة الطريق",
+                  "emoji": "🪙",
+                  "next": "buy_info",
+                  "points_reward": 1,
+                  "color": "primary"
+                },
+                {
+                  "label": "ارفض الثمن وغادر فورا",
+                  "emoji": "🚪",
+                  "next": "leave_hut",
+                  "points_reward": 0,
+                  "color": "secondary"
+                }
+              ]
+            },
+            "tunnel_entry": {
+              "text": "تقرر المخاطرة ودخول النفق المنسي. الظلام دامس، ورائحة النحاس القديم تخبرك أنك لست أول من يبحث عن مأوى هنا. صدى خطواتك يبدو وكأنه يطاردك.",
+              "choices": [
+                {
+                  "label": "خذ الأدوات واختبئ للحظة",
+                  "emoji": "🧰",
+                  "next": "tool_kit",
+                  "points_reward": 2,
+                  "color": "primary"
+                },
+                {
+                  "label": "تجاهلها وتابع الركض للأمام",
+                  "emoji": "🏃",
+                  "next": "dark_turn",
+                  "points_reward": 0,
+                  "color": "secondary"
+                }
+              ]
+            },
+            "bridge_cross": {
+              "text": "تقف أمام الجسر الخشبي المتأرجح فوق الهاوية. الحبال متعفنة، والألواح تئن. خلفك، تسمع عواء الذئاب يقترب، وأمامك مسار لا يتحمل التردد.",
+              "choices": [
+                {
+                  "label": "تسلق الحبال بحذر شديد",
+                  "emoji": "🪢",
+                  "next": "rope_success",
+                  "points_reward": 1,
+                  "color": "primary"
+                },
+                {
+                  "label": "اقفز الفجوة بتهور لتعبر",
+                  "emoji": "🦶",
+                  "next": "fall_bridge",
+                  "points_reward": 0,
+                  "color": "danger"
+                }
+              ]
+            },
+            "fungus_field": {
+              "text": "حقل من الفطريات العملاقة المضيئة يمتد أمامك. الجمال الكاذب يخفي أبواغاً سامة تتناثر مع كل نسمة هواء. يجب أن تعبر دون استنشاق موتك.",
+              "choices": [
+                {
+                  "label": "بلل القماش وغطِّ وجهك",
+                  "emoji": "💦",
+                  "next": "spore_safe",
+                  "points_reward": 2,
+                  "color": "primary"
+                },
+                {
+                  "label": "اركض سريعاً دون توقف",
+                  "emoji": "💨",
+                  "next": "spore_poison",
+                  "points_reward": 0,
+                  "color": "danger"
+                }
+              ]
+            },
+            "reed_maze": {
+              "text": "تدخل متاهة القصب الطويل. الرياح تعزف ألحاناً حزينة عبر السيقان الجافة. الاتجاهات تتداخل، وكل مسار يبدو مطابقاً للآخر، كفخ مصمم ليصيبك بالجنون.",
+              "choices": [
+                {
+                  "label": "ثبت الفخ بدقة لإسقاطه",
+                  "emoji": "🪤",
+                  "next": "trap_set",
+                  "points_reward": 3,
+                  "color": "success"
+                },
+                {
+                  "label": "اترك الفخ وامض في طريقك",
+                  "emoji": "➡️",
+                  "next": "city_gate",
+                  "points_reward": 0,
+                  "color": "secondary"
+                }
+              ]
+            },
+            "sink_risk": {
+              "text": "تغوص قدمك فجأة في حفرة طينية غير مرئية. الوحل يسحبك للأسفل بثقل هائل. كل محاولة يائسة للتحرر تجعلك تغوص أعمق.",
+              "choices": [
+                {
+                  "label": "احمل الرسالة وتابع متألما",
+                  "emoji": "✉️",
+                  "next": "injured_walk",
+                  "points_reward": 1,
+                  "color": "primary"
+                },
+                {
+                  "label": "ارم الحقيبة للنجاة بجلدك",
+                  "emoji": "👜",
+                  "next": "ending_failed_oath",
+                  "color": "danger"
+                }
+              ]
+            },
+            "buy_info": {
+              "text": "تقدم للسحرة بضعة عملات فضية وقطرة من دمك. تبتسم بأسنانها المتعفنة وتهمس: «الدرب الخفي يقع خلف شلال الرماد، لكن احذر الظل الطويل».",
+              "choices": [
+                {
+                  "label": "انثر المسحوق لخداع المطارد",
+                  "emoji": "🧂",
+                  "next": "hidden_route",
+                  "points_reward": 3,
+                  "color": "primary"
+                },
+                {
+                  "label": "احفظه لاحقاً للحاجة الماسة",
+                  "emoji": "🎒",
+                  "next": "leave_hut",
+                  "points_reward": 1,
+                  "color": "secondary"
+                }
+              ]
+            },
+            "leave_hut": {
+              "text": "تتراجع عن الكوخ المشؤوم. لا ثقة في من يتعامل مع الشياطين. تكمل طريقك في الغابة الباردة، معتمداً على حدسك الهش.",
+              "choices": [
+                {
+                  "label": "امش بين الظلال وتخفّ",
+                  "emoji": "🌘",
+                  "next": "shadow_walk",
+                  "points_reward": 1,
+                  "color": "secondary"
+                },
+                {
+                  "label": "اركض للبوابة بكل سرعتك",
+                  "emoji": "🏁",
+                  "next": "city_gate",
+                  "points_reward": 0,
+                  "color": "danger"
+                }
+              ]
+            },
+            "tool_kit": {
+              "text": "تفتح حقيبتك الجلدية وتبحث عن شيء ينقذك. حبل قديم، خنجر صغير، وحجر نار. أدوات بسيطة لمواجهة أهوال لا توصف.",
+              "choices": [
+                {
+                  "label": "احتفظ بالختم لفتح الباب السري",
+                  "emoji": "🔖",
+                  "next": "dark_turn",
+                  "points_reward": 2,
+                  "color": "primary"
+                },
+                {
+                  "label": "خذ الدخان للقتال أو الهروب",
+                  "emoji": "🌫️",
+                  "next": "assassin_meet",
+                  "points_reward": 1,
+                  "color": "danger"
+                }
+              ]
+            },
+            "dark_turn": {
+              "text": "تأخذ منعطفاً مظلماً يبدو أسرع. الهواء يبرد فجأة، وتشعر بعيون غير مرئية تراقبك. الغابة هنا لا ترحب بالغرباء المسرعين.",
+              "choices": [
+                {
+                  "label": "اتبع السهم مسرعاً لحي الناسخين",
+                  "emoji": "↗️",
+                  "next": "scribe_district",
+                  "required_points": 4,
+                  "color": "success"
+                },
+                {
+                  "label": "استدر لمواجهة المطارد بشجاعة",
+                  "emoji": "🗡️",
+                  "next": "assassin_meet",
+                  "color": "danger"
+                },
+                {
+                  "label": "اصعد السلالم نحو البوابة العادية",
+                  "emoji": "🪜",
+                  "next": "city_gate",
+                  "color": "secondary"
+                }
+              ]
+            },
+            "rope_success": {
+              "text": "ترمِ الحبل بدقة وتثبته بجذع شجرة قوي. تسحب نفسك من الوحل القاتل، تلهث والوحل يغطي نصف جسدك، لكن الرسالة ما زالت جافة ومحفوظة.",
+              "choices": [
+                {
+                  "label": "أشعل الحبل لقطع طريقه",
+                  "emoji": "🔥",
+                  "next": "assassin_delay",
+                  "points_reward": 2,
+                  "color": "primary"
+                },
+                {
+                  "label": "واصل الركض والنزول سريعا",
+                  "emoji": "🏃",
+                  "next": "city_gate",
+                  "points_reward": 0,
+                  "color": "danger"
+                }
+              ]
+            },
+            "fall_bridge": {
+              "text": "ينكسر لوح خشبي تحت وزنك. تسقط لتتعلق بحبل متعفن يوشك على الانقطاع. الهاوية تحتك تفتح فمها الجائع، ومصير الرسالة معلق بأطراف أصابعك.",
+              "choices": [
+                {
+                  "label": "تابع متألماً حاملا أمانتك",
+                  "emoji": "🩸",
+                  "next": "injured_walk",
+                  "points_reward": 0,
+                  "color": "primary"
+                },
+                {
+                  "label": "ارمِ الرسالة لتخفيف عبئك",
+                  "emoji": "🗑️",
+                  "next": "ending_failed_oath",
+                  "color": "danger"
+                }
+              ]
+            },
+            "spore_safe": {
+              "text": "تغطي أنفك وفمك بقطعة قماش مبللة، وتمر عبر الحقل بحذر بالغ. الأبواغ السامة تلتصق بثيابك، لكن رئتيك تظلان نظيفتين مؤقتاً.",
+              "choices": [
+                {
+                  "label": "احفظ النقش واتجه للبوابة",
+                  "emoji": "🧠",
+                  "next": "city_gate",
+                  "points_reward": 2,
+                  "color": "primary"
+                },
+                {
+                  "label": "تجاهله واركض للنجاة",
+                  "emoji": "💨",
+                  "next": "city_gate",
+                  "color": "secondary"
+                }
+              ]
+            },
+            "spore_poison": {
+              "text": "تستنشق دون قصد غيمة من الأبواغ. السعال يمزق صدرك، وتشعر بحرقة سائلة في عروقك. السم يسري، وبصرك يبدأ في التشوش ببطء قاتل.",
+              "choices": [
+                {
+                  "label": "اكمل بصمت متحاملا على الالم",
+                  "emoji": "😶",
+                  "next": "injured_walk",
+                  "points_reward": 0,
+                  "color": "primary"
+                },
+                {
+                  "label": "استلقِ وارضخ للاستسلام",
+                  "emoji": "💀",
+                  "next": "ending_caught_wall",
+                  "color": "danger"
+                }
+              ]
+            },
+            "trap_set": {
+              "text": "تستخدم خنجرك لصنع فخ بدائي. فرع شجرة مرن وحبل مشدود. خطوة صغيرة قد تؤخر ملاحقيك لبضع دقائق ثمينة.",
+              "choices": [
+                {
+                  "label": "اندفع للمدينة بكل طاقتك",
+                  "emoji": "🏙️",
+                  "next": "city_gate",
+                  "points_reward": 2,
+                  "color": "primary"
+                },
+                {
+                  "label": "انتظر بفضول لرؤيته يقع",
+                  "emoji": "👀",
+                  "next": "assassin_meet",
+                  "color": "danger"
+                }
+              ]
+            },
+            "hidden_route": {
+              "text": "تتبع نصيحة الساحرة وتجد الشلال الجاف. خلفه، مسار صخري مخفي يؤدي مباشرة نحو أسوار المدينة، بعيداً عن أعين الدوريات.",
+              "choices": [
+                {
+                  "label": "استخدم الختم لفتح الباب",
+                  "emoji": "🔓",
+                  "next": "scribe_district",
+                  "required_points": 3,
+                  "color": "success"
+                },
+                {
+                  "label": "اكسر الباب المعدني بالصخور",
+                  "emoji": "🔨",
+                  "next": "assassin_meet",
+                  "color": "danger"
+                }
+              ]
+            },
+            "shadow_walk": {
+              "text": "تندمج مع الظلال، مستخدماً كل مهارات التخفي التي تعلمتها في أزقة المدينة السفلى. تصبح خفياً كشبح يحمل عبء حقيقة ثقيلة.",
+              "choices": [
+                {
+                  "label": "ساومه بإعطائه الرسالة للنجاة",
+                  "emoji": "🤝",
+                  "next": "assassin_meet",
+                  "points_reward": 1,
+                  "color": "danger"
+                },
+                {
+                  "label": "ارمِ دخاناً لاختلاق فرصة للهرب",
+                  "emoji": "🌫️",
+                  "next": "assassin_delay",
+                  "required_points": 1,
+                  "color": "primary"
+                }
+              ]
+            },
+            "assassin_delay": {
+              "text": "تسمع خطى ثقيلة خلفك. قتلة مأجورون أرسلهم الخونة لاعتراض الرسالة. تجمد في مكانك، محاولاً الاندماج مع جذع شجرة بلوط قديم.",
+              "choices": [
+                {
+                  "label": "ادخل حي الناسخين فوراً",
+                  "emoji": "🏘️",
+                  "next": "scribe_district",
+                  "points_reward": 1,
+                  "color": "primary"
+                },
+                {
+                  "label": "اهرب للبوابة الرئيسية المضاءة",
+                  "emoji": "🏃",
+                  "next": "city_gate",
+                  "color": "secondary"
+                }
+              ]
+            },
+            "injured_walk": {
+              "text": "رغم السم أو الجراح، تجر قدميك المنهكتين. كل خطوة تكلفك جهداً هائلاً، وعيناك تركزان فقط على أضواء المدينة البعيدة التي تبدو كنجوم مستحيلة.",
+              "choices": [
+                {
+                  "label": "أبرز ختمك الملكي للحارس",
+                  "emoji": "📮",
+                  "next": "city_gate",
+                  "required_points": 2,
+                  "color": "success"
+                },
+                {
+                  "label": "تسلق السور بتهور ويأس",
+                  "emoji": "🧗",
+                  "next": "ending_caught_wall",
+                  "color": "danger"
+                }
+              ]
+            },
+            "city_gate": {
+              "text": "تصل أخيراً إلى البوابات الحديدية للمدينة. الحراس ينظرون إليك بشك. مظهرك الرث ودمائك لا توحي بأنك تحمل خلاصهم أو هلاكهم.",
+              "choices": [
+                {
+                  "label": "سلّمه الظرف دون سؤال",
+                  "emoji": "✉️",
+                  "next": "ending_true_delivery",
+                  "required_points": 8,
+                  "color": "success"
+                },
+                {
+                  "label": "افتح الظرف لقراءة الفحوى",
+                  "emoji": "👁️",
+                  "next": "ending_broken_seal",
+                  "color": "danger"
+                },
+                {
+                  "label": "بع الرسالة لأعلى سعر",
+                  "emoji": "💰",
+                  "next": "ending_sell_secret",
+                  "color": "danger"
+                },
+                {
+                  "label": "اختبر حنّا لضمان هويته",
+                  "emoji": "🧪",
+                  "next": "hanna_test",
+                  "points_reward": 1,
+                  "color": "primary"
+                }
+              ]
+            },
+            "assassin_meet": {
+              "text": "يظهر القاتل المأجور أمامك فجأة. نصله مسلول وعيناه خاليان من الرحمة. «سلم الرسالة، ولن تشعر بالألم»، يقول بصوت يخلو من أي مشاعر.",
+              "choices": [
+                {
+                  "label": "قاتله بحيلك وما تملك من أدوات",
+                  "emoji": "🪤",
+                  "next": "ending_last_stand",
+                  "required_points": 7,
+                  "color": "success"
+                },
+                {
+                  "label": "سلّمه الظرف واركض للنجاة",
+                  "emoji": "📨",
+                  "next": "ending_failed_oath",
+                  "color": "danger"
+                },
+                {
+                  "label": "اكشف له الحقيقة التي تعرفها",
+                  "emoji": "🗣️",
+                  "next": "city_gate",
+                  "points_reward": 2,
+                  "color": "primary"
+                }
+              ]
+            },
+            "scribe_district": {
+              "text": "تتجاوز الحراس وتتسلل إلى حي النساخين حيث يقطن الساحر الأكبر. الأزقة ضيقة والعيون تلتقط كل حركة. الخطر هنا داخل الأسوار لا يقل عن الغابة.",
+              "choices": [
+                {
+                  "label": "احمه ودافع عنه حتى ينهي النسخ",
+                  "emoji": "🛡️",
+                  "next": "ending_guardian_post",
+                  "required_points": 6,
+                  "color": "success"
+                },
+                {
+                  "label": "اطلب أجراً باهظاً مقابل تسليمها",
+                  "emoji": "🪙",
+                  "next": "ending_sell_secret",
+                  "color": "danger"
+                },
+                {
+                  "label": "ادفعه للهرب قبل وصول القتلة",
+                  "emoji": "🏃",
+                  "next": "ending_city_falls",
+                  "color": "danger"
+                }
+              ]
+            },
+            "ending_true_delivery": {
+              "text": "تضع الرسالة الملطخة في يد الساحر الأكبر. يقرأها ويتغير لون وجهه. تدق نواقيس الإنذار في المدينة. لقد أوصلت الحقيقة، وأنقذت آلاف الأرواح. أنت مجرد ساعٍ، لكنك صانع تاريخ.",
+              "is_ending": true,
+              "choices": []
+            },
+            "ending_guardian_post": {
+              "text": "شجاعتك تلفت انتباه قائد الحرس. يتم تعيينك كحارس شخصي لأسوار المدينة. تتخلى عن حقيبة البريد لتحمل سيفاً، مدافعاً عن الأسوار التي كدت تموت للوصول إليها.",
+              "is_ending": true,
+              "choices": []
+            },
+            "ending_broken_seal": {
+              "text": "الفضول أو اليأس يدفعك لكسر الشمع الأسود وقراءة الرسالة. المعرفة التي بداخلها ثقيلة وخطيرة. تفقد إيمانك بالمدينة وتقرر الهرب مبتعداً، حاملاً سراً يمكن أن يدمر مملكة.",
+              "is_ending": true,
+              "choices": []
+            },
+            "ending_sell_secret": {
+              "text": "تدرك قيمة ما تحمله. تتجه نحو نقابة اللصوص وتبيع الرسالة لأعلى سعر. تصبح ثرياً، لكنك تعيش بقية حياتك ناظراً فوق كتفك، منتظراً خنجر الخيانة.",
+              "is_ending": true,
+              "choices": []
+            },
+            "ending_city_falls": {
+              "text": "تتأخر في الوصول. عندما تبلغ البوابات، تجد النيران قد التهمت الأبراج، وأعلام العدو ترفرف. الرسالة التي بيدك أصبحت مجرد ورقة لا قيمة لها، شاهدة على فشلك المأساوي.",
+              "is_ending": true,
+              "choices": []
+            },
+            "ending_last_stand": {
+              "text": "محاصر وقاتل، ترفض تسليم الرسالة. تقاتل بشراسة ساعي بريد لا يملك سوى قسمه. تسقط ميتًا، لكن الرسالة تظل محكمة بين أصابعك الباردة، غير قابلة للمساس.",
+              "is_ending": true,
+              "choices": []
+            },
+            "ending_caught_wall": {
+              "text": "أثناء محاولتك تسلق أسوار المدينة خلسة، يلاحظك حارس قناص. سهم واحد في ظهرك ينهي رحلتك. تسقط في الخندق المائي، والرسالة تذوب ببطء في المياه القذرة.",
+              "is_ending": true,
+              "choices": []
+            },
+            "ending_failed_oath": {
+              "text": "تفقد الرسالة في المستنقع أو المتاهة. تعود أدراجك مكسوراً. القسم الذي حنثت به يطاردك كشبح لا ينام. تعيش بقية أيامك في عار صامت، منسياً كرسالة لم تقرأ.",
+              "is_ending": true,
+              "choices": []
+            },
+            "hanna_test": {
+              "text": "تقابل الفتاة الصغيرة التي تحمل دليلاً حيوياً. اختبار الثقة يبدأ. هل تكشف لها عن قسمك، أم تحاول خداعها؟ البراءة في عينيها تخفي ذكاءً حاداً.",
+              "choices": [
+                {
+                  "label": "طارد المزور لإتلاف النسخ",
+                  "emoji": "🏃",
+                  "next": "forgery_hunt",
+                  "required_points": 7,
+                  "color": "primary"
+                },
+                {
+                  "label": "تجاهل النسخة وسلم رسالتك",
+                  "emoji": "🚫",
+                  "next": "ending_true_delivery",
+                  "color": "secondary"
+                }
+              ]
+            },
+            "forgery_hunt": {
+              "text": "تكتشف أن الرسالة قد تكون مزورة. تبدأ رحلة داخل المدينة للبحث عن الناسخ الأصلي لكشف الحقيقة قبل تسليمها للساحر.",
+              "choices": [
+                {
+                  "label": "احرق النسخ والمكان بأكمله",
+                  "emoji": "🔥",
+                  "next": "ending_double_save",
+                  "color": "success"
+                },
+                {
+                  "label": "خذ النسخ لنفسك للسيطرة",
+                  "emoji": "📚",
+                  "next": "ending_blackmail_scribe",
+                  "color": "danger"
+                }
+              ]
+            },
+            "ending_double_save": {
+              "text": "تنجح في تسليم الرسالة، وتتمكن أيضاً من إنقاذ الفتاة من مؤامرة النساخين. تصبح بطلاً مزدوجاً، ساعي بريد ومحقق الظلال، أسطورة تهمس بها المدينة.",
+              "is_ending": true,
+              "choices": []
+            },
+            "ending_blackmail_scribe": {
+              "text": "تستخدم المعلومات في الرسالة لابتزاز كبير النساخين. تتحكم في الخيوط من خلف الستار، متخلياً عن شرف المهنة لتصبح سيداً للظلال الفاسدة.",
+              "is_ending": true,
+              "choices": []
+            }
+          },
+          "perspectives": [
+            {
+              "id": "ordinary_mailman",
+              "label": "منظور الساعي",
+              "emoji": "📮",
+              "description": "تلعب كساعي عادي بلا سحر يطارده قاتل محترف عبر غابة ملعونة.",
+              "start_node": "start"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
