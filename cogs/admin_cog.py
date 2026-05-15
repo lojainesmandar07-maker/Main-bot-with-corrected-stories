@@ -5,6 +5,8 @@ import aiosqlite
 import zipfile
 import io
 import json
+import asyncio
+from pathlib import Path
 from datetime import datetime
 from core.config import load_config, save_config
 from ui.embeds import EmbedBuilder
@@ -218,21 +220,28 @@ class AdminCog(commands.Cog):
         timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M")
         folder = f"backup_{timestamp}"
 
+        db_bytes = b""
+        config_text = None
+
+        try:
+            db_bytes = await asyncio.to_thread(Path(DB_PATH).read_bytes)
+        except FileNotFoundError:
+            pass
+
+        try:
+            config_text = await asyncio.to_thread(Path("data/config.json").read_text, encoding="utf-8")
+        except FileNotFoundError:
+            pass
+
         with zipfile.ZipFile(buf, "w", zipfile.ZIP_DEFLATED) as zf:
 
             # 1. SQLite database
-            try:
-                with open(DB_PATH, "rb") as f:
-                    zf.writestr(f"{folder}/nexus.db", f.read())
-            except FileNotFoundError:
-                pass
+            if db_bytes:
+                zf.writestr(f"{folder}/nexus.db", db_bytes)
 
             # 2. config.json
-            try:
-                with open("data/config.json", "r", encoding="utf-8") as f:
-                    zf.writestr(f"{folder}/config.json", f.read())
-            except FileNotFoundError:
-                pass
+            if config_text is not None:
+                zf.writestr(f"{folder}/config.json", config_text)
 
             # 3. Human-readable players export
             try:
