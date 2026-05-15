@@ -1,6 +1,7 @@
 import discord
 from discord.ui import View, Select, Button
 from ui.embeds import EmbedBuilder
+import re
 
 WORLD_CONFIG = {
     "solo": {
@@ -242,3 +243,40 @@ class BackToCategoriesButton(Button):
         world = WORLD_CONFIG[self.world_type]
         embed = EmbedBuilder.category_browser_embed(self.world_type, world["name"], world["desc"])
         await interaction.response.edit_message(embed=embed, view=view)
+
+
+class DynamicStorySelect(discord.ui.DynamicItem[StorySelect], template=r"^story_select_(?P<world_type>[^_]+)_(?P<category>.+)$"):
+    def __init__(self, world_type: str, category: str):
+        item = StorySelect(world_type=world_type, category=category, options=[discord.SelectOption(label="stub", value="0")])
+        super().__init__(item)
+
+    @classmethod
+    async def from_custom_id(cls, interaction: discord.Interaction, item: discord.ui.Item, match: re.Match[str]):
+        return cls(match.group("world_type"), match.group("category"))
+
+
+class DynamicStartStoryButton(discord.ui.DynamicItem[StartStoryButton], template=r"^start_story_btn_(?P<story_id>.+)$"):
+    def __init__(self, story_id: str):
+        super().__init__(StartStoryButton(story_id))
+
+    @classmethod
+    async def from_custom_id(cls, interaction: discord.Interaction, item: discord.ui.Item, match: re.Match[str]):
+        return cls(match.group("story_id"))
+
+
+class DynamicBackToCategoriesButton(discord.ui.DynamicItem[BackToCategoriesButton], template=r"^back_to_categories_(?P<world_type>.+)$"):
+    def __init__(self, world_type: str):
+        super().__init__(BackToCategoriesButton(world_type))
+
+    @classmethod
+    async def from_custom_id(cls, interaction: discord.Interaction, item: discord.ui.Item, match: re.Match[str]):
+        return cls(match.group("world_type"))
+
+
+def register_world_browser_dispatchers(bot: discord.Client):
+    """Register generic dynamic dispatchers for persistent world-browser components."""
+    bot.add_dynamic_items(
+        DynamicStorySelect,
+        DynamicStartStoryButton,
+        DynamicBackToCategoriesButton,
+    )

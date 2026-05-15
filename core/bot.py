@@ -24,13 +24,9 @@ class StoryBot(commands.Bot):
         # Re-register persistent views BEFORE loading cogs
         from ui.listing_view import SoloLibraryView, MultiLibraryView
         from ui.world_browser import (
-            WORLD_CONFIG,
-            BackToCategoriesButton,
             BackToWorldsButton,
-            CategoryBrowserView,
-            StartStoryButton,
-            StorySelect,
             WorldSelectView,
+            register_world_browser_dispatchers,
         )
 
         class _PersistentItemView(discord.ui.View):
@@ -49,28 +45,9 @@ class StoryBot(commands.Bot):
         self.add_view(NexusSetupView())
         self.add_view(ChannelSetupView())
 
-        # Register persistent world-browser components that use dynamic custom_ids.
-        # We bind one lightweight view/item per known world/category/story so callbacks
-        # remain alive after bot restarts.
-        for world_type in WORLD_CONFIG.keys():
-            self.add_view(CategoryBrowserView(world_type, {}, timeout=None))
-            self.add_view(_PersistentItemView(BackToCategoriesButton(world_type)))
-
-            categories = self.story_manager.get_world_categories(world_type)
-            for category in categories.keys():
-                self.add_view(
-                    _PersistentItemView(
-                        StorySelect(
-                            world_type=world_type,
-                            category=category,
-                            options=[discord.SelectOption(label="stub", value="0")],
-                        )
-                    )
-                )
-
-            stories = self.story_manager.get_stories_by_world(world_type)
-            for story in stories.values():
-                self.add_view(_PersistentItemView(StartStoryButton(story.id)))
+        # Register generic dispatcher-based persistent handlers for world-browser
+        # dynamic custom_ids, instead of pre-registering each story/category item.
+        register_world_browser_dispatchers(self)
 
         # Load daily pulse views and decision views
         import aiosqlite
