@@ -24,53 +24,20 @@ class StoryBot(commands.Bot):
         # Re-register persistent views BEFORE loading cogs
         from ui.listing_view import SoloLibraryView, MultiLibraryView
         from ui.world_browser import (
-            WORLD_CONFIG,
-            BackToCategoriesButton,
-            BackToWorldsButton,
-            CategoryBrowserView,
-            StartStoryButton,
-            StorySelect,
+            WorldBrowserPersistentRouter,
             WorldSelectView,
         )
 
-        class _PersistentItemView(discord.ui.View):
-            """Wrap a single persistent UI item so discord.py can rebind callbacks on restart."""
-
-            def __init__(self, item: discord.ui.Item):
-                super().__init__(timeout=None)
-                self.add_item(item)
-
         self.add_view(SoloLibraryView({}, timeout=None))
         self.add_view(MultiLibraryView({}, timeout=None))
-        self.add_view(WorldSelectView())
-        self.add_view(_PersistentItemView(BackToWorldsButton()))
 
         from cogs.setup_cog import NexusSetupView, ChannelSetupView
         self.add_view(NexusSetupView())
         self.add_view(ChannelSetupView())
 
-        # Register persistent world-browser components that use dynamic custom_ids.
-        # We bind one lightweight view/item per known world/category/story so callbacks
-        # remain alive after bot restarts.
-        for world_type in WORLD_CONFIG.keys():
-            self.add_view(CategoryBrowserView(world_type, {}, timeout=None))
-            self.add_view(_PersistentItemView(BackToCategoriesButton(world_type)))
-
-            categories = self.story_manager.get_world_categories(world_type)
-            for category in categories.keys():
-                self.add_view(
-                    _PersistentItemView(
-                        StorySelect(
-                            world_type=world_type,
-                            category=category,
-                            options=[discord.SelectOption(label="stub", value="0")],
-                        )
-                    )
-                )
-
-            stories = self.story_manager.get_stories_by_world(world_type)
-            for story in stories.values():
-                self.add_view(_PersistentItemView(StartStoryButton(story.id)))
+        # Register world-browser persistent handlers once.
+        self._world_browser_router = WorldBrowserPersistentRouter()
+        self.add_view(WorldSelectView())
 
         # Load daily pulse views and decision views
         import aiosqlite
@@ -212,6 +179,14 @@ class StoryBot(commands.Bot):
             print("Failed extensions:")
             for extension, error in failed_extensions:
                 print(f"- {extension}: {error}")
+
+
+    async def on_interaction(self, interaction: discord.Interaction):
+        if interaction.type == discord.InteractionType.component:
+            router = getattr(self, "_world_browser_router", None)
+            if router and await router.handle_component_interaction(interaction):
+                return
+        await super().on_interaction(interaction)
 
     async def on_application_command_error(self, interaction: discord.Interaction, error):
         msg = "⚠️ حدث خطأ غير متوقع، يرجى المحاولة لاحقاً."

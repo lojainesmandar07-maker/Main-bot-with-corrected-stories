@@ -35,101 +35,106 @@ WORLD_CONFIG = {
     }
 }
 
-class WorldSelectView(View):
+
+class WorldBrowserPersistentRouter(View):
+    """Single persistent view for world/category/story browser component callbacks."""
+
+    STALE_COMPONENT_MESSAGE = "⚠️ هذا العنصر قديم أو لم يعد صالحاً. افتح المتصفح مرة أخرى من أمر المكتبة."
+
     def __init__(self):
         super().__init__(timeout=None)
 
-        options = []
-        for w_type, w_info in WORLD_CONFIG.items():
-            options.append(discord.SelectOption(
-                label=w_info["name"],
-                description=w_info["desc"],
-                emoji=w_info["emoji"],
-                value=w_type
-            ))
+    async def handle_component_interaction(self, interaction: discord.Interaction) -> bool:
+        data = interaction.data or {}
+        custom_id = data.get("custom_id")
+        if not custom_id:
+            return False
 
-        select = Select(
-            custom_id="world_select_dropdown",
-            placeholder="اختر العالم الذي تريد استكشافه...",
-            options=options,
-            min_values=1,
-            max_values=1
-        )
-        select.callback = self.select_callback
-        self.add_item(select)
+        # Route only world-browser IDs.
+        if custom_id == "world_select_dropdown":
+            values = data.get("values") or []
+            if not values:
+                await interaction.response.send_message(self.STALE_COMPONENT_MESSAGE, ephemeral=True)
+                return True
+            return await self._handle_world_select(interaction, values[0])
 
-    async def select_callback(self, interaction: discord.Interaction):
-        select = self.children[0]
-        world_type = select.values[0]
+        if custom_id.startswith("cat_select:"):
+            values = data.get("values") or []
+            world_type = custom_id.split(":", 1)[1]
+            if not values:
+                await interaction.response.send_message(self.STALE_COMPONENT_MESSAGE, ephemeral=True)
+                return True
+            return await self._handle_category_select(interaction, world_type, values[0])
 
+        if custom_id.startswith("story_select:"):
+            values = data.get("values") or []
+            world_type = custom_id.split(":", 1)[1]
+            if not values:
+                await interaction.response.send_message(self.STALE_COMPONENT_MESSAGE, ephemeral=True)
+                return True
+            return await self._handle_story_select(interaction, world_type, values[0])
+
+        if custom_id == "back_to_worlds_btn":
+            view = WorldSelectView()
+            embed = EmbedBuilder.world_select_embed()
+            await interaction.response.edit_message(embed=embed, view=view)
+            return True
+
+        if custom_id.startswith("back_to_categories:"):
+            world_type = custom_id.split(":", 1)[1]
+            bot = interaction.client
+            categories = bot.story_manager.get_world_categories(world_type)
+            if world_type not in WORLD_CONFIG:
+                await interaction.response.send_message(self.STALE_COMPONENT_MESSAGE, ephemeral=True)
+                return True
+            view = CategoryBrowserView(world_type, categories or {})
+            world = WORLD_CONFIG[world_type]
+            embed = EmbedBuilder.category_browser_embed(world_type, world["name"], world["desc"])
+            await interaction.response.edit_message(embed=embed, view=view)
+            return True
+
+        if custom_id.startswith("start_story_btn:"):
+            story_id = custom_id.split(":", 1)[1]
+            from cogs.solo_cog import start_solo_interaction_with_perspective
+            await start_solo_interaction_with_perspective(interaction, story_id)
+            return True
+
+        return False
+
+    async def _handle_world_select(self, interaction: discord.Interaction, world_type: str) -> bool:
         bot = interaction.client
-        categories = bot.story_manager.get_world_categories(world_type)
+        if world_type not in WORLD_CONFIG:
+            await interaction.response.send_message(self.STALE_COMPONENT_MESSAGE, ephemeral=True)
+            return True
 
+        categories = bot.story_manager.get_world_categories(world_type)
         if not categories:
             await interaction.response.send_message(
                 "لا توجد قصص متاحة في هذا العالم حالياً. جرّب عالماً آخر من القائمة 🌍",
                 ephemeral=True,
             )
-            return
+            return True
 
         view = CategoryBrowserView(world_type, categories)
         embed = EmbedBuilder.category_browser_embed(world_type, WORLD_CONFIG[world_type]["name"], WORLD_CONFIG[world_type]["desc"])
-
         await interaction.response.edit_message(embed=embed, view=view)
+        return True
 
-
-class CategoryBrowserView(View):
-    def __init__(self, world_type: str, categories: dict, timeout=None):
-        super().__init__(timeout=timeout)
-        self.world_type = world_type
-        self.categories = categories
-
-        # Add category select
-        options = []
-        for i, category in enumerate(categories.keys()):
-            # Limit options to max 25 (discord limit)
-            if i >= 25:
-                break
-            options.append(discord.SelectOption(
-                label=category,
-                value=category
-            ))
-
-        if options:
-            cat_select = CategorySelect(self.world_type, options)
-            self.add_item(cat_select)
-
-        # Add back button
-        self.add_item(BackToWorldsButton())
-
-
-class CategorySelect(Select):
-    def __init__(self, world_type: str, options: list):
-        super().__init__(
-            custom_id=f"cat_select_{world_type}",
-            placeholder="اختر التصنيف...",
-            options=options,
-            min_values=1,
-            max_values=1
-        )
-        self.world_type = world_type
-
-    async def callback(self, interaction: discord.Interaction):
-        category = self.values[0]
+    async def _handle_category_select(self, interaction: discord.Interaction, world_type: str, category: str) -> bool:
         bot = interaction.client
+        if world_type not in WORLD_CONFIG:
+            await interaction.response.send_message(self.STALE_COMPONENT_MESSAGE, ephemeral=True)
+            return True
 
-        stories = bot.story_manager.get_stories_by_world_and_category(self.world_type, category)
-
+        stories = bot.story_manager.get_stories_by_world_and_category(world_type, category)
         if not stories:
             await interaction.response.send_message(
                 "لا توجد قصص في هذا التصنيف حالياً. اختر تصنيفاً آخر.",
                 ephemeral=True,
             )
-            return
+            return True
 
-        # Update view to show stories in this category
         view = View(timeout=None)
-
         options = []
         for i, story in enumerate(stories):
             if i >= 25:
@@ -141,16 +146,13 @@ class CategorySelect(Select):
             ))
 
         if options:
-            story_select = StorySelect(self.world_type, category, options)
-            view.add_item(story_select)
+            view.add_item(StorySelect(world_type, options))
 
-        view.add_item(BackToCategoriesButton(self.world_type))
+        view.add_item(BackToCategoriesButton(world_type))
         view.add_item(BackToWorldsButton())
 
-        world = WORLD_CONFIG[self.world_type]
-        preview = "\n".join(
-            f"• {story.title}" for story in stories[:5]
-        )
+        world = WORLD_CONFIG[world_type]
+        preview = "\n".join(f"• {story.title}" for story in stories[:5])
         embed = discord.Embed(
             title=f"📚 {world['name']} • {category}",
             description=(
@@ -163,39 +165,94 @@ class CategorySelect(Select):
             embed.add_field(name="معلومة", value=f"يوجد {len(stories)} قصة في هذا التصنيف.", inline=False)
         embed.set_footer(text="يمكنك العودة للتصنيفات أو العوالم في أي وقت.")
 
-        # We edit the message to keep the same UI flow
         await interaction.response.edit_message(embed=embed, view=view)
+        return True
 
-
-class StorySelect(Select):
-    def __init__(self, world_type: str, category: str, options: list):
-        super().__init__(
-            custom_id=f"story_select_{world_type}_{category}",
-            placeholder="اختر القصة...",
-            options=options,
-            min_values=1,
-            max_values=1
-        )
-        self.world_type = world_type
-        self.category = category
-
-    async def callback(self, interaction: discord.Interaction):
-        story_id = int(self.values[0])
+    async def _handle_story_select(self, interaction: discord.Interaction, world_type: str, story_id_value: str) -> bool:
         bot = interaction.client
+        if world_type not in WORLD_CONFIG:
+            await interaction.response.send_message(self.STALE_COMPONENT_MESSAGE, ephemeral=True)
+            return True
+
+        try:
+            story_id = int(story_id_value)
+        except (TypeError, ValueError):
+            await interaction.response.send_message(self.STALE_COMPONENT_MESSAGE, ephemeral=True)
+            return True
 
         story = bot.story_manager.get_story(story_id)
         if not story:
             await interaction.response.send_message("❌ لم يتم العثور على القصة.", ephemeral=True)
-            return
+            return True
 
         embed = EmbedBuilder.story_preview_embed(story)
-
         view = View(timeout=None)
         view.add_item(StartStoryButton(story.id))
-        view.add_item(BackToCategoriesButton(self.world_type))
+        view.add_item(BackToCategoriesButton(world_type))
         view.add_item(BackToWorldsButton())
-
         await interaction.response.edit_message(embed=embed, view=view)
+        return True
+
+
+class WorldSelectView(View):
+    def __init__(self):
+        super().__init__(timeout=None)
+
+        options = [
+            discord.SelectOption(
+                label=w_info["name"],
+                description=w_info["desc"],
+                emoji=w_info["emoji"],
+                value=w_type,
+            )
+            for w_type, w_info in WORLD_CONFIG.items()
+        ]
+
+        select = Select(
+            custom_id="world_select_dropdown",
+            placeholder="اختر العالم الذي تريد استكشافه...",
+            options=options,
+            min_values=1,
+            max_values=1,
+        )
+        self.add_item(select)
+
+
+class CategoryBrowserView(View):
+    def __init__(self, world_type: str, categories: dict, timeout=None):
+        super().__init__(timeout=timeout)
+        options = []
+        for i, category in enumerate(categories.keys()):
+            if i >= 25:
+                break
+            options.append(discord.SelectOption(label=category, value=category))
+
+        if options:
+            self.add_item(CategorySelect(world_type, options))
+
+        self.add_item(BackToWorldsButton())
+
+
+class CategorySelect(Select):
+    def __init__(self, world_type: str, options: list):
+        super().__init__(
+            custom_id=f"cat_select:{world_type}",
+            placeholder="اختر التصنيف...",
+            options=options,
+            min_values=1,
+            max_values=1,
+        )
+
+
+class StorySelect(Select):
+    def __init__(self, world_type: str, options: list):
+        super().__init__(
+            custom_id=f"story_select:{world_type}",
+            placeholder="اختر القصة...",
+            options=options,
+            min_values=1,
+            max_values=1,
+        )
 
 
 class StartStoryButton(Button):
@@ -203,13 +260,8 @@ class StartStoryButton(Button):
         super().__init__(
             style=discord.ButtonStyle.success,
             label="ابدأ القصة الآن",
-            custom_id=f"start_story_btn_{story_id}"
+            custom_id=f"start_story_btn:{story_id}",
         )
-        self.story_id = story_id
-
-    async def callback(self, interaction: discord.Interaction):
-        from cogs.solo_cog import start_solo_interaction_with_perspective
-        await start_solo_interaction_with_perspective(interaction, self.story_id)
 
 
 class BackToWorldsButton(Button):
@@ -217,13 +269,8 @@ class BackToWorldsButton(Button):
         super().__init__(
             style=discord.ButtonStyle.secondary,
             label="العودة للعوالم",
-            custom_id="back_to_worlds_btn"
+            custom_id="back_to_worlds_btn",
         )
-
-    async def callback(self, interaction: discord.Interaction):
-        view = WorldSelectView()
-        embed = EmbedBuilder.world_select_embed()
-        await interaction.response.edit_message(embed=embed, view=view)
 
 
 class BackToCategoriesButton(Button):
@@ -231,14 +278,5 @@ class BackToCategoriesButton(Button):
         super().__init__(
             style=discord.ButtonStyle.secondary,
             label="العودة للتصنيفات",
-            custom_id=f"back_to_categories_{world_type}",
+            custom_id=f"back_to_categories:{world_type}",
         )
-        self.world_type = world_type
-
-    async def callback(self, interaction: discord.Interaction):
-        bot = interaction.client
-        categories = bot.story_manager.get_world_categories(self.world_type)
-        view = CategoryBrowserView(self.world_type, categories or {})
-        world = WORLD_CONFIG[self.world_type]
-        embed = EmbedBuilder.category_browser_embed(self.world_type, world["name"], world["desc"])
-        await interaction.response.edit_message(embed=embed, view=view)
