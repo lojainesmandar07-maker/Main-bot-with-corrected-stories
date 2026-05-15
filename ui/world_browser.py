@@ -1,6 +1,7 @@
 import discord
 from discord.ui import View, Select, Button
 from ui.embeds import EmbedBuilder
+from i18n.ar import PLACEHOLDER_CATEGORY_SELECT, PLACEHOLDER_STORY_SELECT, PLACEHOLDER_WORLD_SELECT, RTL_BULLET
 
 WORLD_CONFIG = {
     "solo": {
@@ -50,7 +51,7 @@ class WorldSelectView(View):
 
         select = Select(
             custom_id="world_select_dropdown",
-            placeholder="اختر العالم الذي تريد استكشافه...",
+            placeholder=PLACEHOLDER_WORLD_SELECT,
             options=options,
             min_values=1,
             max_values=1
@@ -107,7 +108,7 @@ class CategorySelect(Select):
     def __init__(self, world_type: str, options: list):
         super().__init__(
             custom_id=f"cat_select_{world_type}",
-            placeholder="اختر التصنيف...",
+            placeholder=PLACEHOLDER_CATEGORY_SELECT,
             options=options,
             min_values=1,
             max_values=1
@@ -149,7 +150,7 @@ class CategorySelect(Select):
 
         world = WORLD_CONFIG[self.world_type]
         preview = "\n".join(
-            f"• {story.title}" for story in stories[:5]
+            f"{RTL_BULLET} {story.title}" for story in stories[:5]
         )
         embed = discord.Embed(
             title=f"📚 {world['name']} • {category}",
@@ -171,7 +172,7 @@ class StorySelect(Select):
     def __init__(self, world_type: str, category: str, options: list):
         super().__init__(
             custom_id=f"story_select_{world_type}_{category}",
-            placeholder="اختر القصة...",
+            placeholder=PLACEHOLDER_STORY_SELECT,
             options=options,
             min_values=1,
             max_values=1

@@ -1,5 +1,6 @@
 import discord
 from engine.models import Story, Scene
+from i18n.ar import NEXUS_NAME
 
 class EmbedBuilder:
     WORLD_STYLES = {
@@ -95,7 +96,7 @@ class EmbedBuilder:
         embed = discord.Embed(
             title="🌍 مستكشف العوالم",
             description=(
-                "مرحباً بك في **The Nexus**.\n"
+                f"مرحباً بك في **{NEXUS_NAME}**.\n"
                 "اختر العالم الذي ترغب بالدخول إليه، ثم حدّد التصنيف فالقصة لبدء التجربة.\n\n"
                 "✨ إن كانت هذه زيارتك الأولى: ابدأ من `/اختبار_الشخصية` ثم عُد إلى `/ابدأ`."
             ),
@@ -167,7 +168,7 @@ class EmbedBuilder:
     @staticmethod
     def help_embed() -> discord.Embed:
         embed = discord.Embed(
-            title="🆘 دليل The Nexus السريع",
+            title=f"🆘 دليل {NEXUS_NAME} السريع",
             description="دليل مختصر يساعدك تبدأ بسرعة وبثقة داخل المنصة.",
             color=discord.Color.blue()
         )
