@@ -2,17 +2,17 @@ import discord
 from discord import app_commands
 from discord.ext import commands
 from core.config import get_config
-import aiosqlite
 import datetime
 import random
 from discord.ext import tasks
+from core.db import get_connection, run_write, table_exists
 import asyncio
 from core.async_data import load_json_cached
 
 DB_PATH = "data/nexus.db"
 
 async def init_npc_db():
-    async with aiosqlite.connect(DB_PATH) as db:
+    async def _create_npc_tables(db):
         await db.execute("""
             CREATE TABLE IF NOT EXISTS npc_encounters (
                 user_id INTEGER PRIMARY KEY,
@@ -20,15 +20,8 @@ async def init_npc_db():
                 times_encountered INTEGER DEFAULT 0
             )
         """)
-        await db.commit()
 
-
-async def table_exists(db: aiosqlite.Connection, table_name: str) -> bool:
-    cursor = await db.execute(
-        "SELECT 1 FROM sqlite_master WHERE type = 'table' AND name = ?",
-        (table_name,),
-    )
-    return (await cursor.fetchone()) is not None
+    await run_write(_create_npc_tables)
 
 NPC_PATHS = {
     "fantasy":   "data/npcs/fantasy_npcs.json",
@@ -186,7 +179,7 @@ class NPCCog(commands.Cog):
         thirty_days_ago = now - datetime.timedelta(days=30)
 
         try:
-            async with aiosqlite.connect(DB_PATH) as db:
+            async with get_connection() as db:
                 if not await table_exists(db, "story_plays"):
                     return
 
@@ -247,7 +240,7 @@ class NPCCog(commands.Cog):
                 await user.send(embed=embed, view=view)
 
                 # Record encounter
-                async with aiosqlite.connect(DB_PATH) as db:
+                async with get_connection() as db:
                     await db.execute("""
                         INSERT INTO npc_encounters (user_id, last_encountered, times_encountered)
                         VALUES (?, ?, 1)

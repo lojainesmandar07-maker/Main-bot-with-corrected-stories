@@ -1,16 +1,14 @@
 import discord
 from discord import app_commands
 from discord.ext import commands
-import aiosqlite
-
 from core.bot import StoryBot
-
-DB_PATH = "data/nexus.db"
+from core.db import get_connection, run_write, table_exists
 
 
 async def _ensure_players_table() -> None:
     """Ensure leaderboard base table exists without touching optional systems."""
-    async with aiosqlite.connect(DB_PATH) as db:
+
+    async def _create_players(db):
         await db.execute(
             """
             CREATE TABLE IF NOT EXISTS players (
@@ -21,15 +19,8 @@ async def _ensure_players_table() -> None:
             )
             """
         )
-        await db.commit()
 
-
-async def _table_exists(db: aiosqlite.Connection, table_name: str) -> bool:
-    cursor = await db.execute(
-        "SELECT 1 FROM sqlite_master WHERE type = 'table' AND name = ?",
-        (table_name,),
-    )
-    return (await cursor.fetchone()) is not None
+    await run_write(_create_players)
 
 
 class StatsCog(commands.Cog):
@@ -48,8 +39,8 @@ class StatsCog(commands.Cog):
         try:
             metrics: list[tuple[str, str]] = []
 
-            async with aiosqlite.connect(DB_PATH) as db:
-                if await _table_exists(db, "players"):
+            async with get_connection() as db:
+                if await table_exists(db, "players"):
                     cursor = await db.execute(
                         "SELECT COUNT(*), COALESCE(SUM(stories_completed), 0), COUNT(CASE WHEN stories_completed > 0 THEN 1 END) FROM players"
                     )
@@ -58,7 +49,7 @@ class StatsCog(commands.Cog):
                     metrics.append(("📚 إجمالي القصص المكتملة", f"{total_completed}"))
                     metrics.append(("✨ لاعبين أتمّوا قصة واحدة على الأقل", f"{active_players}"))
 
-                if await _table_exists(db, "story_plays"):
+                if await table_exists(db, "story_plays"):
                     cursor = await db.execute(
                         "SELECT COUNT(*), COUNT(DISTINCT user_id) FROM story_plays"
                     )
@@ -66,17 +57,17 @@ class StatsCog(commands.Cog):
                     metrics.append(("🎮 مرات اللعب المسجلة", f"{total_plays}"))
                     metrics.append(("🧭 لاعبين لعبوا فعلياً", f"{unique_story_players}"))
 
-                if await _table_exists(db, "shared_endings"):
+                if await table_exists(db, "shared_endings"):
                     cursor = await db.execute("SELECT COUNT(*) FROM shared_endings")
                     shared_endings = (await cursor.fetchone())[0]
                     metrics.append(("🏁 نهايات تمت مشاركتها", f"{shared_endings}"))
 
-                if await _table_exists(db, "decision_votes"):
+                if await table_exists(db, "decision_votes"):
                     cursor = await db.execute("SELECT COUNT(*) FROM decision_votes")
                     votes = (await cursor.fetchone())[0]
                     metrics.append(("🗳️ إجمالي التصويتات", f"{votes}"))
 
-                if await _table_exists(db, "friend_challenges"):
+                if await table_exists(db, "friend_challenges"):
                     cursor = await db.execute("SELECT COUNT(*) FROM friend_challenges")
                     challenges = (await cursor.fetchone())[0]
                     metrics.append(("⚔️ التحديات الاجتماعية", f"{challenges}"))
@@ -116,8 +107,8 @@ class StatsCog(commands.Cog):
     async def leaderboard(self, interaction: discord.Interaction):
         """Leaderboard based on the reliable players table only."""
         try:
-            async with aiosqlite.connect(DB_PATH) as db:
-                if not await _table_exists(db, "players"):
+            async with get_connection() as db:
+                if not await table_exists(db, "players"):
                     embed = discord.Embed(
                         title="🏆 لوحة الشرف",
                         description="لا يمكن عرض اللوحة الآن لأن بيانات اللاعبين لم تُنشأ بعد.",
