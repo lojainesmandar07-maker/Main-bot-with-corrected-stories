@@ -6,6 +6,7 @@ import aiosqlite
 import datetime
 import uuid
 import asyncio
+from core.async_data import load_json_cached
 
 DB_PATH = "data/nexus.db"
 
@@ -224,13 +225,8 @@ class ChallengeCog(commands.Cog):
                 await interaction.response.send_message("❌ هذا الأمر مخصص للإدارة فقط.", ephemeral=True)
                 return
 
-            import json
-
             try:
-                def _load_json():
-                    with open("data/challenges.json", "r", encoding="utf-8") as f:
-                        return json.load(f)
-                all_challenges = await asyncio.to_thread(_load_json)
+                all_challenges = await load_json_cached("data/challenges.json")
             except Exception as e:
                 print(f"[ChallengeCog] error loading challenges.json: {e}")
                 await interaction.response.send_message("⚠️ تعذر تحميل ملف التحديات.", ephemeral=True)

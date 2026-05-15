@@ -1,12 +1,13 @@
 import discord
 from discord import app_commands
 from discord.ext import commands
-import json
 from core.config import get_config
 import aiosqlite
 import datetime
 import random
 from discord.ext import tasks
+import asyncio
+from core.async_data import load_json_cached
 
 DB_PATH = "data/nexus.db"
 
@@ -50,13 +51,12 @@ ARCHETYPE_NAMES = {
 }
 
 
-def load_npcs(world: str) -> list:
+async def load_npcs(world: str) -> list:
     path = NPC_PATHS.get(world, "")
     if not path:
         return []
     try:
-        with open(path, "r", encoding="utf-8") as f:
-            return json.load(f)
+        return await load_json_cached(path)
     except Exception:
         return []
 
@@ -225,7 +225,7 @@ class NPCCog(commands.Cog):
 
         # Pick random NPC
         world = random.choice(list(NPC_PATHS.keys()))
-        npcs = load_npcs(world)
+        npcs = await load_npcs(world)
         if not npcs:
             return
         npc = random.choice(npcs)
@@ -273,7 +273,7 @@ class NPCCog(commands.Cog):
     ])
     async def show_npcs(self, interaction: discord.Interaction,
                          world: app_commands.Choice[str]):
-        npcs = load_npcs(world.value)
+        npcs = await load_npcs(world.value)
         if not npcs:
             embed = discord.Embed(
                 title=f"🌍 شخصيات عالم {world.name}",
