@@ -6,7 +6,8 @@ from engine.event_manager import EventManager
 
 class StoryBot(commands.Bot):
     def __init__(self):
-        intents = discord.Intents.default()
+        intents = discord.Intents.none()
+        intents.guilds = True
         intents.members = True
 
         # This bot currently uses slash/app commands only.
@@ -16,7 +17,53 @@ class StoryBot(commands.Bot):
         self.story_manager = StoryManager()
         self.event_manager = EventManager(self, self.story_manager)
 
+    async def _get_intent_diagnostics(self) -> tuple[list[str], list[str]]:
+        required_privileged = {
+            "members": "on_member_join, role-based logic in profile/personality/NPC flows",
+        }
+        optional_privileged = {
+            "presences": "not required",
+            "message_content": "not required (slash commands + components only)",
+        }
+
+        missing_required: list[str] = []
+        notes: list[str] = []
+
+        try:
+            app_info = await self.application_info()
+            flags = app_info.flags
+        except Exception as e:
+            notes.append(f"Could not fetch application flags for intent diagnostics: {e}")
+            return missing_required, notes
+
+        flag_values = {
+            "members": bool(getattr(flags, "gateway_guild_members", False) or getattr(flags, "gateway_guild_members_limited", False)),
+            "presences": bool(getattr(flags, "gateway_presence", False) or getattr(flags, "gateway_presence_limited", False)),
+            "message_content": bool(getattr(flags, "gateway_message_content", False) or getattr(flags, "gateway_message_content_limited", False)),
+        }
+
+        for intent_name, reason in required_privileged.items():
+            if getattr(self.intents, intent_name, False) and not flag_values[intent_name]:
+                missing_required.append(
+                    f"- {intent_name}: enabled in code but disabled in Discord Developer Portal ({reason})"
+                )
+
+        for intent_name, reason in optional_privileged.items():
+            if getattr(self.intents, intent_name, False) and not flag_values[intent_name]:
+                notes.append(f"- {intent_name}: enabled in code but disabled in portal ({reason})")
+
+        return missing_required, notes
+
     async def setup_hook(self):
+        missing_required_intents, _ = await self._get_intent_diagnostics()
+        if missing_required_intents:
+            joined = "\n".join(missing_required_intents)
+            raise RuntimeError(
+                "Startup aborted: privileged gateway intent mismatch detected.\n"
+                f"{joined}\n"
+                "Enable the required intent(s) in Discord Developer Portal -> Bot -> Privileged Gateway Intents."
+            )
+
         # Ensure daily pulse db is initialized before trying to read from it
         from cogs.setup_cog import init_nexus_db
         await init_nexus_db()
@@ -24,53 +71,20 @@ class StoryBot(commands.Bot):
         # Re-register persistent views BEFORE loading cogs
         from ui.listing_view import SoloLibraryView, MultiLibraryView
         from ui.world_browser import (
-            WORLD_CONFIG,
-            BackToCategoriesButton,
-            BackToWorldsButton,
-            CategoryBrowserView,
-            StartStoryButton,
-            StorySelect,
+            WorldBrowserPersistentRouter,
             WorldSelectView,
         )
 
-        class _PersistentItemView(discord.ui.View):
-            """Wrap a single persistent UI item so discord.py can rebind callbacks on restart."""
-
-            def __init__(self, item: discord.ui.Item):
-                super().__init__(timeout=None)
-                self.add_item(item)
-
         self.add_view(SoloLibraryView({}, timeout=None))
         self.add_view(MultiLibraryView({}, timeout=None))
-        self.add_view(WorldSelectView())
-        self.add_view(_PersistentItemView(BackToWorldsButton()))
 
         from cogs.setup_cog import NexusSetupView, ChannelSetupView
         self.add_view(NexusSetupView())
         self.add_view(ChannelSetupView())
 
-        # Register persistent world-browser components that use dynamic custom_ids.
-        # We bind one lightweight view/item per known world/category/story so callbacks
-        # remain alive after bot restarts.
-        for world_type in WORLD_CONFIG.keys():
-            self.add_view(CategoryBrowserView(world_type, {}, timeout=None))
-            self.add_view(_PersistentItemView(BackToCategoriesButton(world_type)))
-
-            categories = self.story_manager.get_world_categories(world_type)
-            for category in categories.keys():
-                self.add_view(
-                    _PersistentItemView(
-                        StorySelect(
-                            world_type=world_type,
-                            category=category,
-                            options=[discord.SelectOption(label="stub", value="0")],
-                        )
-                    )
-                )
-
-            stories = self.story_manager.get_stories_by_world(world_type)
-            for story in stories.values():
-                self.add_view(_PersistentItemView(StartStoryButton(story.id)))
+        # Register world-browser persistent handlers once.
+        self._world_browser_router = WorldBrowserPersistentRouter()
+        self.add_view(WorldSelectView())
 
         # Load daily pulse views and decision views
         import json
@@ -132,22 +146,88 @@ class StoryBot(commands.Bot):
                 failed_extensions.append((extension, str(e)))
                 print(f"Failed to load extension {extension}: {e}")
 
-        # Sync commands
+        # Sync commands (environment-driven policy with backoff/cadence guards)
         from core.config import GUILD_ID
-        if GUILD_ID:
-            guild = discord.Object(id=int(GUILD_ID))
-            self.tree.copy_global_to(guild=guild)
-            # await self.tree.sync(guild=guild)  # Disabled to prevent Cloudflare 1015 ban
-            print(f"Synced commands to guild {GUILD_ID}")
+        import time
+
+        sync_mode = os.getenv("COMMAND_SYNC_MODE", "dev" if GUILD_ID else "prod").strip().lower()
+        global_sync_enabled = os.getenv("ENABLE_GLOBAL_COMMAND_SYNC", "false").strip().lower() in {"1", "true", "yes", "on"}
+        global_sync_interval_seconds = int(os.getenv("GLOBAL_COMMAND_SYNC_INTERVAL_SECONDS", "21600"))
+        sync_state_path = "data/command_sync_state.json"
+
+        def load_sync_state() -> dict:
+            try:
+                if os.path.exists(sync_state_path):
+                    with open(sync_state_path, "r", encoding="utf-8") as f:
+                        data = json.load(f)
+                    if isinstance(data, dict):
+                        return data
+            except Exception as e:
+                print(f"[Sync] Failed reading sync state, using defaults: {e}")
+            return {}
+
+        def save_sync_state(state: dict) -> None:
+            try:
+                os.makedirs(os.path.dirname(sync_state_path), exist_ok=True)
+                with open(sync_state_path, "w", encoding="utf-8") as f:
+                    json.dump(state, f, ensure_ascii=False, indent=2)
+            except Exception as e:
+                print(f"[Sync] Failed writing sync state: {e}")
+
+        async def guarded_sync(sync_scope: str, sync_call):
+            try:
+                synced = await sync_call()
+                print(f"[Sync] Synced {sync_scope} commands ({len(synced)} commands).")
+                state = load_sync_state()
+                state["last_successful_sync_at"] = int(time.time())
+                state["last_successful_sync_scope"] = sync_scope
+                save_sync_state(state)
+            except discord.HTTPException as e:
+                retry_after = getattr(e, "retry_after", None)
+                if retry_after is not None:
+                    print(f"[Sync] Sync rate-limited for {sync_scope}; retry_after={retry_after}s. Startup continues.")
+                else:
+                    print(f"[Sync] HTTP sync failure for {sync_scope}: {e}. Startup continues.")
+            except Exception as e:
+                print(f"[Sync] Unexpected sync failure for {sync_scope}: {e}. Startup continues.")
+
+        if sync_mode == "dev":
+            if GUILD_ID:
+                guild = discord.Object(id=int(GUILD_ID))
+                self.tree.copy_global_to(guild=guild)
+                await guarded_sync(f"guild {GUILD_ID}", lambda: self.tree.sync(guild=guild))
+            else:
+                print("[Sync] Skipped sync: COMMAND_SYNC_MODE=dev but GUILD_ID is not set.")
         else:
-            # await self.tree.sync()  # Disabled to prevent Cloudflare 1015 ban
-            print("Synced global commands")
+            if global_sync_enabled:
+                state = load_sync_state()
+                now = int(time.time())
+                last_sync = int(state.get("last_successful_sync_at", 0) or 0)
+                elapsed = now - last_sync
+                if elapsed >= global_sync_interval_seconds:
+                    await guarded_sync("global", self.tree.sync)
+                else:
+                    remaining = global_sync_interval_seconds - elapsed
+                    print(
+                        f"[Sync] Skipped global sync: next allowed in {remaining}s "
+                        f"(interval={global_sync_interval_seconds}s)."
+                    )
+            else:
+                print("[Sync] Skipped global sync: ENABLE_GLOBAL_COMMAND_SYNC is false.")
 
         print(f"Bot setup complete. Loaded {len(loaded_extensions)}/{len(extensions)} extensions.")
         if failed_extensions:
             print("Failed extensions:")
             for extension, error in failed_extensions:
                 print(f"- {extension}: {error}")
+
+
+    async def on_interaction(self, interaction: discord.Interaction):
+        if interaction.type == discord.InteractionType.component:
+            router = getattr(self, "_world_browser_router", None)
+            if router and await router.handle_component_interaction(interaction):
+                return
+        await super().on_interaction(interaction)
 
     async def on_application_command_error(self, interaction: discord.Interaction, error):
         msg = "⚠️ حدث خطأ غير متوقع، يرجى المحاولة لاحقاً."
@@ -193,4 +273,15 @@ class StoryBot(commands.Bot):
 
     async def on_ready(self):
         print(f"Logged in as {self.user.name} (ID: {self.user.id})")
+        print(f"Gateway intents: guilds={self.intents.guilds}, members={self.intents.members}, message_content={self.intents.message_content}, presences={self.intents.presences}")
+        missing_required, notes = await self._get_intent_diagnostics()
+        if missing_required:
+            print("⚠️ Missing required privileged intent grants:")
+            for issue in missing_required:
+                print(issue)
+            print("⚠️ Fix in Developer Portal: Applications -> [Your App] -> Bot -> Privileged Gateway Intents.")
+        elif notes:
+            print("Intent diagnostics:")
+            for note in notes:
+                print(note)
         print("Ready to run interactive stories!")
