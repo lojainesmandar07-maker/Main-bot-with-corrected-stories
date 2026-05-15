@@ -73,20 +73,14 @@ class StoryBot(commands.Bot):
                 self.add_view(_PersistentItemView(StartStoryButton(story.id)))
 
         # Load daily pulse views and decision views
-        import aiosqlite
         import json
         import os
 
-        async def table_exists(db, table_name: str) -> bool:
-            cursor = await db.execute(
-                "SELECT 1 FROM sqlite_master WHERE type = 'table' AND name = ?",
-                (table_name,),
-            )
-            return (await cursor.fetchone()) is not None
+        from core.db import get_connection, table_exists
 
         if os.path.exists("data/nexus.db"):
             try:
-                async with aiosqlite.connect("data/nexus.db") as db:
+                async with get_connection() as db:
                     if await table_exists(db, "daily_pulse"):
                         cursor = await db.execute("SELECT id, options_json FROM daily_pulse WHERE is_closed = 0")
                         rows = await cursor.fetchall()
