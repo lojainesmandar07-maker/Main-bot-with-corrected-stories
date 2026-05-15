@@ -1,0 +1,122 @@
+[
+  {
+    "id": "chal_001",
+    "title": "معركة الكرامة الأخيرة",
+    "description": "في قصة \"الملك الأخير\"، اتخذ القرارات التي تقودك إلى النهاية البطولية حيث ينتصر الملك ويصون كرامته. هل تستطيع حفظ العرش من الانهيار؟",
+    "target_story_id": "f_ct_1",
+    "target_ending_id": "f_ct_1_end_victory",
+    "reward_role_id": null
+  },
+  {
+    "id": "chal_002",
+    "title": "لعنة أميرة الظلام",
+    "description": "اكتشف الأسرار في قصة \"أميرة الظلام\" وتوصل إلى النهاية التي تغيّر مصير الساحرة وتحررها من الظلام.",
+    "target_story_id": "f_ws_3",
+    "target_ending_id": "f_ws_3_end_changed",
+    "reward_role_id": null
+  },
+  {
+    "id": "chal_003",
+    "title": "المرآة المظلمة",
+    "description": "في \"منظور الشرير\"، اسلك طريقاً يسمح لك بإعادة النظر في قراراتك والوصول إلى نهاية التأمل والندم.",
+    "target_story_id": "f_dr_1",
+    "target_ending_id": "f_dr_1_end_reflect",
+    "reward_role_id": null
+  },
+  {
+    "id": "chal_004",
+    "title": "محاكمة الإمبراطور",
+    "description": "في قصة \"إمبراطور في الليل\"، انصر العدالة واختر الخيارات التي تقودك إلى نهاية تحقيق العدالة وإنصاف الشعب.",
+    "target_story_id": "p_pr_1",
+    "target_ending_id": "p_pr_1_end_justice",
+    "reward_role_id": null
+  },
+  {
+    "id": "chal_005",
+    "title": "العودة من قلب الإمبراطورية",
+    "description": "سافر عبر التاريخ في \"في قلب الإمبراطورية\" وارجع إلى حاضرك سالمًا بتغيير مسار الأحداث نحو نهاية العودة.",
+    "target_story_id": "p_ptt_3",
+    "target_ending_id": "p_ptt_3_end_return",
+    "reward_role_id": null
+  },
+  {
+    "id": "chal_006",
+    "title": "سر مهندس روما",
+    "description": "اكتشف الحقيقة المدفونة عن المهندس في \"مهندس روما\" وحقق النهاية التي تكشف الحقيقة للعالم.",
+    "target_story_id": "p_pc_3",
+    "target_ending_id": "p_pc_3_end_truth",
+    "reward_role_id": null
+  },
+  {
+    "id": "chal_007",
+    "title": "ثورة المتحكمين",
+    "description": "واجه الذكاء الاصطناعي في \"آخر المتحكمين\" واختر طريقاً يقود البشرية إلى انتصار على الآلة.",
+    "target_story_id": "fu_ai_3",
+    "target_ending_id": "fu_ai_3_win",
+    "reward_role_id": null
+  },
+  {
+    "id": "chal_008",
+    "title": "نجاة المدينة الأخيرة",
+    "description": "في \"المدينة الأخيرة\"، اتخذ القرارات الصعبة التي تنقذ آخر معاقل البشر وتصل إلى النهاية الناجحة.",
+    "target_story_id": "fu_dp_4",
+    "target_ending_id": "fu_dp_4_win",
+    "reward_role_id": null
+  },
+  {
+    "id": "chal_009",
+    "title": "إعادة ضبط الهوية",
+    "description": "في \"نسختي الرقمية\"، واجه حقيقة الوجود الرقمي واختر مساراً يعيد ضبط هويتك وينقذك.",
+    "target_story_id": "fu_id_2",
+    "target_ending_id": "fu_id_2_end_reset",
+    "reward_role_id": null
+  },
+  {
+    "id": "chal_010",
+    "title": "غموض الأرض المجهولة",
+    "description": "استكشف الواقع البديل في \"الأرض المجهولة\" وابحث عن المسار الذي يقود إلى النصر على القوى الغامضة.",
+    "target_story_id": "al_ah_3",
+    "target_ending_id": "al_ah_3_win",
+    "reward_role_id": null
+  },
+  {
+    "id": "chal_011",
+    "title": "تبديل الأدوار",
+    "description": "اختر بين الولاء والخيانة في \"الجاسوس البشري\" وحقق النهاية التي تقلب الأدوار على المتسللين.",
+    "target_story_id": "al_inv_3",
+    "target_ending_id": "al_inv_3_end_switch",
+    "reward_role_id": null
+  },
+  {
+    "id": "chal_012",
+    "title": "كسر قيود البرمجة",
+    "description": "في قصة \"أنت المبرمج\"، اتخذ الخطوات لتحرير العالم من القيود الرقمية والوصول إلى نهاية الحرية.",
+    "target_story_id": "al_br_5",
+    "target_ending_id": "al_br_5_end_free",
+    "reward_role_id": null
+  },
+  {
+    "id": "chal_013",
+    "title": "سر الغرفة 9",
+    "description": "حقق العدالة في قصة \"الغرفة 9\" من القصص الفردية، وابحث عن الحقيقة للوصول إلى النهاية الصحيحة.",
+    "target_story_id": "s_sc_1",
+    "target_ending_id": "s_sc_1_end_right",
+    "reward_role_id": null
+  },
+  {
+    "id": "chal_014",
+    "title": "همس الصوت الصامت",
+    "description": "في \"الصوت الصامت\"، اكتشف الخفايا وراء الهمسات واختر القرارات التي تكشف كلا جانبي الحقيقة.",
+    "target_story_id": "s_sh_2",
+    "target_ending_id": "s_sh_2_end_both",
+    "reward_role_id": null
+  },
+  {
+    "id": "chal_015",
+    "title": "خدعة المنقذ",
+    "description": "في قصة \"من أنقذني\"، استخدم ذكاءك الاجتماعي لبلوغ النهاية التي تفضح الخداع وراء النظام.",
+    "target_story_id": "s_sds_3",
+    "target_ending_id": "s_sds_3_end_bluff",
+    "reward_role_id": null
+  }
+]
