@@ -109,6 +109,7 @@ class EventManager:
 
                 # 4. Tally votes and pick winner
                 results = view.get_results()
+                total_votes = sum(results.values())
                 try:
                     await message.edit(view=view) # Updates the view to disabled state (from on_timeout if needed)
                 except (discord.NotFound, discord.Forbidden):
@@ -122,6 +123,19 @@ class EventManager:
                 except (discord.NotFound, discord.Forbidden):
                     pass
                 await asyncio.sleep(2)
+
+                # No-vote guard to avoid indexing empty winning_choices
+                if total_votes == 0:
+                    no_votes_text = "🚫 لم يتم استلام أي أصوات في هذه الجولة، سيتم إنهاء الحدث وإعادة التعيين."
+                    try:
+                        await loading_msg.edit(content=no_votes_text)
+                    except (discord.NotFound, discord.Forbidden):
+                        try:
+                            await self.event_channel.send(no_votes_text)
+                        except (discord.NotFound, discord.Forbidden):
+                            pass
+                    self._reset_state()
+                    break
 
                 max_votes = -1
                 winning_choices = []
