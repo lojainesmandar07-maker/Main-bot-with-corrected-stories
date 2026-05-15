@@ -6,7 +6,8 @@ from engine.event_manager import EventManager
 
 class StoryBot(commands.Bot):
     def __init__(self):
-        intents = discord.Intents.default()
+        intents = discord.Intents.none()
+        intents.guilds = True
         intents.members = True
 
         # This bot currently uses slash/app commands only.
@@ -16,7 +17,53 @@ class StoryBot(commands.Bot):
         self.story_manager = StoryManager()
         self.event_manager = EventManager(self, self.story_manager)
 
+    async def _get_intent_diagnostics(self) -> tuple[list[str], list[str]]:
+        required_privileged = {
+            "members": "on_member_join, role-based logic in profile/personality/NPC flows",
+        }
+        optional_privileged = {
+            "presences": "not required",
+            "message_content": "not required (slash commands + components only)",
+        }
+
+        missing_required: list[str] = []
+        notes: list[str] = []
+
+        try:
+            app_info = await self.application_info()
+            flags = app_info.flags
+        except Exception as e:
+            notes.append(f"Could not fetch application flags for intent diagnostics: {e}")
+            return missing_required, notes
+
+        flag_values = {
+            "members": bool(getattr(flags, "gateway_guild_members", False) or getattr(flags, "gateway_guild_members_limited", False)),
+            "presences": bool(getattr(flags, "gateway_presence", False) or getattr(flags, "gateway_presence_limited", False)),
+            "message_content": bool(getattr(flags, "gateway_message_content", False) or getattr(flags, "gateway_message_content_limited", False)),
+        }
+
+        for intent_name, reason in required_privileged.items():
+            if getattr(self.intents, intent_name, False) and not flag_values[intent_name]:
+                missing_required.append(
+                    f"- {intent_name}: enabled in code but disabled in Discord Developer Portal ({reason})"
+                )
+
+        for intent_name, reason in optional_privileged.items():
+            if getattr(self.intents, intent_name, False) and not flag_values[intent_name]:
+                notes.append(f"- {intent_name}: enabled in code but disabled in portal ({reason})")
+
+        return missing_required, notes
+
     async def setup_hook(self):
+        missing_required_intents, _ = await self._get_intent_diagnostics()
+        if missing_required_intents:
+            joined = "\n".join(missing_required_intents)
+            raise RuntimeError(
+                "Startup aborted: privileged gateway intent mismatch detected.\n"
+                f"{joined}\n"
+                "Enable the required intent(s) in Discord Developer Portal -> Bot -> Privileged Gateway Intents."
+            )
+
         # Ensure daily pulse db is initialized before trying to read from it
         from cogs.setup_cog import init_nexus_db
         await init_nexus_db()
@@ -199,4 +246,15 @@ class StoryBot(commands.Bot):
 
     async def on_ready(self):
         print(f"Logged in as {self.user.name} (ID: {self.user.id})")
+        print(f"Gateway intents: guilds={self.intents.guilds}, members={self.intents.members}, message_content={self.intents.message_content}, presences={self.intents.presences}")
+        missing_required, notes = await self._get_intent_diagnostics()
+        if missing_required:
+            print("⚠️ Missing required privileged intent grants:")
+            for issue in missing_required:
+                print(issue)
+            print("⚠️ Fix in Developer Portal: Applications -> [Your App] -> Bot -> Privileged Gateway Intents.")
+        elif notes:
+            print("Intent diagnostics:")
+            for note in notes:
+                print(note)
         print("Ready to run interactive stories!")
