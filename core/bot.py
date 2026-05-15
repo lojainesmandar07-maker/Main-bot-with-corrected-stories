@@ -138,16 +138,74 @@ class StoryBot(commands.Bot):
                 failed_extensions.append((extension, str(e)))
                 print(f"Failed to load extension {extension}: {e}")
 
-        # Sync commands
+        # Sync commands (environment-driven policy with backoff/cadence guards)
         from core.config import GUILD_ID
-        if GUILD_ID:
-            guild = discord.Object(id=int(GUILD_ID))
-            self.tree.copy_global_to(guild=guild)
-            # await self.tree.sync(guild=guild)  # Disabled to prevent Cloudflare 1015 ban
-            print(f"Synced commands to guild {GUILD_ID}")
+        import time
+
+        sync_mode = os.getenv("COMMAND_SYNC_MODE", "dev" if GUILD_ID else "prod").strip().lower()
+        global_sync_enabled = os.getenv("ENABLE_GLOBAL_COMMAND_SYNC", "false").strip().lower() in {"1", "true", "yes", "on"}
+        global_sync_interval_seconds = int(os.getenv("GLOBAL_COMMAND_SYNC_INTERVAL_SECONDS", "21600"))
+        sync_state_path = "data/command_sync_state.json"
+
+        def load_sync_state() -> dict:
+            try:
+                if os.path.exists(sync_state_path):
+                    with open(sync_state_path, "r", encoding="utf-8") as f:
+                        data = json.load(f)
+                    if isinstance(data, dict):
+                        return data
+            except Exception as e:
+                print(f"[Sync] Failed reading sync state, using defaults: {e}")
+            return {}
+
+        def save_sync_state(state: dict) -> None:
+            try:
+                os.makedirs(os.path.dirname(sync_state_path), exist_ok=True)
+                with open(sync_state_path, "w", encoding="utf-8") as f:
+                    json.dump(state, f, ensure_ascii=False, indent=2)
+            except Exception as e:
+                print(f"[Sync] Failed writing sync state: {e}")
+
+        async def guarded_sync(sync_scope: str, sync_call):
+            try:
+                synced = await sync_call()
+                print(f"[Sync] Synced {sync_scope} commands ({len(synced)} commands).")
+                state = load_sync_state()
+                state["last_successful_sync_at"] = int(time.time())
+                state["last_successful_sync_scope"] = sync_scope
+                save_sync_state(state)
+            except discord.HTTPException as e:
+                retry_after = getattr(e, "retry_after", None)
+                if retry_after is not None:
+                    print(f"[Sync] Sync rate-limited for {sync_scope}; retry_after={retry_after}s. Startup continues.")
+                else:
+                    print(f"[Sync] HTTP sync failure for {sync_scope}: {e}. Startup continues.")
+            except Exception as e:
+                print(f"[Sync] Unexpected sync failure for {sync_scope}: {e}. Startup continues.")
+
+        if sync_mode == "dev":
+            if GUILD_ID:
+                guild = discord.Object(id=int(GUILD_ID))
+                self.tree.copy_global_to(guild=guild)
+                await guarded_sync(f"guild {GUILD_ID}", lambda: self.tree.sync(guild=guild))
+            else:
+                print("[Sync] Skipped sync: COMMAND_SYNC_MODE=dev but GUILD_ID is not set.")
         else:
-            # await self.tree.sync()  # Disabled to prevent Cloudflare 1015 ban
-            print("Synced global commands")
+            if global_sync_enabled:
+                state = load_sync_state()
+                now = int(time.time())
+                last_sync = int(state.get("last_successful_sync_at", 0) or 0)
+                elapsed = now - last_sync
+                if elapsed >= global_sync_interval_seconds:
+                    await guarded_sync("global", self.tree.sync)
+                else:
+                    remaining = global_sync_interval_seconds - elapsed
+                    print(
+                        f"[Sync] Skipped global sync: next allowed in {remaining}s "
+                        f"(interval={global_sync_interval_seconds}s)."
+                    )
+            else:
+                print("[Sync] Skipped global sync: ENABLE_GLOBAL_COMMAND_SYNC is false.")
 
         print(f"Bot setup complete. Loaded {len(loaded_extensions)}/{len(extensions)} extensions.")
         if failed_extensions:
